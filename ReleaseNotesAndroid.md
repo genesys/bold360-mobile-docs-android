@@ -1,41 +1,4 @@
 
-# Version 3.5.1
-In this version:
-
-## Bold live chat related
-- **Postchat form, SDKs implementation**
- 
-- **Fixes:**
-  - Upload feature became disabled when upload icon configured as hidden.
-    > Important: Upload image visibility configuration chage
-
-## Bot ai chat related
-- Channels icons as configured in bold360ai console
-- Hint text for input field as configured in bold360ai console
-
-## Breaking Changes
-- StatementScope.isLive is no longer a function, but a property.
-- ErrorCodes relocated to package "com.integration.core.annotations"
-
-
-##
-### SDK imports
-```gradle
-implementation "com.bold360ai-sdk.core:sdkcore:3.5.1"
-implementation "com.bold360ai-sdk.core:accessibility:3.5.0"
-implementation "com.bold360ai-sdk.conversation:engine:3.5.1"
-implementation "com.bold360ai-sdk.conversation:chatintegration:3.5.1"
-implementation "com.bold360ai-sdk.conversation:ui:3.5.1"
-
-implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.60"
-implementation "com.google.code.gson:gson:2.8.5"
-implementation "android.arch.lifecycle:extensions:1.1.1"
-```
-
-
----
-
-
 # Version 3.5.0
 In this version:
 

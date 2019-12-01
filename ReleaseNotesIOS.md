@@ -1,38 +1,3 @@
-# Version 3.5.5
-
-> **New**
-- Chat bar attachment (Agent information & End chat button).
-- Event tracker attachment.
-- Search view place holder attachment.
-- Minor file upload bug fixes.
-
-# Version 3.5.4
-
-> **New**
-- Passing account data when escalating from botChat to liveAgent.
-- Predefined pre chat form with extra data.
-- Minor bug fixes.
-
-# Version 3.5.2
-
-This release contains the following bold360ai iOS SDK Features/ Fixes:
-
-```diff
-! Breaking Changes
-
-Passing `LiveAccount` data is done using `account.extraData` instead of `account.info`
-```
-
-> **New**
-- Support iOS 13.
-- Standalone autocomplete feature. 
-
-> **Bot Chat related**
-- Autocomplete is supported.
-
-> **Live Chat related:**
-- Bot conversation transcript is sent to live console.
-
 # Version 3.4.8
 
 This release contains the following bold360ai iOS SDK Features/ Fixes:

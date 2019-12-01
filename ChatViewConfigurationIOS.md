@@ -13,11 +13,10 @@ In order to change and override provided SDK implementations and customizations,
 | `IncomingLiveConfiguration`  | backgroundColor, backgroundImage, dateStampColor, customFont, avatar, textColor                                                     |
 | `OutgoingConfiguration`      | backgroundColor, backgroundImage, dateStampColor, customFont, avatar, textColor, sentSuccessfullyIcon, sentFailureIcon, pendingIcon |
 | `CarouselConfiguration`      | backgroundColor, backgroundImage, dateStampColor, customFont, avatar, textColor                                                     |
-| `SystemMessageConfiguration` | backgroundColor, backgroundImage, dateStampColor, customFont, avatar, textColor 
-| `ChatBarConfiguration` | backgroundColor, font, textColor, image, agentName, endChatBtnTitle, endChatBtnTextColor, enabled
+| `SystemMessageConfiguration` | backgroundColor, backgroundImage, dateStampColor, customFont, avatar, textColor    
 
 
-### How To Set Configuration
+### Hot To Set Configuration
 
 In following sample we will customize chat view.
 
@@ -25,33 +24,6 @@ In following sample we will customize chat view.
 self.chatController.viewConfiguration.chatViewConfig.backgroundImage = UIImage(named: "ww_back_light")
 self.chatController.viewConfiguration.chatViewConfig.dateStampColor = UIColor.black
 ```
-
-----
-
-### Chat Element Date/ Time Format
-
-To update chat element Date/ Time please choose chat element and update configuration.
-
->Note: Below sample changes only `incomingBotConfig` chat element.
-
-1. Configure Chat Date Format
-
-```swift
-let dateFormatter = DateFormatter(),dateFormatter.dateFormat = "yyyy-MM-dd"
-chatController.viewConfiguration.incomingBotConfig.dateFormatter = dateFormatter
-```
-<img src="images/iOS/date-format.jpeg" width="300" height="600">
-
-2. Configure Chat Element Time Format
-
-```swift
-let timeFormatter = DateFormatter()
-timeFormatter.dateFormat = "HH:mm:ss"
-chatController.viewConfiguration.incomingBotConfig.timeFormatter = timeFormatter
-```
-<img src="images/iOS/time-format.jpeg" width="300" height="600">
-
-----
 
 ### Set Custom Font
 

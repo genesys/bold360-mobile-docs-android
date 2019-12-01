@@ -116,13 +116,13 @@ extension ViewController: ChatControllerDelegate {
         print(error.localizedDescription)
     }
     
-    func shouldPresentChatViewController(_ viewController: UINavigationController!) {
-        // 4. present modally/ as child view controller over your view controller. 
-       <YOUR_VIEW_CONTROLLER>.present(viewController, animated: false, completion: nil)
+    func shouldPresentChatViewController(_ viewController: UIViewController!) {
+        // 4. get chat view controller and show
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }
 ```
 
 ### Code Sample
 
-[bold360ai samples](https://github.com/bold360ai/bold360-mobile-samples-ios)
+[bold360ai samples](https://github.com/bold360ai/bold360ai-mobile-samples)

@@ -37,14 +37,6 @@
 				<a href="https://github.com/bold360ai/GlobalDocs/wiki/MultiLanguageiOS">
 				Multiple Language</a>
 			</li>
-                        <li>
-				<a href="https://github.com/bold360ai/GlobalDocs/wiki/HandoveriOS">
-				Handover Support</a>
-			</li>
-                        <li>
-				<a href="https://github.com/bold360ai/GlobalDocs/wiki/AccountProvider">
-				Account Provider</a>
-			</li>
 		<ul>
 	</details>
 	<details>
@@ -62,10 +54,6 @@
 			<a href="https://github.com/bold360ai/GlobalDocs/wiki/PersonalInformationiOS">
 			Personal Information</a>
 			</li>
-                        <li>
-	                <a href="https://github.com/bold360ai/GlobalDocs/wiki/Autocompletion-Support-iOS">
-	                Autocompletion Support</a>
-	                </li>
 		<ul>
 	</details>
 	<li>
@@ -73,12 +61,12 @@
 	Chat View Customizations</a>
 	</li>
 	<li>
-	<a href="https://github.com/bold360ai/GlobalDocs/wiki/Placeholder-Configuration">
-	SearchView-Placeholder Configurations</a>
-	</li>
-	<li>
 	<a href="https://github.com/bold360ai/GlobalDocs/wiki/ErrorHandlingiOS">
 	Error Handling</a>
+	</li>
+        <li>
+	<a href="https://github.com/bold360ai/GlobalDocs/wiki/AutocompletionSupportiOS">
+	Autocompletion Support</a>
 	</li>
 	<li>
 	<a href="https://github.com/bold360ai/GlobalDocs/wiki/FileUploadiOS">

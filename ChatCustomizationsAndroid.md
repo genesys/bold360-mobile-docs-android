@@ -91,6 +91,3 @@ The ChatUIProvider provides access to the chat ui components. Each component ena
 
         chatUIProvider.overrideFactory = MyUserInputProvider();
         ```
-
----
-> ###### [more info about specific elements customizations](./CustomizationsSpecificsAndroid)
