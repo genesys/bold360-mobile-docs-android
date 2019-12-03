@@ -10,29 +10,29 @@ ChatController.Builder(context)....
 
 chatController.setChatElementListener(listenerImpl)
 ```
-##### <U>Possible updates:</U> 
+### Possible updates 
 `onReceive`(req) - on element inserted to the chat.   
 `onRemove`(opt) - element was removed from the chat.   
 `onUpdate`(opt) - elemenet data was updated.
 > In order to support chat continuation, provided implemenation should also implement: `onFetch`(opt)
-##
 
-## Ongoing events
+
+### Ongoing events
 In order to be notified over events that occures during chat lifecycle, implement `ChatEventListener` and pass it on `ChatController` creation, as follows:
 ```kotlin
 ChatController.Builder(context)...
     .chatEventListener(ChatEventListenerImpl)
 ```
-##### Among those events: [lifeCycle events](ttps://github.com/bold360ai/GlobalDocs/wiki/ChatLifecycleAndroid), links/urls/phone-number selections, etc.
+Among those events: [lifeCycle events](ttps://github.com/bold360ai/GlobalDocs/wiki/ChatLifecycleAndroid), links/urls/phone-number selections, etc.
 
-- ### Listening to url navigation
-  The SDK listens to url clicks from articles/quick options and channels.
+### Listening to url navigation
+  The SDK receives to url clicks from articles/quick options and channels.
   Implement `ChatEventListener.onUrlLinkSelected(url: String)` method in order to receive those click events.
 
   > In order to configure url typed channels (in-app navigation), follow this [guide](https://github.com/bold360ai/GlobalDocs/wiki/Bold360ai-Console-Configurations#configure-in-app-navigation-channel).
 
 
-##
+
 ## Subscribing to notifications
 ChatController provides a notifications service. You can subscribe to this service by indicating on what notifications you want to be notified of.
 ```java

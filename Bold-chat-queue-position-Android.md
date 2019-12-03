@@ -1,6 +1,7 @@
-> This article will explain how to enable queue component and configure/ override it.
-
 # Bold chat Queue
+
+> This article will explain how to enable queue component and configure/ override it.
+> 
 ## Info
 When user starts a bold chat session, until an agent is assigned to the user's chat and accept it, the chat can be added to a queue.
  

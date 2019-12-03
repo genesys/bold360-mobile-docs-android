@@ -1,5 +1,6 @@
 # Welcome message
-### "On load article" How to configure:
+
+## "On load article" How to configure:
 ![](https://raw.githubusercontent.com/wiki/bold360ai/GlobalDocs/images/Android/welcome_article_console.png)
 
 Once configured, article id will be accessible on `cnf` response under `onloadQuestionId` property.   
@@ -25,6 +26,6 @@ account.setWelcomeMessage(BotAccount.None);
 
 - In order to prevent display of the welcome message, no matter if configured on the console,  set welcome message id to `BotAccount.None`. *(welcome message id `null`, does nothing)*
 - If welcome message id was set to an invalid/non-existing article id, no welcome message will be displayed, error will be passed to `ChatEventListener.onError`.   
-##
+
  
 > **Notice**, Welcome message is retreived <U>once per chat</U>. If the current chat is a continuance chat, the welcome message won't be retreived again. 

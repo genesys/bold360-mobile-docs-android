@@ -1,3 +1,151 @@
+
+# Version 3.5.1
+In this version:
+
+## Bold live chat related
+- **Postchat form, SDKs implementation**
+ 
+- **Fixes:**
+  - Upload feature became disabled when upload icon configured as hidden.
+    > Important: Upload image visibility configuration chage
+
+## Bot ai chat related
+- Channels icons as configured in bold360ai console
+- Hint text for input field as configured in bold360ai console
+
+## Breaking Changes
+- StatementScope.isLive is no longer a function, but a property.
+- ErrorCodes relocated to package "com.integration.core.annotations"
+
+
+##
+### SDK imports
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:3.5.1"
+implementation "com.bold360ai-sdk.core:accessibility:3.5.0"
+implementation "com.bold360ai-sdk.conversation:engine:3.5.1"
+implementation "com.bold360ai-sdk.conversation:chatintegration:3.5.1"
+implementation "com.bold360ai-sdk.conversation:ui:3.5.1"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.60"
+implementation "com.google.code.gson:gson:2.8.5"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+
+---
+
+
+# Version 3.5.0
+In this version:
+
+- **SDK supports API 16+**
+ ```diff
+ - Known issue:
+  Ticket form is not loaded properly on devices with API < 19
+```
+- **Fixes:**
+  - While on TalkBack mode, only items with action are described with "double tap to activate.." instruction.
+  ```diff
+  -Known issue:
+  While in `TalkBack` mode internal links are not being activated properly.
+  ```
+  - Improved Carousel items height calculation 
+
+  - Improved parssing of span tag with style attribute
+
+##
+### SDK imports
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:3.5.0"
+implementation "com.bold360ai-sdk.core:accessibility:3.5.0"
+implementation "com.bold360ai-sdk.conversation:engine:3.5.0"
+implementation "com.bold360ai-sdk.conversation:chatintegration:3.5.0"
+implementation "com.bold360ai-sdk.conversation:ui:3.5.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.50"
+implementation "com.google.code.gson:gson:2.8.5"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+
+---
+
+
+# Version 3.4.0
+In this version:
+
+## General
+- **Autocomplete support** -    
+New input field component was introduced. This field supports autocomplete, which is currently available only on Bot chats.
+  ```diff
+  - Breaking Changes: 
+    Input field configurations are now available via `ChatInputUIProvider`
+  ```
+- **AccountInfo improvements** -    
+   ```diff
+   - Breaking Changes on Account class hierarchy.
+     Account.info is now of type `SessionInfo`. (was ByteArray)   
+     Account details such as `chatId`, `visitorId`, `providerConfig`, etc are available via this object.
+  ```
+- **Improving chat restore support**
+
+- **_`Deprecated` method `onAccountUpdate`_ in ChatEventListener**   
+  Account updates are received by AccountInfoProvider implementation.
+
+
+## Bot related
+- **_`Deprecated` - Conversation class_**   
+BotAccount uses `SessionInfo` instead (id, holds the last conversationId)
+-	**_`Deprecated` method `updateAccountInfo`_ in `AccountInfoProvider`**   
+Use `update` method instead.
+-	**_`Deprecated` property `lastConversation`_ in BotAccount**  
+Use `info` member instead
+- **Persistent options, incoming element UI customization**   
+`PersistentOptionsUIProvider` supports customization of wrapping bubble element.
+- **Fixes** - 
+  - fixes related to feedback and readmore articles
+  - fix for ticket typed channel activation
+  - some UI fixes
+
+
+## Bold related
+- **_`Deprecated` - VisitorInfo class_**   
+BoldAccount uses `SessionInfo` instead (id, holds the visitorId)
+- **Department availability and Departments list**, requests support.   
+Via `ChatAvailability` 
+- **ChatId exposure** -    
+chatId is available once a live chat is created and account is updated, via `BoldAccount.info` member.
+- **Bot chat transcript to live agent** -    
+Once a Bot chat is escalated to a live Bold chat, the bot chat content is passed to the live agent.
+- **Live chatbar customization** 
+  ```diff 
+  - Breaking Changes:
+    - was ChatBarComponent.ChatBarViewProvider now ChatbarCmpAdapter
+    - Configuration for End component is handled by `configEndCmp` (was `updateUI)
+    - Configuration for agent details component is handled by `configAgentCmp` (was `updateUI)
+  ```
+
+- **Fixes** - 
+  - double event raising on upload press
+
+##
+### SDK imports
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:3.4.0"
+implementation "com.bold360ai-sdk.core:accessibility:3.4.0"
+implementation "com.bold360ai-sdk.conversation:engine:3.4.0"
+implementation "com.bold360ai-sdk.conversation:chatintegration:3.4.0"
+implementation "com.bold360ai-sdk.conversation:ui:3.4.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.31"
+implementation "com.google.code.gson:gson:2.8.5"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+
+---
+
 # Version 3.3.2
 
 In this version:

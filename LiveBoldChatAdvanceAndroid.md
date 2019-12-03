@@ -1,10 +1,10 @@
-## BoldAccount
-This account is used for starting a live Bold chat with an agent. <sub>[see "Quick Start"](QuickStartAndroid)</sub>
+# BoldAccount
+This account is used for starting a live Bold chat with an agent. [see "Quick Start"](QuickStartAndroid)
 
 
 Live chat may start as main chat purpose, or be triggered from chat with BOT.
 
-- #### Starting chat with Bold live
+## Starting chat with Bold live
     A Bold live account should be provided over `ChatController` creation as follows:
     ```kotlin
     val account = BoldAccount(API_KEY)
@@ -13,7 +13,7 @@ Live chat may start as main chat purpose, or be triggered from chat with BOT.
     ```
     ![](images/Android/start_with_live.png)
 
-- #### Starting chat with Bot and continue to Bold live
+## Starting chat with Bot and continue to Bold live
     - A chat typed channel should be configured on the Bold360ai console.<sup>[(*)](https://support.nanorep.com/API-Integrations/Chat-Integration/1009694282/How-to-integrate-LiveChat-Inc-chat.htm)</sup>.   
     - Bold live chat can than be triggered by user selection of that channel.    
     - App will be asked to `provide` (over `AccountInfoProvider`), the BoldAccount that matches the details provided by that channel. (If `AccountInfoProvider` implementation was not provided, the chat will start with default configurations.)   
@@ -81,7 +81,7 @@ While a live chat goes through the chat lifecycle, chat info will be updated wit
  
 
 ### How to configure the created chat
-Some configurations may be applied over the account in order to define aspects of the created chat. _like langauge, prechat form fields values, passing `visitorId` to enable continuation of previous chats, etc.    
+Some configurations may be applied over the account in order to define aspects of the created chat. Like langauge, prechat form fields values, **passing `visitorId` to enable continuation of previous chats**, etc.    
 For that purpose we have the `extraData` on the account `info` member. (see `VisitorDataKeys` for the list of configurable data)
 
 - How to set chat language:
@@ -99,4 +99,7 @@ For that purpose we have the `extraData` on the account `info` member. (see `Vis
                             VisitorDataKeys.Email to "a@gmail.com",
                             ...)
 
-  
+- How to set the `visitorId`:   
+
+      account.info.visitorId = ...
+ 
