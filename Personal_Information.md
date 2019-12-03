@@ -1,11 +1,11 @@
-# Personal Information
+## Personal Information
 
-## Article example for balance
+### Article example for balance
 
 `The balance of your account ending with [[ACCOUNT.ID]] is [[ACCOUNT.CURRENCY]] {{getAccountBalance([[ACCOUNT.ID]],[[ACCOUNT.TYPE]])}} [[=ACCOUNT_OPTIONS]]`
 
 
-## Init chat with `Balance` scenario
+### Init chat with `Balance` scenario
 
 ```java
     BotAccount account = new BotAccount();
@@ -33,7 +33,7 @@ public void provide(@NonNull ArrayList<String> entities, @NonNull Completion<Arr
 ---
 ## Implementation example
 
-### The `EntitiesProvider` interface Implementation
+#### The `EntitiesProvider` interface Implementation
 
 ```java
   @Override

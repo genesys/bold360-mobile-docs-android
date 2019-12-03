@@ -1,6 +1,6 @@
-# Chat availability check
+## Chat availability check
 
-## How to check chat availability status
+### How to check chat availability status
 
 1. Create an `Account`.
 
@@ -8,15 +8,15 @@
     ```kotlin
     ChatAvailability.checkAvailability(account, callback = object : ChatAvailability.Callback {
         override fun onComplete(result: ChatAvailability.AvailabilityResult) {
-            // Validate no error
-            // Check isAvailable and check the UnavailabilityReason if not 
+             // validate result.error == null
+             // validate isAvailable is true otherwise UnavailabilityReason is provided
         }
     })
     ```
     > `ChatAvailability.AvailabilityResult` provides the check parameters (apiKey, departmentId, etc) as well as the execution results 
 
-- ### How to check chat availability on a <U>specific department</U>? 
-  Use `ChatAvailability.checkAvailability` call as before, just add the departmentId.   
+- #### How to check chat availability on a <U>specific department</U>? 
+  Use `ChatAvailability.checkAvailability` call as before just add the departmentId.   
     
   ```kotlin
   ChatAvailability.checkAvailability(account, departmentId, callback = object : ChatAvailability.Callback {
@@ -26,7 +26,9 @@
   })
   ```
 
-  > <U>**Important:**</U> In order to get availability status of the different departments in your organization, [make sure your api access key is not configured](./images/Android/bold-console-api-access-key.png) to work with a specific department.
+  > <U>**Notice:**</U> In order to get availability status of the different departments in your organization, [make sure your api access key is not configured](./images/Android/bold-console-api-access-key.png) to work with a specific department.
+
+##
 
 ### How to retrieve available departments list
 1. Create an `Account`.
@@ -42,8 +44,8 @@
     ```
 > `ChatAvailability.DepartmentsResult` if no errors occurred will contain a list of `Department` items. Each contains name, id and language of the department.
 ---
-#### How to start a live chat with a specific department
-  1. create a `BoldAccount`
+* #### <U>Tip:</U> How to start a live chat with a specific department
+  1. _create a `BoldAccount`_
   ```
   val account = BoldAccount(apiKey)
   ```

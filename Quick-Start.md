@@ -1,13 +1,11 @@
-# Quick Start Guide dor the Mobile SDK
-
-## Prerequisites
+## **1. Prerequisites**
 
 * Java 8 or higher
 * Gradle 4.6 or higher
 * Android API 19 or higher
 * Android Studio
 
-## Installation dependencies
+## **2. Installation dependencies**
 
    In the `build.gradle` file, add this line to the dependencies:
 
@@ -15,9 +13,9 @@
    compile 'xxx'
 ```  
 
-### Starting chat with a bot
+## **3. Starting chat with bot**
 
-#### 1. Create BotAccount object and add the chat fragment to the activity.
+**a) Create BotAccount object and add the chat fragment to the activity.**
 
 ```java
 BotAccount botAccount = new BotAccount(api_key, account_name,
@@ -36,9 +34,15 @@ BotAccount constructor receives the following parameters: account_name, knowledg
 
 **context** (optional) is used to filter results depending on user's parameters
 
+**b) Create ChatController object.**
 
-#### 2. Create ChatController object. The chatController object is used for interacting between the application and the chat SDK.
+ chatController object is used for interacting between the application and the chat SDK.
 
+see the example below
+
+**c) Add the chat fragment to the activity.**
+
+In order to receive and add the chat fragment, we need to implement the ChatLoadedListener interface and pass its implementation to the build() method.
 
 ```java
 new ChatController.Builder(Context).build(botAccount, new ChatLoadedListener() {
@@ -55,6 +59,3 @@ new ChatController.Builder(Context).build(botAccount, new ChatLoadedListener() {
                   .commit();
       });
 ```
-#### 3. Add the chat fragment to the activity.
-
-In order to receive and add the chat fragment, we need to implement the ChatLoadedListener interface and pass its implementation to the build() method.

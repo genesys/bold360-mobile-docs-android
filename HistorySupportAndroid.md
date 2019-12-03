@@ -1,4 +1,4 @@
-# Chat History service
+## Chat History service
 
 The SDK provides the tools to enable, integrating Apps, to create chats history mechanism, and support chat continuation.   
 In order to listen to chat changes for history support, implement fully `ChatElementListener` and register as follows:
@@ -32,14 +32,14 @@ ChatController.Builder(context)....
 chatController.setChatElementListener(chatElementListeningImpl)
 ```
 
-**The following operations are notified over listener**
+#### The following operations are notified over listener:
 - **onFetch** - Fetches previously stored conversation history.
 - **onRemove** - Remove stored elements from history. (by timestampId)
 - **onReceive** - handle chat elements that are added to the chat. (store to history/report, etc)
 - **onUpdate** - Update elements that were stored in history. (by timestampId)
+##
 
-
-## What is stored in history?
+### What is stored in history?
 Elements that should be stored in history implements the `StorableChatElement` interface.   
 **_Notice_** - Storable element contains a `storageKey`, this key should NOT be changed nor deleted, otherwise
 history will not be fetched properly.   

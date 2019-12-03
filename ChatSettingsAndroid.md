@@ -10,9 +10,9 @@ val chatController = ChatController.Builder(context).apply {
                         ....
                      }.build(account...)
 ```
+##
 
-
-## Enable/Disable chat records request
+### Enable/Disable chat records request
 In order to change and control which chat scope can request the preceding chat records, use the following:
 ```kotlin
 val conversationSettings = ConversationSettings()
@@ -23,5 +23,5 @@ val conversationSettings = ConversationSettings()
   ```kotlin
   ConversationSettings().enableChatLogRequest(StatementScope.BoldScope, true)         
   ```   
- 
- - By default, `BoldScope` chat is enabled to request preceding chats. 
+  
+  ##### - By default, `BoldScope` chat is enabled to request preceding chats. 

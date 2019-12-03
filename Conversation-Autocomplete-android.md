@@ -3,16 +3,14 @@
 ## Standalone Bot autocomplete component
 The SDK provides a standalone bot autocomplete component, `BotAutocompleteFragment`.
 This component supports self state restoring, like on rotation mode changes.
-Landscape mode is not supported for autocompletion suggestions display. The suggestions to the text changes that were done in `Lanscape mode` will be displayed once device is back on `Portrait mode`. 
-
-## Setup
-### Create autocomplete parameters
+> Landscape mode is not supported for autocompletion suggestions display. The suggestions to the text changes that were done in `Lanscape mode` will be displayed once device is back on `Portrait mode`. 
+## How to use
+### 1. Create autocomplete parameters
 `BotAutocompleteFragment` uses `BotCompletionViewModel` to get its parameters.
 `BotCompletionViewModel` should be obtained from `ViewModelProvider`, and customed as needed.   
-### Obtaining `BotCompletionViewModel`
+#### - Obtaining `BotCompletionViewModel`
   When obtaining the `BotCompletionViewModel`, use the containing activity as the source for the ViewModelProvider.   
- 
-```kotlin
+  ```kotlin
   // when fragment's parameters are filled by a fragment:
   val botViewModel = ViewModelProviders.of(activity!!).
                                 get(BotCompletionViewModel::class.java)
@@ -20,9 +18,8 @@ Landscape mode is not supported for autocompletion suggestions display. The sugg
   // when fragment's parameters are filled by the activity:
   val botViewModel = ViewModelProviders.of(this).
                                 get(BotCompletionViewModel::class.java)                                
-```
-### Setting `BotCompletionViewModel` values
-
+  ```
+#### - Setting `BotCompletionViewModel` values                                
 ```kotlin
 
 val botViewModel = ...
@@ -33,16 +30,15 @@ botViewModel.botChat.account = account
 // botViewModel.botChat = myBotChatInstance
 ```
 
-### Add to the application
+### 2. Add to the application
  The `BotAutocompleteFragment` can  be added to an activity or to another fragment as with a regular fragment.
 ```kotlin
 fragmentManager.beginTransaction()
             .add(R.id.root_layout, BotAutocompleteFragment()).commit()
 ```
 
-### Optional - Listening to events
+#### 3. Optional - Listening to events
 Set observers on the events you would like to be notified of.
-
 ```kotlin
 // obtaining the BotCompletionViewModel object
 val botViewModel =  ...
@@ -55,7 +51,6 @@ botViewModel.onError.observe(this, Observer{ error ->
     })
 
 // set observer for article selection from the suggestions:
-
 botViewModel.onSelection.observe(this, Observer { selection ->
         // a utility method "getArticle" is passed over Selection object
         // BotAutocompleteFragment provides a "getArticle" method as well that can be used.
@@ -72,10 +67,9 @@ botViewModel.onSelection.observe(this, Observer { selection ->
 botViewModel.onConversationIdUpdate.observe(this, Observer { id ->
         // do something
     })
-    
 ```
 
-### Optional - Customize appearance 
+#### 4. Optional - Customize appearance 
 The component UI configuration defined by `AutocompleteViewUIConfig`.
 In order to change the config default properties values, create your own object and pass it on the `BotCompletionViewModel` (passed to the standalone).
 ```kotlin
@@ -83,14 +77,16 @@ val botViewModel = ViewModelProviders.of(...
 
 val customedUIConfig = ChatAutocompleteUIConfig(context).apply { 
     // change properties values
+    ... 
 }
 
 botViewModel.uiConfig = customedUIConfig
 ```
 
-**Tip**
-In order to preseve the conversation created on state restoring of the containing activity/fragment, do not override the BotAccount on the `BotCompletionViewModel` object if already exists.
+---
 
+## <sub>Tip</sub>
+In order to preseve the conversation created on state restoring of the containing activity/fragment, do not override the BotAccount on the `BotCompletionViewModel` object if already exists.
 ```kotlin
 val botViewModel = ViewModelProviders.of(activity!!).get(BotCompletionViewModel::class.java);
         
@@ -103,25 +99,24 @@ if (!botViewModel.botChat.hasSession) {
     )
 }
 ```
-
+#
 ## In Chat autocomplete  
 Chat SDK supports autocomplete for `bold ai` chats.     
 While user is typing a query to the bot agent, if feature is enabled, he will be presented with suggested articles
 relevant to the typed content.   
 
 ![](./images/Android/chat-autocomplete.png)
-
+##
 ### How to enable/disable chat autocomplete support
-#### Enable/Disable on "Bold360ai" console   
+- ### Enable/Disable on "Bold360ai" console</U>   
   There are 2 ways to set the autocomplete feature status in the console:
-  1. [**Set on account settings**](./images/Android/ai-console-account-settings.png) 
+  1. #### [**Set on account settings**](./images/Android/ai-console-account-settings.png) 
         
-  2. [**Set on widget settings**](./images/Android/ai-console-widget-settings.png)
+  2. #### [**Set on widget settings**](./images/Android/ai-console-widget-settings.png)
 
-### Enable/Disable on client side settings</U>   
+- ### Enable/Disable on client side settings</U>   
   Set the feature enable status on the `ConversationSettings` that can be provided to `ChatController.Builder`.
-  
-```kotlin
+  ```kotlin
   val settings = ConversationSettings().apply {
       // ...
       enableAutocompleteSupport(enable) // enable = true/false
@@ -131,9 +126,9 @@ relevant to the typed content.
                         .conversationSettings(settings)                                                   
                         .build(account, ...) 
                         
-```
+  ```
     ## 
- **!! Notice:** _Client side settings overrides console settings._   
+  > **!! Notice:** _Client side settings overrides console settings._   
     But, in case the autocomplete was enabled on the client side but disabled on the bold ai console, on the account settings, though the autocomplete is enabled and passes requests, no suggestions will be received nor displayed.   
     ##
 

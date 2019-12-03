@@ -6,7 +6,8 @@ The Chatbar contains:
  1. Current live agent's name an avatar.
  2. `End Chat` clickable view to end current live chat.
 
-### How to customize the Chatbar Component
+##
+### How to customize
 
 - Component can be configured or/and overrided via `ChatBarCmpUiProvider`. 
 ```kotlin
@@ -39,15 +40,15 @@ When previous chats will end the user's chat will be promoted in the queue until
 
 > User can end the chat while in the queue with [life cycle state](https://developer.bold360.com/help/EN/Bold360API/Bold360API/c_sdk_combined_android_adv_chat_lifecycle.html) (`StateEvent.InQueue`) or while waiting for acceptance (`StateEvent.Pending`). The user will be presented with unavailability form if enabled otherwise a message.
 
-### How to enable support for the Queue Component
+### How to enable support
 1. Enable `[automatic distribution]` in bold console.   
 Some configurations can be changed, like queue limit, agent concurrent chat limit etc.
 2. Enable `[Show queue position]` in bold console, in order to be notified of user position in queue.
 
-### How to customize the Queue Component
+### How to customize
 Queue position UI display is provided by the SDK, and can be customize either by configuration setting or by view implementation overriding.
 
-#### Customizing by Configure
+- #### Customizing by Configure
     Override `ChatUIProvider.queueCmpUIProvider.configure` method:
     ```kotlin
     ChatUIProvider(context).apply {
@@ -56,7 +57,7 @@ Queue position UI display is provided by the SDK, and can be customize either by
         }
     }
     ```
-#### Customizing by override
+- #### Customizing by override
    Override overrideFactory value with your own `QueueFactory` implementation:
     ```kotlin
     ChatUIProvider(context).apply {
@@ -81,7 +82,7 @@ Appears when the live agent is typing.
 The typing indication can be displayed as text and/or drawable.   
 Typing drawable can be an [AnimatedVector](https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable).
 
-### How to enable the Typing indication Component
+### How to enable
 By default typing indication is `enabled`.   
 The component display can be disabled through `ConversationSettings`.
 ```kotlin 
@@ -105,10 +106,10 @@ chatController.subscribeNotifications(NotifiableImpl, OperatorEvent.OperatorTypi
 
 <sup> <b> [more on notifications ](https://github.com/bold360ai/GlobalDocs/wiki/Listeners-and-subscriptions-android) </b></sup>
 
-### How to customize typing notifications
+### How to customize
 
 Typing indication UI component is provided by the SDK, and can be customize either by configuration setting or by view implementation overriding.
-#### Customizing by Configure
+- #### Customizing by Configure
     Override `ChatUIProvider.typingUIProvider.configure` method:
     ```kotlin
     ChatUIProvider(context).apply {
@@ -117,7 +118,7 @@ Typing indication UI component is provided by the SDK, and can be customize eith
         }
     }
     ```
-#### Customizing by override
+- #### Customizing by override
    Override overrideFactory value with your own `TypingFactory` implementation:
     ```kotlin
     ChatUIProvider(context).apply {

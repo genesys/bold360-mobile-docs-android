@@ -1,1 +1,0 @@
-<p align="center"> Copyright © 2019 LogMeIn. bold360ai Mobile SDK. All rights reserved. </p>

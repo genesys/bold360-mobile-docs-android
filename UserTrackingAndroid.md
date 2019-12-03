@@ -1,7 +1,7 @@
-# Tracking user activity
+## Tracking user activity
 In order to track user activity during chat session, the SDK generates a unique `userId` per device. This id is passed on all API requests.
 
-## How to customize user id
+### How to customize user id
 
 Customizing `userId` is done by `BotAccount`. 
 ```kotlin

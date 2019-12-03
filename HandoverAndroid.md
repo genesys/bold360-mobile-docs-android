@@ -1,7 +1,6 @@
+> This article will help you to add a support to Handover sessions.
 
-# Introduction
-
-This article will help you to add a support to Handover sessions.
+## Introduction
 
 Handover is a chat session with a custom provider that is configured and controlled by the customer.
 The Handover is being controlled at the app by a provided custom `ChatHandler`.
@@ -9,7 +8,7 @@ The Handover is being controlled at the app by a provided custom `ChatHandler`.
 `Chat handlers` are being used at the SDK in order to separate the chat sessions between different providers such as `Bot` and `Bold`.
 They handle the user actions and the chat events passed from the chat UI.
 
-## The Chat handlers implement the `ChatUIHandler` interface
+### The Chat handlers implement the `ChatUIHandler` interface
 
 - *`fun setChatDelegate(delegate: ChatDelegate)`* - sets the handler's chat delegate (which is the ui interface instance)
 

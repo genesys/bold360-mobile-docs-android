@@ -1,16 +1,16 @@
-# Using the Android SDK
+# Using Android SDK
 
 ## Starting a Chat  
+
 ### 1. Create an Account.
 
-  > To start chat with Bot create `BotAccount`:  
+  > **<U>To start chat with Bot create `BotAccount`:</U>**   
     
   ```kotlin
   val account = BotAccount(API_KEY, ACCOUNT_NAME,
                            KNOWLEDGE_BASE, SERVER, CONTEXT_MAP)
   ```  
-  
-Where: API_KEY (mandatory), ACCOUNT_NAME(mandatory), KNOWLEDGE_BASE(mandatory), SERVER(mandatory), CONTEXT_MAP(optional)
+###### <sup> Where: API_KEY (mandatory), ACCOUNT_NAME(mandatory), KNOWLEDGE_BASE(mandatory), SERVER(mandatory), CONTEXT_MAP(optional)</sup>
 
   - If the account is using Context, create account as follows:
 
@@ -32,7 +32,9 @@ Where: API_KEY (mandatory), ACCOUNT_NAME(mandatory), KNOWLEDGE_BASE(mandatory), 
                               }
     ```
 
-To start chat with Bold create `BoldAccount`:
+   ##
+
+> **<U>To start chat with Bold create `BoldAccount`:</U>**
 
   ```kotlin
   val account = BoldAccount(API_KEY)
@@ -41,7 +43,7 @@ To start chat with Bold create `BoldAccount`:
 ---
 
 ### 2. Create a `ChatController`
-With a ChatController one can create and control a chat.
+###### With ChatController one can create and control a chat.
 
 ```kotlin
 val chatController = ChatController.Builder(context)                                                     
@@ -52,7 +54,7 @@ val chatController = ChatController.Builder(context)
 
 ### 3. Add chat fragment to the application.
 
-In order to add the chat fragment to the application's activity, implement the ChatLoadedListener interface and pass it in the `ChatController.Builder` build method.
+###### In order to add the chat fragment to the application's activity, implement the ChatLoadedListener interface and pass it in the `ChatController.Builder` build method.
 
 ```kotlin
 ChatController.Builder(context).build(account, object : ChatLoadedListener {

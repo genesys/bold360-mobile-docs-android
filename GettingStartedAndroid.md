@@ -1,17 +1,17 @@
-# System Requirements, Setup, and Installation Dependencies
+## System Requirements, Setup, and Installation Dependencies
 
 ## System Requirements  
 
 * Java 8 or higher.
 * Gradle 5.1.1 or higher.
-* Android API 16 or higher. <sub>**(since version 3.5.0**)</sub>
+* Android API 19 or higher.
 * Android Studio.
 
 ## Setup
 
 In an existing android project, update the project build.gradle file with the following: 
 
-1. ### Add SDK dependencies
+1. #### Add SDK dependencies
     [Check here for latest SDK version](https://developer.bold360.com/help/EN/Bold360API/Bold360API/c_sdk_combined_Android_RN.html) 
 
     For example:
@@ -23,7 +23,7 @@ In an existing android project, update the project build.gradle file with the fo
     implementation "com.bold360ai-sdk.core:accessibility:[VERSION_NUMBER]"
     ```
 
-2. ### Add the following to the `android{...}` block definition:
+2. #### Add the following to the `android{...}` block definition:
     ```gradle
     android {
         

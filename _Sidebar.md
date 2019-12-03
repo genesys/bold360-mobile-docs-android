@@ -1,97 +1,4 @@
-# iOS
-
-[Introduction](IntroductioniOS)
-
-[Getting Started](GettingStartedIOS)
-
-[Quick Start](QuickStartIOS)
-
-<details>
-<summary>Advanced Topics</summary>
-	<ul>
-	<details>
-	<summary>Events and States</summary>
-		<ul>
-			<li>
-				<a href="https://github.com/bold360ai/GlobalDocs/wiki/ChatLifecycleIOS">
-				Chat Lifecycle</a>
-			</li>
-			<li>
-				<a href="https://github.com/bold360ai/GlobalDocs/wiki/ChatEventsiOS">
-				Chat Events</a>
-			</li>
-		<ul>
-	</details>
-	<details>
-	<summary>Live Chat</summary>
-		<ul>
-			<li>
-				<a href="https://github.com/bold360ai/GlobalDocs/wiki/PresentFormsIOS">
-				Present Forms</a>
-			</li>
-			<li>
-				<a href="https://github.com/bold360ai/GlobalDocs/wiki/LiveChatQueuePositioniOS">
-				Chat Queue Position</a>
-			</li>
-                         <li>
-				<a href="https://github.com/bold360ai/GlobalDocs/wiki/MultiLanguageiOS">
-				Multiple Language</a>
-			</li>
-		<ul>
-	</details>
-	<details>
-	<summary>Bot Chat</summary>
-		<ul>
-			<li>
-			<a href="https://github.com/bold360ai/GlobalDocs/wiki/On-load-messages-injection-iOS">
-			On load messages</a>
-			</li>
-			<li>
-			<a href="https://github.com/bold360ai/GlobalDocs/wiki/UseContextiOS">
-			Use Context</a>
-			</li>
-			<li>
-			<a href="https://github.com/bold360ai/GlobalDocs/wiki/PersonalInformationiOS">
-			Personal Information</a>
-			</li>
-		<ul>
-	</details>
-	<li>
-	<a href="https://github.com/bold360ai/GlobalDocs/wiki/ChatViewConfigurationIOS">
-	Chat View Customizations</a>
-	</li>
-	<li>
-	<a href="https://github.com/bold360ai/GlobalDocs/wiki/ErrorHandlingiOS">
-	Error Handling</a>
-	</li>
-        <li>
-	<a href="https://github.com/bold360ai/GlobalDocs/wiki/AutocompletionSupportiOS">
-	Autocompletion Support</a>
-	</li>
-	<li>
-	<a href="https://github.com/bold360ai/GlobalDocs/wiki/FileUploadiOS">
-	File Upload</a>
-	</li>
-	<li>
-	<a href="https://github.com/bold360ai/GlobalDocs/wiki/HistorySupportiOS">
-	History Support</a>
-	</li>
-        <li>
-	<a href="https://github.com/bold360ai/GlobalDocs/wiki/Continuity-Support-iOS">
-	Continuity Support</a>
-	</li>
-	<br>
-	<ul>
-	</details>
-<br>
-
-[Samples](https://github.com/bold360ai/bold360ai-mobile-samples)
-
-[Release Notes](ReleaseNotesIOS)
-
----
-
-# Android
+### Android
 
 [Introduction](IntroductionAndroid)
 
@@ -151,15 +58,7 @@ On load messages</a>
 <a href="https://github.com/bold360ai/GlobalDocs/wiki/Personal_Information">
 Personal Information</a>
 </li>
-<li>
-<a href="https://github.com/bold360ai/GlobalDocs/wiki/Incoming-component-Android">
-The Bot incoming component</a>
-</li>
 </details>
-<li>
-<a href="https://github.com/bold360ai/GlobalDocs/wiki/ChatRestoringAndroid">
-Chat restoring</a>
-</li>
 <li>
 <a href="https://github.com/bold360ai/GlobalDocs/wiki/android_chat_availability">
 Chat availability</a>
@@ -175,6 +74,10 @@ Chat UI Customizations</a>
 <li>
 <a href="https://github.com/bold360ai/GlobalDocs/wiki/Conversation-Autocomplete-android">
 Autocompletion Support</a>
+</li>
+<li>
+<a href="https://github.com/bold360ai/GlobalDocs/wiki/Incoming-component-Android">
+The Incoming component</a>
 </li>
 <li>
 <a href="https://github.com/bold360ai/GlobalDocs/wiki/HistorySupportAndroid">

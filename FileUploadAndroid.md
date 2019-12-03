@@ -1,9 +1,10 @@
-# Add File Upload support
-This article will help you to configure your disired file upload mechanism.
+<sup>[Live chat]</sup>
+> This article will help you to configure your disired file upload mechanism.
 
-The SDK provides an upload mechanism, but enables you to use your own mechanism.
+## Add File Upload support:
+##### The SDK provides an upload mechanism, but enables you to use your own mechanism.
 
-## 1.  Define your file upload trigger. 
+### 1.  Define your file upload trigger. 
 - **Use SDK trigger.**  
 The SDK provides an upload trigger which will be positioned inside the input field. Trigger icon can be changed via ui provider configuration. 
     ```java
@@ -15,7 +16,7 @@ To do that, disable the display of the SDK trriger. <sub>(By default set to `tru
     chatUIProvider.getUserInputUIProvider().showUpload(false)
     ```
 
-## 2. Define your file upload mechanisem 
+### 2. Define your file upload mechanisem 
 - **Use SDKs file uploader**
 When user selects the file to upload use `chatController.uploadFile` method, to upload the file via SDK uploader. Upload indication will be added to the chat automatically.
 A `FileUploadInfo` object, should be created for every file that will be uploaded. 
@@ -105,7 +106,7 @@ chatController.subscribeNotifications(notifiableImpl:Notifiable,
 ```
 
 ### Customizations:
--  **Uploads progress indication**
+- #### Uploads progress indication
     - <U>**Using SDK provided progress indication**</u> - enables customizations of bar location and other visual properties, as declared in `UploadsCmpAdapter` interface.
         ```kotlin
         // display uploads summary bar as floating component which also displays 
@@ -142,7 +143,7 @@ chatController.subscribeNotifications(notifiableImpl:Notifiable,
 
         If configurations were defined in `UploadsbarCmpUIProvider` if the customed view implements the `UploadsCmpAdapter` methods, its UI will be configured accordingly.    
 
-- **Upload outgoing bubble** 
+- #### Upload outgoing bubble 
     - File type images can be changed by supplying new drawable resources in app resources with the following ids: picture_ico, default_ico, excel_ico, archive_ico.
     - bubble can be configured, as with other chat bubbles, by overriding the default configure method on `UploadElementUIProvider`
         ```kotlin
