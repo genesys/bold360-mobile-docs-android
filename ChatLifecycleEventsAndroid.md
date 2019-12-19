@@ -1,6 +1,6 @@
-> This article will take you through the lifecycle of chat controller.
+# Lifecycle Events
 
-## Lifecycle Events
+This article will take you through the lifecycle of chat controller.
 
 To get lifecycle events implement the interface `ChatEventListener`, and pass it on the `ChatController` builder.
 

@@ -1,4 +1,4 @@
-## Configure in App navigation Channel
+# Configure in App navigation Channel
 At the Account's Bold360ai console:
 
 1. Navigate to Channeling -> Channeling Policy

@@ -1,80 +1,101 @@
-<sup>[Live chat]</sup>
-> This article will help you to configure your disired file upload mechanism.
+# Add File Upload support
 
-## Add File Upload support:
-##### The SDK provides an upload mechanism, but enables you to use your own mechanism.
+The SDK provides an upload mechanism, but enables you to use your own.   
+So, how to integrate upload functionality to your chat:
 
-### 1.  Define your file upload trigger. 
-- **Use SDK trigger.**  
-The SDK provides an upload trigger which will be positioned inside the input field. Trigger icon can be changed via ui provider configuration. 
-    ```java
-    chatUIProvider.getUserInputUIProvider().setUploadImage(...)
+## 1.  Define your file upload trigger   
+The UI component the user will use to trigger the upload. 
+
+- ### Use SDK provided trigger   
+  The SDK provides an upload trigger (attach icon) which will be positioned inside the input field.  In order to be notified when the user had activated the trigger in order to do some uploads, you need to implement `onUploadFileRequest` in `ChatEventListener`.
+  ```kotlin
+    override fun onUploadFileRequest(){
+        // user wants to upload content to the agent
+    }
+  ```
+
+  - #### Customize upload icon: 
+    via `ChatInputUIProvider` config object.
+
+    ```kotlin
+    val chatController = ChatController.Builder(this).apply {
+        ...
+        chatUIProvider(ChatUIProvider().apply{
+            chatInputUIProvider.uiConfig.uploadImage(...)
+        })
+        ...
+    }
     ```
-- **Use your own trigger.**   
-To do that, disable the display of the SDK trriger. <sub>(By default set to `true`)</sub>
-    ```java
-    chatUIProvider.getUserInputUIProvider().showUpload(false)
+
+- #### Use your own trigger   
+  - Apply your own upload UI component.   
+    Insure that upload feature is enabled, before you display the UI to the user:
+    ```kotlin
+    chatController.isEnabled(ChatFeatures.FileUpload);
+    ```
+    > Learn how to enable/disable file transfer on admin console [here](./images/Android/ai-console-upload.png)
+  - Hide the SDKs upload icon:
+
+    ```kotlin
+    val chatController = ChatController.Builder(this).apply {
+        ...
+        chatUIProvider(ChatUIProvider().apply{
+            chatInputUIProvider.uiConfig.showUpload = false
+        })
+        ...
+    }
     ```
 
-### 2. Define your file upload mechanisem 
-- **Use SDKs file uploader**
-When user selects the file to upload use `chatController.uploadFile` method, to upload the file via SDK uploader. Upload indication will be added to the chat automatically.
-A `FileUploadInfo` object, should be created for every file that will be uploaded. 
-Results will be passed over the callback
+
+## 2. Choose an upload provider
+
+- ### Use SDK's provided uploader
+    Create a `FileUploadInfo` object, and pass it to `chatController.uploadFile` to start an upload.
+
     ```kotlin
     //... user selected the file to upload
-    val fileInfo = FileUploadInfo() 
-    // OR 
-    val fileInfo = FileUploadInfo(bytes:ByteArray)
-
-    fileInfo.apply{
+    val uploadInfo = FileUploadInfo().apply{
         type = ... // as defined in @FileType
         name = ... // can differ from the actual file name
         filePath = ... // actual selected file path
         content = file.readBytes()... // if was not provided on the constructor
     }
 
-    chatController.uploadFile(fileInfo) { uploadResults ->
-        //.... got UploadResults and do whatever 
+    chatController.uploadFile(uploadInfo) { uploadResults ->
+        //.... got UploadResults and do whatever
         uploadsResults.error?.run{
-            Log.e(TAG, "Got an error on ${uploadResults.data.name} file upload: ${uploadsResults.error}")
+            Log.e(TAG, "Got an error on ${uploadResults.data.name} 
+                                file upload: ${uploadsResults.error}")
             ...
         }
-    } 
-    ```
-
-- **Use your own file uploader**
-When user selects the file to upload use your uploader to upload the selected file.   
-**In order to have the upload indication in the chat, after upload completed you should pass event to the `chatController` with the upload results.**
-    ```kotlin
-    //... user selected the file to upload
-
-    MyUploader.uploadFile(...){
-        //.... do upload stuff
-
-        // pass results to the SDK 
-        val uploadResults = UploadResults(FileUploadInfo?, NRError?)
-        chatController.handleEvent(Upload, new UploadEvent(uploadResult));
     }
     ```
+    Upload results are passed over the provided callback.
+
+- ### Use your own uploader
+
+    - When user triggers an upload and chooses the content to be uploaded, upload that content with your uploader.
+    - Pass an UploadEvent to the `chatController` with the upload results, in order to have the upload bubble in the chat.
+
+      ```kotlin
+      MyUploader.upload(...){
+          //.... do upload stuff
+
+          // pass results to the SDK
+          val uploadResults = UploadResults(FileUploadInfo?, NRError?)
+          chatController.handleEvent(Upload, new UploadEvent(uploadResult));
+      }
+      ```
 
 ## Extra
 
-### Checking Upload feature availability:
-
-In order to check if the file upload feature is available for the current scope, use `chatController.isEnable(ChatFeatures)` method.
-
-```kotlin
-chatController.isEnabled(ChatFeatures.FileUpload);
-```
-
-
 ### Listening to upload notifications
+
 One can listen to files upload events via the `ChatController`, by registering to the available uploads notifications he needs.
 
 ```kotlin
-chatController.subscribeNotifications(notifiableImpl:Notifiable, 
-                    Notifications.UploadEnd, Notifications.UploadStart, 
+chatController.subscribeNotifications(notifiableImpl:Notifiable,
+                    Notifications.UploadEnd, Notifications.UploadStart,
                     Notifications.UploadProgress, Notifications.UploadFailed)
 
 // Notifiable implementation (notifiableImpl):
@@ -82,7 +103,7 @@ chatController.subscribeNotifications(notifiableImpl:Notifiable,
     ...
 
     override fun onNotify(notification: Notification, dispatcher: DispatchContinuation) {
-        
+
         when (notification.notification) {
             Notifications.UploadStart,
             Notifications.UploadEnd,
@@ -105,59 +126,46 @@ chatController.subscribeNotifications(notifiableImpl:Notifiable,
 }
 ```
 
-### Customizations:
-- #### Uploads progress indication
-    - <U>**Using SDK provided progress indication**</u> - enables customizations of bar location and other visual properties, as declared in `UploadsCmpAdapter` interface.
+### Customizations
+
+- #### Customizing uploads progress indication
+   The SDK provides uploads propress indication bar   
+
+  <img alt='uploads bar' src='images/Android/uploads_bar_1.png' width=50% style="margin:16px"/>
+
+    - The uploads bar can customized via `ChatUIProvider.uploadsCmpUIProvider.configure`.
+
         ```kotlin
-        // display uploads summary bar as floating component which also displays 
-        // notifications of start and stop of uploads
-        chatUIProvider.uploadsCmpUIProvider.configure = { adapter:UploadsCmpAdapter-> 
-            adapter.apply{
-                gravity(Gravity.CENTER);
-                layoutGravity(Gravity.TOP);
-                isFloating  = true;
-                showNotifications = true;
-                notificationsGravity(Gravity.END);
-                notificationsTextStyle(StyleConfig(14, context.resources.getColor(R.color.colorTextLight)))
+        // display uploads summary bar as floating component 
+        chatUIProvider.uploadsCmpUIProvider.configure = { adapter:UploadsCmpAdapter->
+            adapter.apply {
+                ...            
             }
-                
-            adapter
         }
         ```
-    - <u>**Using overriding customed component**</u> - One can create a customed uploads progress component and display it while uploads progress.
-        ```kotlin
-        chatUIProvider.uploadsCmpUIProvider.overrideFactory = 
-                object: UploadsbarCmpUIProvider.UploadFactory {
-                    override fun create(context: Context): UploadsCmpAdapter {
-                        val myComponent = .... // create customed component 
-                        return myComponent
-                    }
+
+    - The uploads bar can be overrided with your own implementation, via `ChatUIProvider.uploadsCmpUIProvider.overrideFactory`   
+      ```kotlin
+      chatUIProvider.uploadsCmpUIProvider.overrideFactory =
+            object: UploadsbarCmpUIProvider.UploadFactory {
+                override fun create(context: Context): UploadsCmpAdapter {
+                    return .... // create customed component
                 }
-        ```
-        In order to notify the SDK that the component done with the uploads display and should be removed, pass `CmpEvent` to the `ChatController`:
+            }
+      ```
+      
+    - In order to notify the SDK that the component done with the uploads display and should be removed, pass `CmpEvent` to the `ChatController`:
+
         ```kotlin
         chatController.handleEvent(CmpEvent.EventName,
-                            CmpEvent(ComponentType.UploadsStripCmp,
-                                        CmpEvent.Idle))
+                        CmpEvent(ComponentType.UploadsStripCmp, CmpEvent.Idle))
         ```
+      > Customizations that were configured with `UploadsCmpUIProvider.configure` will be applied on your customed component as well.
 
-        If configurations were defined in `UploadsbarCmpUIProvider` if the customed view implements the `UploadsCmpAdapter` methods, its UI will be configured accordingly.    
+- #### Customizing upload outgoing bubble
+  Same as regular [outgoing bubble customizations](./ChatCustomizationsAndroid).
 
-- #### Upload outgoing bubble 
-    - File type images can be changed by supplying new drawable resources in app resources with the following ids: picture_ico, default_ico, excel_ico, archive_ico.
-    - bubble can be configured, as with other chat bubbles, by overriding the default configure method on `UploadElementUIProvider`
-        ```kotlin
-        ChatUIProvider.chatElementsUIProvider.uploadUIProvider.configure = { adapter ->
-
-            adapter.apply {
-                setBackground(new ColorDrawable(Color.RED));
-                setTextStyle(new StyleConfig(18, Color.GREEN, 
-                            getTypeface(getContext(), "great_vibes.otf")));
-                setLinkTextColor(Color.GREEN);
-                ...
-
-                adapter
-            }
-        }  
-        ```
-        
+  - ##### Customizing upload content type images
+    Provided icons can be override by appying new drawables resources in the app resources with matching reasources ids.   
+    > picture_ico, default_ico, excel_ico, archive_ico
+---

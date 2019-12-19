@@ -1,10 +1,10 @@
-> This article will help you to present your own implementations to chat forms.
+# Forms for Android
+This article will help you to present your own implementations to chat forms.
+> Supported forms are: `PreChat`, `PostChat`, `Unavailable`.
 
-## Forms
+## Using custom forms
+The SDK provides a default Bold Forms implementation, in order to change it please follow the next steps:
 
-Supported forms are: preChat, postChat, unavailable. 
-### Using custom forms
-In order to change SDK provided implementation, or add implementations that are not available .  
 1. Implement the `FormProvider` interface.    
 When a form should be displayed, the `presentForm` method will be called. 
    ```kotlin
