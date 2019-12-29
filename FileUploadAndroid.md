@@ -63,9 +63,9 @@ The UI component the user will use to trigger the upload.
         content = file.readBytes()... // if was not provided on the constructor
     }
     ```
-  
+     
   - Activate the upload:
-    @OZ: here u need to write about the 2 options to activate the uploader. 
+    
     1. When using the ChatController 
     
 	```kotlin
