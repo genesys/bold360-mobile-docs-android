@@ -68,29 +68,29 @@ The UI component the user will use to trigger the upload.
     
     1. When using the ChatController 
     
-	```kotlin
-    chatController.uploadFile(uploadInfo) { uploadResults ->
-        //.... got UploadResults and do whatever
-        uploadsResults.error?.run{
-            Log.e(TAG, "Got an error on ${uploadResults.data.name} 
-                                file upload: ${uploadsResults.error}")
-            ...
+        ```kotlin
+        chatController.uploadFile(uploadInfo) { uploadResults ->
+            //.... got UploadResults and do whatever
+            uploadsResults.error?.run{
+                Log.e(TAG, "Got an error on ${uploadResults.data.name} 
+                                    file upload: ${uploadsResults.error}")
+                ...
+            }
         }
-    }
-    ```
+        ```
     Upload results are passed over the provided callback.
 
 	2. When using the Uploader
-    ```kotlin
-    BoldLiveUploader().upload(uploadInfo, AccountDetails(...)) { uploadResults ->
-        //.... got UploadResults and do whatever
-        uploadsResults.error?.run{
-            Log.e(TAG, "Got an error on ${uploadResults.data.name} 
-                                file upload: ${uploadsResults.error}")
-            ...
+        ```kotlin
+        BoldLiveUploader().upload(uploadInfo, AccountDetails(...)) { uploadResults ->
+            //.... got UploadResults and do whatever
+            uploadsResults.error?.run{
+                Log.e(TAG, "Got an error on ${uploadResults.data.name} 
+                                    file upload: ${uploadsResults.error}")
+                ...
+            }
         }
-    }
-    ```
+        ```
 
 
 - ### Use your own uploader
@@ -152,7 +152,7 @@ chatController.subscribeNotifications(notifiableImpl:Notifiable,
 - #### Customizing uploads progress indication
    The SDK provides uploads propress indication bar   
 
-  <img alt='uploads bar' src='images/Android/uploads_bar_1.png' width=50% style="margin:16px"/>
+    ![](images/Android/uploads_bar_1.png)
 
     - The uploads bar can customized via `ChatUIProvider.uploadsCmpUIProvider.configure`.
 
