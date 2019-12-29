@@ -3,7 +3,7 @@
 **Handing** the control of the chat to a provided custom `ChatHandler` implementation.  
 The handover is activated by escalating from a Chat typed channel, which is configured with `custom provider`.
 
-Handover ChatHandler implementation should be provided on `ChatController` creation.
+Handover `ChatHandler` implementation should be provided on `ChatController` creation.
 ```kotlin
 val chatController = ChatController.Builder(context)
                                 .chatHandoverHandler(myHandoverHandler)
