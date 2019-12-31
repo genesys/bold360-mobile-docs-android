@@ -20,7 +20,9 @@ Extend `HandoverHandler`
 
 - Chat elements injection and update, **should be done via its `super` class, provided methods**.  
   >injectElement, updateStatus, removeElement, etc
+
 - When chat starts or the `ChatHandler` receives `StateEvent`, `Resumed`, in order to display the chat input field, use the method `enableChatInput` with its `super` class, default implementation or override and set your own configurations.
+
 - `ChatDelegate` provides methods to interact with the ui; setting UI components visibility, injecting elements to the UI etc.   
   >**If those elements should also be injected to history updates, and passed over ChatElementListener, use `super` class menthods as mentioned before.**
 
