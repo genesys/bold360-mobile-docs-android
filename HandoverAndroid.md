@@ -12,16 +12,21 @@ val chatController = ChatController.Builder(context)
 ```
 
 ### How to implement
-Extend `HandoverHandler`
+1. Extend `HandoverHandler`.   
+2. Override ChatHandler methods to achieve your chat logic.   
 
-#### Points of notice
 
-- Chat elements injection and update, should be done via `super` provided methods.  
+### Notice:
+
+- Chat elements injection and update, **should be done via its `super` class, provided methods**.  
   >injectElement, updateStatus, removeElement, etc
-- When chat starts or the `ChatHandler` receives `StateEvent`, `Resumed`, in order to display the chat input field, use the method `enableChatInput` with `super` default implementation or override and set your configurations.
-- `ChatDelegate` provides methods to interact with the ui, such activating UI components etc.
-- Since Handover is an escalated chat, it will be passed to the 'AccountInfoProvider', to provide a detailed account. In case no extra data should be added to the account, just return the account back.
 
+- When chat starts or the `ChatHandler` receives `StateEvent`, `Resumed`, in order to display the chat input field, use the method `enableChatInput` with `super` default implementation or override and set your configurations.   
+
+- `ChatDelegate` provides methods to interact with the UI, like, setting UI components visibility, injecting elements to the UI etc.    
+  >**If operations on chat elements should also be passed to ChatElementListener, like history updates, use `super` class methods as mentioned before.**    
+
+- Since Handover is an escalated chat, it will be passed to the 'AccountInfoProvider', to provide a detailed account. In case no extra data should be added to the account, just return the account back.
 
 #### Implementation and usage examples:
 
@@ -42,9 +47,10 @@ override fun post(message: ChatStatement){
     updateStatus(message.getTimestamp(), StatusOk); 
 }
 ```
-
-#### How to configure a handover chat channel
-
-A Handover channel should be created on the Bold360ai console as in the following sample:
+<details>
+<summary> <B>Creating a `Handover` chat channel on Bold360ai console</B> </summary>
+Pursue the following sample:    
 
 ![](images/Android/handoverChannel.png)
+
+</details>
