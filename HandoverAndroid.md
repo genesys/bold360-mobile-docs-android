@@ -14,9 +14,10 @@ val chatController = ChatController.Builder(context)
 
 
 ### How to implement
-Extend `HandoverHandler`
+Extend `HandoverHandler`   
 
-#### Points of notice
+
+#### Notice:
 
 - Chat elements injection and update, **should be done via its `super` class, provided methods**.  
   >injectElement, updateStatus, removeElement, etc
