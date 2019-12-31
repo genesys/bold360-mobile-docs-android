@@ -11,8 +11,6 @@ val chatController = ChatController.Builder(context)
                                 .build(account,...)
 ```
 
-
-
 ### How to implement
 Extend `HandoverHandler`
 
@@ -22,6 +20,7 @@ Extend `HandoverHandler`
   >injectElement, updateStatus, removeElement, etc
 - When chat starts or the `ChatHandler` receives `StateEvent`, `Resumed`, in order to display the chat input field, use the method `enableChatInput` with `super` default implementation or override and set your configurations.
 - `ChatDelegate` provides methods to interact with the ui, such activating UI components etc.
+- Since Handover is an escalated chat, it will be passed to the 'AccountInfoProvider', to provide a detailed account. In case no extra data should be added to the account, just return the account back.
 
 
 #### Implementation and usage examples:
