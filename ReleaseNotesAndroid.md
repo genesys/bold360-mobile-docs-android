@@ -6,10 +6,10 @@ In this version:
 
 Articles that need immediate escalation without asking have the value "High value + push chat". If an article with this value is presented do automatically the escalation.
 
-## Track the usage of Dictation
+## Added reporting user interactions
 
-- Add Reporting for Voice usage
-- Add Reporting for Autocomplete usage
+- Added reporting for `Voice` interaction
+- Added reporting for `Autocomplete` interaction
 
 ### SDK imports
 
