@@ -2,14 +2,14 @@
 
 In this version:
 
-## Support "High value + push chat" behavior
+## Bold live chat related
 
-Articles that need immediate escalation without asking have the value "High value + push chat". If an article with this value is presented do automatically the escalation.
+- Support "High value + push chat" behavior:  
+  Articles that need immediate escalation without asking have the value "High value + push chat". If an article with this value is presented do automatically the escalation.
 
-## Added reporting user interactions
+## Bot ai chat related
 
-- Added reporting for `Voice` interaction
-- Added reporting for `Autocomplete` interaction
+- Added reporting for `Voice` and `Autocomplete` user interactions.
 
 ### SDK imports
 
