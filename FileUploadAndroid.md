@@ -1,7 +1,7 @@
 # Add File Upload support
 
 The SDK provides an upload mechanism, but enables you to use your own.   
-Follow the following steps to integrate upload functionality to your chat:
+Follow the next steps to integrate upload functionality to your chat:
 > If you don't use the SDK for chat ui creation, but want to use the provided uploader mechanism, go to [step 2.](#Use-SDK's-provided-uploader)
 
 ## 1.  Define your file upload trigger   
