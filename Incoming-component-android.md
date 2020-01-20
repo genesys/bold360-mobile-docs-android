@@ -115,3 +115,11 @@ Incoming bot response can have several options to the user to choose from. Those
                 }
             }
       ```
+
+## Statement Injection
+
+Statements can be injected to the chat from the App through the ChatController:
+
+```kotlin
+chatController.post(new IncomingStatement("message text"));
+```
