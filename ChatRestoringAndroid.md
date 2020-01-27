@@ -1,6 +1,6 @@
 # ChatController
-The SDK's instrument to create and restore chats.
-The `ChatControler` is created via a builder, which can be configured with providers and listeners as preferred. Those will be applied to the ChatController and to the chat participating components, on build time.
+The SDK's tool to create and restore chats.
+The `ChatControler` is created via a builder, which can be configured with providers and listeners as preferred. Those will be applied to the `ChatController` and to the chat participating components, on build time.
 
 Once created, the `ChatController` can be used for multiple chats creation.
 
@@ -26,22 +26,19 @@ chatController.destruct()
   ```kotlin
   chatController.startChat(account)
   // same as:
-  chatController.restoreChat(account = account, autoChatEnd = false)
+  chatController.restoreChat(account = account, endChatWithUI = false)
   ```
-  If you want to provide your created `NRConversationFragment` or configure `autoChatEnd` flag use:
+  If you want to provide your created chat fragment or configure `endChatWithUI` flag use:
 
   ```kotlin
-  // start a new chat session with account and fragment configured as manual destruction.
-  chatController.restoreChat(fragment = chatFragment, account = account, autoChatEnd = false)
+  // start a new chat session with provided: account and fragment configured to be kept alive when UI was removed (manual destruction):
+  chatController.restoreChat(fragment = chatFragment, account = account, endChatWithUI = false)
 
-  // restore last chat session configured as manual destruction.
-  chatController.restoreChat(autoChatEnd = false)
+  // restore last created chat session, configured to be kept alive when UI was removed (manual destruction).
+  chatController.restoreChat(endChatWithUI = false)
   ```
-  > `autoChatEnd` flag (defaults to true) - defines if the current chat session should be ended automatically, when the fragment is destroyed.   
-
-  If chat was configured as `manual destruction`, it is up to the chat creator, to end the chat session.
+  > `endChatWithUI` flag (defaults to true) - defines if the current chat session should be ended automatically, when the fragment is destroyed.   
+  If was set to false, it is up to the chat creator, to end the chat session.
   ```kotlin
   chatController.endChat()
   ```
-
-When chat starts, if `ChatElementListener` implementation is provided, the previous chat history will be displayed on the chat window.
