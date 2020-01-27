@@ -1,7 +1,8 @@
 # Add File Upload support
 
 The SDK provides an upload mechanism, but enables you to use your own.   
-So, how to integrate upload functionality to your chat:
+Follow the following steps to integrate upload functionality to your chat:
+> If you don't use the SDK for chat ui creation, but want to use the provided uploader mechanism, go to [step 2.](#Use-SDK's-provided-uploader)
 
 ## 1.  Define your file upload trigger   
 The UI component the user will use to trigger the upload. 
@@ -50,7 +51,8 @@ The UI component the user will use to trigger the upload.
 ## 2. Choose an upload provider
 
 - ### Use SDK's provided uploader
-    Create a `FileUploadInfo` object, and pass it to `chatController.uploadFile` to start an upload.
+
+  - Create a `FileUploadInfo` object, for every content you need to upload.
 
     ```kotlin
     //... user selected the file to upload
@@ -60,17 +62,36 @@ The UI component the user will use to trigger the upload.
         filePath = ... // actual selected file path
         content = file.readBytes()... // if was not provided on the constructor
     }
-
-    chatController.uploadFile(uploadInfo) { uploadResults ->
-        //.... got UploadResults and do whatever
-        uploadsResults.error?.run{
-            Log.e(TAG, "Got an error on ${uploadResults.data.name} 
-                                file upload: ${uploadsResults.error}")
-            ...
-        }
-    }
     ```
+     
+  - Activate the upload:
+    
+    1. When using the ChatController 
+    
+        ```kotlin
+        chatController.uploadFile(uploadInfo) { uploadResults ->
+            //.... got UploadResults and do whatever
+            uploadsResults.error?.run{
+                Log.e(TAG, "Got an error on ${uploadResults.data.name} 
+                                    file upload: ${uploadsResults.error}")
+                ...
+            }
+        }
+        ```
     Upload results are passed over the provided callback.
+
+	2. When using the Uploader
+        ```kotlin
+        BoldLiveUploader().upload(uploadInfo, AccountDetails(...)) { uploadResults ->
+            //.... got UploadResults and do whatever
+            uploadsResults.error?.run{
+                Log.e(TAG, "Got an error on ${uploadResults.data.name} 
+                                    file upload: ${uploadsResults.error}")
+                ...
+            }
+        }
+        ```
+
 
 - ### Use your own uploader
 
@@ -131,7 +152,7 @@ chatController.subscribeNotifications(notifiableImpl:Notifiable,
 - #### Customizing uploads progress indication
    The SDK provides uploads propress indication bar   
 
-  <img alt='uploads bar' src='images/Android/uploads_bar_1.png' width=50% style="margin:16px"/>
+    ![](images/Android/uploads_bar_1.png)
 
     - The uploads bar can customized via `ChatUIProvider.uploadsCmpUIProvider.configure`.
 
