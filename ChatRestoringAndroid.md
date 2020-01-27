@@ -1,19 +1,44 @@
-# Chat Restoring
-In order to restore a chat, the integrating app should implement `ChatElementListener.onFetch`.
-[<sub>Read more</sub>](./HistorySupportAndroid)
-## Restore chat after activity destroy
-  In case ChatController is being created by the activity, and is being destroyed with the activity. Once the activity is restored, the ChatController **should be recreated**.  
-   
-  **_<sub> In case the chat fragment is restored, with the activity, it should be removed from the activity, before the new ChatController creation.</sub>_**
+# ChatController
+The SDK's tool to create and restore chats.
+The `ChatControler` is created via a builder, which can be configured with providers and listeners as preferred. Those will be applied to the `ChatController` and to the chat participating components, on build time.
 
-## Restore chat with consistent ChatController
-  In case the ChatController outlive the chat containing activity, as in the case of device rotation, while activity doesn't handle rotation changes. When activity gets restored, the ChatController can be applied with the newely created chat Fragment. Chat will be restarted with the provided account, unless `ChatElementListener.onFetch` is implemented.
+Once created, the `ChatController` can be used for multiple chats creation.
+
+It is up to the `ChatController` creator, to manage its destruction, once done using.   
+On `ChatController` destruction, all open chat sessions will be closed.   
+Destructed `ChatController` can no longer be used to create chats, and will throw an exception if one try to.
+```kotlin
+chatController.destruct()
+```
+
+## Creating chats
+- #### Using the ChatController.Builder
+  Create a new `ChatController` for every chat creation, with the required account.
   ```kotlin
-  chatController.onChatFragmentRestored(restoredFragment, accountInfo)
+  val chatController = ChatController.Builder(context).apply {
+                            conversationSettings(...)
+                            chatEventListener(...)
+                            ...
+                        }.build(account, ChatLoadedListener{})
   ```
-   
-  _In order to **restore** the chat, the integrating app should implement `ChatElementListener.onFetch`._
 
-## Device rotation - Orientation changes
-- In case the containing _activity is destroyed on rotation changes_, a chat restore can be done as mentioned above.
-- In case the containing activity is configured to _handle rotation changes_, the activity and its fragments won't be destroyed, and therefore no further handling is needed.
+- #### Using same `ChatController` with account 
+  ```kotlin
+  chatController.startChat(account)
+  // same as:
+  chatController.restoreChat(account = account, endChatWithUI = false)
+  ```
+  If you want to provide your created chat fragment or configure `endChatWithUI` flag use:
+
+  ```kotlin
+  // start a new chat session with provided: account and fragment configured to be kept alive when UI was removed (manual destruction):
+  chatController.restoreChat(fragment = chatFragment, account = account, endChatWithUI = false)
+
+  // restore last created chat session, configured to be kept alive when UI was removed (manual destruction).
+  chatController.restoreChat(endChatWithUI = false)
+  ```
+  > `endChatWithUI` flag (defaults to true) - defines if the current chat session should be ended automatically, when the fragment is destroyed.   
+  If was set to false, it is up to the chat creator, to end the chat session.
+  ```kotlin
+  chatController.endChat()
+  ```
