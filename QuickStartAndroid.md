@@ -24,14 +24,27 @@ Do the following
                               KNOWLEDGE_BASE, SERVER, contexts)
         ```
 
-      - If the welcome message should be customised and override current console configurations, create account as follows:
+  - If the account is using Initialization Entities, create account as follows:
 
-        ```kotlin
-        val account = BotAccount(API_KEY, ACCOUNT_NAME, KNOWLEDGE_BASE,
-                                  SERVER, CONTEXT_MAP).apply {
-                                      welcomeMessage = ARTICLE_ID
-                                  }
-        ```
+    ```kotlin
+    val entities = mapOf("EntityKey1" to "EntityValue1",
+                        "EntityKey2" to "EntityValue2",
+                        ... )
+                        
+    val account = BotAccount(API_KEY, ACCOUNT_NAME, KNOWLEDGE_BASE,
+                              SERVER, CONTEXT_MAP).apply {
+                                  initializationEntities = entities
+                              }
+    ```
+
+  - If the welcome message should be customised and override current console configurations, create account as follows:
+
+    ```kotlin
+    val account = BotAccount(API_KEY, ACCOUNT_NAME, KNOWLEDGE_BASE,
+                              SERVER, CONTEXT_MAP).apply {
+                                   welcomeMessage = ARTICLE_ID
+                              }
+    ```
 
     - #### To start chat with Bold create `BoldAccount`:
 
