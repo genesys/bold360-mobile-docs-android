@@ -13,7 +13,7 @@ Do the following
   
       Where: API_KEY (mandatory), ACCOUNT_NAME(mandatory), KNOWLEDGE_BASE(mandatory), SERVER(mandatory), CONTEXT_MAP(optional)
 
-      - If the account is using Context, create account as follows:
+      - If the account is using Context, create BotAccount as follows:
 
         ```kotlin
         val contexts = mapOf("ContextKey1" to "ContextValue1",
@@ -24,36 +24,38 @@ Do the following
                               KNOWLEDGE_BASE, SERVER, contexts)
         ```
 
-  - If the account is using Initialization Entities, create account as follows:
+      - If the account is using Initialization Entities, create BotAccount as follows:
 
-    ```kotlin
-    val entities = mapOf("EntityKey1" to "EntityValue1",
-                        "EntityKey2" to "EntityValue2",
-                        ... )
-                        
-    val account = BotAccount(API_KEY, ACCOUNT_NAME, KNOWLEDGE_BASE,
-                              SERVER, CONTEXT_MAP).apply {
-                                  initializationEntities = entities
-                              }
-    ```
+        ```kotlin
+        val entities = mapOf("EntityKey1" to "EntityValue1",
+                            "EntityKey2" to "EntityValue2",
+                            ... )
 
-  - If the welcome message should be customised and override current console configurations, create account as follows:
+        val account = BotAccount(API_KEY, ACCOUNT_NAME, KNOWLEDGE_BASE,
+                                  SERVER, CONTEXT_MAP).apply {
+                                      initializationEntities = entities
+                                  }
+        ```
 
-    ```kotlin
-    val account = BotAccount(API_KEY, ACCOUNT_NAME, KNOWLEDGE_BASE,
-                              SERVER, CONTEXT_MAP).apply {
-                                   welcomeMessage = ARTICLE_ID
-                              }
-    ```
+      - If the welcome message should be customised and override current console configurations, create account as follows:
 
-    - #### To start chat with Bold create `BoldAccount`:
+        ```kotlin
+        val account = BotAccount(API_KEY, ACCOUNT_NAME, KNOWLEDGE_BASE,
+                                  SERVER, CONTEXT_MAP).apply {
+                                       welcomeMessage = ARTICLE_ID
+                                  }
+        ```
+
+##
+
+   - #### To start chat with Bold create `BoldAccount`:
 
       ```kotlin
       val account = BoldAccount(API_KEY)
       ```
+##
 
-
-    - #### To start an async chat create `AsyncAccount`:
+   - #### To start an async chat create `AsyncAccount`:
       ```kotlin
       val account = AsyncAccount(API_KEY, APPLICATION_ID)
       ```
