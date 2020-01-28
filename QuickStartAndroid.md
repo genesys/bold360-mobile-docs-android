@@ -2,9 +2,9 @@
 
 ## Starting a Chat  
 Do the following
-1. ### Create an Account.
+1. ### <u>Create an Account.</u>
 
-   - #### To start chat with Bot create `BotAccount`:  
+   - #### *To start chat with Bot create `BotAccount`*:  
     
       ```kotlin
       val account = BotAccount(API_KEY, ACCOUNT_NAME,
@@ -47,14 +47,14 @@ Do the following
         ```
 
 
-     - #### To start chat with Bold create `BoldAccount`:
+   - #### *To start chat with Bold create `BoldAccount`*:
 
         ```kotlin
         val account = BoldAccount(API_KEY)
         ```
 
 
-     - #### To start an async chat create `AsyncAccount`:
+    - #### *To start an async chat create `AsyncAccount`*:
      
         ```kotlin
         val account = AsyncAccount(API_KEY, APPLICATION_ID)
@@ -75,7 +75,7 @@ Do the following
 
 ##
 
-2. ### Create `ChatController` object
+2. ### <u>Create `ChatController` object</u>
     With the ChatController one can create and control a chat.
 
     ```kotlin
@@ -85,7 +85,7 @@ Do the following
 
 ##
 
-3. ### Add the chat fragment to your activity.
+3. ### <u>Add the chat fragment to your activity.</u>
 
     Implement the ChatLoadedListener interface and pass it in the `ChatController.Builder` build method.   
     Once the chat build succeeded and the fragment is ready to be displayed, `onComplete` will be called and the fragment will bre available on the results. 
