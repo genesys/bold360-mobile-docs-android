@@ -23,7 +23,7 @@ Do the following
         val account = BotAccount(API_KEY, ACCOUNT_NAME,
                               KNOWLEDGE_BASE, SERVER, contexts)
         ```
-
+    
       - If the account is using Initialization Entities, create BotAccount as follows:
 
         ```kotlin
@@ -36,8 +36,8 @@ Do the following
                                       initializationEntities = entities
                                   }
         ```
-
-      - If the welcome message should be customised and override current console configurations, create account as follows:
+   
+     - If the welcome message should be customised and override current console configurations, create account as follows:
 
         ```kotlin
         val account = BotAccount(API_KEY, ACCOUNT_NAME, KNOWLEDGE_BASE,
@@ -46,30 +46,32 @@ Do the following
                                   }
         ```
 
-##
 
-   - #### To start chat with Bold create `BoldAccount`:
+     - #### To start chat with Bold create `BoldAccount`:
 
-      ```kotlin
-      val account = BoldAccount(API_KEY)
-      ```
-##
+        ```kotlin
+        val account = BoldAccount(API_KEY)
+        ```
 
-   - #### To start an async chat create `AsyncAccount`:
-      ```kotlin
-      val account = AsyncAccount(API_KEY, APPLICATION_ID)
-      ```
-      In order to provide a specific user id and info, (by that, relate all chats with the same id, to the same user), add `UserInfo` to the account creation. If `userId` is not provided, one will be automatically generated. 
-      ```kotlin
-      val account = AsyncAccount(API_KEY, APPLICATION_ID).apply {
-          info.userInfo = UserInfo(USER_ID).apply { // Mandatory
-              firstName = FIRST_NAME // optional
-              lastName = LAST_NAME // optional
-              email = EMAIL_ADDRESS // optional
-              phoneNumber = PHONE_NUMBER // optional
-          }
-      }
-      ```
+
+     - #### To start an async chat create `AsyncAccount`:
+     
+        ```kotlin
+        val account = AsyncAccount(API_KEY, APPLICATION_ID)
+        ```
+        
+        In order to provide a specific user id and info, (by that, relate all chats with the same id, to the same user), add `UserInfo` to the account creation. If `userId` is not provided, one will be automatically generated. 
+        
+        ```kotlin
+        val account = AsyncAccount(API_KEY, APPLICATION_ID).apply {
+            info.userInfo = UserInfo(USER_ID).apply { // Mandatory
+                firstName = FIRST_NAME // optional
+                lastName = LAST_NAME // optional
+                email = EMAIL_ADDRESS // optional
+                phoneNumber = PHONE_NUMBER // optional
+            }
+        }
+        ```
 
 ##
 
