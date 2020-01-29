@@ -1,3 +1,31 @@
+# Version 3.5.2
+
+In this version:
+
+## Bold live chat related
+
+- Support "High value + push chat" behavior:  
+  Articles that are configured with "High value + push chat" option, are immediatelly escalate to the first `Chat` channel when recieved.
+
+## Bot ai chat related
+
+- Added analytics reports for `Voice` and `Autocomplete` user's interactions.
+
+### SDK imports
+
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:3.5.2"
+implementation "com.bold360ai-sdk.conversation:engine:3.5.2"
+implementation "com.bold360ai-sdk.conversation:chatintegration:3.5.2"
+implementation "com.bold360ai-sdk.conversation:ui:3.5.2"
+implementation "com.bold360ai-sdk.core:accessibility:3.5.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.60"
+implementation "com.google.code.gson:gson:2.8.5"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+---
 
 # Version 3.5.1
 In this version:
