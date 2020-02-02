@@ -7,6 +7,14 @@
 [Quick Start](QuickStartAndroid)
 
 Advanced Topics  (collapsable)
+
+  - Chat creation
+    - [Chat create and restore](ChatRestoringAndroid)
+    - [Chat availability](android_chat_availability)
+    - [Chat Settings](ChatSettingsAndroid)
+    - [Chat Engagement](ChatEngagement)
+<!--   - [Account info provider](android-AccountInfoProvider)) -->
+
   - Live Bold Chat  (collapsable)
     - [Live chat with BoldAccount](LiveBoldChatAdvanceAndroid)
     - [Present Forms](PresentFormsAndroid) 
@@ -23,10 +31,7 @@ Advanced Topics  (collapsable)
     - [Events and notifications](Listeners-and-subscriptions-android)
     - [User Tracking](UserTrackingAndroid)
 
-  - [Chat restoring](ChatRestoringAndroid)
-  - [Chat availability](android_chat_availability)
-  - [Chat Settings](ChatSettingsAndroid)
-  - [Account info provider](android-AccountInfoProvider)
+    
   - [Chat UI Customizations](ChatCustomizationsAndroid)
   - [Autocompletion Support](Conversation-Autocomplete-android)
   - [History support](HistorySupportAndroid)
