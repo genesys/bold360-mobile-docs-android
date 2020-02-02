@@ -30,6 +30,7 @@
   - [Autocompletion Support](Conversation-Autocomplete-android)
   - [History support](HistorySupportAndroid)
   - [Content upload support](FileUploadAndroid)
+  - [Chat Engagement](ChatEngagement)
 
 
 [Samples](https://github.com/bold360ai/bold360-mobile-samples-android)
