@@ -26,12 +26,12 @@
   - [Chat restoring](ChatRestoringAndroid)
   - [Chat availability](android_chat_availability)
   - [Chat Settings](ChatSettingsAndroid)
+  - [Chat Engagement](ChatEngagement)
   - [Chat UI Customizations](ChatCustomizationsAndroid)
   - [Autocompletion Support](Conversation-Autocomplete-android)
   - [History support](HistorySupportAndroid)
   - [Content upload support](FileUploadAndroid)
-  - [Chat Engagement](ChatEngagement)
-
+  
 
 [Samples](https://github.com/bold360ai/bold360-mobile-samples-android)
 
