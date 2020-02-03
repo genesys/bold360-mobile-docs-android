@@ -14,7 +14,7 @@ In this version:
 ### SDK imports
 
 ```gradle
-implementation "com.bold360ai-sdk.core:sdkcore:3.5.3"
+implementation "com.bold360ai-sdk.core:sdkcore:3.5.2"
 implementation "com.bold360ai-sdk.conversation:engine:3.5.3"
 implementation "com.bold360ai-sdk.conversation:chatintegration:3.5.3"
 implementation "com.bold360ai-sdk.conversation:ui:3.5.3"
