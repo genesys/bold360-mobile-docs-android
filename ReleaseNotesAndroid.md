@@ -16,8 +16,8 @@ In this version:
 ```gradle
 implementation "com.bold360ai-sdk.core:sdkcore:3.5.2"
 implementation "com.bold360ai-sdk.conversation:engine:3.5.3"
-implementation "com.bold360ai-sdk.conversation:chatintegration:3.5.3"
-implementation "com.bold360ai-sdk.conversation:ui:3.5.3"
+implementation "com.bold360ai-sdk.conversation:chatintegration:3.5.2"
+implementation "com.bold360ai-sdk.conversation:ui:3.5.2"
 implementation "com.bold360ai-sdk.core:accessibility:3.5.0"
 
 implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.60"
