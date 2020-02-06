@@ -26,11 +26,14 @@ boldAccount.info.addExtraData(SessionInfoKeys.FirstName to firstName,
 
 asynAccount.info.addConfigurations(SessionInfoConfigKeys.ApplicationId to appId)                
 
+boldAccount.info.addConfigurations(SessionInfoConfigKeys.SkipPrechat to true)                
+
 OR
 
-boldAccount.info.department(departmentId)
+boldAccount.info.department = departmentId
 
-botAccount.info.welcomeMessage(articleId)
+botAccount.welcomeMessage = articleId
+botAccount.info.welcomeMessage = articleId
 
 ////////////////////////////
 
@@ -42,6 +45,8 @@ OR
 LiveSession.setDepartment(boldAccount.getInfo())
 
 AsyncSession.setUserInfo(asyncAccount.getInfo(), new UserInfo(userId))
+
+LiveSession.setLanguage(boldAccount.getInfo(), "fr-FR")
 ```
 
 
