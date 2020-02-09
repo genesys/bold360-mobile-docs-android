@@ -1,5 +1,5 @@
 ## Async chat continuation
-The values that are needed to enable chat continuation are: 
+### What is needed to enable chat continuation: 
 - #### UserInfo - 
   Provide a `UserInfo` (userId), in case the current chat should relate to a specific user.
   All related chats are gathered as one conversation.   
