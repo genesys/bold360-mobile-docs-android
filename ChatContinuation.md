@@ -1,5 +1,5 @@
 ## Chat continuation
-The option to restore and continue previously created chat later in time.  
+The option to restore and continue a previously created chat later in time.  
 Each chat type (bot, live) has its own properties that are being used to enable that option.   
 Those properties are configurable via the chat account.  
 
