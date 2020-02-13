@@ -9,28 +9,31 @@
   asyncAccount.info.UserInfo = UserInfo(UserId).apply{ ... }
   ```
 
+- #### ShouldStartNewChat -
+  Defines whether the created chat session should be restored on a previously opened chat or create a new chat session.
+  ```kotlin
+  asyncAccount.info.ShouldStartNewChat = true/false
+  ```
+
 - #### SenderId - 
-  Provide a `SenderId` in order to restore connection to an **_active_** chat.   
-  > If chat was closed by the time of the connection, a new chat session will be created, new SenderId will be generated and missed messages if available, will be fetched and displayed.
+  SenderId represents a chat session id. User can have many chat sessions in which accumulate to a user conversation.   
+  SenderId functionality depends on [`ShouldStartNewChat`](ShouldStartNewChat) value. 
   ```kotlin
-  // sets SenderId to restore async session connection to a specific chat:
   asyncAccount.info.SenderId = Long_Sender_Value
-  ```
-
-- #### PreviousSenderId -
-  Provide a `PreviousSenderId` in order to fetch messages of a previous closed chat.   
-  > **_For that purpose, you'll also need to provide the `lastReceivedMessageId`_** 
-  ```kotlin
-  // sets PreviousSenderId to enable fetching missed messages of a previous closed chat. 
-  asyncAccount.info.PreviousSenderId = Long_Previous_Sender_Value
-
-  // followed by:
-  asyncAccount.info.LastReceivedMessageId = Last_Message_Id
-  ```
-
+  ``` 
+  Provide a `SenderId` in order to:
+   - restore connection to an **_active_** chat. [`ShouldStartNewChat==false`]
+     > Chat restore will fail if the chat session was already been closed by agent.    
+     A new chat session will be created, with newly generated SenderId. Missed messages of the closed chat will be fetched and displayed.
+   - Enable retrieval of missed messages from a previously opened/closed chat. [`ShouldStartNewChat==true`]  
+     >For that purpose, you'll also need to provide the [`lastReceivedMessageId`](listening_to_lastReceivedMessageId_changes) 
+     ```kotlin
+     asyncAccount.info.LastReceivedMessageId = Last_Message_Id
+     ``` 
+  
 ### How to get continuation values:
 
-When chat was created, or when values were changed, an update call will be triggered over [`AccountInfoProvider`](android-AccountInfoProvider).   
+When chat is being created, or when values were changed, an update call will be triggered over [`AccountInfoProvider`](android-AccountInfoProvider).   
 Save session details for later usage.
 
 ### listening to `lastReceivedMessageId` changes
