@@ -14,11 +14,12 @@ chatController.setChatElementListener(listenerImpl)
 `onReceive`(req) - on element inserted to the chat.   
 `onRemove`(opt) - element was removed from the chat.   
 `onUpdate`(opt) - elemenet data was updated.
-> In order to support chat continuation, provided implemenation should also implement: `onFetch`(opt)
+
+`onFetch`(opt) - implement this in order to enable display of previous chat content. (Historic content)
 
 
 ### Ongoing events
-In order to be notified over events that occures during chat lifecycle, implement `ChatEventListener` and pass it on `ChatController` creation, as follows:
+In order to be notified over events that occurs during chat lifecycle, implement `ChatEventListener` and pass it on `ChatController` creation, as follows:
 ```kotlin
 ChatController.Builder(context)...
     .chatEventListener(ChatEventListenerImpl)

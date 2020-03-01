@@ -152,7 +152,7 @@ chatController.subscribeNotifications(notifiableImpl:Notifiable,
 - #### Customizing uploads progress indication
    The SDK provides uploads propress indication bar   
 
-  <img alt='uploads bar' src='images/Android/uploads_bar_1.png' width=50% style="margin:16px"/>
+    ![](images/Android/uploads_bar_1.png)
 
     - The uploads bar can customized via `ChatUIProvider.uploadsCmpUIProvider.configure`.
 
