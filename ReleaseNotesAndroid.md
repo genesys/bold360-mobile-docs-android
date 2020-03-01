@@ -1,11 +1,37 @@
+
+# Version 3.5.4
+
+In this version:
+
+## Bot ai chat related
+
+- Timed feedback fix
+- high value push chat, article injection.
+
+### SDK imports
+
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:3.5.2"
+implementation "com.bold360ai-sdk.conversation:engine:3.5.4"
+implementation "com.bold360ai-sdk.conversation:chatintegration:3.5.2"
+implementation "com.bold360ai-sdk.conversation:ui:3.5.4"
+implementation "com.bold360ai-sdk.core:accessibility:3.5.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.60"
+implementation "com.google.code.gson:gson:2.8.5"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+---
+
 # Version 3.5.3
 
 In this version:
 
 ## General Chat related
 
-- Expose an interface to programatically inject a user query in a conversational bot.
->Note: This feature was already avaialble, docs have been updated
+- Expose an interface to programmatically inject a user query in a conversational bot.
+>Note: This feature was already available, docs have been updated
 
 ## Bot ai chat related
 
