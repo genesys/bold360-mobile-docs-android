@@ -1,108 +1,58 @@
 
-# Introduction
+# Handover
+**Handing** the control of the chat to a provided custom `ChatHandler` implementation.  
+The handover is activated by escalating from a Chat typed channel, which is configured with `custom provider`.
 
-This article will help you to add a support to Handover sessions.
-
-Handover is a chat session with a custom provider that is configured and controlled by the customer.
-The Handover is being controlled at the app by a provided custom `ChatHandler`.
-
-`Chat handlers` are being used at the SDK in order to separate the chat sessions between different providers such as `Bot` and `Bold`.
-They handle the user actions and the chat events passed from the chat UI.
-
-## The Chat handlers implement the `ChatUIHandler` interface
-
-- *`fun setChatDelegate(delegate: ChatDelegate)`* - sets the handler's chat delegate (which is the ui interface instance)
-
-- *`fun setListener(listener: EventListener?)`* - Sets the SDK listener which is used to pass events from the handler back to the SDK
-
-- *`fun startChat(accountInfo: AccountInfo?)`* - Preform actions when the chat has been started.
-    The AccountInfo contains data that has been retrieved from the server.
-    usage example:
-
-```java
-     @Override
-    public void startChat(@Nullable AccountInfo accountInfo) {
-        if (accountInfo != null) {
-            byte[] bytes = accountInfo.getInfo();
-            handlerConfiguration = new String(bytes);
-        }
-
-        chatDelegate.injectSystem(new SystemStatement("Started Chat with Handover provider, the handover data is: " + handlerConfiguration, getScope()));
-        chatDelegate.injectIncoming(new IncomingStatement("Hi from handover", getScope()));
-    }
+Handover `ChatHandler` implementation should be provided on `ChatController` creation.
+```kotlin
+val chatController = ChatController.Builder(context)
+                                .chatHandoverHandler(myHandoverHandler)
+                                ...
+                                .build(account,...)
 ```
 
-- *`fun endChat(forceClose: Boolean)`* - Commit actions when the chat ends (before the handler is being destructed)
-    usage example:
+### How to implement
+1. Extend `HandoverHandler`.   
+2. Override ChatHandler methods to achieve your chat logic.   
 
-```java
-    @Override
-    public void endChat(boolean forceClose) {
-        StateEvent endEvent = new StateEvent(Ended, getScope());
-        listener.handleEvent(endEvent.getType(), endEvent);
-    }
+
+### Notice:
+
+- When chat starts or the `ChatHandler` receives `StateEvent`, `Resumed`, in order to display the chat input field, use the method `enableChatInput` with `super` default implementation or override and set your configurations.   
+
+- `ChatDelegate` provides methods to interact with the UI, like, setting UI components visibility, injecting elements to the UI etc.    
+ 
+- Since Handover is an escalated chat, it will be passed to the 'AccountInfoProvider', to provide a detailed account. In case no extra data should be added to the account, just return the account back.
+
+#### Implementation and usage examples:
+
+```kotlin 
+override fun startChat(accountInfo:AccountInfo?) {
+    // create and start your custom chat session.
+    enableChatInput(true, null)
+    // when created:
+    injectSystemMessage(SystemStatement("Handover chat started");
+    chatDelegate?.injectIncoming(LocalChatElement("Hi from handover", getScope()));
+}
+
+override fun endChat(forceClose: Boolean) {
+    handleEvent(State, StateEvent(StateEvent.Ended, getScope()))
+    enableChatInput(false, null)
+    chatStarted = false
+}
+
+override fun post(message: ChatStatement){
+    chatDelegate?.injectOutgoing(message.apply{
+        this.status = StatusOk
+    });
+    // or for later status update use:
+    chatDelegate?.updateStatus(message.getTimestamp(), StatusOk); 
+}
 ```
-
-- *`fun post(message: ChatStatement)`* - Here we get the message that the user typed at the sdk's input
-    field.
-    usage example:
-
-```java
-    @Override
-    public void post(@NotNull ChatStatement message){
-        chatDelegate.injectOutgoing(message);
-        chatDelegate.updateStatus(message.getTimestamp(), StatusOk); // can be delayed by the handover provider
-    }
-```
-
-- *`fun handleEvent(name:String, event: Event)`* - here the handler receives events from the SDK. It can preform actions before before passing them to the event listener.
-    usage example:
-
-    ```java
-    @Override
-        public void handleEvent(@NotNull String name, @NotNull Event event) 
-
-            switch (name) {
-                case State:
-                {...}
-                break;
-
-                case Message:
-                {...}
-                break;
-
-                case UserAction:
-                {...}
-                break;
-
-                case Error:
-                {...}
-                break;
-            }
-
-            // If there is any post event function, invoke it after the event handling
-            Function0 postEvent = event.getPostEvent();
-            if (postEvent != null) {
-                postEvent.invoke();
-            }
-        }
-    ```
-
-## Handover handler implementation
-
-As noted above, the Handover is being controlled from a class that implements the `ChatUIHandler` interface.
-
-In order to add the implemented class to the SDK, add the next at the ChatController builder:
-
-```java
-    ChatController.Builder chatBuilder = new ChatController.Builder(getContext())
-            ...
-            .chatHandoverHandler(customHandoverHandler);
-            ...
-```
-
-## Set a handover channel at the BoldAI console
-
-In order to apply a Handover channel for the account, follow the next channel example:
+<details>
+<summary> <B>Creating a `Handover` chat channel on Bold360ai console</B> </summary>
+Pursue the following sample:    
 
 ![](images/Android/handoverChannel.png)
+
+</details>

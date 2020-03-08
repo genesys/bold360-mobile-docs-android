@@ -22,6 +22,7 @@
     - [On load messages](On-load-messages-injection-Android)
     - [Personal Information](Personal_Information)
     - [Incoming components](Incoming-component-Android)
+    - [Feedback](FeedbackAndroid)
 
   - [Chat restoring](ChatRestoringAndroid)
   - [Chat availability](android_chat_availability)
