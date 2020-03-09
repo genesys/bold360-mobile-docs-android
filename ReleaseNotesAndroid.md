@@ -3,22 +3,30 @@
 
 In this version:
 
+## General Chat related
+- Fix of the issue that HTML encoded special characters (like &nbsp;) are not displayed at all.
+- User messages are sent as typed - Fix of the the issue that the <br/> tag was visible for the live agent when the end user added a line break in a message.
+- Fix of the issue that if you had additional visual customization on system messages the message had double border
+
+
 ## Bot ai chat related
 
-- Timed feedback fix
-- high value push chat, article injection.
+- Re-enabling the feedback gathering method that is presented with a small delay after showing the bot answer as a separate question from the bot.
+- When presenting "High value + push chat" value messages, first the answer is presented than than automatic channeling is performed.
+- Fix of the issue that article links did not open the linked article
+
 
 ### SDK imports
 
 ```gradle
-implementation "com.bold360ai-sdk.core:sdkcore:3.5.2"
+implementation "com.bold360ai-sdk.core:sdkcore:3.5.4"
 implementation "com.bold360ai-sdk.conversation:engine:3.5.4"
-implementation "com.bold360ai-sdk.conversation:chatintegration:3.5.2"
+implementation "com.bold360ai-sdk.conversation:chatintegration:3.5.3"
 implementation "com.bold360ai-sdk.conversation:ui:3.5.4"
 implementation "com.bold360ai-sdk.core:accessibility:3.5.0"
 
-implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.60"
-implementation "com.google.code.gson:gson:2.8.5"
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61"
+implementation "com.google.code.gson:gson:2.8.6"
 implementation "android.arch.lifecycle:extensions:1.1.1"
 ```
 
