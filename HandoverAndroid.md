@@ -39,6 +39,12 @@ override fun startChat(accountInfo:AccountInfo?) {
     injectElement(LocalChatElement("Hi from handover", getScope()));
 }
 
+override fun endChat(forceClose: Boolean) {
+    handleEvent(State, StateEvent(StateEvent.Ended, getScope()))
+    enableChatInput(false, null)
+    chatStarted = false
+}
+
 override fun post(message: ChatStatement){
     chatDelegate.injectElement(message.apply{
         this.status = StatusOk

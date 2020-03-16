@@ -19,7 +19,7 @@ override fun onChatStateChanged(stateEvent: StateEvent) {
 
 Use `ChatController::post` method.
 
-Exmaples:
+Examples:
 ```kotlin
 // inject message from user side:
 chatController.post(OutgoingStatement("hello"));

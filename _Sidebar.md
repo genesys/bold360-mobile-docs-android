@@ -25,6 +25,7 @@ Advanced Topics  (collapsable)
     - [On load messages](On-load-messages-injection-Android)
     - [Personal Information](Personal_Information)
     - [Incoming components](Incoming-component-Android)
+    - [Feedback](FeedbackAndroid)
 
   - Events, states and notifications  (collapsable)
     - [Chat lifecycle events](ChatLifecycleEventsAndroid)
@@ -36,7 +37,7 @@ Advanced Topics  (collapsable)
   - [Autocompletion Support](Conversation-Autocomplete-android)
   - [History support](HistorySupportAndroid)
   - [Content upload support](FileUploadAndroid)
-
+  
 
 [Samples](https://github.com/bold360ai/bold360-mobile-samples-android)
 
