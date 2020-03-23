@@ -24,13 +24,14 @@ boldAccount.info.addExtraData(SessionInfoKeys.FirstName to firstName,
                 SessionInfoKeys.Email to email,
                 SessionInfoKeys.Phone to phoneNumber, ...)
 
-botAccount.info.addConfigurations(SessionInfoConfigKeys.SkipPrechat to true)                
+boldAccount.info.addConfigurations(SessionInfoConfigKeys.SkipPrechat to true)                
 
 OR
 
-boldAccount.info.department(departmentId)
+boldAccount.info.department = departmentId
 
-botAccount.info.welcomeMessage(articleId)
+botAccount.welcomeMessage = articleId
+botAccount.info.welcomeMessage = articleId
 
 ////////////////////////////
 
