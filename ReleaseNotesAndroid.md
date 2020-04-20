@@ -1,4 +1,34 @@
 
+# Version 3.5.5
+
+In this version:
+
+## General Fixes
+- Fix of the issue that the placeholder, in the text input, changed when a chat was channeled to a live agent.
+
+
+## Bold live chat Fixes
+
+- Initial questions submitted through the pre-chat form, are visible to the end user, as the first, end user, sent message.
+- Postchat form submission, returns with no errors.
+
+
+### SDK imports
+
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:3.5.5"
+implementation "com.bold360ai-sdk.conversation:engine:3.5.5"
+implementation "com.bold360ai-sdk.conversation:chatintegration:3.5.5"
+implementation "com.bold360ai-sdk.conversation:ui:3.5.5"
+implementation "com.bold360ai-sdk.core:accessibility:3.5.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+---
+
 # Version 3.5.4
 
 In this version:
