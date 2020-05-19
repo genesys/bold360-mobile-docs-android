@@ -1,3 +1,27 @@
+# Version 3.5.6
+
+In this version:
+
+## Article full view Fixes
+- Fix of the issue that the Article title was not presented in the full screen mode display of articles
+- Fix of the issue that articles were truncated for the end users. If an html encoded character was present in an article, the text after the character was not presented.
+
+### SDK imports
+
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:3.5.5"
+implementation "com.bold360ai-sdk.conversation:engine:3.5.6"
+implementation "com.bold360ai-sdk.conversation:chatintegration:3.5.5"
+implementation "com.bold360ai-sdk.conversation:ui:3.5.6"
+implementation "com.bold360ai-sdk.core:accessibility:3.5.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+---
+
 
 # Version 3.5.5
 
