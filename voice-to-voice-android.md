@@ -30,7 +30,13 @@ In case there's a need to alternate some of the text before it is read to the us
 val ttsProvider = object : TTSReadAlterProvider{
     override fun alter(readRequest: ReadRequest, 
                         callback: (ReadRequest) -> Unit) {
-                            readRequest.text = ... // alter text here
+                            
+                            // Option 1: Override a specific readout element:
+                            readRequest.readoutItem.body = ... // override the body text here
+
+                            // Option 2: Override the complete readout:
+                            readRequest.readoutItem.readoutResult = ... // alter text here
+
                             callback(readRequest) // pass back your changes
                         }
 }
