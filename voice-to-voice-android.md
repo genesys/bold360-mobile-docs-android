@@ -32,7 +32,8 @@ val ttsProvider = object : TTSReadAlterProvider{
                         callback: (ReadRequest) -> Unit) {
                             
                             // Option 1: Override a specific readout element:
-                            readRequest.readoutItem.body = ... // override the body text here
+    readRequest.readoutMessage.body = ... // override the body text here
+    readRequest.readoutResult = readoutMessage.toString()
 
                             // Option 2: Override the complete readout:
                             readRequest.readoutItem.readoutResult = ... // alter text here
