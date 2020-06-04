@@ -31,12 +31,11 @@ val ttsProvider = object : TTSReadAlterProvider{
     override fun alter(readRequest: ReadRequest, 
                         callback: (ReadRequest) -> Unit) {
                             
-                            // Option 1: Override a specific readout element:
-    readRequest.readoutMessage.body = ... // override the body text here
-    readRequest.readoutResult = readoutMessage.toString()
+                            // Option 1: Override a specific readoutItem (using the default SDK's readout):
+                            readRequest.readoutItem.body = ... // override the body text here
 
                             // Option 2: Override the complete readout:
-                            readRequest.readoutItem.readoutResult = ... // alter text here
+                            readRequest.readoutResult = ... // alter text here
 
                             callback(readRequest) // pass back your changes
                         }
