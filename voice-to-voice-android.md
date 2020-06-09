@@ -23,18 +23,25 @@ _Currently we support VoiceToVoice on ai chats and SpeechRecognition on live cha
 
 
 ### Provide an alternative text for the read out
-Once a response is received, if the VoiceToVoice is enabled, that response will be parsed to a textual presentation for the read out.   
-In case there's a need to alternate some of the text before it is read to the user, you need to implement and set a `TTSReadAlterProvider`to the ChatController.
+When voice support feature is configured to `Voice to Voice`, Once a response is received, that response will be parsed to a textual presentation to be read out.   
+All parts of the response are combined and read. message body, persistent options and quick options, if available. Each read section has a configurable prefix.   
+In case there's a need to alternate some of the `read out` text, before it is read to the user, implement and set a `TTSReadAlterProvider`to the ChatController instance.
 ```kotlin
 // 1. implement the provider:
 val ttsProvider = object : TTSReadAlterProvider{
     override fun alter(readRequest: ReadRequest, 
                         callback: (ReadRequest) -> Unit) {
                             
-                            // Option 1: Override a specific readoutItem (using the default SDK's readout):
+                            //// Option 1: 
+      						// A. Override a specific content of the reaponse message details:
                             readRequest.readoutMessage.text = ... // override the body text here
-
-                            // Option 2: Override the complete readout:
+      						readRequest.readoutMessage.setPersistentPrefix("new_prefix")
+                            ...
+      						// B. Activate the provided `toReadout()` method  
+							readRequest.readoutResult = readRequest.readoutMessage.toReadout()
+                            /////////
+                            
+                            //// Option 2: Override the provided default readout result:
                             readRequest.readoutResult = ... // alter text here
 
                             callback(readRequest) // pass back your changes
@@ -52,6 +59,8 @@ chatController.setTTSReadAlterProvider(provider)
 
 // Passing null, will clear the alter provider.
 ```
+The default text tobe read, as provided by the SDK implementation, is available on `readRequest.readResult` property. this text can be changed, 
+or the response details provided on `readRequest.readoutMessage` can be used to create a different readoutResult outcome.
 
 ### How to configure
 - #### Configuring read out settings
