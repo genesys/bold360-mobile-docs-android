@@ -59,7 +59,8 @@ val ttsProvider = object : TTSReadAlterProvider{
 // OR on runtime:
 chatController.setTTSReadAlterProvider(provider)
 
-// Passing null, will clear the alter provider.
+// Passing null, will clear the alter provider. Default readout provider will be used to prepare responses to be read.
+
 ```
 
 
