@@ -26,6 +26,8 @@ _Currently we support VoiceToVoice on ai chats and SpeechRecognition on live cha
 When voice support feature is configured to `Voice to Voice`, Once a response is received, that response will be parsed to a textual presentation to be read out.   
 All parts of the response are combined and read. message body, persistent options and quick options, if available. Each read section has a configurable prefix.   
 In case there's a need to alternate some of the `read out` text, before it is read to the user, implement and set a `TTSReadAlterProvider`to the ChatController instance.
+> The default text to be read, as provided by the SDK implementation, is available on `readRequest.readResult` property. this text can be changed, 
+or the response details provided on `readRequest.readoutMessage` can be used to create a different readoutResult outcome.
 ```kotlin
 // 1. implement the provider:
 val ttsProvider = object : TTSReadAlterProvider{
@@ -59,8 +61,7 @@ chatController.setTTSReadAlterProvider(provider)
 
 // Passing null, will clear the alter provider.
 ```
-The default text tobe read, as provided by the SDK implementation, is available on `readRequest.readResult` property. this text can be changed, 
-or the response details provided on `readRequest.readoutMessage` can be used to create a different readoutResult outcome.
+
 
 ### How to configure
 - #### Configuring read out settings
