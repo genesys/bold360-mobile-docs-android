@@ -13,6 +13,6 @@ val chatController = ChatController.Builder(context).apply{
 ```
 
 #### In this topic:
-- [Async chat continuation](AsyncChatContinuation)
-- [Bold live chat continuation](AsyncChatContinuation)
-- [Bot ai chat continuation](AsyncChatContinuation)
+- [Async chat continuation](./AsyncChatContinuation)
+- [Bold live chat continuation](./BoldChatContinuation)
+- [Bot ai chat continuation](./BotChatContinuation)
