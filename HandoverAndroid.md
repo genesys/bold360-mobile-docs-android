@@ -18,10 +18,14 @@ val chatController = ChatController.Builder(context)
 
 ### Notice:
 
+- Chat elements injection and update, **should be done via its `super` class, provided methods**.  
+  >injectElement, updateStatus, removeElement, etc
+
 - When chat starts or the `ChatHandler` receives `StateEvent`, `Resumed`, in order to display the chat input field, use the method `enableChatInput` with `super` default implementation or override and set your configurations.   
 
 - `ChatDelegate` provides methods to interact with the UI, like, setting UI components visibility, injecting elements to the UI etc.    
- 
+  >**If operations on chat elements should also be passed to ChatElementListener, like history updates, use `super` class methods as mentioned before.**    
+
 - Since Handover is an escalated chat, it will be passed to the 'AccountInfoProvider', to provide a detailed account. In case no extra data should be added to the account, just return the account back.
 
 #### Implementation and usage examples:
@@ -29,10 +33,10 @@ val chatController = ChatController.Builder(context)
 ```kotlin 
 override fun startChat(accountInfo:AccountInfo?) {
     // create and start your custom chat session.
-    enableChatInput(true, null)
+
     // when created:
     injectSystemMessage(SystemStatement("Handover chat started");
-    chatDelegate?.injectIncoming(LocalChatElement("Hi from handover", getScope()));
+    injectElement(LocalChatElement("Hi from handover", getScope()));
 }
 
 override fun endChat(forceClose: Boolean) {
@@ -42,11 +46,11 @@ override fun endChat(forceClose: Boolean) {
 }
 
 override fun post(message: ChatStatement){
-    chatDelegate?.injectOutgoing(message.apply{
+    chatDelegate.injectElement(message.apply{
         this.status = StatusOk
     });
     // or for later status update use:
-    chatDelegate?.updateStatus(message.getTimestamp(), StatusOk); 
+    updateStatus(message.getTimestamp(), StatusOk); 
 }
 ```
 <details>

@@ -24,6 +24,8 @@ boldAccount.info.addExtraData(SessionInfoKeys.FirstName to firstName,
                 SessionInfoKeys.Email to email,
                 SessionInfoKeys.Phone to phoneNumber, ...)
 
+asynAccount.info.addConfigurations(SessionInfoConfigKeys.ApplicationId to appId)                
+
 boldAccount.info.addConfigurations(SessionInfoConfigKeys.SkipPrechat to true)                
 
 OR
@@ -41,6 +43,8 @@ boldAccount.getInfo().addExtraData(new Pair(SessionInfoKeys.FirstName,firstName)
 OR
 
 LiveSession.setDepartment(boldAccount.getInfo())
+
+AsyncSession.setUserInfo(asyncAccount.getInfo(), new UserInfo(userId))
 
 LiveSession.setLanguage(boldAccount.getInfo(), "fr-FR")
 ```

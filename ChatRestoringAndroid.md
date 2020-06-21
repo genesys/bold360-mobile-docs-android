@@ -1,19 +1,62 @@
-# Chat Restoring
-In order to restore a chat, the integrating app should implement `ChatElementListener.onFetch`.
-[<sub>Read more</sub>](./HistorySupportAndroid)
-## Restore chat after activity destroy
-  In case ChatController is being created by the activity, and is being destroyed with the activity. Once the activity is restored, the ChatController **should be recreated**.  
-   
-  **_<sub> In case the chat fragment is restored, with the activity, it should be removed from the activity, before the new ChatController creation.</sub>_**
+# Create and restore chats 
+A key player in chat restoring is the `ChatController`.
 
-## Restore chat with consistent ChatController
-  In case the ChatController outlive the chat containing activity, as in the case of device rotation, while activity doesn't handle rotation changes. When activity gets restored, the ChatController can be applied with the newely created chat Fragment. Chat will be restarted with the provided account, unless `ChatElementListener.onFetch` is implemented.
+## ChatController
+The SDK's tool to create and restore chats.   
+The `ChatControler` is created via a builder, which can be configured with providers and listeners as needed. Those, in turn, will be applied to the `ChatController` instance and other participating components.
+
+Once created, the `ChatController` can be used for multiple chats creation.
+Via the `ChatController` you can interact with the chat, and listen to its events.
+
+`ChatController` destruction should be managed by its creator.   
+```kotlin
+chatController.destruct()
+```   
+- Once destruction was activated, all open chat sessions will be closed.   
+- Destructed `ChatController` can no longer be used to create chats, and throws an exception if one tries so.
+
+
+## How to create and restore chats
+- ### Create chat using the ChatController.Builder
+  Creates a new `ChatController` and a new chat, with the provided account.
   ```kotlin
-  chatController.onChatFragmentRestored(restoredFragment, accountInfo)
+  val chatController = ChatController.Builder(context).apply {
+                            conversationSettings(...)
+                            chatEventListener(...)
+                            ...
+                        }.build(account, ChatLoadedListener{})
   ```
-   
-  _In order to **restore** the chat, the integrating app should implement `ChatElementListener.onFetch`._
 
-## Device rotation - Orientation changes
-- In case the containing _activity is destroyed on rotation changes_, a chat restore can be done as mentioned above.
-- In case the containing activity is configured to _handle rotation changes_, the activity and its fragments won't be destroyed, and therefore no further handling is needed.
+- ### Create and restore chats using `ChatController` instance with a provided account 
+  - Starts a new chat with the provided account. Closes all active chats if available.
+    ```kotlin
+    - kotlin:
+    // Create a new chat, configured not to automatically be closed when chat UI gets destroyed.
+
+    chatController.startChat(account)
+    // same as:
+    chatController.restoreChat(account = account)
+    ```
+  - In case of activity restoring, if you want to use the restored chat fragment use:
+
+    ```kotlin
+    // start a new chat session with provided account and fragment:
+    chatController.restoreChat(fragment = chatFragment, account = account)
+
+    // Restore and continue current active chat (if available) with provided fragment:
+    chatController.restoreChat(fragment = chatFragment)
+    ```
+  
+  - Configures chat to last passed UI destruction:
+    ```kotlin
+    // Create new chat:
+    chatController.restoreChat(account, endChatWithUI = false)
+
+    // Restore and continue current active chat:
+    chatController.restoreChat(endChatWithUI = false)
+    ```
+    > <u>`endChatWithUI`</u> flag _(defaults to true)_ - defines if the current chat session should be ended automatically, when the chat fragment gets destroyed.   
+    **If was set to false, it is up to the chat creator, to end the chat session. Should be done as follows:**   
+    >  `chatController.endChat()`
+  
+

@@ -1,5 +1,5 @@
 # Chat Engagement
-The SDK exposes API to inject messages into the chat.
+The SDK exposes API to inject messages into the chat.  
 Messages injection is allowed once chat was **Accepted**.   
 Implement `ChatEventListener::onChatStateChanged` in order to [get chat states](./ChatLifecycleEventsAndroid).
 
