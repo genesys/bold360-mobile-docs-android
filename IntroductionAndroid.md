@@ -1,15 +1,16 @@
 # Android SDK Overview  
 
-*If you're a bold360ai customer, please contact your bold360ai Customer Success Manager to help facilitate the use of this component.*
+*If you're a Bold customer, please contact your Bold Customer Success Manager to help facilitate the use of this component.*
 
-**bold360ai's Mobile SDK for Android** is a native Android SDK, which means that the SDK was developed specifically for Android devices. This ensures that native application can interact with and take advantage of Android operating system features and related software. 
+**Bold Mobile SDK for Android** is a native Android SDK, and was developed specifically for Android devices. This ensures that native application can interact with and take advantage of Android operating system features software. 
 
 ## Features
 
-* Create conversations from your app.
-* Bot Integration. 
-* Live Agent Integration.
+* Create and start chats from your app.
+* Bot AI chats integration. 
+* Live Agent chats integration.
+* Bot AI to Live chats integration.
 
 ### Intended Audience
 
-This guide assumes that you have the necessary Java or Kotlin and Android development skills to build and compile advanced Android applications using Android Studio.
+This guide assumes that you have the necessary Java / Kotlin and Android development skills to build and compile advanced Android applications using Android Studio.

@@ -54,7 +54,7 @@ Do the following
         ```
 
 
-    - #### *To start an async chat create `AsyncAccount`*:
+    - #### *To start a Messaging chat create `AsyncAccount`*:
      
         ```kotlin
         val account = AsyncAccount(API_KEY, APPLICATION_ID)
@@ -72,7 +72,8 @@ Do the following
                 phoneNumber = PHONE_NUMBER // optional
             }
         }
-
+        ```
+        ```java
         // Java:
         UserInfo userInfo = new UserInfo(USER_ID);
         userInfo.setFirstName(FIRST_NAME);
@@ -88,12 +89,20 @@ Do the following
 
 ##
 
-2. ### <u>Create `ChatController` object</u>
-    With the ChatController one can create and control a chat.
+2. ### <u>Create a ChatController object</u>
+    With the ChatController one can create and control multiple chats.
+    The chat type is configured by the Account that is provided on chat creation.
 
     ```kotlin
     val chatController = ChatController.Builder(context)
                                           .build(account, ...)
+
+    ...
+    // start a new chat, using same chatController:
+    chatController.startChat(account)
+
+    // restore active chat or starts new chat
+    chatController.restoreChat(fragment?, account?)
     ```
 
 ##
@@ -101,7 +110,7 @@ Do the following
 3. ### <u>Add the chat fragment to your activity.</u>
 
     Implement the ChatLoadedListener interface and pass it in the `ChatController.Builder` build method.   
-    Once the chat build succeeded and the fragment is ready to be displayed, `onComplete` will be called and the fragment will bre available on the results. 
+    Once the chat build succeeded and the fragment is ready to be displayed, `onComplete` will be called with the fragment on the result. 
 
     ```kotlin
     ChatController.Builder(context).build(account, object : ChatLoadedListener {
