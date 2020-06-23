@@ -2,23 +2,17 @@
 A key player in chat restoring is the `ChatController`.
 
 ## ChatController
-The SDK's tool to create and restore chats.   
-The `ChatControler` is created via a builder, which can be configured with providers and listeners as needed. Those, in turn, will be applied to the `ChatController` instance and other participating components.
-
-Once created, the `ChatController` can be used for multiple chats creation.
-Via the `ChatController` you can interact with the chat, and listen to its events.
-
-`ChatController` destruction should be managed by its creator.   
-```kotlin
-chatController.destruct()
-```   
-- Once destruction was activated, all open chat sessions will be closed.   
-- Destructed `ChatController` can no longer be used to create chats, and throws an exception if one tries so.
+The SDK's API to manage chats. Create a `ChatController` instance to create, restore and interact with chats. Once chat needs to be closed, use the ChatController to do that.   
+- The `ChatControler` is created via a builder, which can be configured with providers and listeners which defines the created chats behavior and interaction with the embedding App.  
+- In order to close open chats use chatController.terminateChat() or chatController.endChat() 
+- In order to release the ChatController's resources use `ChatController.destruct()`   
+  - ChatController destruction releases resources and listeners, but does not ends the open chats. Ending of chat should be done by the embedding App.   
+  - Destructed `ChatController` can no longer be used to create chats, and throws an exception if one tries to.
 
 
 ## How to create and restore chats
 - ### Create chat using the ChatController.Builder
-  Creates a new `ChatController` and a new chat, with the provided account.
+  This will create a new ChatController instance and will automatically starts a chat according to the provided account.
   ```kotlin
   val chatController = ChatController.Builder(context).apply {
                             conversationSettings(...)
@@ -27,36 +21,33 @@ chatController.destruct()
                         }.build(account, ChatLoadedListener{})
   ```
 
-- ### Create and restore chats using `ChatController` instance with a provided account 
-  - Starts a new chat with the provided account. Closes all active chats if available.
-    ```kotlin
-    - kotlin:
-    // Create a new chat, configured not to automatically be closed when chat UI gets destroyed.
+- ### Create and restore chats using existing `ChatController` instance
+  - **Start a new chat -**   
+`chatController.startChat(account)`  
+  All current open chats will be released.   
+  Released but **not closed**, the embedding App should close open chats, when done.
 
-    chatController.startChat(account)
-    // same as:
-    chatController.restoreChat(account = account)
-    ```
-  - In case of activity restoring, if you want to use the restored chat fragment use:
+  - **Restore a chat** -    
+`chatController.restoreChat(Fragment?, AccountInfo?)`   
+    <u>Usages:</u>
+    - On Activity restoring, restore the chat with a restored chat fragment:
+      ```kotlin
+      // Restore and continue current active chat (if available) with provided fragment:
+      chatController.restoreChat(fragment = chatFragment)      
 
-    ```kotlin
-    // start a new chat session with provided account and fragment:
-    chatController.restoreChat(fragment = chatFragment, account = account)
-
-    // Restore and continue current active chat (if available) with provided fragment:
-    chatController.restoreChat(fragment = chatFragment)
-    ```
+      // start a new chat session with provided account and fragment:
+      chatController.restoreChat(fragment = chatFragment, account = account)
+      ```
   
-  - Configures chat to last passed UI destruction:
-    ```kotlin
-    // Create new chat:
-    chatController.restoreChat(account, endChatWithUI = false)
-
-    // Restore and continue current active chat:
-    chatController.restoreChat(endChatWithUI = false)
-    ```
-    > <u>`endChatWithUI`</u> flag _(defaults to true)_ - defines if the current chat session should be ended automatically, when the chat fragment gets destroyed.   
-    **If was set to false, it is up to the chat creator, to end the chat session. Should be done as follows:**   
-    >  `chatController.endChat()`
-  
+    - Continue with an active chat after its UI was removed:
+      ```kotlin
+      // continue current active chat:
+      chatController.restoreChat()
+      ```
+    
+    - Start a new chat-
+      ```kotlin
+      // If account is provided, will be considered as starting a new chat:
+      chatController.restoreChat(account)
+      ```
 

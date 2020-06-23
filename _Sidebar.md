@@ -13,6 +13,7 @@ Advanced Topics  (collapsable)
     - [Chat availability](android_chat_availability)
     - [Chat Settings](ChatSettingsAndroid)
     - [Chat Engagement](ChatEngagement)
+    - [Chat Continuity](ChatContinuation)
 <!--   - [Account info provider](android-AccountInfoProvider)) -->
 
   - Live Bold Chat  (collapsable)
@@ -26,6 +27,9 @@ Advanced Topics  (collapsable)
     - [Personal Information](Personal_Information)
     - [Incoming components](Incoming-component-Android)
     - [Feedback](FeedbackAndroid)
+
+  - Messaging Chat  (collapsable)
+    - Starting a Messaging chat
 
   - Events, states and notifications  (collapsable)
     - [Chat lifecycle events](ChatLifecycleEventsAndroid)
