@@ -10,9 +10,7 @@ In this version:
 - Voice support level is configurable on ConversationSettings
 
 ### Messaging chat
-- SDK supports messaging chats creation. User can start chats and post messages, without the need for a live agent to be actively connected and available at the moment the user connects.
-- User can connect later in time to previously created chats and receive the messages that were sent to him, while he was not connected. The user can continue the chat and post messages, no need for an agent to be connected at the same time.
-- Internet disconnections are covered, once the device is reconnected again, the user will be reconnected to his chat seamlessly and receive the messages that were sent to him while he was disconnected.
+> If you are interested of the Messaging capabilities of the Mobile SDK please reach out to your Customer Success Manager
 
 ### TLSv1.2 protocol support
 - SDK supports TLSv1.2 secured connections on lower API level devices (< 21)
@@ -44,6 +42,7 @@ In this version:
 - <u>Handover</u> - Chat elements related events are not passed automatically to the `ChatElementListener` implementations. Best practice: extend the abstract HandoverHandler class and use its base class injection methods.
 - SDK doesn't ends chats automatically anymore. Chat can be ended by user, live agent or the embedding App. ChatController destruction doesn't ends the chats, only releases their resources. [see ChatController new APIs](#improvements)
 - ErrorCodes definition was relocated to package "com.integration.core.annotations"
+- `DrawablePosition` was removed, since it was a duplicate of `CompoundDrawableLocation`
 
 ```diff
 - Deprecations
@@ -56,6 +55,7 @@ In this version:
 - `ChatInputData.textInputHint` replaced with `ChatInputData.inputHints`
 - Constructor deprecation on ContentChatElement class hierarchy.
 - `VisitorDataKeys` were deprecated and replaced with `SessionInfoKeys`
+- `ChatbarCmpConfig` - _drawableLocation_  and _compoundDrawablesPadding_ were deprecated and replaced with _ChatbarCmpConfig.drawableConfig_, which include them both.
 
 ```diff
 + Known issues
