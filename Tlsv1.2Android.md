@@ -15,3 +15,8 @@ The Bold SDK enables the TLSv1.2 protocol on lower API (< 21) devices which are 
 Using `ProviderInstaller.installIfNeeded` and `ProviderInstaller.installIfNeededAsync`   
 > - [Check out here for more info on how to install](https://developer.android.com/training/articles/security-gms-provider)   
 > - [Watch on our samples](https://github.com/bold360ai/bold360-mobile-samples-android/blob/master/SDKSamples/app/src/main/java/com/sdk/samples/MainActivity.kt)
+
+**<u>Notice</u>**
+> - If your App uses android **Support Library** - make sure you import the appropriate Google play version: `com.google.android.gms:play-services-base:16.1.0`
+> - If your App uses **AndroidX** libraries, import the latest version.
+
