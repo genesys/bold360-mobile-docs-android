@@ -1,33 +1,40 @@
 # Voice to Voice
 
 ### How to enable
-A `ConversationSettings` object with overriding configurations, that define the chat behavior and features enabling status can be set on the ChatController builder. one of it's method enables to define the <U>Voice support level</U> that is needed for the chat.
+Use `ConversationSettings.voiceSettings` to define the **desired** <U>Voice support level</U> for the chats that will be created by the ChatController instance.   
+Actual voice support level is determine by the chat type support, where the configured level is the maximum allowed.
 
-#### Voice support level:  
-- **VoiceSupport.None** - speech recognition is disabled.  
-- **VoiceSupport.SpeechRecognition** - only speech recording is enabled. you can record your message and send it to the other chat partner.  
-- **VoiceSupport.VoiceToVoice** - enables both speech recognition and response read out by the device.  
-- **VoiceSupport.handsFree** - voice to voice with auto listening and send of user messages and read out of responses.
-
-Voice support feature can be configured on `ConversationSettings` as follows:
 ```kotlin
 val settings = ConversationSettings().voiceSettings(
                     VoiceSettings(VoiceSupport.VoiceToVoice))
 
 val chatController = ChatController.Builder(context)
-            .conversationSettings(settings)
-            .build(account, object : ChatLoadedListener {...}
+                        .conversationSettings(settings)
+                        .build(account, object : ChatLoadedListener {...})
 ```
-> **Notice:** The voice settings you provide on ConversationSettings are definition of what you expect to be available. But the actual support of voice configuration is determine also by the chat type support.   
-_Currently we support VoiceToVoice on ai chats and SpeechRecognition on live chats._
+
+#### The available voice support levels:  
+- **VoiceSupport.None** - speech recognition is disabled.  
+- **VoiceSupport.SpeechRecognition** - only speech recording is enabled. you can record your message and send it to the other chat partner.  
+- **VoiceSupport.VoiceToVoice** - enables both speech recognition and response read out by the device.  
+- **VoiceSupport.handsFree** - voice to voice with auto listening and send of user messages and read out of responses.
+
+> **Notice:** _Currently we support VoiceToVoice on ai chats and SpeechRecognition on live chats._
 
 
 ### Provide an alternative text for the read out
-When voice support feature is configured to `Voice to Voice`, Once a response is received, that response will be parsed to a textual presentation to be read out.   
-All parts of the response are combined and read. message body, persistent options and quick options, if available. Each read section has a configurable prefix.   
-In case there's a need to alternate some of the `read out` text, before it is read to the user, implement and set a `TTSReadAlterProvider`to the ChatController instance.
-> The default text to be read, as provided by the SDK implementation, is available on `readRequest.readResult` property. this text can be changed, 
-or the response details provided on `readRequest.readoutMessage` can be used to create a different readoutResult outcome.
+When voice support level is configured to `Voice to Voice`, every voice sourced response will be parsed to a textual presentation to be read out.   
+> * **Voice sourced response** - Response to a query that was fully or partially recorded by the user.
+
+Default readout implementation combines the response body and available options to one readable string.
+
+The SDK enables the embedding App alternate some or all of the `read out` text, before it is read to the user.   
+An implementation of `TTSReadAlterProvider` should be set on the ChatController instance.
+Once a readout response is received the `TTSReadAlterProvider.alter` method will be called.   
+Readout details are provided over `ReadRequest` instance.   
+The App's implementation can go over the response details (`readRequest.readoutMessage`) and create an alternative string representation or just alter the default provided `readRequest.readResult`.  
+**The final desired result should be set on `readRequest.readResult` property.**  
+Once done, the provided callback should be called with the alternated ReadRequest.
 ```kotlin
 // 1. implement the provider:
 val ttsProvider = object : TTSReadAlterProvider{
@@ -50,7 +57,7 @@ val ttsProvider = object : TTSReadAlterProvider{
                         }
 }
 
-// 2. pass to the ChatController:
+// 2. pass the provider to the ChatController:
 // on ChatController build:
  val chatController = ChatController.Builder(context)
             .ttsReadAlterProvider(ttsProvider)
@@ -58,11 +65,8 @@ val ttsProvider = object : TTSReadAlterProvider{
 
 // OR on runtime:
 chatController.setTTSReadAlterProvider(provider)
-
-// Passing null, will clear the alter provider. Default readout provider will be used to prepare responses to be read.
-
 ```
-
+> Setting the TTSReadAlterProvider to null, releases the alter provider reference. Default readout provider will be used to prepare responses readout text.
 
 ### How to configure
 - #### Configuring read out settings

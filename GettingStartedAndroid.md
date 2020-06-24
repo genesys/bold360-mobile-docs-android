@@ -9,21 +9,14 @@
 
 ## Setup
 
-In an existing android project, update the project build.gradle file with the following: 
+Apply the following to your app's build.gradle file: 
 
 1. ### Add SDK dependencies
-    [Check here for latest SDK version](https://developer.bold360.com/help/EN/Bold360API/Bold360API/c_sdk_combined_Android_RN.html) 
+    [Check here for latest SDK version and needed dependencies](https://developer.bold360.com/help/EN/Bold360API/Bold360API/ReleaseNotesAndroid.html) 
 
-    For example:
-    ```gradle
-    implementation "com.bold360ai-sdk.conversation:ui:[VERSION_NUMBER]"
-    implementation "com.bold360ai-sdk.conversation:chatintegration:[VERSION_NUMBER]"
-    implementation "com.bold360ai-sdk.conversation:engine:[VERSION_NUMBER]"
-    implementation "com.bold360ai-sdk.core:sdkcore:[VERSION_NUMBER]"
-    implementation "com.bold360ai-sdk.core:accessibility:[VERSION_NUMBER]"
-    ```
+    
 
-2. ### Add the following to the `android{...}` block definition:
+2. ### Add the following to the _`android{...}`_ block definition:
     ```gradle
     android {
         
