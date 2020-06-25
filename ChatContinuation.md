@@ -7,7 +7,7 @@ Those properties are configurable on the accounts `SessionInfo` property.
 
 ##### Listening to session data updates
 While the chat is in progress, session data may change.  
-In order to be updated with such changes for later use, implement [_AccountInfoProvider_ or _AccountSessionListener_](android-AccountInfoProvider) and pass implementation on `ChatController` creation. 
+In order to be updated with such changes for later use, implement [_AccountInfoProvider_ or _AccountSessionListener_](./android-AccountInfoProvider.md) and pass implementation on `ChatController` creation. 
 ```kotlin
 val chatController = ChatController.Builder(context).apply{
                         accountProvider(MyProvider)
