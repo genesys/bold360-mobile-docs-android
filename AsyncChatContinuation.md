@@ -11,7 +11,7 @@ User "missed" messages can be fetched, no matter if a new session was started or
 In order to get only the messages that the user did not yet received, the embedding App should provide the `LastReceivedMessageId`, the last message id which the user got from the agent.
 
 #### How to get LastReceivedMessageId updates 
-see [AccountSessionListener](AccountInfoProvider) for details
+see [AccountSessionListener](./android-AccountInfoProvider) for details
 
 ### What is needed to enable chat continuation: 
 - #### UserInfo - 
