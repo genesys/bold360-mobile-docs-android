@@ -11,7 +11,7 @@ User "missed" messages can be fetched, no matter if a new session was started or
 In order to get only the messages that the user did not yet received, the embedding App should provide the `LastReceivedMessageId`, the last message id which the user got from the agent.
 
 #### How to get LastReceivedMessageId updates 
-see [AccountSessionListener](./android-AccountInfoProvider) for details
+see [AccountSessionListener](./android-AccountInfoProvider.md) for details
 
 ### What is needed to enable chat continuation: 
 - #### UserInfo - 
@@ -30,7 +30,7 @@ see [AccountSessionListener](./android-AccountInfoProvider) for details
 
 - #### SenderId - 
   SenderId represents a chat session id. User can have many chat sessions in which accumulate to a user conversation.   
-  SenderId functionality depends on [`ShouldStartNewChat`](ShouldStartNewChat) value. 
+  SenderId functionality depends on [`ShouldStartNewChat`](#shouldStartNewChat) value. 
   ```kotlin
   asyncAccount.info.SenderId = Long_Sender_Value
   ``` 
@@ -47,5 +47,5 @@ see [AccountSessionListener](./android-AccountInfoProvider) for details
   
 ### How to get session data updates:
 
-When chat is being created, or when values were changed, an update call will be triggered over [`AccountInfoProvider`](android-AccountInfoProvider).   
+When chat is being created, or when values were changed, an update call will be triggered over [`AccountInfoProvider`](/android-AccountInfoProvider.md).   
 Save session details for later use.

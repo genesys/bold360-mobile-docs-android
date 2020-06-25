@@ -1,5 +1,5 @@
 # BoldAccount
-This account is used for starting a live Bold chat with an agent. [see "Quick Start"](QuickStartAndroid)
+This account is used for starting a live Bold chat with an agent. [see "Quick Start"](./QuickStartAndroid.md)
 
 
 Live chat may start as main chat purpose, or be triggered from chat with BOT.

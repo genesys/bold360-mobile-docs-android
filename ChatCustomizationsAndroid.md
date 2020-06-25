@@ -93,4 +93,4 @@ The ChatUIProvider provides access to the chat ui components. Each component ena
         ```
 
 ---
-> ###### [more info about specific elements customizations](./CustomizationsSpecificsAndroid)
+> ###### [more info about specific elements customizations](./CustomizationsSpecificsAndroid.md)

@@ -17,6 +17,6 @@ val chatController = ChatController.Builder(context).apply{
 
 
 #### In this topic:
-- [Messaging chat continuation](AsyncChatContinuation)
-- [Bold live chat continuation](BoldChatContinuation)
-- [Bot ai chat continuation](BotChatContinuation)
+- [Messaging chat continuation](./AsyncChatContinuation.md)
+- [Bold live chat continuation](./BoldChatContinuation.md)
+- [Bot ai chat continuation](./BotChatContinuation.md)

@@ -44,7 +44,7 @@ val account = AsyncAccount(APIKey, ApplicationId).apply{
 ### Messaging chat continuation
 The SDK provides the ability to connect to an open or closed chat session and fetch the messages that were sent to him while he was not actively connected to that chat.
 The way the chat should start is configured by the AsyncAccount instance.   
-see [Messaging chat continuity](AsyncChatContinuation) for more details.
+see [Messaging chat continuity](./AsyncChatContinuation.md) for more details.
 
    
  
