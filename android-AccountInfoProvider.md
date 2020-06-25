@@ -11,8 +11,36 @@ val chatController = ChatController.Builder(context)
 ```
 
 ### Why do i need to implement
-- To be able to set data and configurations for chat session creation, when **escalating from ai chat**.
-- To be able to receive account updates. like: `chatId` and `visitorId` creation.
+- **To be able to set data and configurations for chat session creation, when <u>escalating from an ai chat</u>**.   
+`AccountInfoProvider.provide` will be called, with a "starting point" Account. This account is configured with the details provided by the chat channel (like: apikey and appId). The App can set whatever is needs for the chat session before it passes the updated account on the callback. 
+```kotlin
+class SimpleAccountProvider : AccountInfoProvider {
+
+    var accounts: MutableMap<String, AccountInfo> = mutableMapOf()
+
+    override fun provide(account: AccountInfo, callback: Completion<AccountInfo>) {
+        accounts[account.getApiKey()]?.let{
+            account.getInfo().update(it.getInfo())
+            // update session related data for the upcoming chat
+            account
+        }?:let{
+            addAccount(account)
+        }
+        callback.onComplete(account)
+    }
+```
+- **To be able to receive account session data updates. like: _chatId_, _SenderId_, _visitorId_, etc.**   
+`AccountIfoProvider.update' will be called with an updated account. The updated values (or the whole account) can be saved for later use.
+```kotlin
+class SimpleAccountProvider : AccountInfoProvider {
+
+    var accounts: MutableMap<String, AccountInfo> = mutableMapOf()
+
+    override fun update(account: AccountInfo) {
+        accounts[account.getApiKey()]?.getInfo()?.update(account.getInfo())
+    }
+}
+```
 
 ### How to set session configurations on the chat account
 _Each account has a `SessionInfo` property. With this property you can provide extra data <sub>(see `SessionInfoKeys`)</sub> and configurations <sub>(see `SessionInfoConfigKeys`)</sub>, that will be used in chat session creation._
