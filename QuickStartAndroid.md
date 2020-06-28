@@ -123,6 +123,11 @@ Do the following
             }
         })
     ```
+##
+
+> **Notice - Make sure to activate `ChatController.destruct()`, when the ChatController instance is no longer needed** (exp: Chats section in app
+is being closed or the ChatController instance is being replaced). Destruct will verify resources release (including open sockets and communication channels).
+
 
 ---
 
