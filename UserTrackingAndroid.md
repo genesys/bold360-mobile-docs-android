@@ -1,16 +1,34 @@
 # Tracking user activity
-In order to track user activity during chat session, the SDK generates a unique `userId` per device. This id is passed on all API requests.
+In order to track user activity during chat session, a userId should be provided on the account object.   
+On the first account chat session, the userId should remain null. The SDK generates by a BE API, a unique token, that should be saved by the embedding app, and should be provided from this point forward for all chats of this account.   
+This token enables the tracking of user activity.
 
-## How to customize user id
+## How to get the generated userId
+Once the chat is created, an account update event is triggered on the `AccountInfoProvider`, the userId can be taken from the provided updated account.
+> Read more on [AccountInfoProvider](./android-AccountInfoProvider.md)
 
-Customizing `userId` is done by `BotAccount`. 
+```kotlin
+class SimpleAccountProvider : AccountInfoProvider {
+
+    var accounts: MutableMap<String, AccountInfo> = mutableMapOf()
+
+    override fun update(account: AccountInfo) {
+        accounts[account.getApiKey()]?.userId = account.userId
+        // saved userId should be used on future chats creation for this account
+    }
+}
+```
+
+## Create a chat with the saved userId
+
+`userId` is provided on the `BotAccount`.
 ```kotlin
 val account = BotAccount(API_KEY, ACCOUNT_NAME,
                 KNOWLEDGE_BASE, SERVER, CONTEXT_MAP).apply {
                         
-                        userId(CUSTOMED_ID) // setting the user id
+                        userId = SAVED_GENERATED_ID
                 } 
                 
 ChatController.Builder(context)...build(account, ...)
 ```
-_Once id was created for the user device, it will not be changed until, app cache will be deleted._
+
