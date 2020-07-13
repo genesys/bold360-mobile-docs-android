@@ -1,5 +1,5 @@
 # Tracking user activity
-In order to track user activity during chat session, the SDK gets a unique `userId` per chat session. This id is passed on all API requests.
+In order to track user activity during chat session, the SDK generates by BE API a unique token, that should be used from this point forward for all chats sessions. This token enables tracking user activity.
 
 ## How to customize user id
 
