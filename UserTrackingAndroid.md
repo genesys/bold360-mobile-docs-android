@@ -19,9 +19,9 @@ class SimpleAccountProvider : AccountInfoProvider {
 }
 ```
 
-## Create a chat with the saved userId
+## Create a chat with the generated userId
 
-`userId` is provided on the `BotAccount`.
+The `userId` should be provided on the `BotAccount`.
 ```kotlin
 val account = BotAccount(API_KEY, ACCOUNT_NAME,
                 KNOWLEDGE_BASE, SERVER, CONTEXT_MAP).apply {
