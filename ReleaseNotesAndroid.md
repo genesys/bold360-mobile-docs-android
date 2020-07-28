@@ -17,6 +17,21 @@ In this version:
 - Improve SDK allocated resources release.
 - Fix active links on bot responses, while escalated live chat is in progress.
 
+___
+
+
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:4.0.1"
+implementation "com.bold360ai-sdk.conversation:engine:4.0.1"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.0.1"
+implementation "com.bold360ai-sdk.conversation:ui:4.0.1"
+implementation "com.bold360ai-sdk.core:accessibility:4.0.1"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
 ---
 
 # Version 4.0.0
