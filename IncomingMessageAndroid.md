@@ -1,4 +1,4 @@
-# Incoming chat component
+# Incoming message
 
 ## Readmore indication <sub><sup>(configurable only)</sub></sup>
 - `readmore` indication view is configurable via `ReadmoreAdapter`, as follows:   

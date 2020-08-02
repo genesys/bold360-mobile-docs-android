@@ -148,8 +148,7 @@ chatController.subscribeNotifications(notifiableImpl:Notifiable,
     }
 }
 ```
-
-### Customizations
+## <a name="uicustom"/>UI Customization
 
 - #### Customizing uploads progress indication
    The SDK provides uploads propress indication bar   
