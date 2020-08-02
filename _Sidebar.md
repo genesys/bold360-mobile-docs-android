@@ -35,21 +35,16 @@ Advanced Topics  (collapsible)
 
   - [TLSv1.2 support](./Tlsv1.2Android.md)    
      
-     
   - [Voice support](./voice-to-voice-android.md)   
-     
      
   - [History support](./HistorySupportAndroid.md)
      
-     
   - [Content upload support](./FileUploadAndroid.md)
-     
      
   - Tracking chat events, states and notifications  (collapseable)
     - [Chat lifecycle events](./ChatLifecycleEventsAndroid.md)
     - [Events and notifications](./Listeners-and-subscriptions-android.md)
     - [User Tracking](./UserTrackingAndroid.md)
-   
    
   - Autocomplete support (collapseable)
     - [In chat](./Conversation-Autocomplete-android.md)
