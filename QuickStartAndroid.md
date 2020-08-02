@@ -4,7 +4,7 @@
 Do the following
 1. ### <u>Create an Account.</u>
 
-   - #### *To start chat with Bot create `BotAccount`*:  
+   - #### <u>*To start chat with Bot create `BotAccount`*:</u>  
     
       ```kotlin
       val account = BotAccount(API_KEY, ACCOUNT_NAME,
@@ -47,14 +47,23 @@ Do the following
         ```
 
 
-   - #### *To start chat with Bold create `BoldAccount`*:
+   - #### <u>*To start chat with Bold create `BoldAccount`*:</u>
+      if needed, add extraData values to the account. The `extraData` details will be used to fill the prechat form if enabled, and will provide the agent some details about the user.
 
         ```kotlin
         val account = BoldAccount(API_KEY)
+
+        // adding extraData: 
+        account.apply{
+            addExtraData (SessionInfoKeys.Department to BOLD_DEPARTMENT,
+                SessionInfoKeys.FirstName to DemoFirstName,
+                SessionInfoKeys.LastName to DemoLastName
+                ...)             
+        }
         ```
+        
 
-
-    - #### *To start a Messaging chat create `AsyncAccount`*:
+    - #### <u>*To start a Messaging chat create `AsyncAccount`*:</u>
      
         ```kotlin
         val account = AsyncAccount(API_KEY, APPLICATION_ID)
