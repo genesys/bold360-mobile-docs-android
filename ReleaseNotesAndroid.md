@@ -3,16 +3,23 @@
 Fixed on this version:
 
 - **Voice to voice:** response readout is activated on voice recorded requests only.
+
+- **Full article display**: Displayed content and title matches opened article, also on postback responses.
+
+- Prevent images and video images from being cut, on wide devices resolutions.
+
 ```diff
 - Deprecations:
 ```
 > - InputViewListener - typingStarted, typingEnded were replaced with inputStarted, inputEnded.
 > - ChatInputData - onSendInput was replaced with onSend
 
-- **Full article display**: Displayed content and title matches opened article, also on postback responses.
 
-- Prevent images and video images from being cut, on wide devices resolutions.
-
+```diff
+- Known Issue:
+```
+> - Duplicate configuration options are available for Send component, but only one is currently effective, and should be used.   
+  **`ChatUIProvider.chatInputUIProvider.uiConfig.sendUIConfig`**
 ___
 
 
