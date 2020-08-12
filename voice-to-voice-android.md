@@ -6,7 +6,7 @@ Actual voice support level is determine by the chat type support, where the conf
 
 ```kotlin
 val settings = ConversationSettings().voiceSettings(
-                    VoiceSettings(VoiceSupport.VoiceToVoice))
+                    VoiceSettings(VoiceSupport.HandsFreeVoiceToVoice))
 
 val chatController = ChatController.Builder(context)
                         .conversationSettings(settings)
@@ -17,9 +17,9 @@ val chatController = ChatController.Builder(context)
 - **VoiceSupport.None** - speech recognition is disabled.  
 - **VoiceSupport.SpeechRecognition** - only speech recording is enabled. you can record your message and send it to the other chat partner.  
 - **VoiceSupport.VoiceToVoice** - enables both speech recognition and response read out by the device.  
-- **VoiceSupport.handsFree** - voice to voice with auto listening and send of user messages and read out of responses.
+- **VoiceSupport.HandsFreeVoiceToVoice** - voice to voice with auto listening and send of user messages and read out of responses.
 
-> **Notice:** _Currently we support VoiceToVoice on ai chats and SpeechRecognition on live chats._
+> **Notice:** _Currently we support HandsFreeVoiceToVoice on ai chats and SpeechRecognition on live chats._
 
 
 ### Provide an alternative text for the read out
