@@ -1,15 +1,16 @@
 # Version 4.0.3
 
 ### Features
-- Voice support for "Hands free" mode.   
-Voice recording auto start once response readout was fully completed.
+- Hands-free experience is now added to the voice-to-voice mode. When the option is turned on, the microphone is automatically enabled once the answer read out is done.
 
 ### Fixes
-- Persistent options duplicate readout when originated from inline choice.
-- Multiple SendUIConfig options on ChatUIProvider were detected. `ChatUIProvider.chatInputUIProvider.sendCmpUIProvider.uiConfig` is the  config that should be used.
-  ```diff
-  - Deprecated - ChatAutocompleteUIConfig.sendUIConfig
-  ```
+- Fixed an issue that caused reading out persistent options twice in voice-to-voice mode.
+- When customizing the chat look and feel, multiple `SendUIConfig` instances were reachable from the `ChatUIProvider`. We simplified it to have a single one that is reachable under `ChatUIProvider.chatInputUIProvider.sendCmpUIProvider.uiConfig`.   
+
+  > #### Usage of ‘ChatAutocompleteUIConfig.sendUIConfig’ was deprecated.
+  
+### ChatController API
+- `ChatLoadedListener` can be provided also after ChatController creation, for following chat start/restore operations.
 
 ### Known issue
 - Ticket typed channel is not supported on devices with API level lower than 19  
