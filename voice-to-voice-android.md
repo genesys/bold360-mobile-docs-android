@@ -6,7 +6,7 @@ Actual voice support level is determine by the chat type support, where the conf
 
 ```kotlin
 val settings = ConversationSettings().voiceSettings(
-                    VoiceSettings(VoiceSupport.HandsFreeVoiceToVoice))
+                    VoiceSettings(VoiceSupport.HandsFree))
 
 val chatController = ChatController.Builder(context)
                         .conversationSettings(settings)
