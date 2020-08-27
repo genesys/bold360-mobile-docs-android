@@ -1,3 +1,53 @@
+# Version 4.1.0
+
+This version introduces some improvements and additions to chat elements structure.   
+Due to those changes, some breaking changes were unavoidable.
+
+
+```diff
+- Breaking changes:
+```
+- **ChatElement was relocated to package: `com.nanorep.convesationui.structure.elements`**
+
+- **StorableChatElement was relocated to package: `com.nanorep.convesationui.structure.elements`**
+
+- **StorableChatElement.getId() method was added to the interface.**   
+Returns a unique String identification of the element.
+
+- **ChatElementListener changes:**   
+  <u>Deprecated methods:</u>
+  - `onRemove(timestampId: Long)` 
+  - `onUpdate(timestampId: Long, item: StorableChatElement)`    
+
+  <u>Replacement methods:</u>
+  - `onRemove(id: String)` 
+  - `onUpdate(id: String, item: StorableChatElement)`
+  
+```diff
+- Notice:
+```
+> - Chat elements are now being identified by a unique String id property, instead of their timestamp. _Timestamp field is no longer unique._
+> - History support mechanism implementations may need some extra changes other than the above mentioned issues, in order to retain the your stored chats records data.   
+> - A migration tool is available on this version to help you convert old schemed elements to the new scheme, so all records will be aligned with the new changes.   
+
+##### [Follow to get more details, and examples.]()
+
+---
+
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:4.1.0"
+implementation "com.bold360ai-sdk.conversation:engine:4.1.0"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.1.0"
+implementation "com.bold360ai-sdk.conversation:ui:4.1.0"
+implementation "com.bold360ai-sdk.core:accessibility:4.1.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+---
+
 # Version 4.0.3
 
 ### Features
