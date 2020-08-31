@@ -23,20 +23,7 @@ Do the following
         val account = BotAccount(API_KEY, ACCOUNT_NAME,
                               KNOWLEDGE_BASE, SERVER, contexts)
         ```
-    
-      - If the account is using Initialization Entities, create BotAccount as follows:
 
-        ```kotlin
-        val entities = mapOf("EntityKey1" to "EntityValue1",
-                            "EntityKey2" to "EntityValue2",
-                            ... )
-
-        val account = BotAccount(API_KEY, ACCOUNT_NAME, KNOWLEDGE_BASE,
-                                  SERVER, CONTEXT_MAP).apply {
-                                      initializationEntities = entities
-                                  }
-        ```
-   
      - If the welcome message should be customised and override current console configurations, create account as follows:
 
         ```kotlin

@@ -1,144 +1,79 @@
-# App provided information
+# Account entities and personal information
+
+## **Definition**
 
 The App can provide information on the specific user to server as per request (during run time).
+User information can be provided in 2 ways:
 
-There are 2 kinds of info to provided:
+1. `initialization entites` - Predefined data values that can be provided for the whole chat session and
+    are not being changed dynamically.
+    A valide initialization entity can be `UserId` for an instance.
 
-1. `Missing entites` and `Personal information`.
-   The App needs to register its supplied entites.
-   The provider that is contained via the article request a specific entity.
-   If the requested entitie had been registered by the App, the `EntitesProvider` would be called to provide the info.
+2. `Missing entites` or `Personal information` - Dynamically changed data values that can be
+   provided to a specific article in a specific placeholder.
+   The article uses a Bold360AI provider implementation in order to provide the needed data (please contect out support for farther information about the Bold360AI provider).
+
+   - Missing entites: If the client (an App uses the mobile) registerered to the missing entities which are needed by the provider, the provider asks the client for the data.
+   The `EntitesProvider` would be called to provide the info.
+   A valide missing entity can be `AccountName` for an instance.
+
+   - Personal information - After the missing entitiy has been provided, the personal information about this missing entity can be also requested by the server.
+   A valide personal info can be the `account balance` of the previosly supplied `AccountName` for an instance.
 
    ![provide missing entites / personal info](images/Android/personalInfo.png)
 
-2. `initialization entites` - are global entities to be provided to the whole session.
-
-## **How to use (using example)**
-
-## Missing entities - Article example for balance scenario
-
-the article body is: 
-`The balance of your account ending with [[ACCOUNT.ID]] is [[ACCOUNT.CURRENCY]] {{getAccountBalance([[ACCOUNT.ID]],[[ACCOUNT.TYPE]])}} [[=ACCOUNT_OPTIONS]]`
-
-- NOTE: The provider itself is not provided for this example.
-        In order to get additional support please contact our support team.
-
-### Init the BotAccount
-
-```java
-    BotAccount account = new BotAccount();
-    account.setAccount("ACCOUNT");
-    account.setApiKey("API KEY");
-    account.setKnowledgeBase("KNOWLEDGEBASE");
-
-    // The registeration of the missing entites that match the provider:
-    account.setEntities(new String[]{"REQUESTED_BALANCE_ENTITIY", "REQUESTED_ACCOUNT"});
-```
-
-### In order to provide personal information and entities according to the SDK provider's requests
-
-1. Implement the `EntitiesProvider` interface.
-
-- When **personal information** is requested by the SDK, it should be provided by the next `provide` method:
-
-```java
-public void provide(@NotNull PersonalInfoRequest personalInfoRequest, @NotNull PersonalInfoRequest.Callback callback)
-```
-
-- When **missing entities** are requested by the SDK, it should be provided by the next `provide`
-method:
-
-```java
-public void provide(@NonNull ArrayList<String> entities, @NonNull Completion<ArrayList<Entity>>
-onReady)
-```
-
-2. Pass the implementation of the `EntitiesProvider` to the `ChatController` at the build.
-
-```kotlin
-   ChatController.Builder(getContext()).entitiesProvider(EntitiesProviderImpl)...build(...)
-```
-
-
-### The `EntitiesProvider` interface Implementation example
-
-```kotlin
-class BalanceEntitiesProvider : EntitiesProvider {
-
-    private val random = Random()
-
-    // Personal Info:
-    override fun provide(personalInfoRequest: PersonalInfoRequest, callback: PersonalInfoRequest.Callback) {
-
-        when (personalInfoRequest.id) {
-
-            "getAccountBalance" -> {
-                val balance = (random.nextInt(10000)).toString()
-                callback.onInfoReady(balance, null)
-            }
-
-            "getExpiration" -> callback.onInfoReady("01/2025", null)
-
-            else -> callback.onInfoReady("1,000$", null)
-
-        }
-    }
-
-    // Missing Entites:
-    override fun provide(entities: ArrayList<String>, onReady: Completion<ArrayList<Entity>>) {
-        val missingEntities = NRConversationMissingEntities()
-
-        for (missingEntity in entities) {
-               missingEntities.addEntity(createEntity(missingEntity))
-        }
-
-        (missingEntities.entities as? ArrayList<Entity>)?.apply { onReady.onComplete(this) }
-    }
-
-    private fun createEntity(entityName: String): Entity? {
-        return when (entityName) {
-            "REQUESTED_BALANCE_ENTITIY" -> {
-                Entity(Entity.PERSISTENT, Entity.NUMBER, (random.nextInt(100 - 10) + 10).toString(), entityName, "1")
-            }
-            "REQUESTED_ACCOUNT" -> {
-                Entity(Entity.PERSISTENT, Entity.NUMBER, "123", entityName, "1").apply {
-                    addProperty(Property(Entity.TEXT, (random.nextInt(10000 - 1000) + 1000).toString(), "1").apply { name = "ID" })
-                    addProperty(Property(Entity.TEXT, "$", "2").apply { name = "CURRENCY" })
-                    addProperty(Property(Entity.TEXT, "PRIVATE", "2").apply { name = "TYPE" })
-                }
-            }
-            else -> null
-        }
-    }
-}
-```
+## **How to use**
 
 ## Initialization Entities
+
 If the account is using Initialization Entities, create BotAccount as follows:
 
-### Create the initialization entities map
+1. Create the initialization entities map
 
-```kotlin
-        val entities = mapOf("EntityKey1" to "EntityValue1",
-                            "EntityKey2" to "EntityValue2",
-                            ... )
-```
+    ```kotlin
+    val entities = mapOf("EntityKey1" to "EntityValue1", "EntityKey2" to "EntityValue2", ... )
+    ```
 
-### Init the BotAccount
-```kotlin
+2. Register your initialization entities as follows
 
-        val account = BotAccount(API_KEY, ACCOUNT_NAME, KNOWLEDGE_BASE,
-                                  SERVER, CONTEXT_MAP).apply {
-                                      initializationEntities = entities
-                                  }
-```
+    ```kotlin
+    val account = BotAccount(...).apply {
+                              initializationEntities = entities
+                         }
+    ```
 
-- Note: The `initialization entities` can be also supplied at the `ChatEventListener`'s OnAccountReady method as follows:
+- Note: The `initialization entities` can be also supplied at the `AccountInfoProvider`'s OnAccountReady method as follows:
 
-```kotlin
-    override fun onAccountReady(account: Account, settings: MutableMap<String, Any>) {
+    ```kotlin
+    override fun provide(account: AccountInfo, callback: Completion<AccountInfo>) {
         ...
         (account as? BotAccount)?.initializationEntities = hashMapOf(Pair("USERID", "12345"))
         ...
     }
-```
+    ```
+
+## Missing entities or Personal information
+
+1. Create the missing entities array
+
+    ```kotlin
+    val missingEntities = arrayOf("EntityKey1", "EntityKey2"... )
+    ```
+
+2. Register your dynamic entities as follows:
+
+     ```kotlin
+    val account = BotAccount(...).apply {
+                              entities = missingEntities
+                         }
+    ```
+
+3. Implement the `EntitiesProvider` interface.
+   At the `EntitiesProvider` there are two `provide` methods for `personal information` and for `missing entities`.
+
+4. Pass the implementation of the `EntitiesProvider` to the `ChatController` at the ChatController creation
+
+    ```kotlin
+    ChatController.Builder(getContext()).entitiesProvider(the EntitiesProvider implemintation)...build(...)
+
+ >Follow the next [link](missing_entities_example.md) for a specific example of `missing entities` and `personal information` usage
