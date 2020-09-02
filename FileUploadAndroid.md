@@ -186,7 +186,7 @@ chatController.subscribeNotifications(notifiableImpl:Notifiable,
       > Customizations that were configured with `UploadsCmpUIProvider.configure` will be applied on your customed component as well.
 
 - #### Customizing upload outgoing bubble
-  Same as regular [outgoing bubble customizations](./ChatCustomizationsAndroid).
+  Same as regular [outgoing bubble customizations](./ChatCustomizationsAndroid.md).
 
   - ##### Customizing upload content type images
     Provided icons can be override by appying new drawables resources in the app resources with matching reasources ids.   
