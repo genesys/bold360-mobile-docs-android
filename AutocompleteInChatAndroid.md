@@ -1,9 +1,7 @@
-# Autocomplete support
+# Autocomplete support in Chat
 
-## In Chat autocomplete  
-Chat SDK supports autocomplete for `bold ai` chats.     
-While user is typing a query to the bot agent, if feature is enabled, he will be presented with suggested articles
-relevant to the typed content.   
+Chat SDK supports autocomplete for chats with AI.     
+While user is typing a query to the bot, if feature is enabled, he will be presented with suggested queries, relevant to the typed content.   
 
 <img alt='uploads bar' src='images/Android/autocomplete_bot.png' width=40% style="margin:16px"/>
 
@@ -51,7 +49,7 @@ ChatController.Builder(this).apply {
   - Configure hint text on [bold360ai console.](./images/Android/autocomplete-hint-config.png)
     > Currently this configuration will apply only to chats that were started with **ai**.
 
-  - Configure hint text by overring SDKs string resource: `R.string.type_message_here`.
+  - Configure hint text by overrding SDKs string resource: `R.string.type_message_here`.
 
 
 ### How to override

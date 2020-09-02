@@ -1,3 +1,41 @@
+# Version 4.0.2
+
+Fixed on this version:
+
+- **Voice to voice:** response readout is activated on voice recorded requests only.
+
+- **Full article display**: Displayed content and title matches opened article, also on postback responses.
+
+- Prevent images and video images from being cut, on wide devices resolutions.
+
+```diff
+- Deprecations:
+```
+> - InputViewListener - typingStarted, typingEnded were replaced with inputStarted, inputEnded.
+> - ChatInputData - onSendInput was replaced with onSend
+
+
+```diff
+- Known Issue:
+```
+> - Duplicate configuration options are available for Send component, but only one is currently effective, and should be used.   
+  **`ChatUIProvider.chatInputUIProvider.uiConfig.sendUIConfig`**
+___
+
+
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:4.0.2"
+implementation "com.bold360ai-sdk.conversation:engine:4.0.2"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.0.1"
+implementation "com.bold360ai-sdk.conversation:ui:4.0.2"
+implementation "com.bold360ai-sdk.core:accessibility:4.0.1"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+---
 
 # Version 4.0.1
 
