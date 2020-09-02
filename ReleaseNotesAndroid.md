@@ -1,3 +1,23 @@
+
+# Version 3.6.1
+
+
+
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:3.6.1.rc1"
+implementation "com.bold360ai-sdk.conversation:engine:3.6.1.rc1"
+implementation "com.bold360ai-sdk.conversation:chatintegration:3.6.1.rc1"
+implementation "com.bold360ai-sdk.conversation:ui:3.6.1.rc4"
+implementation "com.bold360ai-sdk.core:accessibility:3.6.1.rc1"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+---
+
+
 # Version 3.5.6
 
 In this version:
