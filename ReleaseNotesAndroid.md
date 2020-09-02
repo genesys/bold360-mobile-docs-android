@@ -1,4 +1,39 @@
 
+# Version 4.0.1
+
+In this version:
+
+### Bot related
+- **UserId management** - The SDK generates a userId via BE API, on Bot chat creation,   if one was not provided by the embedding App.   
+  In order to identify chats sessions as belong to the same user in the reporting, the same userId should be used. Newly generated userId is available to the embedding App, via `AccountInfoProvider.update` implementation. 
+```diff
+- Breaking Changes
+```
+> - The Embedding App is responsible to **save the userId**, once created, and **provide it on `BotAccount.userId`** for successive chats creation of the same account. 
+
+- **Multi answer design** - Bot responses which contains multiple answers of kind `inlineChoice`, are displayed as persistent options. Meaning the options are not disappears when one is selected.
+
+### Fixes
+- Improve SDK allocated resources release.
+- Fix active links on bot responses, while escalated live chat is in progress.
+
+___
+
+
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:4.0.1"
+implementation "com.bold360ai-sdk.conversation:engine:4.0.1"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.0.1"
+implementation "com.bold360ai-sdk.conversation:ui:4.0.1"
+implementation "com.bold360ai-sdk.core:accessibility:4.0.1"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+---
+
 # Version 4.0.0
 
 In this version:
@@ -24,6 +59,7 @@ In this version:
   - New APIs and properties:</u>
     - `onChatInterruption` - notify the SDK when something was activated on the device that may interrupt the regular chat flow, like incoming/outgoing calls.   
     - `destruct` - The ChatController instance will clear all its resources and active chats.
+    - `wasDestructed` - Indicates if ChatController was destructed and can no longer be used.
     - `terminateChat` - Ends **all** current open chats.
     - `endChat` - Ends only active open chat.
     - `startChat` - start a new chat with account, with the same ChatController instance.   
