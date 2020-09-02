@@ -13,7 +13,7 @@ chatController.setChatElementListener(listenerImpl)
 ### Possible updates 
 `onReceive`(req) - on element inserted to the chat.   
 `onRemove`(opt) - element was removed from the chat.   
-`onUpdate`(opt) - elemenet data was updated.
+`onUpdate`(opt) - element data was updated.
 
 `onFetch`(opt) - implement this in order to enable display of previous chat content. (Historic content)
 

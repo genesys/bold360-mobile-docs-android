@@ -1,7 +1,9 @@
 # Add File Upload support
 
 The SDK provides an upload mechanism, but enables you to use your own.   
+
 Follow the next steps to integrate upload functionality to your chat:
+
 > If you don't use the SDK for chat ui creation, but want to use the provided uploader mechanism, go to [step 2.](#Use-SDK's-provided-uploader)
 
 ## 1.  Define your file upload trigger   
@@ -68,29 +70,29 @@ The UI component the user will use to trigger the upload.
     
     1. When using the ChatController 
     
-	```kotlin
-    chatController.uploadFile(uploadInfo) { uploadResults ->
-        //.... got UploadResults and do whatever
-        uploadsResults.error?.run{
-            Log.e(TAG, "Got an error on ${uploadResults.data.name} 
-                                file upload: ${uploadsResults.error}")
-            ...
+        ```kotlin
+        chatController.uploadFile(uploadInfo) { uploadResults ->
+            //.... got UploadResults and do whatever
+            uploadsResults.error?.run{
+                Log.e(TAG, "Got an error on ${uploadResults.data.name} 
+                                    file upload: ${uploadsResults.error}")
+                ...
+            }
         }
-    }
-    ```
+        ```
     Upload results are passed over the provided callback.
 
 	2. When using the Uploader
-    ```kotlin
-    BoldLiveUploader().upload(uploadInfo, AccountDetails(...)) { uploadResults ->
-        //.... got UploadResults and do whatever
-        uploadsResults.error?.run{
-            Log.e(TAG, "Got an error on ${uploadResults.data.name} 
-                                file upload: ${uploadsResults.error}")
-            ...
+        ```kotlin
+        BoldLiveUploader().upload(uploadInfo, AccountDetails(...)) { uploadResults ->
+            //.... got UploadResults and do whatever
+            uploadsResults.error?.run{
+                Log.e(TAG, "Got an error on ${uploadResults.data.name} 
+                                    file upload: ${uploadsResults.error}")
+                ...
+            }
         }
-    }
-    ```
+        ```
 
 
 - ### Use your own uploader
