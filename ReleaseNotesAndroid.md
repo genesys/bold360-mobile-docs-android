@@ -30,7 +30,8 @@ Returns a unique String identification of the element.
 > - History support mechanism implementations may need some extra changes other than the above mentioned issues, in order to retain the your stored chats records data.   
 > - A migration tool is available on this version to help you convert old schemed elements to the new scheme, so all records will be aligned with the new changes.   
 
-##### [Follow to get more details, and examples.]()
+
+- ##### [Follow for more details and examples.](./How-to-migrate-to-4.1.0.md)
 
 ---
 
