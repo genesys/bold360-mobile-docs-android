@@ -2,13 +2,13 @@
 
 The SDK provides the bridge to pass user specific information to the BOT on chat start and while processing responses to user queries, which demands more details from the user, during the chat.
 
-## There are 2 types of personal information
+There are 2 types of personal information
 
-## __Initialization entites__
+### __Initialization entites__
 
 Predefined data values that can be provided for the whole chat session and are not being changed dynamically (exp: ids, keys, etc).
 
-### How To use
+#### How To use
 
 1. Create the initialization entities map
 
@@ -16,7 +16,7 @@ Predefined data values that can be provided for the whole chat session and are n
    val entities = mapOf("EntityKey1" to "EntityValue1", "EntityKey2" to "EntityValue2", ... )
    ```
 
-2. Set on the account as follows
+2. Set the initialization entities on the account
 
    ```kotlin
    val account = BotAccount(...).apply {
@@ -24,7 +24,7 @@ Predefined data values that can be provided for the whole chat session and are n
                         }
    ```
 
-- Note: The `initialization entities` can be also supplied at the `AccountInfoProvider`'s `provide` method as follows:
+- Note: The `initialization entities` can be also supplied at the `AccountInfoProvider.provide` method as follows:
 
     ```kotlin
     override fun provide(account: AccountInfo, callback: Completion<AccountInfo>) {
@@ -34,21 +34,26 @@ Predefined data values that can be provided for the whole chat session and are n
     }
     ```
 
-## __Missing entites or Personal information__
+### __Missing entites and Personal information__
 
 Dynamically required details. Depends on user query and the article the Bot responses with.
 articles of this sort are configured with a Bold360ai provider which formats the response to contain the entities tag pattern, that are being recognized by the SDK as the needed information (please contect out support for farther information about the [Bold360AI provider](https://support.bold360.com/bold360/help/how-do-i-create-a-csv-provider)).
 
-- **Missing entites**: If the client (an App uses the mobile) registerered to the missing
-  entities which are needed by the provider, the provider asks the client for the data
-  The `EntitesProvider` would be called to provide the info (exp: names, account numbers, etc).
+- **Missing entites**:    
+  Details that the user is asked to provide before the requested data can be supplied.   
+  The provider which assigned to the article identifies which extra details are needed in order to get a response to a user query. According to the entities that were set to the account, the App is asked to provide thoes details by calling the `EntitiesProvider.provide`.   
+  ##### Missing entities can be, names, account numbers, etc.
 
-- **Personal information** - After the missing entitiy has been provided, the personal
-  information about this missing entity can be also requested by the server  (exp: account balance, passport number, etc).
+- **Personal information**:   
+  Extra user personal info, that may be requested from the App by the SDK regarding a specific entity, in order to provide a response.
+  Needed once the BE provides a response which contains, info needed place holders. The App provided personal info is than used to replace those place holders.
+  ##### Personal information can be, account balance, passport number, etc.
 
+##  
   ![provide missing entites / personal info](images/Android/personalInfo.png)
+##
 
-### How To use
+#### How To use
 
 1. Create the missing entities array
 
@@ -56,7 +61,7 @@ articles of this sort are configured with a Bold360ai provider which formats the
     val missingEntities = arrayOf("EntityKey1", "EntityKey2"... )
     ```
 
-2. Set on the account as follows:
+2. Set the entities on the account
 
      ```kotlin
     val account = BotAccount(...).apply {
@@ -73,4 +78,4 @@ articles of this sort are configured with a Bold360ai provider which formats the
     ChatController.Builder(getContext()).entitiesProvider(the EntitiesProvider implemintation)...build(...)
     ```
 
- >Follow the next [link](missing_entities_example.md) for a specific example of `missing entities` and `personal information` usage
+ > ##### [Full example: `missing entities` and `personal information` usage](missing_entities_example.md)
