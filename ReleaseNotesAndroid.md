@@ -1,3 +1,36 @@
+# Version 4.0.3
+
+### Features
+- Hands-free experience is now added to the voice-to-voice mode. When the option is turned on, the microphone is automatically enabled once the answer read out is done.
+
+### Fixes
+- Fixed an issue that caused reading out persistent options twice in voice-to-voice mode.
+- When customizing the chat look and feel, multiple `SendUIConfig` instances were reachable from the `ChatUIProvider`. We simplified it to have a single one that is reachable under `ChatUIProvider.chatInputUIProvider.sendCmpUIProvider.uiConfig`.   
+
+  > #### Usage of ‘ChatAutocompleteUIConfig.sendUIConfig’ was deprecated.
+  
+### ChatController API
+- `ChatLoadedListener` can be provided also after ChatController creation, for following chat start/restore operations.
+
+### Known issue
+- Ticket typed channel is not supported on devices with API level lower than 19  
+
+---
+
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:4.0.3"
+implementation "com.bold360ai-sdk.conversation:engine:4.0.3"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.0.1"
+implementation "com.bold360ai-sdk.conversation:ui:4.0.3"
+implementation "com.bold360ai-sdk.core:accessibility:4.0.1"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+---
+
 # Version 4.0.2
 
 Fixed on this version:
