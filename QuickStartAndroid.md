@@ -4,16 +4,16 @@
 Do the following
 1. ### <u>Create an Account.</u>
 
-   - #### <u>*To start chat with Bot create `BotAccount`*:</u>  
-    
-      ```kotlin
-      val account = BotAccount(API_KEY, ACCOUNT_NAME,
-                              KNOWLEDGE_BASE, SERVER, CONTEXT_MAP)
-      ```  
-  
-      Where: API_KEY (mandatory), ACCOUNT_NAME(mandatory), KNOWLEDGE_BASE(mandatory), SERVER(mandatory), CONTEXT_MAP(optional)
+- #### <u>*To start chat with Bot create `BotAccount`*:</u>  
 
-      - If the account is using Context, create BotAccount as follows:
+    ```kotlin
+    val account = BotAccount(API_KEY, ACCOUNT_NAME,
+                            KNOWLEDGE_BASE, SERVER, CONTEXT_MAP)
+    ```  
+
+    Where: API_KEY (mandatory), ACCOUNT_NAME(mandatory), KNOWLEDGE_BASE(mandatory), SERVER(mandatory), CONTEXT_MAP(optional)
+
+    - If the account is using Context, create BotAccount as follows:
 
         ```kotlin
         val contexts = mapOf("ContextKey1" to "ContextValue1",
@@ -21,83 +21,70 @@ Do the following
                             ... )
 
         val account = BotAccount(API_KEY, ACCOUNT_NAME,
-                              KNOWLEDGE_BASE, SERVER, contexts)
+                                KNOWLEDGE_BASE, SERVER, contexts)
         ```
+
+    - If the welcome message should be customised and override current console configurations, create account as follows:
+
+        ```kotlin
+        val account = BotAccount(API_KEY, ACCOUNT_NAME, KNOWLEDGE_BASE,
+                                SERVER, CONTEXT_MAP).apply {
+                                    welcomeMessage = ARTICLE_ID
+                                }
+        ```
+
+    - If the account is using Initialization Entities, please follow this [link](./Personal_Information.md#Initialization_entites)
+
+- #### <u>*To start chat with Bold create `BoldAccount`*:</u>
+    if needed, add extraData values to the account. The `extraData` details will be used to fill the prechat form if enabled, and will provide the agent some details about the user.
+
+    ```kotlin
+    val account = BoldAccount(API_KEY)
+
+    // adding extraData: 
+    account.apply{
+        addExtraData (SessionInfoKeys.Department to BOLD_DEPARTMENT,
+            SessionInfoKeys.FirstName to DemoFirstName,
+            SessionInfoKeys.LastName to DemoLastName
+            ...)             
+    }
+    ```
     
-      - If the account is using Initialization Entities, create BotAccount as follows:
 
-        ```kotlin
-        val entities = mapOf("EntityKey1" to "EntityValue1",
-                            "EntityKey2" to "EntityValue2",
-                            ... )
-
-        val account = BotAccount(API_KEY, ACCOUNT_NAME, KNOWLEDGE_BASE,
-                                  SERVER, CONTEXT_MAP).apply {
-                                      initializationEntities = entities
-                                  }
-        ```
-   
-     - If the welcome message should be customised and override current console configurations, create account as follows:
-
-        ```kotlin
-        val account = BotAccount(API_KEY, ACCOUNT_NAME, KNOWLEDGE_BASE,
-                                  SERVER, CONTEXT_MAP).apply {
-                                       welcomeMessage = ARTICLE_ID
-                                  }
-        ```
-
-
-   - #### <u>*To start chat with Bold create `BoldAccount`*:</u>
-      if needed, add extraData values to the account. The `extraData` details will be used to fill the prechat form if enabled, and will provide the agent some details about the user.
-
-        ```kotlin
-        val account = BoldAccount(API_KEY)
-
-        // adding extraData: 
-        account.apply{
-            addExtraData (SessionInfoKeys.Department to BOLD_DEPARTMENT,
-                SessionInfoKeys.FirstName to DemoFirstName,
-                SessionInfoKeys.LastName to DemoLastName
-                ...)             
+- #### <u>*To start a Messaging chat create `AsyncAccount`*:</u>
+    
+    ```kotlin
+    val account = AsyncAccount(API_KEY, APPLICATION_ID)
+    ```
+    
+    In order to provide a specific user id and info, (by that, relate all chats with the same id, to the same user), add `UserInfo` to the account creation. If `userId` is not provided, one will be automatically generated. 
+    
+    ```kotlin
+    // kotlin:
+    val account = AsyncAccount(API_KEY, APPLICATION_ID).apply {
+        info.userInfo = UserInfo(USER_ID).apply { // Mandatory
+            firstName = FIRST_NAME // optional
+            lastName = LAST_NAME // optional
+            email = EMAIL_ADDRESS // optional
+            phoneNumber = PHONE_NUMBER // optional
         }
-        ```
-        
+    }
+    ```
+    ```java
+    // Java:
+    UserInfo userInfo = new UserInfo(USER_ID);
+    userInfo.setFirstName(FIRST_NAME);
+    userInfo.setLastName(LAST_NAME);
+    userInfo.setEmail(EMAIL_ADDRESS);
+    userInfo.setPhoneNumber(PHONE_NUMBER);
 
-    - #### <u>*To start a Messaging chat create `AsyncAccount`*:</u>
-     
-        ```kotlin
-        val account = AsyncAccount(API_KEY, APPLICATION_ID)
-        ```
-        
-        In order to provide a specific user id and info, (by that, relate all chats with the same id, to the same user), add `UserInfo` to the account creation. If `userId` is not provided, one will be automatically generated. 
-        
-        ```kotlin
-        // kotlin:
-        val account = AsyncAccount(API_KEY, APPLICATION_ID).apply {
-            info.userInfo = UserInfo(USER_ID).apply { // Mandatory
-                firstName = FIRST_NAME // optional
-                lastName = LAST_NAME // optional
-                email = EMAIL_ADDRESS // optional
-                phoneNumber = PHONE_NUMBER // optional
-            }
-        }
-        ```
-        ```java
-        // Java:
-        UserInfo userInfo = new UserInfo(USER_ID);
-        userInfo.setFirstName(FIRST_NAME);
-        userInfo.setLastName(LAST_NAME);
-        userInfo.setEmail(EMAIL_ADDRESS);
-        userInfo.setPhoneNumber(PHONE_NUMBER);
-
-        AsyncAccount account = new AsyncAccount(API_KEY, APPLICATION_ID);
-        AsyncSession.setUserInfo(account.getInfo(), userInfo)
-        ```
-        > Async messages response wait timeout can be configured on the accounts SessionInfo as well:
-        `info.ackTimeout = MS_Value`. If was not set,the default value will be used, 6000ms. 
+    AsyncAccount account = new AsyncAccount(API_KEY, APPLICATION_ID);
+    AsyncSession.setUserInfo(account.getInfo(), userInfo)
+    ```
+    > Async messages response wait timeout can be configured on the accounts SessionInfo as well:
+    `info.ackTimeout = MS_Value`. If was not set,the default value will be used, 6000ms. 
 
 ##
-
 2. ### <u>Create a ChatController object</u>
     With the ChatController one can create and control multiple chats.
     The chat type is configured by the Account that is provided on chat creation.
