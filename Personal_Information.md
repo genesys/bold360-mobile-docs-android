@@ -1,9 +1,10 @@
 # Account entities and personal information
 
 The SDK provides the bridge to pass user specific information to the BOT on chat start and while processing responses to user queries, which demands more details from the user, during the chat.
-User information can be provided in 2 ways:
 
-## Initialization entites
+## There are 2 types of personal information
+
+## __Initialization entites__
 
 Predefined data values that can be provided for the whole chat session and are not being changed dynamically (exp: ids, keys, etc).
 
@@ -15,7 +16,7 @@ Predefined data values that can be provided for the whole chat session and are n
    val entities = mapOf("EntityKey1" to "EntityValue1", "EntityKey2" to "EntityValue2", ... )
    ```
 
-2. Register your initialization entities as follows
+2. Set on the account as follows
 
    ```kotlin
    val account = BotAccount(...).apply {
@@ -23,7 +24,7 @@ Predefined data values that can be provided for the whole chat session and are n
                         }
    ```
 
-- Note: The `initialization entities` can be also supplied at the `AccountInfoProvider`'s OnAccountReady method as follows:
+- Note: The `initialization entities` can be also supplied at the `AccountInfoProvider`'s `provide` method as follows:
 
     ```kotlin
     override fun provide(account: AccountInfo, callback: Completion<AccountInfo>) {
@@ -33,10 +34,10 @@ Predefined data values that can be provided for the whole chat session and are n
     }
     ```
 
-## Missing entites or Personal information
+## __Missing entites or Personal information__
 
-Dynamically required details. Depends on user query and the article the Bot responses with..
-The article uses a Bold360AI provider implementation in order to provide the needed data (please contect out support for farther information about the Bold360AI provider).
+Dynamically required details. Depends on user query and the article the Bot responses with.
+articles of this sort are configured with a Bold360ai provider which formats the response to contain the entities tag pattern, that are being recognized by the SDK as the needed information (please contect out support for farther information about the [Bold360AI provider](https://support.bold360.com/bold360/help/how-do-i-create-a-csv-provider)).
 
 - **Missing entites**: If the client (an App uses the mobile) registerered to the missing
   entities which are needed by the provider, the provider asks the client for the data
@@ -55,7 +56,7 @@ The article uses a Bold360AI provider implementation in order to provide the nee
     val missingEntities = arrayOf("EntityKey1", "EntityKey2"... )
     ```
 
-2. Register your dynamic entities as follows:
+2. Set on the account as follows:
 
      ```kotlin
     val account = BotAccount(...).apply {
@@ -70,5 +71,6 @@ The article uses a Bold360AI provider implementation in order to provide the nee
 
     ```kotlin
     ChatController.Builder(getContext()).entitiesProvider(the EntitiesProvider implemintation)...build(...)
+    ```
 
  >Follow the next [link](missing_entities_example.md) for a specific example of `missing entities` and `personal information` usage
