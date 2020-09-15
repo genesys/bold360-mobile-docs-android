@@ -65,7 +65,7 @@ Currently `Dark Theme` is not yet being formally supported, but this can be done
 
 <p>
 
-* bg - the form background
+* form_bg - the form background files name
 
 </p>
 
