@@ -1,77 +1,58 @@
-#  Dark Theme Support
+#  Dark mode Support
 
-Currently the Android's `Dark Theme` is not being formally supported yet.
-The App can only add resources (Drawables, Colors, Styles etc...) in order to override the SDK's resources.
+_Currently, **dark mode** is not formally being supported by the SDK._
 
-The `Dark Theme` resources needs to be located in additional resources folders as explained below.
+### How to apply Dark mode to your Chat
+In order to apply dark theme to your chat, you can define overriding and dark mode resources additions, that will replace the resources used by the SDK.
 
-## Apply Dark Theme support for your App
+- #### Adding night mode resources
+  Night mode resources should be located in a night mode dedicated folder.
+  The night mode folder is named as the original resource folder with "-night-"
+  addition to it. (exp: `drawable-night-hdpi`).
 
-You can apply the `Dark Theme` support according to the official android [docs](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme).
+  When setting the device to `Night mode`, those resources will be used automatically.
 
-## How to customize
+ - #### Overriding resources
 
-- ### Add resource folders
+    SDK resources can be overridden by the hosting app, by defining the same resource id (name) with different value on the Apps resources.
+    
+    
+  > _More info can be found on the official android developers guide on_ [Dark theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme).
+  
+  ---
+  
 
-    Add resources folders for the `Dark Theme`.
-    Those folders needs to be named as the original resource folders with `-night-` postfix (exp: `drawable-night-hdpi`).
-
-    When using `Dark Theme` the App would automaticaly use those resources.
-
- - ### Override resources
-
-    The wanted resources to be overriden needs to be located at the previouslly created resources folders abd be named excectelly as the SDK's resources.
-    As an example blease follow the below form resources names.
-    Please contact us if other resources names are needed.
-
-    <details><summary>Forms Resources names to be overriden</summary>
-    <p>
-
-      **The form resources ids are:**
-
-      <details>
-      <summary>colors</summary>
-      <p>
-
+  <details><summary>Chat forms partial resources list</summary>
+    
+  - <details><summary>colors</summary>
+      
       * form_field_hint
       * form_field_text
       * form_field_main_text
       * form_field_sub_text
       * form_field_available
-      * form_field_not_available
+      * form_field_unavailable
       * form_field_background
-      * form_selection_view_first_item_background
-      * form_selection_view_background
-
-    </p>
+      * form_selection_dropdown_background
+      * form_selection_dropdown_title_background
     </details>
 
-    <details><summary>styles</summary>
-      <p>
-
-    ```Kotlin
-    <style name="MatchSpinnerStyle" parent="android:style/Widget.ListView.DropDown">
-            <item name="android:divider">#66aaaaaa</item>
-            <item name="android:dividerHeight">1dp</item>
-    </style>
-
-    <style name="MatchSpinnerTheme" parent="Theme.AppCompat.Light">
-            <item name="android:dropDownListViewStyle">@style/MatchSpinnerStyle</item>
-    </style>
-    ```
-
-    </p>
+  - <details><summary>styles</summary>
+      
+    * MatchSpinnerStyle
+    * MatchSpinnerTheme
     </details>
 
-    <details><summary>drawables</summary>
+  - <details><summary>drawables</summary>
 
-    <p>
-
-    * form_bg - the form background files name
-
-    </p>
-
+    * form_bg
     </details>
 
-      </p>
-      </details>
+  - <details><summary>dimens</summary>
+
+    * form_main_text_style
+    * form_sub_text_style
+    * form_option_item_padding
+    </details>
+
+ </details>
