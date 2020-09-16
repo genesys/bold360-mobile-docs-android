@@ -170,4 +170,4 @@ class HistoryMigrationProvider : ElementMigration {
     }
 }
 ```
-[see full sample](https://github.com/bold360ai/bold360-mobile-samples-android/blob/release/4.0.3/SDKSamples/app/src/main/java/com/sdk/samples/topics/BotChatHistory.kt)
+[see full sample](https://github.com/bold360ai/bold360-mobile-samples-android/blob/master/SDKSamples/app/src/main/java/com/sdk/samples/topics/BotChatHistory.kt)
