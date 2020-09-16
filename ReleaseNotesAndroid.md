@@ -1,3 +1,76 @@
+# Version 4.1.0
+
+### Features
+- #### Chat elements
+  - **Chat elements are uniquely identified by a String typed Id property**, instead of their timestamp. timestamp of chat elements is no longer unique.
+  - StorableChatElement was updated accordingly and the method `getId()` was added.
+  - ChatElementListener: Addition of onUpdate and onRemove methods.
+  - All chat types are supports the Id property usage for identifying and adding messages to the chat. 
+  - Chat elements structure was changed, so serialization and deserialization of elements was updated.    
+  Backward support of old elements deserialization was integrated in order to prevent current stored chats from being lost. (As long as the `storageKey` will be provided on the storage fetched elements)
+  - In case of previous stored chats, a migration tool is provided on this version, to convert old scheme elements to the new ones.   
+    > Follow [migrating your chat](./How-to-migrate-to-4.1.0.md) for more details.
+ 
+  ```diff
+  - Breaking changes and Deprecations:
+  ```
+  - ##### _ChatElement_
+    - relocated to package: `com.nanorep.convesationui.structure.elements`**
+
+  - ##### _StorableChatElement_
+    - Interface is now located on package: **`com.nanorep.convesationui.structure.elements`**
+    - getId() method was added. Returns a unique String identification of the element.
+    - The deprecated method `getStorableContent():String` was removed
+
+  - ##### _ChatElementListener_
+    <u>Deprecated methods:</u>
+    - `onRemove(timestampId: Long)` 
+    - `onUpdate(timestampId: Long, item: StorableChatElement)`    
+
+    <u>Replacement methods:</u>
+    - `onRemove(id: String)` 
+    - `onUpdate(id: String, item: StorableChatElement)`
+    
+  - ##### _AgentType_
+    - Enum was deprecated.
+    - Deprecated `agentType` property was removed from chat element classes.
+    
+  - ##### _ClearBoldChatSession.Builder_
+    - Constructor doesn't receive a context as parameter. The context should be provided on `build` method.
+
+- #### Input field
+  Scrolling support addition enables content of more than 6 lines.
+##
+
+### Fixes
+
+- Connectivity receiver leak errors
+- Fix of the crash that happened if malformed Bold API key was provided. Now it fails with an error.
+- Fix of the crash that was experienced when rotating the device while a chat form was presented.
+- Fix of crash when changing the device language, mid chat. 
+- Fix of carousel readout crash.
+- Chat forms: Replacing hard-coded color and dimension values with resources, to enable override and night mode configured replacements by the hosting App
+- Fix of the issue that if the pre-chat form was canceled, due to activity finish state, the cancellation callback was not triggered, and the chat was not canceled properly.
+- Fixed the issue that if multiple messages were sent in a fast time frame some messages were not visible in the chat, although they were stored in history and sent properly to the agent.
+
+
+
+---
+
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:4.1.0"
+implementation "com.bold360ai-sdk.conversation:engine:4.1.0"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.1.0"
+implementation "com.bold360ai-sdk.conversation:ui:4.1.0"
+implementation "com.bold360ai-sdk.core:accessibility:4.1.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+---
+
+
 # Version 4.0.4
 
 ### Fixes
