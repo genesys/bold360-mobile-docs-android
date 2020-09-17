@@ -78,6 +78,7 @@
     * [Live queue position](./LiveQueuePositionAndroid.md)
     * [Agent Typing](./AgentTypingAndroid.md)
     * [File upload progress](./FileUploadAndroid.md#uicustom)
+    * [Dark mode](./DarkModeSupport.md)
     </details>
 
 </details>
