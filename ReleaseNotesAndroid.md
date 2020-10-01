@@ -1,8 +1,8 @@
 # Version 4.1.1
 
 ### Features
-- #### Secured live chat initiation 
-  The SDK now provides the way to pass a secured encrypted data string, using the BoldAccount, for creating a secured live chat with agent.
+- #### Validated live chat support 
+  The SDK now provides the way to pass a secured encrypted data string, using the BoldAccount, for creating a secured validated live chat with agent.
 
 - #### Addition of chat form related resources
   In order to enable more flexibility of overriding the chat forms look, we've added the following:
