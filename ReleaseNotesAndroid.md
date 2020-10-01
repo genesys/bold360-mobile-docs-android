@@ -11,8 +11,11 @@
   - A style resource for the form fields hint appearance, `@style/FormHintTextAppearance`
 
 ### Fixes 
+- Disabling the chat input field, once all active chats were ended. User can't continue typing messages.
 - Fix for chat form fields background override by resource.
 - Fix for form fields hint color override by resource.
+
+
 
 ---
 
