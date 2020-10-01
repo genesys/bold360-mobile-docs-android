@@ -11,8 +11,8 @@
   - A style resource for the form fields hint appearance, `@style/FormHintTextAppearance`
 
 ### Fixes 
-- Chat form fields background can be overridden by resources, for regular/dark mode.  
-- Form fields hint color override 
+- Fix for chat form fields background override by resource.
+- Fix for form fields hint color override by resource.
 
 ---
 
