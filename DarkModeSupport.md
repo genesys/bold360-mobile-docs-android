@@ -33,12 +33,14 @@ In order to apply dark theme to your chat, you can define overriding and dark mo
       * form_field_available
       * form_field_unavailable
       * form_field_background
+      * form_rating_field_background
       * form_selection_dropdown_background
       * form_selection_dropdown_title_background
     </details>
 
   - <details><summary>styles</summary>
-      
+
+    * FormHintTextAppearance - override in order to change the form field hint appearance
     * MatchSpinnerStyle
     * MatchSpinnerTheme
     </details>
@@ -53,6 +55,8 @@ In order to apply dark theme to your chat, you can define overriding and dark mo
     * form_main_text_style
     * form_sub_text_style
     * form_option_item_padding
+    * form_field_padding
+    * form_fields_gap
     </details>
 
  </details>

@@ -36,17 +36,23 @@ Do the following
     - If the account is using Initialization Entities, please follow this [link](./Personal_Information.md#Initialization_entites)
 
 - #### <u>*To start chat with Bold create `BoldAccount`*:</u>
-    if needed, add extraData values to the account. The `extraData` details will be used to fill the prechat form if enabled, and will provide the agent some details about the user.
+    - extraData - Detailes about the user and the current chat session. The `extraData` details will be used to fill the prechat form if enabled, and will provide the agent some details about the user.
+
+    - securedInfo - An encrypted secured string that was applied to the specific access key in order to validate the chat origin on creation.
 
     ```kotlin
     val account = BoldAccount(API_KEY)
 
-    // adding extraData: 
+    
     account.apply{
+        // adding extraData: 
         addExtraData (SessionInfoKeys.Department to BOLD_DEPARTMENT,
             SessionInfoKeys.FirstName to DemoFirstName,
             SessionInfoKeys.LastName to DemoLastName
             ...)             
+
+        // adding secured info:
+        info.securedInfo = "..."    
     }
     ```
     

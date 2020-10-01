@@ -1,3 +1,35 @@
+# Version 4.1.1
+
+### Features
+- #### Secured live chat initiation 
+  The SDK now provides the way to pass a secured encrypted data string, using the BoldAccount, for creating a secured live chat with agent.
+
+- #### Addition of chat form related resources
+  In order to enable more flexibility of overriding the chat forms look, we've added the following:
+  - The ability to override the padding size and the margin between, of the chat form fields. `R.dimen.form_field_padding` and `R.dimen.form_fields_gap`
+  - A separate resource color for the rating views background, `R.color.form_rating_field_background`
+  - A style resource for the form fields hint appearance, `@style/FormHintTextAppearance`
+
+### Fixes 
+- Chat form fields background can be overridden by resources, for regular/dark mode.  
+- Form fields hint color override 
+
+---
+
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:4.1.1"
+implementation "com.bold360ai-sdk.conversation:engine:4.1.1"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.1.1"
+implementation "com.bold360ai-sdk.conversation:ui:4.1.1"
+implementation "com.bold360ai-sdk.core:accessibility:4.1.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+---
+
+
 # Version 4.1.0
 
 ### Features
