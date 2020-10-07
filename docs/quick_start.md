@@ -68,16 +68,15 @@ Use this Quick Start guide to get you up and running with the knowledge of fast 
 Follow the next steps to create and start a chat.
 
 1. ### Create an Account
-
     - [Create `BotAccount` for chat with AI](/docs/chat-configuration/setting_account#botaccount)
     {: .no_toc }
     
     - [Create `BoldAccount` for live chat with agent](/docs/chat-configuration/setting_account#boldaccount)
     {: .no_toc }
         
-    - [Create `AsyncAccount` to start messaging](/docs/chat-configuration/setting_account#asyncaccount)
+    - [Create `AsyncAccount` to start a messaging chat](/docs/chat-configuration/setting_account#asyncaccount)
     {: .no_toc }  
-
+---
 
 2. ### Create ChatController
     With the ChatController one can create and control multiple chats.
@@ -94,7 +93,7 @@ Follow the next steps to create and start a chat.
     // restore active chat or starts new chat
     chatController.restoreChat(fragment?, account?)
     ```
-
+---
 
 3. ### Add the chat fragment to your activity.
 
@@ -112,7 +111,6 @@ Follow the next steps to create and start a chat.
             }
         })
     ```
-
 ---
 
 ##### **Notice** 

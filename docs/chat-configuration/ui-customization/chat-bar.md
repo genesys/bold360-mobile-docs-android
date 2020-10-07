@@ -1,14 +1,13 @@
 ---
 layout: default
-title: Outgoing message
+title: Chat Bar
 parent: UI Customization
 grand_parent: Chat Configuration 
-permalink: /docs/chat-configuration/ui-customization/outgoing-message/
-has_children: true
-nav_order: 3
+permalink: /docs/chat-configuration/ui-customization/chat-bar
+nav_order: 5
 ---
 
-# Outgoing message
+# Chat Bar
 {: .no_toc }
 
 ## Table of contents
@@ -18,4 +17,3 @@ nav_order: 3
 {:toc}
 
 ---
-

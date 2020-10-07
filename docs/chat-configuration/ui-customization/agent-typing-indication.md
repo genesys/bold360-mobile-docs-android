@@ -1,14 +1,13 @@
 ---
 layout: default
-title: Outgoing message
+title: Agent Typing Indication
 parent: UI Customization
 grand_parent: Chat Configuration 
-permalink: /docs/chat-configuration/ui-customization/outgoing-message/
-has_children: true
-nav_order: 3
+permalink: /docs/chat-configuration/ui-customization/agent_typing_indication/
+nav_order: 7
 ---
 
-# Outgoing message
+# Agent Typing Indication
 {: .no_toc }
 
 ## Table of contents
@@ -18,4 +17,3 @@ nav_order: 3
 {:toc}
 
 ---
-

@@ -1,16 +1,8 @@
 ---
 layout: default
-title: Feedback
-grand_parent: UI Customization
-parent: Incoming message 
-permalink: /docs/chat-configuration/ui-customization/incoming-message/feedback/
-nav_order: 2
----
-
-# Feedback
-{: .no_toc }
-
-1. TOC
-{:toc}
-
+title: datestamp
+parent: UI Customization
+grand_parent: Chat configuration 
+permalink: /docs/chat-configuration/ui-customization/date_and_time/
+nav_order: 3
 ---

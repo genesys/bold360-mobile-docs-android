@@ -3,8 +3,8 @@ layout: default
 title: Incoming options
 grand_parent: UI Customization
 parent: Incoming message 
-permalink: /docs/chat-configuration/ui-customization/incoming-message/incoming-options/
-nav_order: 3
+permalink: /docs/chat-configuration/ui-customization/incoming-message/incoming-options
+np_toc: true
 ---
 
 # Incoming message options

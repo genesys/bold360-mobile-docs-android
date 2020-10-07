@@ -1,13 +1,13 @@
 ---
 layout: default
-title: User input field
+title: User Input Field
 parent: UI Customization
 grand_parent: Chat configuration 
-permalink: /docs/chat-configuration/ui-customization/user-input-field/
-nav_order: 2
+permalink: /docs/chat-configuration/ui-customization/user-input-field
+nav_order: 1
 ---
 
-# User input field
+# User Input Field
 {: .no_toc }
 
 ## Table of contents
@@ -26,6 +26,6 @@ nav_order: 2
 
 ## voice
 
-## upload
+## file upload
 
-## autocomplete
+## autocompelete
