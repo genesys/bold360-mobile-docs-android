@@ -39,7 +39,7 @@ Here you can see the supported SDK resources to be overriden.
   - form_bg
   - submit_button_selector
   - submit_button_idle - The Idle submit button's background shape
-  - submit_button_pressed - The Pressed submit button's background shape
+  - main_button_pressed - The Pressed submit button's background shape
 
 </details>
 
