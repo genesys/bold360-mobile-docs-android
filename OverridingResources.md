@@ -3,7 +3,7 @@
 ## SDK resources can be overridden by the hosting app, by defining the same resource
 
 Here you can see the supported SDK resources to be overriden.
-> Note: This list can be changed from time to time ogether with [customizations](./ChatCustomizationsAndroid) development
+> Note: This list can be changed from time to time together with [customizations](./ChatCustomizationsAndroid) development
 
     
 <details><summary>Colors</summary>
