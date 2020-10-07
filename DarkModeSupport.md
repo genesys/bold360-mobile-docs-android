@@ -14,7 +14,7 @@ In order to apply dark theme to your chat, you can define overriding and dark mo
 
  - #### Overriding resources
 
-    SDK resources can be overridden by the hosting app, by defining the same resource id (name) with different value on the Apps resources.
+    [SDK resources](./ChatRestoringAndroid.md) can be overridden by the hosting app, by defining the same resource id (name) with different value on the Apps resources.
     
     
   > _More info can be found on the official android developers guide on_ [Dark theme](https://developer.android.com/guide/topics/ui/look-and-feel/darktheme).

@@ -93,4 +93,11 @@ The ChatUIProvider provides access to the chat ui components. Each component ena
         ```
 
 ---
+
+## Overriding resources
+  Another way to customize the SDK's looks is to override its resourcess.  
+  This option is limited to the [resources](../OverridingResources.md) that can be overriden.
+
+---
+
 > ###### [more info about specific elements customizations](./CustomizationsSpecificsAndroid.md)
