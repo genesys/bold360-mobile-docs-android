@@ -8,15 +8,28 @@ permalink: /docs/chat-configuration/setting-account/bot-account
 ---
 
 # BotAccount
+{: .no_toc}
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+
+Use this account to create chat sessions with AI.
 
 ```kotlin
 val account = BotAccount(API_KEY, ACCOUNT_NAME,
-                        KNOWLEDGE_BASE, SERVER, CONTEXT_MAP)
+                        KNOWLEDGE_BASE, SERVER)
 ```  
 
-Where: API_KEY (mandatory), ACCOUNT_NAME(mandatory), KNOWLEDGE_BASE(mandatory), SERVER(mandatory), CONTEXT_MAP(optional)
+- API_KEY - As was configured to your account.
+- ACCOUNT_NAME <sub>[mandatory]</sub> - As was configured to your account.
+- KNOWLEDGE_BASE <sub>[mandatory]</sub> - The knowledge base you would like this chat to work with.
+- SERVER <sub>[mandatory]</sub> - As was configured to your account.
 
-- If the account is using Context, create BotAccount as follows:
+- If your account is configured to use contexts, provide the list of contexts as follows:
 
     ```kotlin
     val contexts = mapOf("ContextKey1" to "ContextValue1",
@@ -25,9 +38,16 @@ Where: API_KEY (mandatory), ACCOUNT_NAME(mandatory), KNOWLEDGE_BASE(mandatory), 
 
     val account = BotAccount(API_KEY, ACCOUNT_NAME,
                             KNOWLEDGE_BASE, SERVER, contexts)
+
+
+    // OR 
+    val account = BotAccount(API_KEY, ACCOUNT_NAME,
+                            KNOWLEDGE_BASE, SERVER)
+    ...                            
+    account.contexts = contexts
     ```
 
-- If the welcome message should be customised and override current console configurations, create account as follows:
+- If the welcome message should be customized and override current console configurations, create account as follows:
 
     ```kotlin
     val account = BotAccount(API_KEY, ACCOUNT_NAME, KNOWLEDGE_BASE,

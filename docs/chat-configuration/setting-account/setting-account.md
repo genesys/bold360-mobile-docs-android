@@ -4,7 +4,7 @@ title: Setting Account
 parent: Chat Configuration
 #has_children: true
 nav_order: 1
-permalink: /docs/chat-configuration/setting-account
+permalink: /docs/chat-configuration/setting-account/
 np_toc: true
 ---
 
