@@ -7,7 +7,14 @@ nav_exclude: true
 # AccountInfoProvider
 {: .no_toc }
 
-Enables the app to provide session data and configurations, and get updates on account changes.
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+## Overview
+Provides the hosting app to set chat session data and configurations, for chat creation, and be notified about chat session updates.
 
 Implementation should be passed on `ChatController` creation.
 ```kotlin
@@ -16,40 +23,50 @@ val chatController = ChatController.Builder(context)
                                 ...
                                 .build(account,...)
 ```
+---
 
-### Why do i need to implement
-- **To be able to set data and configurations for chat session creation, when <u>escalating from an ai chat</u>**.   
-`AccountInfoProvider.provide` will be called, with a "starting point" Account. This account is configured with the details provided by the chat channel (like: apikey and appId). The App can set whatever is needs for the chat session before it passes the updated account on the callback. 
-```kotlin
-class SimpleAccountProvider : AccountInfoProvider {
+## Why do i need to implement
 
-    var accounts: MutableMap<String, AccountInfo> = mutableMapOf()
+<a id="account-provide"/>
 
-    override fun provide(account: AccountInfo, callback: Completion<AccountInfo>) {
-        accounts[account.getApiKey()]?.let{
-            account.getInfo().update(it.getInfo())
-            // update session related data for the upcoming chat
-            account
-        }?:let{
-            addAccount(account)
+- ### Set data for chat creation    
+    **To be able to set data and configurations for chat session creation, when <u>escalating from an ai chat</u>**.   
+    **`AccountInfoProvider.provide`** will be called, with a "starting point" Account. This account is configured with the details provided by the chat channel (like: apikey and appId). The App can set whatever is needs for the chat session before it passes the updated account on the callback. 
+    ```kotlin
+    class SimpleAccountProvider : AccountInfoProvider {
+
+        var accounts: MutableMap<String, AccountInfo> = mutableMapOf()
+
+        override fun provide(account: AccountInfo, callback: Completion<AccountInfo>) {
+            accounts[account.getApiKey()]?.let{
+                account.getInfo().update(it.getInfo())
+                // update session related data for the upcoming chat
+                account
+            }?:let{
+                addAccount(account)
+            }
+            callback.onComplete(account)
         }
-        callback.onComplete(account)
     }
-```
-- **To be able to receive account session data updates. like: _chatId_, _SenderId_, _visitorId_, etc.**   
-`AccountIfoProvider.update' will be called with an updated account. The updated values (or the whole account) can be saved for later use.
-```kotlin
-class SimpleAccountProvider : AccountInfoProvider {
+    ```
+- ### Notified about chat session data
+    **To be able to receive account session data updates. like: _chatId_, _SenderId_, _visitorId_, etc.**   
+    **`AccountIfoProvider.update'** will be called with an updated account. The updated values (or the whole account) can be saved for later use.
+  ```kotlin
+  class SimpleAccountProvider : AccountInfoProvider {
 
     var accounts: MutableMap<String, AccountInfo> = mutableMapOf()
 
     override fun update(account: AccountInfo) {
         accounts[account.getApiKey()]?.getInfo()?.update(account.getInfo())
     }
-}
-```
+  }
+  ```
+---
 
-### How to set session configurations on the chat account
+<a id="session-info"/> 
+
+## Setting chat session configurations
 _Each account has a `SessionInfo` property. With this property you can provide extra data <sub>(see `SessionInfoKeys`)</sub> and configurations <sub>(see `SessionInfoConfigKeys`)</sub>, that will be used in chat session creation._
 
 ```kotlin
@@ -94,7 +111,9 @@ LiveSession.setLanguage(boldAccount.getInfo(), "fr-FR")
 AsyncSession.setUserInfo(asyncAccount.getInfo(), new UserInfo(userId))
 ```
 
-### Ongoing session configurations changes
+--- 
+
+## Ongoing session configurations updates
 Some configurations may get updated while the chat is in progress.   
 As in **Messaging chat**, `LastReceivedMessageId' is updated on every agent incoming message.   
 We provide a way for the embedding App, to be notified of these changes and be able to persist the most recent data.   
@@ -105,12 +124,11 @@ Updates of ongoing configuration changes are passed over `AccountSessionListener
 ```kotlin
 // call from SDK example:
 accountListener?.onConfigUpdate(account, SessionInfoConfigKeys.LastReceivedMessageId, id)
-
+```
 
 ```kotlin
 class MySessionListener : AccountSessionListener {
     ...
-
     override fun onConfigUpdate(account: AccountInfo, updateKey: String, updatedValue: Any?) {
         val savedAccount = ... // fetch the relevant account record
         savedAccount.info

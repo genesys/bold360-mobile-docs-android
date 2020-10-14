@@ -16,8 +16,9 @@ permalink: /docs/chat-configuration/setting-account/bot-account
 1. TOC
 {:toc}
 
-
 Use this account to create chat sessions with AI.
+
+### Creating account
 
 ```kotlin
 val account = BotAccount(API_KEY, ACCOUNT_NAME,
@@ -29,31 +30,37 @@ val account = BotAccount(API_KEY, ACCOUNT_NAME,
 - KNOWLEDGE_BASE <sub>[mandatory]</sub> - The knowledge base you would like this chat to work with.
 - SERVER <sub>[mandatory]</sub> - As was configured to your account.
 
-- If your account is configured to use contexts, provide the list of contexts as follows:
+### Configure Contexts
 
     ```kotlin
+    // Create contexts map 
     val contexts = mapOf("ContextKey1" to "ContextValue1",
-                        "ContextKey2" to "ContextValue2",
-                        ... )
+                        "ContextKey2" to "ContextValue2", ... )
 
+    // set on constructor:
     val account = BotAccount(API_KEY, ACCOUNT_NAME,
                             KNOWLEDGE_BASE, SERVER, contexts)
 
 
-    // OR 
-    val account = BotAccount(API_KEY, ACCOUNT_NAME,
-                            KNOWLEDGE_BASE, SERVER)
-    ...                            
+    // or later in time, before chat creation:                           
     account.contexts = contexts
     ```
 
-- If the welcome message should be customized and override current console configurations, create account as follows:
+### Configure [Initialization Entities](/docs/chat-configuration/extra/bot-entities#initentities)
+ ```kotlin
+ account.initializationEntities = mapOf("EntityKey1" to "EntityValue1",
+                                     "EntityKey2" to "EntityValue2", ... )
+ ```
+ ---
+
+### How to
+- ##### Customize and override chat [Welcome Message](/docs/chat-configuration/extra/welcome-message)
 
     ```kotlin
-    val account = BotAccount(API_KEY, ACCOUNT_NAME, KNOWLEDGE_BASE,
-                            SERVER, CONTEXT_MAP).apply {
-                                welcomeMessage = ARTICLE_ID
-                            }
+    botAccount.welcomeMessage = ARTICLE_ID 
+    // if id is not valid, no message will be displayed
+    
+    botAccount.welcomeMessage = BotAccount.None 
+    // prevent welcome message display                 
     ```
 
-- If the account is using Initialization Entities, please follow this [link](./Personal_Information.md#Initialization_entites)
