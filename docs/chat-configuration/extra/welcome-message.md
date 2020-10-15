@@ -1,31 +1,64 @@
-# Welcome message
+---
+layout: default
+title: Welcome Message
+nav_exclude: true
+---
 
-## "On load article" How to configure:
-![](https://raw.githubusercontent.com/wiki/bold360ai/GlobalDocs/images/Android/welcome_article_console.png)
+# Welcome Message
+{: .no_toc }
 
-Once configured, article id will be accessible on `cnf` response under `onloadQuestionId` property.   
-If configured, the welcome article will be displayed on chat start as the first element in the chat. Quick options and channeling of this article will be accessible until first user query.   
-`Welcome article` can be configured along side `FAQs`. Both elements will be displayed on chat start.
+## Table of contents
+{: .no_toc .text-delta }
 
-![](https://raw.githubusercontent.com/wiki/bold360ai/GlobalDocs/images/Android/welcome-and-faqs.png)
+1. TOC
+{:toc}
 
-### How to customize:
-To start a chat with the BOT, a `BotAccount` is passed on the `ChatController` creation.    
-Configure the needed customed welcome article id on that `BotAccount` object.
-```java
-BotAccount account = new BotAccount(...);
+---
 
-// override console configured id or sets one if was not configured 
-account.setWelcomeMessage(welcomeMessageId); 
+## Overview
+AI chats can be configured to start with a preconfigured article, this will be fetched on chat start, and be displayed as first chat message.  
+The `Welcome Message` will appear only once on chat start. If the chat is a continuance chat and has messages history, the `Welcome Message` will not be reloaded.  
 
-// disable the welcome message if configured in console
-account.setWelcomeMessage(BotAccount.None);
+`Welcome Message` article can have images, persistent options, carousel, channels, etc.   
+Quick options and channeling of the `Welcome Message` will be accessible until first user query/action.  
+
+![](/assets/welcome-and-faqs.png)
+{: .image-40}
+
+---
+
+## How to configure:
+1. Configure on bold360ai admin console
+
+![](/assets/welcome_console.png)
+{: .image-70}
+
+Configured `Welcome Message` id is available on the `cnf` API response labled as `onloadQuestionId`.   
+   
+2. Configure on chat account
+`Welcome Message`, article id, can be configured on the `BotAccount`.
+```kotlin
+BotAccount(...).apply{
+    welcomeMessage = WELCOME_MESSAGE_ID
+}
 ```
 
-- BotAccount configured welcome message id, overrides console configuration.
+- `Welcome Message` configuration on BotAccount has presidency over console configuration.
 
-- In order to prevent display of the welcome message, no matter if configured on the console,  set welcome message id to `BotAccount.None`. *(welcome message id `null`, does nothing)*
 - If welcome message id was set to an invalid/non-existing article id, no welcome message will be displayed, error will be passed to `ChatEventListener.onError`.   
 
- 
-> **Notice**, Welcome message is retreived <U>once per chat</U>. If the current chat is a continuance chat, the welcome message won't be retreived again. 
+---
+
+## How to disable
+In order to prevent the `Welcome Message` display, no matter if configured on the console, set the welcome message id to `BotAccount.None`.   
+> _Setting welcome message id to `null`, will not be effective, as if was not configured on the account._
+
+```kotlin
+BotAccount(...).apply{
+    welcomeMessage = BotAccount.None
+}
+```
+ ---
+
+## Related Topics:
+ - `FAQs` message

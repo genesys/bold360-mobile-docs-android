@@ -10,3 +10,21 @@ $sidebar-color: $grey-lt-200;
 $nav-child-link-color:$side-blue;
 $border-color: $grey-lt-300;
 $code-background-color: $bluish-grey;
+
+
+.image-40 {
+    display: block;
+    width: 40%;
+  }
+
+  .image-70 {
+    display: block;
+    width: 70%;
+  }
+
+  blockquote {
+    border-left: .20em solid $bluish-grey;
+    color: #79899b;
+    padding: 0 0.5em;
+    margin-left: 1em;
+  }
