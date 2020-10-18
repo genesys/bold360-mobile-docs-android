@@ -28,3 +28,27 @@ $code-background-color: $bluish-grey;
     padding: 0 0.5em;
     margin-left: 1em;
   }
+
+
+  
+  table th {
+    padding: 1rem;
+    background: $bluish-grey;
+    border-color: $white;
+    color: $blue-300;
+  }
+  table td {
+    padding: 1rem;
+    background: $bluish-grey;
+    border-color: $white;
+    color: $grey-dk-200;
+  }
+  table body {
+    padding: 0.2rem;
+    background: $bluish-grey;
+    border-color: $grey-lt-300;
+  }
+  
+  .table-wrapper thead th {
+    border-bottom: 1px solid $white;
+}

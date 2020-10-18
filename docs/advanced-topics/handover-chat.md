@@ -1,7 +1,9 @@
 ---
 layout: default
-title: Bot Entities
-nav_exclude: true
+title: Handover Chat
+parent: Advanced Topics
+nav_order: 10
+permalink: /docs/advanced-topics/handover-chat
 ---
 
 # Handover Chat
@@ -76,7 +78,7 @@ Do the following for a successful Handover chat escalation.
 - ### Control chat UI components
     The HandoverHandler has access to a `ChatDelegate` implementation, which provides access to the chat fragments UI components, the chat elements and other abilities.   
 
-    #### Exp: Controling AgentTyping UI component visibility state:
+    **Exp: Controling AgentTyping UI component visibility state:**
     ```kotlin
     // show AgentTyping:
     chatDelegate?.updateCmp(ComponentType.LiveTypingCmp, data = null)
