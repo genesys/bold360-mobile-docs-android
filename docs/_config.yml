@@ -1,0 +1,5 @@
+theme: "just-the-docs"
+remote_theme: pmarsceill/just-the-docs
+title: bold360 Android SDK
+
+color_scheme: android-scheme
