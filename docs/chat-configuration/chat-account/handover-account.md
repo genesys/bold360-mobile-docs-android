@@ -1,9 +1,9 @@
 ---
 layout: default
 title: HandoverAccount
-parent: Setting Account
+parent: Chat Account
 grand_parent: Chat Configuration
-permalink: /docs/chat-configuration/setting-account/handover-account/
+permalink: /docs/chat-configuration/chat-account/handover-account/
 nav_order: 4
 ---
 

@@ -1,10 +1,10 @@
 ---
 layout: default
 title: BotAccount
-parent: Setting Account
+parent: Chat Account
 grand_parent: Chat Configuration
 nav_order: 1
-permalink: /docs/chat-configuration/setting-account/bot-account
+permalink: /docs/chat-configuration/chat-account/bot-account
 ---
 
 # BotAccount

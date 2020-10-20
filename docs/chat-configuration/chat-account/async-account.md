@@ -1,10 +1,10 @@
 ---
 layout: default
 title: AsyncAccount
-parent: Setting Account
+parent: Chat Account
 grand_parent: Chat Configuration
 nav_order: 3
-permalink: /docs/chat-configuration/setting-account/async-account
+permalink: /docs/chat-configuration/chat-account/async-account
 ---
 
 # AsyncAccount

@@ -1,10 +1,10 @@
 ---
 layout: default
 title: BoldAccount
-parent: Setting Account
+parent: Chat Account
 grand_parent: Chat Configuration
 nav_order: 2
-permalink: /docs/chat-configuration/setting-account/bold-account/
+permalink: /docs/chat-configuration/chat-account/bold-account/
 ---
 
 # BoldAccount
