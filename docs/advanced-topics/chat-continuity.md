@@ -10,23 +10,31 @@ has_toc: false
 # Chat Continuity
 {: .no_toc }
 
+need work
+{: .btn .btn-orange }
+
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. [Chat Session](/docs/advanced-topics/chat-continuity#chat_session)
-1. [AccountInfoProvider](/docs/chat-configuration/setting-account/account-info-provider)
-2. [Messaging chat continuation](./AsyncChatContinuation.md)
-3. [Bold live chat continuation](./BoldChatContinuation.md)
-4. [Bot ai chat continuation](./BotChatContinuation.md)
+- TOC
+{:toc .mb-0}
+- [AccountInfoProvider](/docs/chat-configuration/setting-account/account-info-provider)
+- [Messaging chat continuity](/docs/advanced-topics/messaging-chat#messaging-chat-continuation)
+- [Live chat continuity](./BoldChatContinuation.md)
+- [AI chat continuity](./BotChatContinuation.md)
 
 ---
 
-The option to relate and "continue" chat sessions. 
+## Overview
+The ability to relate chats to user previous chats or "continue" chat sessions.   
+Each chat, bot, live, Messaging, has its meaning for continuity. Messaging chat can actually be continued while live chat can be related to previous user chats history.
+{: .overview}
 
 ## Chat Session
-Each chat type (bot, live, Messaging) has its own properties that are being used to enable continuity.   
-Those properties are configurable on the accounts `info: SessionInfo` property.  
+The chat session is being created by the ChatController. On ChatController creation or when `chatController.startChat()` or `chatController.restoreChat()` were activated with an account object.   
 
+Each chat type, has account session properties that should be configured to enable continuity. Those properties can be configured on the account `info: SessionInfo` property.   
+<sup>Explore [specific chat contiuity](#table-of-contents) </sup> 
 
 #### Listening to session data updates
 While the chat is in progress, session data, like ids, may be created or changed.  

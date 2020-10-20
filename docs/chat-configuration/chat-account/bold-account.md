@@ -67,5 +67,5 @@ account.apply{
 
 ### Account updates
 Once the chat session was created, an account update will be triggered on [AccountInfoProvider](/docs/chat-configuration/setting-account/account-info-provider) implementation.  
-From the updated account you can fetch the `ChatId`.
+From the updated account you can fetch the `ChatId`.  
 `account.info.chatId` 

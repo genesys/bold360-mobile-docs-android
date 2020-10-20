@@ -15,6 +15,7 @@ nav_exclude: true
 
 ## Overview
 Provides the hosting app to set chat session data and configurations, for chat creation, and be notified about chat session updates.
+{: .overview}
 
 Implementation should be passed on `ChatController` creation.
 ```kotlin

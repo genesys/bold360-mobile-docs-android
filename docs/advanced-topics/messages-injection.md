@@ -8,13 +8,16 @@ permalink: /docs/advanced-topics/messages-injection
 
 # Messages Injection
 {: .no_toc }
+need work
+{: .btn .btn-orange }
 
-Table of content:
-{: .text-delta}
-1. [Overview](#overview)
-2. [Injecting chat messages](#injecting-chat-messages)
-3. [Welcome message](/docs/chat-configuration/extra/welcome-message)
-4. [FAQs message](/docs/chat-configuration/extra/faqs-message)
+## Table of contents
+{: .no_toc .text-delta }
+
+- TOC
+{:toc .mb-0}
+- [Welcome message](/docs/chat-configuration/extra/welcome-message)
+- [FAQs message](/docs/chat-configuration/extra/faqs-message)
 
 ---
 
@@ -22,6 +25,7 @@ Table of content:
 ## Overview
 The hosting app has the ability to control and engage with the messages that are being inserted to the chat.  
 Messages of vary types can be injected into the chat, while some may be configured to be injected by the SDK.  
+{: .overview}
 
 ## Injecting chat messages
 The SDK exposes an API to enable injection of messages into the chat by the hosting app.  
@@ -54,6 +58,3 @@ chatController.post(IncomingStatement("Hi"));
 // inject system message:
 chatController.post(SystemStatement("This is an automatic message"));
 ```
-
-
-### FAQs message

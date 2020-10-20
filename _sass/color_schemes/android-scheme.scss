@@ -13,42 +13,63 @@ $code-background-color: $bluish-grey;
 
 
 .image-40 {
-    display: block;
-    width: 40%;
-  }
+  display: block;
+  width: 40%;
+}
 
-  .image-70 {
-    display: block;
-    width: 70%;
-  }
+.image-70 {
+  display: block;
+  width: 70%;
+}
 
-  blockquote {
-    border-left: .20em solid $bluish-grey;
-    color: #79899b;
-    padding: 0 0.5em;
-    margin-left: 1em;
-  }
+.light-title{
+  font-size:3;
+  font-weight: 500;
+  color:$grey-dk-200;
+  text-decoration: underline
+}
 
+.overview {
+  font-weight: 300;
+  font-size: 16px;
+  font-style: italic;
+}
 
-  
-  table th {
-    padding: 1rem;
-    background: $bluish-grey;
-    border-color: $white;
-    color: $blue-300;
-  }
-  table td {
-    padding: 1rem;
-    background: $bluish-grey;
-    border-color: $white;
-    color: $grey-dk-200;
-  }
-  table body {
-    padding: 0.2rem;
-    background: $bluish-grey;
-    border-color: $grey-lt-300;
-  }
-  
-  .table-wrapper thead th {
-    border-bottom: 1px solid $white;
+blockquote {
+  border-left: .20em solid $bluish-grey;
+  color: #79899b;
+  padding: 0 0.5em;
+  margin-left: 1em;
+}
+
+table td,
+table th {
+  padding: 1rem;
+  background: $bluish-grey;
+  border-color: $white;
+  color: $grey-dk-200;
+}
+table body {
+  padding: 0.2rem;
+  background: $bluish-grey;
+  border-color: $grey-lt-300;
+}
+
+.table-wrapper thead th {
+  border-bottom: 1px solid $white;
+  font-style: unset;
+}
+
+.table-trans tbody tr,
+.table-trans  thead th,
+.table-trans tbody td  {
+  background-color: #00000000;
+}
+
+.btn.btn-orange{
+  color: #fff;
+  background-color: #f8902f;
+  background-image: linear-gradient(#f5a03a, #f8902f);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25), 0 4px 10px rgba(0,0,0,0.12);
+  font-size: 12px;
 }

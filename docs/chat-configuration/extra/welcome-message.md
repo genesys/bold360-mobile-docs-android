@@ -16,7 +16,8 @@ nav_exclude: true
 ---
 
 ## Overview
-AI chats can be configured to start with a preconfigured article, this will be fetched on chat start, and be displayed as first chat message.  
+AI chats can be configured to start with a preconfigured article, this will be fetched on chat start, and be displayed as first chat message. 
+{: .overview} 
 The `Welcome Message` will appear only once on chat start. If the chat is a continuance chat and has messages history, the `Welcome Message` will not be reloaded.  
 
 `Welcome Message` article can have images, persistent options, carousel, channels, etc.   

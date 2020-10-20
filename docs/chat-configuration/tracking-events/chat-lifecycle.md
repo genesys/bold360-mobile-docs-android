@@ -7,8 +7,6 @@ nav_order: 1
 permalink: /docs/chat-configuration/tracking-events/chat-lifecycle
 ---
 
-
-
 # Chat Lifecycle
 {: .no_toc }
 
@@ -22,7 +20,7 @@ permalink: /docs/chat-configuration/tracking-events/chat-lifecycle
 
 ## Overview
 Through chat progress, it can be in various states, each has it's own meaning. The hosting app can react to chat states and control it's flow, by listening to chat states changes.   
-
+{: .overview}
 In order to listen to chat lifecycle events, set your implemention of `ChatEventListener`, to the `ChatController`.
 
 ```kotlin
