@@ -7,7 +7,7 @@ permalink: /docs/chat-configuration/ui-customization/overriding-resources
 nav_order: 9
 ---
 
-# Overriding Resources
+# Overriding Resources {{site.data.vars.need-work}}
 {: .no_toc }
 
 ## Table of contents

@@ -7,11 +7,8 @@ permalink: /docs/advanced-topics/chat-continuity
 has_toc: false
 ---
 
-# Chat Continuity
+# Chat Continuity {{site.data.vars.need-work}}
 {: .no_toc }
-
-need work
-{: .btn .btn-orange }
 
 ## Table of contents
 {: .no_toc .text-delta }

@@ -46,7 +46,7 @@ val account = BotAccount(API_KEY, ACCOUNT_NAME,
     account.contexts = contexts
     ```
 
-### Configure [Initialization Entities](/docs/chat-configuration/extra/bot-entities#initentities)
+### Configure [Initialization Entities](/docs/advanced-topics/entities-and-personal-info#initentities)
  ```kotlin
  account.initializationEntities = mapOf("EntityKey1" to "EntityValue1",
                                      "EntityKey2" to "EntityValue2", ... )

@@ -6,10 +6,8 @@ nav_order: 5
 permalink: /docs/advanced-topics/messaging-chat
 ---
 
-# Messaging Chat
+# Messaging Chat {{site.data.vars.need-work}}
 {: .no_toc }
-need work
-{: .btn .btn-orange }
 
 ## Table of contents
 {: .no_toc .text-delta }

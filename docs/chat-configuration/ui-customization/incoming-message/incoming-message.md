@@ -9,7 +9,7 @@ nav_order: 2
 has_toc: false
 ---
 
-# Incoming message
+# Incoming message {{site.data.vars.need-work}}
 
 Table of content:
 {: .text-delta}
@@ -30,4 +30,25 @@ Aliquam erat volutpat. Curabitur magna orci, elementum eu nulla vitae, suscipit 
 
 #### Define threshold
 
+
+# Incoming message
+
+## Readmore indication <sub><sup>(configurable only)</sub></sup>
+- `readmore` indication view is configurable via `ReadmoreAdapter`, as follows:   
+
+```kotlin
+ChatUIProvider(context).apply {
+    
+    chatElementsUIProvider.incomingUIProvider.readmoreUIProvider.configure = { 
+        adapter:ReadmoreAdapter -> 
+        
+        adapter.apply {
+            alignReadmore(...)
+            setReadmoreStyle(...)
+            ...
+        }
+    }        
+}
+```
+- `readmore` indication text, is a string resource (`R.string.read_more`), and can be override by the integrating app.
 

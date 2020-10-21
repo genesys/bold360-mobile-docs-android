@@ -6,10 +6,8 @@ nav_order: 3
 permalink: /docs/advanced-topics/chat-restore
 ---
 
-# Chat Restoring
+# Chat Restoring {{site.data.vars.need-work}}
 {: .no_toc }
-need work
-{: .btn .btn-orange }
 
 ## Table of contents
 {: .no_toc .text-delta }

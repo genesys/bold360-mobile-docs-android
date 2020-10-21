@@ -6,11 +6,8 @@ nav_order: 1
 permalink: /docs/advanced-topics/history
 ---
 
-# Chat History
+# Chat History {{site.data.vars.need-work}}
 {: .no_toc }
-
-need work
-{: .btn .btn-orange }
 
 ## Table of contents
 {: .no_toc .text-delta }

@@ -7,10 +7,8 @@ nav_order: 1
 permalink: /docs/advanced-topics/feedback/instant-feedback
 ---
 
-# Instant Feedback<sub>(Feedback Per Article)</sub> 
+# Instant Feedback<sub>(Feedback Per Article)</sub>  {{site.data.vars.need-work}}
 {: .no_toc }
-need work
-{: .btn .btn-orange .fs-3 }
 
 ## Table of contents
 {: .no_toc .text-delta }

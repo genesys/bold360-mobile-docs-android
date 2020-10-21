@@ -1,11 +1,19 @@
 ---
 layout: default
-title: Bot Entities
-nav_exclude: true
+title: Chat Entities and Personal information
+parent: Advanced Topics
+nav_order: 9
+permalink: /docs/advanced-topics/entities-and-personal-info
 ---
 
-# Chat Entities and Personal information
+# Chat Entities and Personal information {{site.data.vars.need-work}}
 {: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+- TOC
+{:toc .mb-0}
 
 ---
 

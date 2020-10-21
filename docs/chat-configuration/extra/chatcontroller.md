@@ -4,11 +4,8 @@ title: ChatController
 nav_exclude: true
 ---
 
-# ChatController
+# ChatController  {{site.data.vars.need-work}}
 {: .no_toc }
-
-need work
-{: .btn .btn-orange }
 
 ---
 

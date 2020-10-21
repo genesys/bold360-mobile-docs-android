@@ -29,6 +29,12 @@ $code-background-color: $bluish-grey;
   text-decoration: underline
 }
 
+.strong-sub-title{
+  font-size: 4;
+  font-weight: 500;
+  color:$grey-dk-200;
+}
+
 .overview {
   font-weight: 300;
   font-size: 16px;
@@ -66,10 +72,13 @@ table body {
   background-color: #00000000;
 }
 
-.btn.btn-orange{
+.btn.btn-orange {
   color: #fff;
   background-color: #f8902f;
   background-image: linear-gradient(#f5a03a, #f8902f);
   box-shadow: 0 1px 3px rgba(0,0,0,0.25), 0 4px 10px rgba(0,0,0,0.12);
-  font-size: 12px;
+  font-size: 10px;  
+  text-decoration: none !important;
+  cursor: none !important;
+  user-select: none !important;
 }

@@ -1,19 +1,19 @@
 ---
 layout: default
-title: Voice Settings
-parent: Chat Settings
+title: Error Handling
+parent: Tracking Events
 grand_parent: Chat Configuration
-nav_order: 2
-permalink: /docs/chat-configuration/chat-settings/voice-settings/
+nav_order: 4
+permalink: /docs/chat-configuration/tracking-events/error-handling
 ---
 
-# Voice Settings
+# Error Handling {{site.data.vars.need-work}}
 {: .no_toc }
 
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+- TOC
 {:toc}
 
 ---

@@ -7,7 +7,7 @@ nav_order: 1
 permalink: /docs/chat-configuration/chat-settings/features-settings/
 ---
 
-# Features Settings
+# Features Settings {{site.data.vars.need-work}}
 {: .no_toc }
 
 
