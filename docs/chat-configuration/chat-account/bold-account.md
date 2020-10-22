@@ -7,7 +7,7 @@ nav_order: 2
 permalink: /docs/chat-configuration/chat-account/bold-account/
 ---
 
-# BoldAccount
+# BoldAccount {{site.data.vars.need-work}}
 {: .no_toc}
 
 ## Table of contents
@@ -70,21 +70,11 @@ Once the chat session was created, an account update will be triggered on [Accou
 From the updated account you can fetch the `ChatId`.  
 `account.info.chatId` 
 
+---
 
 
-
-
-
-
-
-
-
-
-
-# BoldAccount
-This account is used for starting a live Bold chat with an agent. [see "Quick Start"](./QuickStartAndroid.md)
-
-
+## Starting a live chat
+{: .d-inline-block}
 Live chat may start as main chat purpose, or be triggered from chat with BOT.
 
 ## Starting chat with Bold live

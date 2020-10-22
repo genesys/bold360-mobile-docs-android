@@ -1,5 +1,13 @@
+---
+layout: default
+title: Missing Entities Code Sample
+parent: FAQ
+nav_order: 3
+permalink: /docs/faq/missing-entities-example
+---
 
 # Missing entities and Personal information example {{site.data.vars.need-work}}
+{: .no_toc}
 
 Lets say the missing entity is `REQUESTED_ACCOUNT` which is the account entity that is needded for the article.
 

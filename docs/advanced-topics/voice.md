@@ -12,14 +12,15 @@ permalink: /docs/advanced-topics/voice
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+- TOC
 {:toc}
 
 ---
 
-# Voice to Voice
+## Overview
+...
 
-### How to enable
+## Configure availability
 Use `ConversationSettings.voiceSettings` to define the **desired** <U>Voice support level</U> for the chats that will be created by the `ChatController` instance.   
 Actual voice support level is determine by the chat type support, where the configured level is the maximum allowed.
 
@@ -32,7 +33,7 @@ val chatController = ChatController.Builder(context)
                         .build(account, object : ChatLoadedListener {...})
 ```
 
-#### The available voice support levels:  
+### The available voice support levels:  
 - **VoiceSupport.None** - speech recognition is disabled.  
 - **VoiceSupport.SpeechRecognition** - only speech recording is enabled. you can record your message and send it to the other chat partner.  
 - **VoiceSupport.VoiceToVoice** - enables both speech recognition and response read out by the device.  
@@ -40,8 +41,44 @@ val chatController = ChatController.Builder(context)
 
 > **Notice:** _Currently we support HandsFree on ai chats and SpeechRecognition on live chats._
 
+---
 
-### Provide an alternative text for the read out
+## How to configure
+- ### Configure spoken voice
+    The configurations relevant to the read out voice; language, speech rate, volume, pitch, etc, are available via the ChatController. Those configurations can be changed at any time.
+    ```kotlin
+    chatController.configuration.ttsConfig.apply {
+                        language = Locale.FRENCH // defaults to default locale
+                        volume = 0.5f // defaults to 1.0f which is max volume
+                    }
+    ```
+    > Notice: The language you set to the TTSConfig should be supported by the device, otherwise, it will use the default locale.
+
+- ### Configure voice related UI components
+    Some UI configurations are available to be changed via `SendCmpUIProvider::uiConfig`
+    ```kotlin
+    val chatUIProvider = ChatUIProvider().let{
+        it.chatInputUIProvider.sendCmpUIProvider.uiConfig.apply{
+            //... change default configurations here
+            sendImage = ...
+
+            speecherUIConfig.apply{
+                //... change default voice related UI configurations here
+                speakerImage = ...
+                micImage = ...
+            }
+        }
+    }
+
+    // apply customed UI provider to the ChatController
+    val chatController = ChatController.Builder(context)
+                .chatUIProvider(chatUIProvider)
+                .build(account, object : ChatLoadedListener {...}
+    ```
+
+
+## Alternative readout
+Provide an alternative text for the read out
 When voice support level is configured to `VoiceSupport.VoiceToVoice` or `VoiceSupport.HandsFree`, every voice sourced response will be parsed to a textual format to be read out.   
 > * **Voice sourced response** = Response to a query that was fully or partially recorded by the user.
 
@@ -53,7 +90,7 @@ Once a readout response is received the `TTSReadAlterProvider.alter` method will
 
 The response readout details are provided by `ReadRequest.readoutMessage`.   
 
-#### The customed alter provider implementation can change the result message by:   
+### The customed alter provider implementation can change the result message by:   
 1. Change the message details on `readRequest.readoutMessage`, and by that create an alternative string representation.
 2. Change the result text on `readRequest.readResult`.  
 
@@ -111,39 +148,3 @@ val chatController = ChatController.Builder(context)
 chatController.setTTSReadAlterProvider(provider)
 ```
 > Setting the TTSReadAlterProvider to null, releases the alter provider reference. Default readout provider will be used to prepare responses readout text.
-
-### How to configure
-- #### Configure spoken voice
-    The configurations relevant to the read out voice; language, speech rate, volume, pitch, etc, are available via the ChatController. Those configurations can be changed at any time.
-    ```kotlin
-    chatController.configuration.ttsConfig.apply {
-                        language = Locale.FRENCH // defaults to default locale
-                        volume = 0.5f // defaults to 1.0f which is max volume
-                    }
-    ```
-    > Notice: The language you set to the TTSConfig should be supported by the device, otherwise, it will use the default locale.
-
-- #### Configure voice related UI components
-    Some UI configurations are available to be changed via `SendCmpUIProvider::uiConfig`
-    ```kotlin
-    val chatUIProvider = ChatUIProvider().let{
-        it.chatInputUIProvider.sendCmpUIProvider.uiConfig.apply{
-            //... change default configurations here
-            sendImage = ...
-
-            speecherUIConfig.apply{
-                //... change default voice related UI configurations here
-                speakerImage = ...
-                micImage = ...
-            }
-        }
-    }
-
-    // apply customed UI provider to the ChatController
-    val chatController = ChatController.Builder(context)
-                .chatUIProvider(chatUIProvider)
-                .build(account, object : ChatLoadedListener {...}
-    ```
-
-
-### Alternative readout

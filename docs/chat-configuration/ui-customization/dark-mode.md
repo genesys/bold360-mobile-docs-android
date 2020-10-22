@@ -3,11 +3,11 @@ layout: default
 title: Dark Mode
 parent: UI Customization
 grand_parent: Chat Configuration 
-permalink: /docs/chat-configuration/ui-customization/overriding-resources/#dark-mode
+permalink: /docs/chat-configuration/ui-customization/dark-mode
 nav_order: 10
 ---
 
-#  Dark mode Support
+# Dark mode Support {{site.data.vars.need-work}}
 
 _Currently, **dark mode** is not formally being supported by the SDK._
 

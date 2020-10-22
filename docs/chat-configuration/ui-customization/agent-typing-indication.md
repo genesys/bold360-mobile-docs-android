@@ -13,17 +13,18 @@ nav_order: 7
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+- TOC
 {:toc}
 
 ---
 
-# Agent Typing component
+## Overview
 Appears when the live agent is typing.  
 The typing indication can be displayed as text and/or drawable.   
 Typing drawable can be an [AnimatedVector](https://developer.android.com/reference/android/graphics/drawable/AnimatedVectorDrawable).
+{: .overview}
 
-### How to enable
+## How to enable
 By default typing indication is `enabled`.   
 The component display can be disabled through `ConversationSettings`.
 ```kotlin 
@@ -36,7 +37,7 @@ ChatController.Builder(context).apply {
 }
 ```
 
-### Listening to typing notifications
+## Listening to typing notifications
 
 In order to receive typing state changes, subscribe to `OperatorEvent.OperatorTyping' notifications, with the chatController.
 ```kotlin
@@ -47,10 +48,13 @@ chatController.subscribeNotifications(NotifiableImpl, OperatorEvent.OperatorTypi
 
 <sup> <b> [more on notifications ](https://github.com/bold360ai/GlobalDocs/wiki/Listeners-and-subscriptions-android) </b></sup>
 
-### How to customize
+---
+
+## How to customize
 
 Typing indication UI component is provided by the SDK, and can be customize either by configuration setting or by view implementation overriding.
-#### Customizing by Configure
+
+### Customizing by Configure
     Override `ChatUIProvider.typingUIProvider.configure` method:
     ```kotlin
     ChatUIProvider(context).apply {
@@ -59,7 +63,8 @@ Typing indication UI component is provided by the SDK, and can be customize eith
         }
     }
     ```
-#### Customizing by override
+    
+### Customizing by override
    Override overrideFactory value with your own `TypingFactory` implementation:
     ```kotlin
     ChatUIProvider(context).apply {

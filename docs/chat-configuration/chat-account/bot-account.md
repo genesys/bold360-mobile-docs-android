@@ -13,7 +13,7 @@ permalink: /docs/chat-configuration/chat-account/bot-account
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+- TOC
 {:toc}
 
 Use this account to create chat sessions with AI.

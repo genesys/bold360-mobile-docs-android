@@ -17,15 +17,17 @@ permalink: /docs/advanced-topics/entities-and-personal-info
 
 ---
 
+## Overview
 The SDK provides the bridge to pass user specific information to the BOT on chat start and while processing responses to user queries, which demands more details from the user, during the chat.
+{: .overview}
 
 There are 2 types of personal information
 
-### <a id="initentities"/> __Initialization entities__
+## <a id="initentities"/> __Initialization entities__
 
 Predefined data values that can be provided for the whole chat session and are not being changed dynamically (exp: ids, keys, etc).
 
-#### How To use
+### How To use
 
 1. Create the initialization entities map
 
@@ -51,7 +53,7 @@ Predefined data values that can be provided for the whole chat session and are n
     }
     ```
 
-### __Missing entites and Personal information__
+## __Missing entites and Personal information__
 
 Dynamically required details. Depends on user query and the article the Bot responses with.
 articles of this sort are configured with a Bold360ai provider which formats the response to contain the entities tag pattern, that are being recognized by the SDK as the needed information (please contect out support for farther information about the [Bold360AI provider](https://support.bold360.com/bold360/help/how-do-i-create-a-csv-provider)).
@@ -66,11 +68,14 @@ articles of this sort are configured with a Bold360ai provider which formats the
   Needed once the BE provides a response which contains, info needed place holders. The App provided personal info is than used to replace those place holders.
   ##### Personal information can be, account balance, passport number, etc.
 
-##  
-  ![provide missing entites / personal info](images/Android/personalInfo.png)
-##
+--- 
 
-#### How To use
+  ![provide missing entites / personal info](/assets/personalInfo.png)
+  {: .image-70}
+
+---
+
+### How To use
 
 1. Create the missing entities array
 
@@ -94,5 +99,7 @@ articles of this sort are configured with a Bold360ai provider which formats the
     ```kotlin
     ChatController.Builder(getContext()).entitiesProvider(the EntitiesProvider implemintation)...build(...)
     ```
+---
 
- > ##### [Full example: `missing entities` and `personal information` usage](missing_entities_example.md)
+ > view Sample: [`missing entities` and `personal information` usage](/docs/faq/missing-entities-example.md)
+{: .mt-6}

@@ -13,14 +13,12 @@ permalink: /docs/chat-configuration/tracking-events/chat-availability
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+- TOC
 {:toc}
 
 ---
 
-# Chat availability check
-
-## How to check chat availability status
+## Chat availability check
 
 1. Create an `Account`.
 
@@ -33,6 +31,7 @@ permalink: /docs/chat-configuration/tracking-events/chat-availability
         }
     })
     ```
+
     > `ChatAvailability.AvailabilityResult` provides the check parameters (apiKey, departmentId, etc) as well as the execution results 
 
 - ### How to check chat availability on a <U>specific department</U>? 
@@ -46,9 +45,9 @@ permalink: /docs/chat-configuration/tracking-events/chat-availability
   })
   ```
 
-  > <U>**Important:**</U> In order to get availability status of the different departments in your organization, [make sure your api access key is not configured](./images/Android/bold-console-api-access-key.png) to work with a specific department.
+  > **<U>Important:</U>** In order to get availability status of the different departments in your organization, [make sure your api access key is not configured](/assets/bold-console-apikey.png) to work with a specific department.
 
-### How to retrieve available departments list
+## How to retrieve available departments list
 1. Create an `Account`.
 
 2. Call `ChatAvailability.availableDepartments` as follows:
@@ -60,9 +59,12 @@ permalink: /docs/chat-configuration/tracking-events/chat-availability
         }
     })
     ```
+
 > `ChatAvailability.DepartmentsResult` if no errors occurred will contain a list of `Department` items. Each contains name, id and language of the department.
+
 ---
-#### How to start a live chat with a specific department
+
+### How to start a live chat with a specific department
   1. create a `BoldAccount`
   ```
   val account = BoldAccount(apiKey)

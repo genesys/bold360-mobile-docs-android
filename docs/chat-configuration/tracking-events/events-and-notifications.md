@@ -13,12 +13,13 @@ permalink: /docs/chat-configuration/tracking-events/events-and-notifications
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+- TOC
 {:toc}
 
 ---
 
-# Chat events and notifications
+## Overview
+...
 
 ## Listening to chat elements changes
 In order to be able to be notified of all elements changes in the chat, implement `ChatElementListener`, and register as follows:
@@ -52,7 +53,7 @@ Among those events: [lifeCycle events](ttps://github.com/bold360ai/GlobalDocs/wi
 
   > In order to configure url typed channels (in-app navigation), follow this [guide](https://github.com/bold360ai/GlobalDocs/wiki/Bold360ai-Console-Configurations#configure-in-app-navigation-channel).
 
-
+---
 
 ## Subscribing to notifications
 ChatController provides a notifications service. You can subscribe to this service by indicating on what notifications you want to be notified of.

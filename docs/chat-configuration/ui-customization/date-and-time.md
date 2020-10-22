@@ -3,22 +3,25 @@ layout: default
 title: Datestamp
 parent: UI Customization
 grand_parent: Chat Configuration 
-permalink: /docs/chat-configuration/ui-customization/date_and_time/
+permalink: /docs/chat-configuration/ui-customization/date-and-time
 nav_order: 8
 ---
 
-# Datestamp
+# Datestamp {{site.data.vars.need-work}}
 {: .no_toc }
 
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+- TOC
 {:toc}
 
 ---
 
-# Date & Time
+## Overview
+...
+
+
 ## How to customize chat date and time display
 
 In the chat there are 2 main time related elements:

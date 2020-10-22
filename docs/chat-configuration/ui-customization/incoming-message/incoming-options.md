@@ -13,18 +13,15 @@ np_toc: true
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+- TOC
 {:toc}
 
 ---
 
-## quick options
-## channels
-## persistent options
-
 ## Persistent options
 Incoming bot response can have persistent options. Those options will not dissappear after user selection.   
-#### How to customize
+
+### How to customize
 This kind of incoming element can be customized by overriding default implementation of the PersistentOptionsUIProvider.
 - The options style can be configured by `PersistentOptionsUIProvider.optionsStyleConfig`   
 - The wrapping bubble can be customized by `PersistentOptionsUIProvider.contentStyleConfig`
@@ -64,7 +61,7 @@ ChatUIProvider(context).apply {
 Incoming bot response can have several options to the user to choose from. Those options are not constant and will dissappear after user action.
 
 
-#### How to customize
+### How to customize
 1. ##### Customization by override.   
     Apply your own layout resource. 
     ```kotlin
@@ -89,13 +86,13 @@ Incoming bot response can have several options to the user to choose from. Those
         }
     ```
 
-### Channels
+## Channels
 
 - Channels are a sub type of QuickOptions. Channels are used for user escalation actions.   
 - Channels may appear as response options or on article page.  
 - Channels can be created on the [Bold360ai console](https://support.bold360.com/ai).
 
-#### <U>Customizing channels icons</U>
+### <U>Customizing channels icons</U>
 - #### By setting the icons via the Bold360ai console:
     ![](images/Android/ai-console-channeling-icons.png)
 

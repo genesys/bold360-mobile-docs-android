@@ -13,18 +13,19 @@ nav_order: 5
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+- TOC
 {:toc}
 
 ---
 
-# LiveChatbar component
+## Overview
 Once a **Bold live chat** is started a `Chatbar` component will be displayed over the chat.   
+{: .overview}
 The Chatbar contains:
  1. Current live agent's name an avatar.
  2. `End Chat` clickable view to end current live chat.
 
-### How to customize
+## How to customize
 
 - Component can be configured or/and overrided via `ChatBarCmpUiProvider`. 
 ```kotlin

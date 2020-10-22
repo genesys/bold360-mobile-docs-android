@@ -17,17 +17,17 @@ permalink: /docs/advanced-topics/history
 
 ---
 
-# Chat History
-
+## Overview
 > ##### History management is out of the SDKs scope.  
 
 The SDK enables the Host app to provide its own implementation, and maintain an updated chat history, by listening to triggered events whenever chat elements changes.
+{: .overview}
 
 ## How is it done
 The hosting App provides a `ChatElementListener` implementation, on ChatController creation. This listener should be fully implemented in order to be notified of all chat changes.   
 The SDK interacts with this listener in order to fetch chat history on chat load, and to update history records, when chat elements were changed.
 
-#### ChatElementListener overview
+### ChatElementListener overview
 The `ChatElementListener` will be used for the following operations.
 - Fetch chat elements from stored history on chat load.   
 Calling `ChatElementListener.onFetch`
@@ -54,8 +54,8 @@ The history implementation defines which messages should be kept for history pur
 - Chat elements that can be stored are identified as `StorableChatElement`.   
 A `StorableChatElement` instance has an important property `storageKey` that should not be changed nor deleted, otherwise fetched messages will appear as broken.   
 
-- Currently `StorableChatElement` items are identified by their `timestamp` property.
-> #### We advise to create a second identification of String type (another column on DB table, etc), to cover upcoming SDK changes. 
+- Currently `StorableChatElement` items are identified by an `id` property.
+
 
 ### Attaching the history implementation 
 ```kotlin

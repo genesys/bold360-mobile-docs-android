@@ -7,19 +7,34 @@ permalink: /docs/faq/tls12
 ---
 
 # TLS 1.2 support
+{: no_toc}
 
+## Table of contents
+{: .no_toc .text-delta }
+
+- TOC
+{:toc}
+
+---
+
+
+## Overview
 Transport Layer Security protocol.
+{: .overview .fw-600}
 
 Android devices can be in one of the following states:
 - Device does not have TLS 1.2 installed at all.
 - Device has TLS 1.2 installed, but not enabled by default.
-- Device has TLS 1.2 installed and enabled by default. 
+- Device has TLS 1.2 installed and enabled by default.   
+{: .overview}
 
 Since Bold systems are now under this security protocol, The Bold SDK as well was updated to support it.   
-The Bold SDK enables the TLSv1.2 protocol on lower API (< 21) devices which are usually doesn't enable this option by default, even if installed.
+The Bold SDK enables the TLSv1.2 protocol on lower API (< 21) devices which are usually doesn't enable this option by default, even if installed.   
+{: .overview}
 
-### Hosting App should make sure TLS 1.2 is installed on the device.
+---
 
+## Hosting App should make sure TLS 1.2 is installed on the device.
 _It is up to the embedding App to verify and suggest installation of TLS 1.2 protocol when is not installed on the device._
 
 <u>Google play services</u> library, provides an easy way to do that:   

@@ -29,7 +29,8 @@ Once a form should be presented to the user, the Bold BE provides a list of fiel
 The form fields are configured on the admin console, under the accounts chat window.   
 Each field has properties which defines its look and behavior among them: field type, isRequired, and if available, its current value.
 
-![](./images/Android/admin-forms.png)
+![](/assets/console-chat-forms.png)
+{: .image-70}
 
 
 ## How to customize

@@ -10,15 +10,14 @@ nav_order: 2
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+- TOC
 {:toc}
 
 ---
 
-Use this Quick Start guide to get you up and running with the knowledge of fast integrating chat to your application.
+Use this Quick Start guide to get you up and running with a working AI or live chat hosted by your App.   
 
 ## System Requirements  
-{: .d-inline-block }
 
 * Java 8 or higher.
 * Gradle 5.3.6 or higher.
@@ -29,19 +28,19 @@ Use this Quick Start guide to get you up and running with the knowledge of fast 
 ## Set up the SDK on your App.
 {: .d-inline-block }
 
-1. ### Import SDK dependencies
-    {: .no_toc }
-    Import the SDKs dependencies.
+1. ### Import SDK dependencies 
+    {: .no_toc .strong-sub-title}   
+    
     [Check here for latest SDK version and needed dependencies](https://developer.bold360.com/help/EN/Bold360API/Bold360API/ReleaseNotesAndroid.html) 
 
     
 2. ### Extra configurations on build.gradle:
-    {: .no_toc }
+    {: .no_toc .strong-sub-title}  
+   
     Add the following to the _`android{...}`_ block definition
 
     ```gradle
     android {
-        
         kotlinOptions {
             freeCompilerArgs = ['-Xjvm-default=compatibility']
             jvmTarget = "1.8"
@@ -59,8 +58,11 @@ Use this Quick Start guide to get you up and running with the knowledge of fast 
     ```
 
 ---
-### Now you are ready to integrate and create some chats.
-{: .no_toc }
+
+> ! Now you are ready to integrate and create some chats.
+{: .no_toc .strong-sub-title}
+
+---
 
 ## Create and start a chat  
 {: .d-inline-block }
@@ -78,14 +80,13 @@ Follow the next steps to create and start a chat.
     {: .no_toc }  
 ---
 
-2. ### Create ChatController
+2. ### Create [ChatController](/docs/chat-configuration/extra/chatcontroller)
     With the ChatController one can create and control multiple chats.
     The chat type is configured by the Account that is provided on chat creation.
 
     ```kotlin
     val chatController = ChatController.Builder(context)
                                           .build(account, ...)
-
     ...
     // start a new chat, using same chatController:
     chatController.startChat(account)

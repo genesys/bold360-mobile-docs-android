@@ -17,15 +17,15 @@ permalink: /docs/advanced-topics/file-upload
 
 ---
 
-# Add File Upload support
-
+## Overview
 The SDK provides an upload mechanism, but enables you to use your own.   
+{: .overview}
 
 Follow the next steps to integrate upload functionality to your chat:
 
 > If you don't use the SDK for chat ui creation, but want to use the provided uploader mechanism, go to [step 2.](#Use-SDK's-provided-uploader)
 
-## 1.  Define your file upload trigger   
+### 1.  Define your file upload trigger   
 The UI component the user will use to trigger the upload. 
 
 - ### Use SDK provided trigger   
@@ -36,7 +36,8 @@ The UI component the user will use to trigger the upload.
     }
   ```
 
-  - #### Customize upload icon: 
+  - Customize upload icon: 
+  {: .light-title}
     via `ChatInputUIProvider` config object.
 
     ```kotlin
@@ -49,13 +50,14 @@ The UI component the user will use to trigger the upload.
     }
     ```
 
-- #### Use your own trigger   
+- ### Use your own trigger  
   - Apply your own upload UI component.   
     Insure that upload feature is enabled, before you display the UI to the user:
     ```kotlin
     chatController.isEnabled(ChatFeatures.FileUpload);
     ```
-    > Learn how to enable/disable file transfer on admin console [here](./images/Android/ai-console-upload.png)
+    > Learn how to enable/disable file transfer on admin console [here](/assets/console-upload.png)
+
   - Hide the SDKs upload icon:
 
     ```kotlin

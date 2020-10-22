@@ -2,8 +2,8 @@
 layout: default
 title: How it works
 parent: UI Customization
-grand_parent: Chat configuration 
-permalink: /docs/chat-configuration/how-it-works/
+grand_parent: Chat Configuration 
+permalink: /docs/chat-configuration/ui-customization/how-it-works
 nav_order: 1
 ---
 
@@ -13,13 +13,12 @@ nav_order: 1
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+- TOC
 {:toc}
 
 ---
 
-# Customizing UI components 
-
+## Overview
 This article will help you customize initial chat view UI, and instruct you how to change UI on runtime according to live data.
 
 ChatController expects to have an instance of `ChatUIProvider`. This class defines the chat UI components; Creates and customize the views used by the SDK.   
@@ -111,6 +110,3 @@ The ChatUIProvider provides access to the chat ui components. Each component ena
 
         chatUIProvider.overrideFactory = MyUserInputProvider();
         ```
-
----
-> ###### [more info about specific elements customizations](./CustomizationsSpecificsAndroid.md)
