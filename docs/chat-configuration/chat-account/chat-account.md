@@ -16,7 +16,7 @@ np_toc: true
 
 - TOC
 {:toc .mb-0}
-- [BotAccount](/docs/chat-configuration/chat-account/bot-account)
+- [BotAccount](./docs/chat-configuration/chat-account/bot-account)
 - [BoldAccount](/docs/chat-configuration/chat-account/bold-account)
 - [AsyncAccount](/docs/chat-configuration/chat-account/async-account)
 - [HandoverAccount](/docs/chat-configuration/chat-account/handover-account)
