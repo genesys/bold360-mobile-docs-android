@@ -7,4 +7,7 @@ url: "https://logmein-bold-mobile.github.io"
 
 color_scheme: android-scheme
 
-
+collections:
+  docs:
+    permalink: "/:collection/:path/"
+    output: true
