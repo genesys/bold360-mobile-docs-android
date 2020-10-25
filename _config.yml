@@ -7,14 +7,6 @@ url: "https://logmein-bold-mobile.github.io"
 
 color_scheme: android-scheme
 
-<<<<<<< HEAD
-
 # Back to top link
 back_to_top: true
 back_to_top_text: "Back to top"
-=======
-collections:
-  docs:
-    permalink: "/:collection/:path/"
-    output: true
->>>>>>> 4374e807ca709bd3868d54c564d18821105e587e
