@@ -1,6 +1,6 @@
 theme: "just-the-docs"
 remote_theme: pmarsceill/just-the-docs
 title: bold360 Android SDK
-baseurl: ""
+baseurl: "/bold360-mobile-docs-android"
 url: "https://logmein-bold-mobile.github.io"
 color_scheme: android-scheme
