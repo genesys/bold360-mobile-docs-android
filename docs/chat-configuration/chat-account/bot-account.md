@@ -1,13 +1,12 @@
 ---
 layout: default
-title: BotAccount
+title: AI Chat
 parent: Chat Account
 grand_parent: Chat Configuration
 nav_order: 1
-permalink: /docs/chat-configuration/chat-account/bot-account
 ---
 
-# BotAccount
+# AI Chat - chat with bot {{site.data.vars.need-work}}
 {: .no_toc}
 
 ## Table of contents
@@ -16,6 +15,12 @@ permalink: /docs/chat-configuration/chat-account/bot-account
 - TOC
 {:toc}
 
+---
+
+## Overview
+...
+
+## BotAccount
 Use this account to create chat sessions with AI.
 
 ### Creating account
@@ -64,3 +69,6 @@ val account = BotAccount(API_KEY, ACCOUNT_NAME,
     // prevent welcome message display                 
     ```
 
+
+## AI Chat continuity
+...

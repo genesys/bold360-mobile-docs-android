@@ -2,9 +2,9 @@
 layout: default
 title: Chat Account
 parent: Chat Configuration
-#has_children: true
+# has_children: true
 nav_order: 1
-permalink: /docs/chat-configuration/chat-account/
+permalink: /docs/chat-configuration/chat-account
 np_toc: true
 ---
 
@@ -16,8 +16,8 @@ np_toc: true
 
 - TOC
 {:toc .mb-0}
-- [BotAccount](./bot-account)
-- [BoldAccount](./bold-account)
+- [BotAccount](./bot-account#botaccount)
+- [BoldAccount](./bold-account#boldaccount)
 - [AsyncAccount](./async-account)
 - [HandoverAccount](./handover-account)
 

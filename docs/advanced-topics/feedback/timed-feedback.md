@@ -4,7 +4,7 @@ title: Timed Feedback
 parent: Feedback
 grand_parent: Advanced Topics
 nav_order: 1
-permalink: /docs/advanced-topics/feedback/timed-feedback
+# permalink: /docs/advanced-topics/feedback/timed-feedback
 ---
 
 # Timed Feedback

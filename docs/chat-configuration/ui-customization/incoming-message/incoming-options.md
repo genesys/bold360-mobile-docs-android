@@ -3,7 +3,7 @@ layout: default
 title: Incoming options
 grand_parent: UI Customization
 parent: Incoming message 
-permalink: /docs/chat-configuration/ui-customization/incoming-message/incoming-options
+# permalink: /docs/chat-configuration/ui-customization/incoming-message/incoming-options
 np_toc: true
 ---
 
@@ -58,7 +58,7 @@ ChatUIProvider(context).apply {
 
 ## QuickOptions
 
-Incoming bot response can have several options to the user to choose from. Those options are not constant and will dissappear after user action.
+Incoming bot response can have several options to the user to choose from. Those options are not constant and will disappear after user action.
 
 
 ### How to customize
@@ -94,11 +94,12 @@ Incoming bot response can have several options to the user to choose from. Those
 
 ### <U>Customizing channels icons</U>
 - #### By setting the icons via the Bold360ai console:
-    ![](images/Android/ai-console-channeling-icons.png)
+    ![](/assets/console-channeling-icons.png)
+    {: .image-40}
 
 - #### By overriding SDK default icons. 
     
-   - By overriding the channels drawable rescources:
+   - By overriding the channels drawable resources:
 
         - Phone : `R.drawable.call_channel`
         - Chat : `R.drawable.chat_channel`

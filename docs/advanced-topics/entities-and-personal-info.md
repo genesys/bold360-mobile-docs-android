@@ -3,7 +3,7 @@ layout: default
 title: Chat Entities and Personal information
 parent: Advanced Topics
 nav_order: 9
-permalink: /docs/advanced-topics/entities-and-personal-info
+# permalink: /docs/advanced-topics/entities-and-personal-info
 ---
 
 # Chat Entities and Personal information {{site.data.vars.need-work}}

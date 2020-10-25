@@ -3,7 +3,7 @@ layout: default
 title: File Upload
 parent: Advanced Topics
 nav_order: 9
-permalink: /docs/advanced-topics/file-upload
+# permalink: /docs/advanced-topics/file-upload
 ---
 
 # File Upload {{site.data.vars.need-work}}

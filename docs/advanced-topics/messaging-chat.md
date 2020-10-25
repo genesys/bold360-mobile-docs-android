@@ -3,10 +3,10 @@ layout: default
 title: Messaging Chat
 parent: Advanced Topics
 nav_order: 5
-permalink: /docs/advanced-topics/messaging-chat
+# permalink: /docs/advanced-topics/messaging-chat
 ---
 
-# Messaging Chat {{site.data.vars.need-work}}
+# Messaging Chat {{site.data.vars.force-work}}
 {: .no_toc }
 
 ## Table of contents
@@ -24,10 +24,9 @@ Messaging `Conversation` is a collection of chat sessions that are connected by 
 
 ### Messaging chat session in mobile SDK
 The SDK provides the ability to create and reconnect to conversations and sessions.
-Messaging chat configurations are provided by the embedding App over an `AsyncAccount` instance passed to the ChatConltroller on chat creation.
+Messaging chat configurations are provided by the embedding App over an [`AsyncAccount`](/docs/chat-configuration/chat-account/async-account) instance passed to the ChatConltroller on chat creation.
 
-#### Create Messaging Conversation
-All you need is to create an AsyncAccount with 2 required keys:
+<!-- All you need is to create an AsyncAccount with 2 required keys:
    - Apikey - Customer provided key created by Bold admin.
    - ApplicationId - Customer provided id created by Bold admin.
 ```kotlin
@@ -36,14 +35,14 @@ val chatController = ChatController.Builder(context)
                         ...
                         .build(account, ...)
 ```
-That's it. 
+That's it.  -->
 
-But in order to add this chat to a User's conversation collection, the userId passed over the account should match that userId.
+<!-- But in order to add this chat to a User's conversation collection, the userId passed over the account should match that userId.
 ```kotlin
 val account = AsyncAccount(APIKey, ApplicationId).apply{
     info.UserInfo = UserInfo(userId)
 }
-```
+``` 
 Each time this account will be used, a new session will be created, and be added to the same user chat history.
 
 #### Passing user details
@@ -59,8 +58,9 @@ val account = AsyncAccount(APIKey, ApplicationId).apply{
     }
 }
 ```
+-->
 
-   
+   <!-- Should be moved to the AsyncAccount doc -->
  
 ## Messaging chat continuation
 The SDK provides the ability to connect to an open or closed chat session and fetch the messages that were sent to him while he was not actively connected to that chat.
@@ -77,11 +77,8 @@ Messaging conversation is a collection of chat sessions that are connected by Us
 User "missed" messages can be fetched, no matter if a new session was started or a previous one was reconnected, as long as the embedding App provides the SenderId of the session that was active while the messages were sent.
 In order to get only the messages that the user did not yet received, the embedding App should provide the `LastReceivedMessageId`, the last message id which the user got from the agent.
 
-#### How to get LastReceivedMessageId updates 
-see [AccountSessionListener](./android-AccountInfoProvider.md) for details
-
-### What is needed to enable chat continuation: 
-- #### UserInfo - 
+### Configure for chat continuation: 
+- ##### UserInfo - 
   Provide a `UserInfo` with the relevant userId, of which the starting session should be added to his Conversation.
   > If UserInfo (userId) was not provided on the account SessionInfo, a new UserInfo with auto generated userId will be created on chat start. this will start a new Conversation. 
   ```kotlin
@@ -89,13 +86,13 @@ see [AccountSessionListener](./android-AccountInfoProvider.md) for details
   asyncAccount.info.UserInfo = UserInfo(UserId).apply{ ... }
   ```
 
-- #### ShouldStartNewChat -
+- ##### ShouldStartNewChat -
   Defines whether the upcoming chat session should be restored from a previously opened session or a new session should be created.
   ```kotlin
   asyncAccount.info.ShouldStartNewChat = true/false
   ```
 
-- #### SenderId - 
+- ##### SenderId - 
   SenderId represents a chat session id. User can have many chat sessions in which accumulate to a user conversation.   
   SenderId functionality depends on [`ShouldStartNewChat`](#shouldStartNewChat) value. 
   ```kotlin
@@ -112,7 +109,13 @@ see [AccountSessionListener](./android-AccountInfoProvider.md) for details
      asyncAccount.info.LastReceivedMessageId = Last_Message_Id
      ``` 
   
+---
+
 ### How to get session data updates:
 
-When chat is being created, or when values were changed, an update call will be triggered over [`AccountInfoProvider`](/android-AccountInfoProvider.md).   
+When chat is being created, or when values were changed, an update call will be triggered over [`AccountInfoProvider`](/docs/chat-configuration/extra/account-info-provider).   
 Save session details for later use.
+
+Listen to LastReceivedMessageId updates 
+{: .strong-sub-title}
+see [AccountSessionListener](/docs/chat-configuration/extra/account-info-provider) for details

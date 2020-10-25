@@ -3,8 +3,8 @@ layout: default
 title: Overriding Resources
 parent: UI Customization
 grand_parent: Chat Configuration 
-permalink: /docs/chat-configuration/ui-customization/overriding-resources
-nav_order: 9
+# permalink: /docs/chat-configuration/ui-customization/overriding-resources
+nav_order: 10
 ---
 
 # Overriding Resources {{site.data.vars.need-work}}
@@ -23,7 +23,7 @@ SDK resources can be overridden by the hosting app, by defining the same resourc
 {: .overview}
 
 Here you can see the supported SDK resources to be overidden.
-> Note: This list can be changed from time to time together with [customizations](/docs/chat-configuration/ui-customization/how-it-works) development
+> Note: This list can be changed from time to time together with [customizations](./docs/chat-configuration/ui-customization/how-it-works) development
 
     
 <details><summary>Colors</summary>

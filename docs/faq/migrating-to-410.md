@@ -3,11 +3,11 @@ layout: default
 title: Migrating to 410
 parent: FAQ
 nav_order: 2
-permalink: /docs/faq/migrating-to-4.1.0
+# permalink: /docs/faq/migrating-to-4.1.0
 ---
 
 # Migrating to 4.1.0 {{site.data.vars.need-work}}
-{: no_toc}
+{: .no_toc}
 
 ## Table of contents
 {: .no_toc .text-delta }

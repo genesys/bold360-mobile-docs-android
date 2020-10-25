@@ -4,10 +4,10 @@ title: Error Handling
 parent: Tracking Events
 grand_parent: Chat Configuration
 nav_order: 4
-permalink: /docs/chat-configuration/tracking-events/error-handling
+# permalink: /docs/chat-configuration/tracking-events/error-handling
 ---
 
-# Error Handling {{site.data.vars.need-work}}
+# Error Handling {{site.data.vars.force-work}}
 {: .no_toc }
 
 ## Table of contents

@@ -3,11 +3,11 @@ layout: default
 title: How it works
 parent: UI Customization
 grand_parent: Chat Configuration 
-permalink: /docs/chat-configuration/ui-customization/how-it-works
+# permalink: /docs/chat-configuration/ui-customization/how-it-works
 nav_order: 1
 ---
 
-# How it works {{site.data.vars.need-work}}
+# How it works {{site.data.vars.force-work}}
 {: .no_toc }
 
 ## Table of contents

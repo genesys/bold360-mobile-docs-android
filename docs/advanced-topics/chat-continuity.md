@@ -14,10 +14,10 @@ has_toc: false
 
 - TOC
 {:toc .mb-0}
-- [AccountInfoProvider](/docs/chat-configuration/setting-account/account-info-provider)
+- [AccountInfoProvider](/docs/chat-configuration/extra/account-info-provider)
 - [Messaging chat continuity](/docs/advanced-topics/messaging-chat#messaging-chat-continuation)
-- [Live chat continuity](./BoldChatContinuation.md)
-- [AI chat continuity](./BotChatContinuation.md)
+- [Live chat continuity](/docs/chat-configuration/chat-account/bold-account#live-chat-contiuity)
+- [AI chat continuity](/docs/chat-configuration/chat-account/bot-account#ai-continuity)
 
 ---
 
@@ -34,7 +34,7 @@ Each chat type, has account session properties that should be configured to enab
 
 #### Listening to session data updates
 While the chat is in progress, session data, like ids, may be created or changed.  
-In order to be updated with such changes for later use, implement [_AccountInfoProvider_ or _AccountSessionListener_](./android-AccountInfoProvider.md) and pass implementation on `ChatController` creation. 
+In order to be updated with such changes for later use, implement [_AccountInfoProvider_](/docs/chat-configuration/extra/account-info-provider) or [_AccountSessionListener_](/docs/chat-configuration/extra/account-info-provider#ongoing-session-configurations-updates) and pass implementation on `ChatController` creation. 
 ```kotlin
 val chatController = ChatController.Builder(context).apply{
                         accountProvider(MyProvider)

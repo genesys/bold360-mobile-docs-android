@@ -4,7 +4,7 @@ title: AsyncAccount
 parent: Chat Account
 grand_parent: Chat Configuration
 nav_order: 3
-permalink: /docs/chat-configuration/chat-account/async-account
+# permalink: /docs/chat-configuration/chat-account/async-account
 ---
 
 # AsyncAccount

@@ -3,7 +3,7 @@ layout: default
 title: TLS 1.2
 parent: FAQ
 nav_order: 1
-permalink: /docs/faq/tls12
+# permalink: /docs/faq/tls12
 ---
 
 # TLS 1.2 support

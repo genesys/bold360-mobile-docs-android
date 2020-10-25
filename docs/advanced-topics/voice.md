@@ -3,7 +3,7 @@ layout: default
 title: Voice
 parent: Advanced Topics
 nav_order: 6
-permalink: /docs/advanced-topics/voice
+# permalink: /docs/advanced-topics/voice
 ---
 
 # Voice {{site.data.vars.need-work}}

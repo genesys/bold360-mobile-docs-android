@@ -3,8 +3,8 @@ layout: default
 title: Dark Mode
 parent: UI Customization
 grand_parent: Chat Configuration 
-permalink: /docs/chat-configuration/ui-customization/dark-mode
-nav_order: 10
+# permalink: /docs/chat-configuration/ui-customization/dark-mode
+nav_order: 11
 ---
 
 # Dark mode Support {{site.data.vars.need-work}}

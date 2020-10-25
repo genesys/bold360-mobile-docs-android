@@ -4,7 +4,7 @@ title: Events and Notifications
 parent: Tracking Events
 grand_parent: Chat Configuration
 nav_order: 3
-permalink: /docs/chat-configuration/tracking-events/events-and-notifications
+# permalink: /docs/chat-configuration/tracking-events/events-and-notifications
 ---
 
 # Events and Notifications {{site.data.vars.need-work}}
@@ -45,7 +45,7 @@ In order to be notified over events that occurs during chat lifecycle, implement
 ChatController.Builder(context)...
     .chatEventListener(ChatEventListenerImpl)
 ```
-Among those events: [lifeCycle events](ttps://github.com/bold360ai/GlobalDocs/wiki/ChatLifecycleAndroid), links/urls/phone-number selections, etc.
+Among those events: [lifeCycle events](https://github.com/bold360ai/GlobalDocs/wiki/ChatLifecycleAndroid), links/urls/phone-number selections, etc.
 
 ### Listening to url navigation
   The SDK receives to url clicks from articles/quick options and channels.

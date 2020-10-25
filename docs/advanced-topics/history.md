@@ -3,7 +3,7 @@ layout: default
 title: Chat History
 parent: Advanced Topics
 nav_order: 1
-permalink: /docs/advanced-topics/history
+# permalink: /docs/advanced-topics/history
 ---
 
 # Chat History {{site.data.vars.need-work}}

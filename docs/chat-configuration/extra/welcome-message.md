@@ -62,4 +62,4 @@ BotAccount(...).apply{
  ---
 
 ## Related Topics:
- - [`FAQs Message'](/docs/chat-configuration/extra/faqs-message)
+ - [`FAQs Message'](./faqs-message)

@@ -4,7 +4,7 @@ title: Instant Feedback
 parent: Feedback
 grand_parent: Advanced Topics
 nav_order: 1
-permalink: /docs/advanced-topics/feedback/instant-feedback
+# permalink: /docs/advanced-topics/feedback/instant-feedback
 ---
 
 # Instant Feedback<sub>(Feedback Per Article)</sub>  {{site.data.vars.need-work}}

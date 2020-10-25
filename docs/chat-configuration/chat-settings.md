@@ -3,7 +3,7 @@ layout: default
 title: Chat Settings
 parent: Chat Configuration
 nav_order: 2
-permalink: /docs/chat-configuration/chat-settings
+# permalink: /docs/chat-configuration/chat-settings
 ---
 
 # Chat settings {{site.data.vars.need-work}}
@@ -31,7 +31,7 @@ val chatController = ChatController.Builder(context).apply {
                      }.build(account...)
 ```
 
-## Features configurations
+## Available configurations
 
 ### Voice control
 **_voiceSettings_** - Defines the desired voice feature behavior.   

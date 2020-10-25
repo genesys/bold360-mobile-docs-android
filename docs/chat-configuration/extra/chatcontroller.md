@@ -10,21 +10,29 @@ nav_exclude: true
 ---
 
 ## Overview
+Bridging interface between the hosting App and the chat SDK. The ChatController defines the SDK APIs to enable hosting Apps to create and manage chats.
 {: .overview}
 
+## How to use
+The `ChatControler` is created with a builder class. The builder can be configured with providers and listeners, attached to the chats and and enables the hosting App to interact and react while the chat is in progress.  
+The ChatController instance may be used for multiple chats creation.   
 
-## ChatController
-The SDK's API to manage chats. Create a `ChatController` instance to create, restore and interact with chats. Once chat needs to be closed, use the ChatController to do that.   
-- The `ChatControler` is created via a builder, which can be configured with providers and listeners which defines the created chats behavior and interaction with the embedding App.  
-- In order to close open chats use chatController.terminateChat() or chatController.endChat() 
-- In order to release the ChatController's resources use `ChatController.destruct()`   
-  - **Destruction of unneeded ChatController instance, is very important, in order to close and release open communication components.**
-  - ChatController destruction, releases resources and listeners, but does not ends the open chats. Ending of chat should be done by the embedding App.   
-  - Destructed `ChatController` can no longer be used to create chats, and throws an exception if one tries to.
+### Start chats
+Chats can be started with `startChat`, which defines a new chat, or with `restoreChat` that can be used to continue a previous ongoing chat.
 
+### End chats
+With the ChatController instance, the hosting App can end active chats.
 
-**To end current chat** use `chatcontroller.endChat` method. If you don't want to display the postChat form activate this method with forceClose = true, `chatController.endChat(true)`   
+- Use `endChat`, to end the current active chat.   
+  > Ending Live chat: If you don't want to display the postChat form activate this method with forceClose = true
 
-**To end All chats at once** use `chatController.terminateChat` method. this will end all active chats.
-an event will be passed to `onChatStateChanged` `StateEvent.ChatWindowDetached` indicating that chat fragment should be removed since we're no longer has an active chat.   
-   
+- Use `terminateChat`, to end **all** current active chats. 
+  > Exp: Bot chat escalation to live chat, in order to close both active chats, the escalated and the bot source chat, use `chatController.terminateChat()`  
+  Once the ChatController has no more active chats, it passes a `StateEvent.Idle`, to its attached `ChatEventListener` implementation.
+
+### Destruct and release
+In order to release the ChatController's resources, use, and the instance itself, use `ChatController.destruct()`   
+Destructed `ChatController` instance can no longer be used to create/manage chats. Any usage attempt 
+will end with `IllegalStateException`.
+
+> ChatController destruction, releases resources and listeners, but does not ends the open chats. Ending of chat should be done by the embedding App prior destruction.   

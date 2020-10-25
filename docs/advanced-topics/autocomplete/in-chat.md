@@ -4,7 +4,7 @@ title: In chat
 parent: Autocomplete
 grand_parent: Advanced Topics
 nav_order: 1
-permalink: /docs/advanced-topics/autocomplete/in-chat
+# permalink: /docs/advanced-topics/autocomplete/in-chat
 ---
 
 # Autocomplete in AI chat
@@ -35,7 +35,7 @@ While the user is typing a query, he will be presented with a list of relevant s
 {: mb-10}
 
 - ### Chat ConversationSettings configuration   
-  Feature availability can be configured by the hosting App, by passing [`ConversationSettings`](/docs/chat-configuration/extra/conversation-settings) instance, configured with the autocomplete feature desired status, on [`ChatController`](/docs/chat-configuration/extra/chatcontroller) creation. The configured availability status will apply on all chats that are created by the same ChatController instance. 
+  Feature availability can be configured by the hosting App, by passing [`ConversationSettings`](/docs/chat-configuration/chat-settings) instance, configured with the autocomplete feature desired status, on [`ChatController`](/docs/chat-configuration/extra/chatcontroller) creation. The configured availability status will apply on all chats that are created by the same ChatController instance. 
   
     ```kotlin
     val settings = ConversationSettings().apply {

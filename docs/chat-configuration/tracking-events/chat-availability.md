@@ -4,7 +4,7 @@ title: Chat Availability
 parent: Tracking Events
 grand_parent: Chat Configuration
 nav_order: 2
-permalink: /docs/chat-configuration/tracking-events/chat-availability
+# permalink: /docs/chat-configuration/tracking-events/chat-availability
 ---
 
 # Chat Availability {{site.data.vars.need-work}}

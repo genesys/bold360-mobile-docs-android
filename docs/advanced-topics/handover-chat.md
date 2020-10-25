@@ -3,7 +3,7 @@ layout: default
 title: Handover Chat
 parent: Advanced Topics
 nav_order: 10
-permalink: /docs/advanced-topics/handover-chat
+# permalink: /docs/advanced-topics/handover-chat
 ---
 
 # Handover Chat
@@ -25,6 +25,7 @@ Intended to enable the option to start a chat with a third party provider.
 
 ## Setting Handover chat escalation
 Handover chat is automatically being activated, by the SDK, when chat channel configured with `custom provider` was selected on chat with AI.   
+A [`HandoverAccount`](/docs/chat-configuration/chat-account/handover-account) is created according to the channel data.
 
 Do the following for a successful Handover chat escalation.
 

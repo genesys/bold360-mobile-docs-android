@@ -3,7 +3,7 @@ layout: default
 title: HandoverAccount
 parent: Chat Account
 grand_parent: Chat Configuration
-permalink: /docs/chat-configuration/chat-account/handover-account/
+# permalink: /docs/chat-configuration/chat-account/handover-account/
 nav_order: 4
 ---
 

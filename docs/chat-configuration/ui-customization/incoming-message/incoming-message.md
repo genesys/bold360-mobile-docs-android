@@ -5,7 +5,7 @@ parent: UI Customization
 grand_parent: Chat Configuration 
 permalink: /docs/chat-configuration/ui-customization/incoming-message
 has_children: true
-nav_order: 2
+nav_order: 3
 ---
 
 # Incoming message {{site.data.vars.need-work}}
@@ -16,9 +16,9 @@ nav_order: 2
 
 - TOC
 {:toc .mb-0}
-- [Message options](/docs/chat-configuration/ui-customization/incoming-message/incoming-options)
-- [Feedback](./docs/advanced-topics/feedback)
-- [Carousel](./docs/chat-configuration/ui-customization/incoming-message/carousel)
+- [Message options](./incoming-options)
+- [Feedback](/docs/advanced-topics/feedback)
+- [Carousel](./carousel)
 
 
 ## How to customize

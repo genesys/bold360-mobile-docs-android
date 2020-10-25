@@ -4,7 +4,7 @@ title: Standalone
 parent: Autocomplete
 grand_parent: Advanced Topics
 nav_order: 2
-permalink: /docs/advanced-topics/autocomplete/standalone
+# permalink: /docs/advanced-topics/autocomplete/standalone
 ---
 
 # Standalone autocomplete component

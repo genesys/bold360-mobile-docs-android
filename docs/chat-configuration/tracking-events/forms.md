@@ -4,7 +4,7 @@ title: Chat Forms
 parent: Tracking Events
 grand_parent: Chat Configuration
 nav_order: 6
-permalink: /docs/chat-configuration/tracking-events/forms
+# permalink: /docs/chat-configuration/tracking-events/forms
 ---
 
 # Live chat forms {{site.data.vars.need-work}}

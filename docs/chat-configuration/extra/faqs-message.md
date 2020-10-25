@@ -21,7 +21,7 @@ The FAQs message consist of a generated list of FAQs, based on preconfigured rul
 {: .overview}
 The list of FAQs appears as an incoming chat message with a list of persistent options corelates to the FAQs, and links to their corresponding answers.   
 The FAQs are fetched on chat start only. Continuance chats will not trigger FAQs reloading.
-The FAQs message appears just beneath the [Welcome Message](/docs/chat-configuration/extra/welcome-message), if configured.
+The FAQs message appears just beneath the [Welcome Message](./welcome-message), if configured.
 
 ![](/assets/welcome-and-faqs.png)
 {: .image-40}
@@ -42,4 +42,4 @@ Delete all preconfigured FAQs lists on the admin console.
 ---
 
 ## Related Topics:
- - [`Welcome message`](/docs/chat-configuration/extra/welcome-message)
+ - [`Welcome message`](./welcome-message)

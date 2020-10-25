@@ -82,3 +82,8 @@ table body {
   cursor: none !important;
   user-select: none !important;
 }
+
+.btn.btn-orange.btn-red {
+  background-color: #ff0000;
+  background-image: linear-gradient(#ff0000, #ff0000);
+}

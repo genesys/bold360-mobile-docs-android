@@ -3,8 +3,8 @@ layout: default
 title: Agent Typing Indication
 parent: UI Customization
 grand_parent: Chat Configuration 
-permalink: /docs/chat-configuration/ui-customization/agent_typing_indication/
-nav_order: 7
+# permalink: /docs/chat-configuration/ui-customization/agent_typing_indication/
+nav_order: 8
 ---
 
 # Agent Typing Indication {{site.data.vars.need-work}}

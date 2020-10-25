@@ -1,13 +1,12 @@
 ---
 layout: default
-title: BoldAccount
+title: Bold Live Chat
 parent: Chat Account
 grand_parent: Chat Configuration
 nav_order: 2
-permalink: /docs/chat-configuration/chat-account/bold-account/
 ---
 
-# BoldAccount {{site.data.vars.need-work}}
+# Bold Live Chat - chat with live agent {{site.data.vars.force-work}}
 {: .no_toc}
 
 ## Table of contents
@@ -16,7 +15,11 @@ permalink: /docs/chat-configuration/chat-account/bold-account/
 1. TOC
 {:toc}
 
+## Overview
+...
 
+
+## BoldAccount
 Use this account to create synced live chat sessions with an agent.
 
 ### Configure chat session
@@ -176,3 +179,6 @@ For that purpose we have the `extraData` on the account `info` member. (see `Vis
 
       account.info.visitorId = ...
  
+
+## Live Chat continuity
+...

@@ -4,7 +4,7 @@ title: User Tracking
 parent: Tracking Events
 grand_parent: Chat Configuration
 nav_order: 5
-permalink: /docs/chat-configuration/tracking-events/user-tracking
+# permalink: /docs/chat-configuration/tracking-events/user-tracking
 ---
 
 # User tracking {{site.data.vars.need-work}}

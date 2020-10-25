@@ -3,8 +3,8 @@ layout: default
 title: Chat Bar
 parent: UI Customization
 grand_parent: Chat Configuration 
-permalink: /docs/chat-configuration/ui-customization/chat-bar
-nav_order: 5
+# permalink: /docs/chat-configuration/ui-customization/chat-bar
+nav_order: 6
 ---
 
 # Chat Bar {{site.data.vars.need-work}}

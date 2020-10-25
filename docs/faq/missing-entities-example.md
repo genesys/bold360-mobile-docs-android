@@ -3,7 +3,7 @@ layout: default
 title: Missing Entities Code Sample
 parent: FAQ
 nav_order: 3
-permalink: /docs/faq/missing-entities-example
+# permalink: /docs/faq/missing-entities-example
 ---
 
 # Missing entities and Personal information example {{site.data.vars.need-work}}
