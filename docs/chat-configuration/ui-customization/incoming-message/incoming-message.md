@@ -17,7 +17,7 @@ nav_order: 2
 - TOC
 {:toc .mb-0}
 - [Message options](/docs/chat-configuration/ui-customization/incoming-message/incoming-options)
-- [Feedback](/docs/advanced-topics/feedback)
+- [Feedback](./docs/advanced-topics/feedback)
 - [Carousel](./docs/chat-configuration/ui-customization/incoming-message/carousel)
 
 

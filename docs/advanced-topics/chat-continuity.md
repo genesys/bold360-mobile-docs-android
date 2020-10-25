@@ -3,7 +3,6 @@ layout: default
 title: Chat Continuity
 parent: Advanced Topics
 nav_order: 2
-permalink: /docs/advanced-topics/chat-continuity
 has_toc: false
 ---
 
