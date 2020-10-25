@@ -1,9 +1,6 @@
 ---
 layout: default
 title: Incoming options
-grand_parent: UI Customization
-parent: Incoming message 
-# permalink: /docs/chat-configuration/ui-customization/incoming-message/incoming-options
 np_toc: true
 ---
 

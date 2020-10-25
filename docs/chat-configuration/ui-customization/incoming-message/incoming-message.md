@@ -11,18 +11,19 @@ nav_order: 3
 # Incoming message {{site.data.vars.need-work}}
 {: .no_toc}
 
-## Table of contents
+## Table of contents 
 {: .no_toc .text-delta }
 
 - TOC
 {:toc .mb-0}
-- [Message options](incoming-options)
-- [Feedback]({{site.baseurl}}/docs/advanced-topics/feedback)
-- [Carousel](carousel)
+- [Message options](./incoming-options)
+- [Feedback]({{baseurl}}/docs/advanced-topics/feedback)
+- [Carousel](./carousel)
 
 
 ## How to customize
 ...
+{{site.config.baseurl}}
  
 ---
 

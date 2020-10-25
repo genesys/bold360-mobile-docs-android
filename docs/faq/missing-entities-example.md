@@ -13,7 +13,8 @@ Lets say the missing entity is `REQUESTED_ACCOUNT` which is the account entity t
 
 For this example, the article body is:
 
-`The balance of your account ending with [[ACCOUNT.ID]] is [[ACCOUNT.CURRENCY]] {{getAccountBalance([[ACCOUNT.ID]],[[ACCOUNT.TYPE]])}}`
+`The balance of your account ending with [[ACCOUNT.ID]] is [[ACCOUNT.CURRENCY]] 
+{{getAccountBalance([[ACCOUNT.ID]],[[ACCOUNT.TYPE]])}}`
 
 >NOTE: The provider itself is not provided for this example.
         In order to get additional support please contact our support team.

@@ -2,7 +2,7 @@
 layout: default
 title: FAQ
 has_children: true
-permalink: /docs/faq/
+permalink: /docs/faq
 nav_order: 6
 ---
 
