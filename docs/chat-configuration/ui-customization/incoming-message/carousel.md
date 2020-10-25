@@ -4,6 +4,7 @@ title: Carousel
 grand_parent: UI Customization
 parent: Incoming message 
 np_toc: true
+permalink: /incoming-message/carousel
 ---
 
 # Carousel 
