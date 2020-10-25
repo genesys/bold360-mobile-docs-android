@@ -16,9 +16,9 @@ nav_order: 3
 
 - TOC
 {:toc .mb-0}
-- [Message options](./incoming-options)
-- [Feedback](/docs/advanced-topics/feedback)
-- [Carousel](./carousel)
+- [Message options](incoming-options)
+- [Feedback]({{site.baseUrl}}/docs/advanced-topics/feedback)
+- [Carousel](carousel)
 
 
 ## How to customize
