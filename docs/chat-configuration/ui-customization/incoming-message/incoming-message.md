@@ -3,7 +3,7 @@ layout: default
 title: Incoming message
 parent: UI Customization
 grand_parent: Chat Configuration 
-permalink: /docs/chat-configuration/ui-customization/incoming-message
+permalink: /docs/chat-configuration/ui-customization/incoming-message/
 has_children: true
 nav_order: 3
 ---
