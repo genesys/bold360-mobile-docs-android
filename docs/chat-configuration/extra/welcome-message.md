@@ -28,7 +28,7 @@ Quick options and channeling of the `Welcome Message` will be accessible until f
 
 ---
 
-## How to configure:
+## How to configure
 1. Configure on bold360ai admin console
 
 ![]({{'/assets/images/welcome_console.png' | relative_url}})
@@ -61,5 +61,5 @@ BotAccount(...).apply{
 ```
  ---
 
-## Related Topics:
+## Related Topics
  - [`FAQs Message'](./faqs-message)

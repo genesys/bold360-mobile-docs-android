@@ -23,7 +23,8 @@ The SDK provides the bridge to pass user specific information to the BOT on chat
 
 There are 2 types of personal information
 
-## <a id="initentities"/> __Initialization entities__
+<a id="initentities"/>
+## Initialization entities
 
 Predefined data values that can be provided for the whole chat session and are not being changed dynamically (exp: ids, keys, etc).
 
@@ -53,7 +54,7 @@ Predefined data values that can be provided for the whole chat session and are n
     }
     ```
 
-## __Missing entites and Personal information__
+## Missing entites and Personal information
 
 Dynamically required details. Depends on user query and the article the Bot responses with.
 articles of this sort are configured with a Bold360ai provider which formats the response to contain the entities tag pattern, that are being recognized by the SDK as the needed information (please contect out support for farther information about the [Bold360AI provider](https://support.bold360.com/bold360/help/how-do-i-create-a-csv-provider)).

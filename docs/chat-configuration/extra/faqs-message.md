@@ -28,7 +28,7 @@ The FAQs message appears just beneath the [Welcome Message](./welcome-message), 
 
 ---
 
-## How to configure:
+## How to configure
 Configure on bold360ai admin console
 
 ![]({{'/assets/images/faqs-console.png' | relative_url}})
@@ -41,5 +41,5 @@ Delete all preconfigured FAQs lists on the admin console.
 
 ---
 
-## Related Topics:
+## Related Topics
  - [`Welcome message`](./welcome-message)
