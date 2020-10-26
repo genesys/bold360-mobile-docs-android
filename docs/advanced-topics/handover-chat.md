@@ -3,7 +3,7 @@ layout: default
 title: Handover Chat
 parent: Advanced Topics
 nav_order: 10
-# permalink: /docs/advanced-topics/handover-chat
+permalink: /docs/advanced-topics/handover-chat
 ---
 
 # Handover Chat

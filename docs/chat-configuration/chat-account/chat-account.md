@@ -16,10 +16,10 @@ np_toc: true
 
 - TOC
 {:toc .mb-0}
-- [BotAccount](./bot-account#botaccount)
-- [BoldAccount](./bold-account#boldaccount)
-- [AsyncAccount](./async-account)
-- [HandoverAccount](./handover-account)
+- [BotAccount]({{'/docs/chat-configuration/chat-account/bot-account#botaccount' | relative_url}})
+- [BoldAccount]({{'/docs/chat-configuration/chat-account/bold-account#boldaccount' | relative_url}})
+- [AsyncAccount]({{'/docs/chat-configuration/chat-account/async-account' | relative_url}})
+- [HandoverAccount]({{'/docs/chat-configuration/chat-account/handover-account' | relative_url}})
 
 ---
 

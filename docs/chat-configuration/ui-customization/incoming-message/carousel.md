@@ -2,6 +2,7 @@
 layout: default
 title: Carousel 
 np_toc: true
+nav_exclude: true
 ---
 
 # Carousel 

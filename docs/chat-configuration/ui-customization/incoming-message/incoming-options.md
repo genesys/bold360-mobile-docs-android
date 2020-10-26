@@ -2,6 +2,7 @@
 layout: default
 title: Incoming options
 np_toc: true
+nav_exclude: true
 ---
 
 # Incoming message options {{site.data.vars.need-work}}
