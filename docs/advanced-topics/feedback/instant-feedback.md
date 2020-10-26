@@ -57,7 +57,7 @@ The feedback UI component is configurable, by bold360ai console configurations, 
     {: .blue-sm-tl}
     |![](/assets/iconic-idle-feedback.png)||
     |---|---|
-    |![](/assets/iconic-negative-feedback.png)|![](/assets/iconic-positive-feedback.png)|
+    |![]({{'/assets/iconic-negative-feedback.png' | relative_url}})|![](/assets/iconic-positive-feedback.png)|
     {: .table-trans}
 
     
