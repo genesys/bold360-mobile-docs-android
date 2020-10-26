@@ -25,6 +25,9 @@ The Chatbar displays the following:
  2. `End Chat` clickable view to end current live chat.
 {: .overview}
 
+![]({{'/assets/images/chatbar.png' | relative_url}})
+{: .image-40}
+
 ## How it works
 The UI component data is being updated on chat acceptance and on every operator change indication. 
 

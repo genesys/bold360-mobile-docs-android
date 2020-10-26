@@ -23,6 +23,10 @@ On live chat creation, if all agent are occupied to their capacity, the chat wil
 Once current active chats will end, the created chat will be promoted in the queue, until position 0, means the chat is no longer in the queue and the chat is waiting for agent acceptance.
 {: .overview}
 
+![]({{'/assets/images/queuebar.png' | relative_url}})
+{: .image-40}
+
+
 > User can end the chat while in the queue with [life cycle state]({{'/docs/chat-configuration/tracking-events/chat-lifecycle#pending' | relative_url}}) (`StateEvent.InQueue`) or while waiting for acceptance (`StateEvent.Pending`).    
 Chat canceling considered as unavailable, so the user will be presented with unavailability form. (or with an unavailability message, if form is disabled)
 
