@@ -45,7 +45,7 @@ nav_order: 2
   })
   ```
 
-  > **<U>Important:</U>** In order to get availability status of the different departments in your organization, [make sure your api access key is not configured](/assets/bold-console-apikey.png) to work with a specific department.
+  > **<U>Important:</U>** In order to get availability status of the different departments in your organization, [make sure your api access key is not configured]({{'/assets/images/bold-console-apikey.png' | relative_url}}) to work with a specific department.
 
 ## How to retrieve available departments list
 1. Create an `Account`.

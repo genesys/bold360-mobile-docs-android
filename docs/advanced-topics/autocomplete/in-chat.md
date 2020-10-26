@@ -24,14 +24,14 @@ Autocomplete is supported for AI chats only.
 While the user is typing a query, he will be presented with a list of relevant suggested queries, according to the typed content.  Selection of an autocomplete suggestion, will automaticaly send the selection as user query.  
 {: .overview}
  
-![]({{'/assets/autocomplete-in-chat.png' | relative_url}})
+![]({{'/assets/images/autocomplete-in-chat.png' | relative_url}})   
 {: .image-40}
 
 ---
 
 ## Aavailability configuration
 {: .mb-4}
-- ### [Admin console configuration](./autocomplete#control-availability)
+- ### [Admin console configuration]({{'/docs/advanced-topics/autocomplete#control-availability' | relative_url}})
 {: mb-10}
 
 - ### Chat ConversationSettings configuration   
