@@ -127,15 +127,15 @@ boldAccount.addExtraData(SessionInfoKeys.Department to results.departmentId,
 //2.
 boldAccount.info.language = ...
 ```
-> ##### _[available extraData fields](https://developer.bold360.com/help/EN/Bold360API/Bold360API/c_bc_sdk_ios_core_integration_chat_session.html)_
-
+> _Available extraData keys can be viewed on `SessionInfoKeys`_
 
 ---
 
-## Don't want the user to fill forms? 
-### Skip Prechat Form
+## Skip Prechat Form 
 
-In order to skip the prechat, call `BoldAccount.skipPrechat()`, on the account that will be passed to the chat creation.   
-When skipping prechat form, Extra data will provide the agent details about the user and can be used to set the language and department that should be configured for this chat.
+In order to skip the prechat form, activate `BoldAccount.skipPrechat()` method, on your BoldAccount before chat creation.   
+
+When skipping prechat form, by filling `extraData` details on the account, the chat accepting agent will be exposed to those details.   
+The `extraData` can also be used to set the language and department that should be assigned for this chat.
 
 

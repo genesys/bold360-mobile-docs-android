@@ -56,7 +56,7 @@ The UI component the user will use to trigger the upload.
     ```kotlin
     chatController.isEnabled(ChatFeatures.FileUpload);
     ```
-    > Learn how to enable/disable file transfer on admin console [here](/assets/console-upload.png)
+    > Learn how to enable/disable file transfer on admin console [here]({{'/assets/images/console-upload.png' | relative_url}})
 
   - Hide the SDKs upload icon:
 
@@ -174,7 +174,7 @@ chatController.subscribeNotifications(notifiableImpl:Notifiable,
 - #### Customizing uploads progress indication
    The SDK provides uploads propress indication bar   
 
-    ![](images/Android/uploads_bar_1.png)
+    ![]({{'assets/images/uploads_bar.png' | relative_url}})
 
     - The uploads bar can customized via `ChatUIProvider.uploadsCmpUIProvider.configure`.
 
@@ -206,7 +206,7 @@ chatController.subscribeNotifications(notifiableImpl:Notifiable,
       > Customizations that were configured with `UploadsCmpUIProvider.configure` will be applied on your customed component as well.
 
 - #### Customizing upload outgoing bubble
-  Same as regular [outgoing bubble customizations](./ChatCustomizationsAndroid.md).
+  Same as regular [outgoing bubble customizations]({{'/docs/chat-configuration/ui-customization/how-it-works' | relative_url}}).
 
   - ##### Customizing upload content type images
     Provided icons can be override by appying new drawables resources in the app resources with matching reasources ids.   

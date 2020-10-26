@@ -69,7 +69,7 @@ account.apply{
 ---
 
 ### Account updates
-Once the chat session was created, an account update will be triggered on [AccountInfoProvider](/docs/chat-configuration/setting-account/account-info-provider) implementation.  
+Once the chat session was created, an account update will be triggered on [AccountInfoProvider]({{'/docs/chat-configuration/setting-account/account-info-provider' | relative_url}}) implementation.  
 From the updated account you can fetch the `ChatId`.  
 `account.info.chatId` 
 
@@ -87,14 +87,14 @@ Live chat may start as main chat purpose, or be triggered from chat with BOT.
     val chatController = ChatController.Builder(context)                                                     
                                         .build(account, ...)
     ```
-    ![](images/Android/start_with_live.png)
+    ![]({{'/assets/diagrams/start_with_live.png' | relative_url}})
 
 ## Starting chat with Bot and continue to Bold live
     - A chat typed channel should be configured on the Bold360ai console.<sup>[(*)](https://support.nanorep.com/API-Integrations/Chat-Integration/1009694282/How-to-integrate-LiveChat-Inc-chat.htm)</sup>.   
     - Bold live chat can than be triggered by user selection of that channel.    
     - App will be asked to `provide` (over `AccountInfoProvider`), the BoldAccount that matches the details provided by that channel. (If `AccountInfoProvider` implementation was not provided, the chat will start with default configurations.)   
     
-    ![](images/Android/bot_to_live.png)
+    ![]({{'/assets/diagrams/bot_to_live.png' | relative_url}})
 
 
 ### Listening to account updates

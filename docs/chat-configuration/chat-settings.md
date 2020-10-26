@@ -21,6 +21,7 @@ nav_order: 2
 Chat features are configured by the various consoles available for every chat type, and by the SDKs pre defined available options.  
 Chat configurations can be controlled by the embbeding App, by passing a customed `ConversatioSettings` object on ChatController creation.
 {: .overview}
+
 ```kotlin
 val settings = ConversationSettings()
     // do some customed change

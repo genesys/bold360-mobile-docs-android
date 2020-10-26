@@ -20,7 +20,7 @@ np_toc: true
 Displays a "carousel" typed incoming response. 
 As a regular incoming message, carousel has a message section with a timestamp and avatar, and the quick options and channels at the bottom. The carousel provides the ability to display multiple related answers to a user query in a horizontal scrollable structure.
 {: .overview}
-![](/assets/carousel.png)
+![]({{'/assets/images/carousel.png' | relative_url}})
 {: .image-40}
 
 
@@ -34,7 +34,7 @@ Each item in the carousel consists of 3 sections:
 ---
 
 ## UI configurations
-Carousel UI can be configured, by overriding `CarouselItemsUIProvider.configure` method and/or `CarouselItemsUIProvider.customize` method for [dynamic data related customizations](/docs/chat-configuration/ui-cutomization/how-it-works#customize).   
+Carousel UI can be configured, by overriding `CarouselItemsUIProvider.configure` method and/or `CarouselItemsUIProvider.customize` method for [dynamic data related customizations]({{'/docs/chat-configuration/ui-cutomization/how-it-works#customize' | relative_url}}).   
 Available configuration proprties can be viewed on `CarouselItemsUIAdapter`
 
 ### General item configurations
@@ -45,7 +45,7 @@ Available configuration proprties can be viewed on `CarouselItemsUIAdapter`
 
 - Carousel items sections (info, image and options), display order, can be configured with `CarouselItemsUIAdapter.setInfoTextAlignment`, defaults to `CarouselItemConfiguration.ItemInfoAlignment.AlignBelowThumb` 
 
-  ![](/assets/customed-carousel.png)
+  ![]({{'/assets/images/customed-carousel.png' | relative_url}})
   {: .image-40}
 
 
@@ -56,7 +56,7 @@ The sub-title height is flexible and may stretch to the maximum available item h
 
 Minimum line numbers can be configured with `setInfoTitleMinLines` and `setInfoSubTitleMinLines` methods.
 
-![](/assets/carousel-info.png)
+![]({{'/assets/images/carousel-info.png' | relative_url}})
 {: .image-40}
 
 > Checkout other configurations for the info section on `CarouselItemsUIAdapter` prefixed with **setInfo...**.
@@ -72,7 +72,7 @@ Use `CarouselItemsContainer.setOptionsLineCount` method to change the line count
 
 ### Image section
 Image size is constant. 
-If a link is configured for the image, it will be passed to the hosting App, on user press action, for further handling, via [`ChatEventListener.onUrlLinkSelected` implementation](/docs/chat-configuration/tracking-events/events-and-notifications#listening-to-url-navigation).
+If a link is configured for the image, it will be passed to the hosting App, on user press action, for further handling, via [`ChatEventListener.onUrlLinkSelected` implementation]({{'/docs/chat-configuration/tracking-events/events-and-notifications#listening-to-url-navigation' | relative_url}}).
 
 ---
 

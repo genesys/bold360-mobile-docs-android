@@ -36,7 +36,7 @@ The feedback UI component is configurable, by bold360ai console configurations, 
 
   <details close markdown="block">
   <summary>Feedback status settings</summary>
-  ![](/assets/instant-feedback-console.png)
+  ![]({{'/assets/images/instant-feedback-console.png' | relative_url}})
   {: image-70 }
   </details> {: .mb-6 }
 
@@ -46,7 +46,7 @@ The feedback UI component is configurable, by bold360ai console configurations, 
 
     <details close markdown="block">
     <summary>Feedback display type settings</summary>
-    ![](/assets/feedback-display-type.pn)
+    ![]({{'/assets/images/feedback-display-type.png' | relative_url}})
     {: image-70 }
     </details> {: .mb-4 }
 
@@ -55,24 +55,26 @@ The feedback UI component is configurable, by bold360ai console configurations, 
 
     Iconic feedback:
     {: .blue-sm-tl}
-    |![](/assets/iconic-idle-feedback.png)||
+
+    |![]({{'/assets/images/iconic-idle-feedback.png' | relative_url}})||
     |---|---|
-    |![]({{'/assets/iconic-negative-feedback.png' | relative_url}})|![](/assets/iconic-positive-feedback.png)|
+    |![]({{'/assets/images/iconic-negative-feedback.png' | relative_url}})|![]({{'/assets/images/iconic-positive-feedback.png' | relative_url}})|
     {: .table-trans}
 
     
     Textual feedback:
     {: .blue-sm-tl}
-    |![](/assets/textual-idle-feedback.png)||
+
+    |![]({{'/assets/images/textual-idle-feedback.png' | relative_url}})||
     |---|---|
-    |![](/assets/textual-negative-readmore-feedback.png)|![](/assets/textual-positive-feedback.png)|
+    |![]({{'/assets/images/textual-negative-readmore-feedback.png' | relative_url}})|![]({{'/assets/images/textual-positive-feedback.png' | relative_url}})|
     {: .table-trans}
 
 - Textual configurations
-On the admin console you can configure the messages content that are presented to the user over feedback flow. 
+  On the admin console you can configure the messages content that are presented to the user over feedback flow. 
 
-![](/assets/feedback-texts.png)
-{: image-70}
+  ![]({{'/assets/images/feedback-texts.png' | relative_url}})
+  {: image-70}
  
 ---
 

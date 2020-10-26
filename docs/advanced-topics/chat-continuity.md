@@ -14,10 +14,10 @@ has_toc: false
 
 - TOC
 {:toc .mb-0}
-- [AccountInfoProvider](/docs/chat-configuration/extra/account-info-provider)
-- [Messaging chat continuity](/docs/advanced-topics/messaging-chat#messaging-chat-continuation)
-- [Live chat continuity](/docs/chat-configuration/chat-account/bold-account#live-chat-contiuity)
-- [AI chat continuity](/docs/chat-configuration/chat-account/bot-account#ai-continuity)
+- [AccountInfoProvider]({{'/docs/chat-configuration/extra/account-info-provider' | relative_url}})
+- [Messaging chat continuity]({{'/docs/advanced-topics/messaging-chat#messaging-chat-continuation' | relative_url}})
+- [Live chat continuity]({{'/docs/chat-configuration/chat-account/bold-account#live-chat-contiuity' | relative_url}})
+- [AI chat continuity]({{'/docs/chat-configuration/chat-account/bot-account#ai-continuity' | relative_url}})
 
 ---
 
@@ -34,7 +34,7 @@ Each chat type, has account session properties that should be configured to enab
 
 #### Listening to session data updates
 While the chat is in progress, session data, like ids, may be created or changed.  
-In order to be updated with such changes for later use, implement [_AccountInfoProvider_](/docs/chat-configuration/extra/account-info-provider) or [_AccountSessionListener_](/docs/chat-configuration/extra/account-info-provider#ongoing-session-configurations-updates) and pass implementation on `ChatController` creation. 
+In order to be updated with such changes for later use, implement [_AccountInfoProvider_]({{'/docs/chat-configuration/extra/account-info-provider' | relative_url}}) or [_AccountSessionListener_]({{'/docs/chat-configuration/extra/account-info-provider#ongoing-session-configurations-updates' | relative_url}}) and pass implementation on `ChatController` creation. 
 ```kotlin
 val chatController = ChatController.Builder(context).apply{
                         accountProvider(MyProvider)

@@ -23,7 +23,7 @@ The `Welcome Message` will appear only once on chat start. If the chat is a cont
 `Welcome Message` article can have images, persistent options, carousel, channels, etc.   
 Quick options and channeling of the `Welcome Message` will be accessible until first user query/action.  
 
-![](/assets/welcome-and-faqs.png)
+![]('{{/assets/images/welcome-and-faqs.png' | relative_url}})
 {: .image-40}
 
 ---
@@ -31,7 +31,7 @@ Quick options and channeling of the `Welcome Message` will be accessible until f
 ## How to configure:
 1. Configure on bold360ai admin console
 
-![](/assets/welcome_console.png)
+![]({{'/assets/images/welcome_console.png' | relative_url}})
 {: .image-70}
 
 Configured `Welcome Message` id is available on the `cnf` API response labled as `onloadQuestionId`.   

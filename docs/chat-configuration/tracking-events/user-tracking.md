@@ -25,7 +25,7 @@ This token enables the tracking of user activity.
 {: .overview}
 
 ## How to get the generated userId
-Once the chat is created, an account update event is triggered on the [`AccountInfoProvider`](/docs/chat-configuration/extra/account-info-provider), the userId can be taken from the provided updated account.
+Once the chat is created, an account update event is triggered on the [`AccountInfoProvider`]({{'/docs/chat-configuration/extra/account-info-provider' | relative_url}}), the userId can be taken from the provided updated account.
 
 ```kotlin
 class SimpleAccountProvider : AccountInfoProvider {

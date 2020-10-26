@@ -46,7 +46,7 @@ In order to receive typing state changes, subscribe to `OperatorEvent.OperatorTy
 chatController.subscribeNotifications(NotifiableImpl, OperatorEvent.OperatorTyping,...)
 ```
 
-<sup> <b> [more on notifications ](https://github.com/bold360ai/GlobalDocs/wiki/Listeners-and-subscriptions-android) </b></sup>
+> Follow for more info about [notifications subscription]({{'/docs/chat-configuration/tracking-events/events-and-notifications' | relative_url}})
 
 ---
 

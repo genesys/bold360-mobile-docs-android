@@ -45,14 +45,36 @@ In order to be notified over events that occurs during chat lifecycle, implement
 ChatController.Builder(context)...
     .chatEventListener(ChatEventListenerImpl)
 ```
-Among those events: [lifeCycle events](https://github.com/bold360ai/GlobalDocs/wiki/ChatLifecycleAndroid), links/urls/phone-number selections, etc.
+Among those events: [lifeCycle, state events]({{'/docs/chat-configuration/tracking-events/chat-lifecycle' | relative_url}}), links/urls/phone-number selections, etc.
 
 ### Listening to url navigation
   The SDK receives to url clicks from articles/quick options and channels.
   Implement `ChatEventListener.onUrlLinkSelected(url: String)` method in order to receive those click events.
 
-  > In order to configure url typed channels (in-app navigation), follow this [guide](https://github.com/bold360ai/GlobalDocs/wiki/Bold360ai-Console-Configurations#configure-in-app-navigation-channel).
+  <details close markdown="block">
+  <summary>Configuring in-app navigation channels on Bold360ai console.</summary>
+  
+    Follow those steps:   
+    
+    1. Navigate to Channeling -> Channeling Policy
 
+    2. Create a new Channel.
+
+    3. Fill up the next fields:
+        * Channel name and description
+        * Who’s the target audience
+    
+    4. At `What To Do` select `Ticket`
+    
+    5. Fill the relevant fields:
+        * Label
+        * Button action -> `Open Custom URL`
+        * Fill the Link Url with the inApp navigation prefix (example: inApp://MainFragment)
+    
+    6. Click on Save Settings
+
+</details>
+  
 ---
 
 ## Subscribing to notifications

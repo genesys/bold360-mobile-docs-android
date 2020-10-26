@@ -99,8 +99,8 @@ In order to create messaging chat, a valid apiKey and applicationId are required
 ---
 
 ## Account updates
-- Once the chat session was created, an account update will be triggered on your [`AccountInfoProvider`](/docs/chat-configuration/setting-account/account-info-provider) implementation.  
-From the updated account you can fetch the `SenderId`, and be synced with the last created sesion id.
+- Once the chat session was created, an account update will be triggered on your [`AccountInfoProvider`]({{'/docs/chat-configuration/setting-account/account-info-provider' | relative_url}}) implementation.  
+From the updated account you can fetch the `SenderId`, and be synced with the last created session id.
 `account.info.SenderId` 
 
-- In order to get updates for `LastReceivedMessageId`, implement [`AccountSessionListener`](/docs/chat-configuration/setting-account/account-info-provider#ongoing-session-configurations-changes) instead. 
+- In order to get updates for `LastReceivedMessageId`, implement [`AccountSessionListener`]({{'/docs/chat-configuration/setting-account/account-info-provider#ongoing-session-configurations-changes' | relative_url}}) instead. 

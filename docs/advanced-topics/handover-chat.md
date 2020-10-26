@@ -25,7 +25,7 @@ Intended to enable the option to start a chat with a third party provider.
 
 ## Setting Handover chat escalation
 Handover chat is automatically being activated, by the SDK, when chat channel configured with `custom provider` was selected on chat with AI.   
-A [`HandoverAccount`](/docs/chat-configuration/chat-account/handover-account) is created according to the channel data.
+A [`HandoverAccount`]({{'/docs/chat-configuration/chat-account/handover-account' | relative_url}}) is created according to the channel data.
 
 Do the following for a successful Handover chat escalation.
 
@@ -97,7 +97,7 @@ Do the following for a successful Handover chat escalation.
 
 - ### Adding extra details and configurations for chat creation
     Handover chat is created by the hosting app. It is provided by a `HandoverAccount` that may contain some configurations needed for the chat.   
-    Before the chat starts, the app will be triggered to [provide](./account-info-provider#account-provide) the account needed for the chat, at this point, details can be added to the the account [SessionInfo](./account-info-provider#session-info) property.   
+    Before the chat starts, the app will be triggered to [provide]({{'/docs/chat-configuration/extra/account-info-provider#account-provide' | relative_url}}) the account needed for the chat, at this point, details can be added to the the account [SessionInfo]({{'/docs/chat-configuration/extra/account-info-provider#session-info' | relative_url}}) property.   
     If no extra details are needed, the account should be passed as is.
 
 ---

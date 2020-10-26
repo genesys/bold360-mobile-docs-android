@@ -15,7 +15,7 @@ nav_order: 1
 
 - TOC
 {:toc .nb-0}
-- [UI configurations](/docs/chat-configuration/ui-customization/user-input-field#ui-configurations)
+- [UI configurations]({{'/docs/chat-configuration/ui-customization/user-input-field#ui-configurations' | relative_url}})
 
 ---
 
@@ -24,7 +24,7 @@ Autocomplete is supported for AI chats only.
 While the user is typing a query, he will be presented with a list of relevant suggested queries, according to the typed content.  Selection of an autocomplete suggestion, will automaticaly send the selection as user query.  
 {: .overview}
  
-![](/assets/autocomplete-in-chat.png)
+![]({{'/assets/autocomplete-in-chat.png' | relative_url}})
 {: .image-40}
 
 ---
@@ -35,7 +35,7 @@ While the user is typing a query, he will be presented with a list of relevant s
 {: mb-10}
 
 - ### Chat ConversationSettings configuration   
-  Feature availability can be configured by the hosting App, by passing [`ConversationSettings`](/docs/chat-configuration/chat-settings) instance, configured with the autocomplete feature desired status, on [`ChatController`](/docs/chat-configuration/extra/chatcontroller) creation. The configured availability status will apply on all chats that are created by the same ChatController instance. 
+  Feature availability can be configured by the hosting App, by passing [`ConversationSettings`]({{'/docs/chat-configuration/chat-settings' | relative_url}}) instance, configured with the autocomplete feature desired status, on [`ChatController`]({{'/docs/chat-configuration/extra/chatcontroller' | relative_url}}) creation. The configured availability status will apply on all chats that are created by the same ChatController instance. 
   
     ```kotlin
     val settings = ConversationSettings().apply {

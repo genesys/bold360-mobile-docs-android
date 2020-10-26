@@ -18,15 +18,6 @@ nav_order: 2
 
 ---
 
-
-
-
-
-
-
-
-
-
 ## Overview
 Usually appears at the bottom of the chat screen. Contains the users typed/recorded message, until it was sent.   
 The behavior and functionality of the input field is defined by the active chat type.   
@@ -40,23 +31,38 @@ The behavior and functionality of the input field is defined by the active chat 
 - [Voice recording and readout control](/docs/advanced-topics/voice)
 - [File upload](/docs/advanced-topics/file-upload) on live chats
 
-## send  button
-
-## Configuring Hint
-  - Configure hint text on [bold360ai console.](/assets/user-input-hint-config.png)
-    > Currently this configuration will apply only to chats that were started with **ai**.
-
-  - Configure hint text by overrding SDKs string resource: `R.string.type_message_here`.
-
-
-## Configure features
+### Configure features
 Some of the available features, can be configured by the hosting App. Using `ConversationSettings` object, that can be provided on ChatController creation, you can configure the following:
 
 - [`voiceSettings(VoiceSettings)`](./docs/chat-configuration/chat-settings#voice-control)
 
 - `enableAutocompleteSupport(Boolean)`
 
-## UI configurations
+---
+
+## send  button
+...
+
+### Send UI override
+In order to override the send view set `ChatUIProvider.chatInputUIProvider.sendCmpUIProvider.overrideFactory` with your view factory.
+> Custom implementation must implement `InputControlersHandler`
+
+
+---
+
+## Hint configuration
+
+- Hint configuration for AI chats is done on the [bold360ai console]({{'/assets/images/ai-hint-config.png' | relative_url}}).
+  > Escalated chats will not effect the AI configured hint.
+
+- Hint configuration for Live chats is done on the [bold admin console]({{'/assets/images/live-hint-config.png' | relative_url}}). 
+
+- Override hint text string resource `R.string.type_message_here`.   
+  This resource will be used, if none of the above was provided, to the current active chat.
+
+---
+
+## UI customization
 The user input field can be customized by:
 
 - ### Configuration   
@@ -89,18 +95,17 @@ The user input field can be customized by:
     ...
     .chatUIProvider(customProvider)
     .build(...)
-```
-```
+  ```
 
-|![](/assets/input_field_1.png)|![](/assets/input_field_2.png)|![](/assets/input_field_2.png)
-|---|---|---|
-|![](/assets/input_field_3.png)|![](/assets/input_field_4.png)|![](/assets/input_field_5.png)
-
+  |![]({{'/assets/images/input_field_1.png' | relative_url}}){: .image-70}|![]({{'/assets/images/input_field_2.png' | relative_url}}){: .image-70}|![]({{'/assets/images/input_field_2.png' | relative_url}}){: .image-70}
+  |---|---|---|
+  |![]({{'/assets/images/input_field_3.png' | relative_url}}){: .image-70}|![]({{'/assets/images/input_field_4.png' | relative_url}}){: .image-70}|![]({{'/assets/images/input_field_5.png' | relative_url}}){: .image-70}
+{: .mb-8}
 
 
 - ### Override
-In case a customed view is needed instead of supplied SDKs implementation, set `ChatUIProvider.chatInputUIProvider.overrideFactory` with your view factory.
-> Custom implementation must implement `ChatInputViewProvider`
+  In case a custom view is needed, instead of provided SDKs implementation, set `ChatUIProvider.chatInputUIProvider.overrideFactory` with your view factory.
+
+  > Custom implementation must implement `ChatInputViewProvider`
   
-- In order to override the send view set `ChatUIProvider.chatInputUIProvider.sendCmpUIProvider.overrideFactory` with your view factory.
-> Custom implementation must implement `InputControlersHandler`
+  

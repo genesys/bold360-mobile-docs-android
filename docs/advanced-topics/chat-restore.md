@@ -17,7 +17,7 @@ nav_order: 3
 ---
 
 ## Overview
-A key player in chat restoring is the [`ChatController`](/docs/chat-configuration/extra/chatcontroller).
+A key player in chat restoring is the [`ChatController`]({{'/docs/chat-configuration/extra/chatcontroller' | relative_url}}).
 {: .overview}
 
 ---

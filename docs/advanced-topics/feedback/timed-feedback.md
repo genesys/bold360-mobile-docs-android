@@ -24,11 +24,11 @@ When enabled, an incoming message with feedback options, will be requested after
 {: .overview}
 The timed feedback message is actually the response to the SDK's feedback query passed to the BE after a configured time of no activity in the chat.
 
-Timed feedback message is a regular incoming message and doesn't have special configurations. If you need to customize it, do it on [`IncomingElementUIProvider.customize`](/docs/chat-configuration/ui-customization/incoming-message/#how-to-customize) method, use the `element` property to check if responseType is `feedbackResponse`.
+Timed feedback message is a regular incoming message and doesn't have special configurations. If you need to customize it, do it on [`IncomingElementUIProvider.customize`]({{'/docs/chat-configuration/ui-customization/incoming-message/#how-to-customize' | relative_url}}) method, use the `element` property to check if responseType is `feedbackResponse`.
 
 ## Timed feedback configuration
 Timed feedback can be enabled/disabled on the bold360ai admin console.   
 The idle time period can also be configured once the feeback is enabled.
 
-![](/assets/timed-feedback-console.png)
+![]({{'/assets/images/timed-feedback-console.png' | relative_url}})
 {: image-70}

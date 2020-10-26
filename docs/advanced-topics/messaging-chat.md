@@ -24,7 +24,7 @@ Messaging `Conversation` is a collection of chat sessions that are connected by 
 
 ### Messaging chat session in mobile SDK
 The SDK provides the ability to create and reconnect to conversations and sessions.
-Messaging chat configurations are provided by the embedding App over an [`AsyncAccount`](/docs/chat-configuration/chat-account/async-account) instance passed to the ChatConltroller on chat creation.
+Messaging chat configurations are provided by the embedding App over an [`AsyncAccount`]({{'/docs/chat-configuration/chat-account/async-account' | relative_url}}) instance passed to the ChatConltroller on chat creation.
 
 <!-- All you need is to create an AsyncAccount with 2 required keys:
    - Apikey - Customer provided key created by Bold admin.
@@ -113,9 +113,9 @@ In order to get only the messages that the user did not yet received, the embedd
 
 ### How to get session data updates:
 
-When chat is being created, or when values were changed, an update call will be triggered over [`AccountInfoProvider`](/docs/chat-configuration/extra/account-info-provider).   
+When chat is being created, or when values were changed, an update call will be triggered over [`AccountInfoProvider`]({{'/docs/chat-configuration/extra/account-info-provider' | relative_url}}).   
 Save session details for later use.
 
 Listen to LastReceivedMessageId updates 
 {: .strong-sub-title}
-see [AccountSessionListener](/docs/chat-configuration/extra/account-info-provider) for details
+see [AccountSessionListener]({{'/docs/chat-configuration/extra/account-info-provider#ongoing-session-configurations-updates' | relative_url}} for details

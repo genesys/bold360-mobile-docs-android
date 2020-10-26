@@ -23,7 +23,7 @@ The list of FAQs appears as an incoming chat message with a list of persistent o
 The FAQs are fetched on chat start only. Continuance chats will not trigger FAQs reloading.
 The FAQs message appears just beneath the [Welcome Message](./welcome-message), if configured.
 
-![](/assets/welcome-and-faqs.png)
+![]({{'/assets/images/welcome-and-faqs.png' | relative_url}})
 {: .image-40}
 
 ---
@@ -31,7 +31,7 @@ The FAQs message appears just beneath the [Welcome Message](./welcome-message), 
 ## How to configure:
 Configure on bold360ai admin console
 
-![](/assets/faqs-console.png)
+![]({{'/assets/images/faqs-console.png' | relative_url}})
 {: .image-70}
 
 FAQs message will be fetched according to the `cnf` API response.

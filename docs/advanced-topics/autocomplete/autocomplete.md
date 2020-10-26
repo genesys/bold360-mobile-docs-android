@@ -38,14 +38,14 @@ Autocomplete feature support status can be configured on bold360ai console.
 - <details close markdown="block">
   <summary>Account level configuration</summary>
 
-    ![](/assets/autocomplete-account-console.png) 
+    ![]({{'/assets/autocomplete-account-console.png' | relative_url}}) 
     {: .image-70}
 
   </details>
 {: mt-10em}
 - <details close markdown="block">
   <summary>Widget level configuration</summary> 
-    ![](/assets/autocomplete-widget-console.png)
+    ![]({{'/assets/autocomplete-widget-console.png' | relative_url}})
     {: .image-70}
 
   </details>

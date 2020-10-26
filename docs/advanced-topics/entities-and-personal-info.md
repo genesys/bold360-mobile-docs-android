@@ -43,7 +43,7 @@ Predefined data values that can be provided for the whole chat session and are n
                         }
    ```
 
-- Note: The `initialization entities` can be also supplied at the `AccountInfoProvider.provide` method as follows:
+- Note: The `initialization entities` can be also supplied at the [`AccountInfoProvider.provide`]({{'/docs/chat-configuration/extra/account-info-provider#account-provide' | relative_url}}) method as follows:
 
     ```kotlin
     override fun provide(account: AccountInfo, callback: Completion<AccountInfo>) {
@@ -70,7 +70,7 @@ articles of this sort are configured with a Bold360ai provider which formats the
 
 --- 
 
-  ![provide missing entites / personal info](/assets/personalInfo.png)
+  ![provide missing entites / personal info]({{'/assets/diagrams/personalInfo.png' | relative_url}})
   {: .image-70}
 
 ---
@@ -101,5 +101,5 @@ articles of this sort are configured with a Bold360ai provider which formats the
     ```
 ---
 
- > view Sample: [`missing entities` and `personal information` usage](/docs/faq/missing-entities-example.md)
+ > view Sample: [`missing entities` and `personal information` usage]({{'/docs/faq/missing-entities-example.md' | relative_url}})
 {: .mt-6}

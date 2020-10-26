@@ -54,12 +54,12 @@ ChatUIProvider(context).apply {
 ```
 
 ## QuickOptions
-
 Incoming bot response can have several options to the user to choose from. Those options are not constant and will disappear after user action.
 
-
 ### How to customize
-1. ##### Customization by override.   
+1. Customization by override.   
+    {: .strong-sub-title}   
+
     Apply your own layout resource. 
     ```kotlin
     ChatUIProvider(context).apply {
@@ -72,8 +72,8 @@ Incoming bot response can have several options to the user to choose from. Those
                 }
             }
     ```
-2. ##### Customization by properties change on `QuickOptionsUIProvider`.   
-    
+2. Customization by properties change on `QuickOptionsUIProvider`.   
+   {: .strong-sub-title} 
 
     ```kotlin
     uiProvider.chatElementsUIProvider
@@ -84,14 +84,13 @@ Incoming bot response can have several options to the user to choose from. Those
     ```
 
 ## Channels
-
 - Channels are a sub type of QuickOptions. Channels are used for user escalation actions.   
 - Channels may appear as response options or on article page.  
 - Channels can be created on the [Bold360ai console](https://support.bold360.com/ai).
 
 ### <U>Customizing channels icons</U>
 - #### By setting the icons via the Bold360ai console:
-    ![](/assets/console-channeling-icons.png)
+    ![]({{'/assets/images/console-channeling-icons.png' | relative_url}})
     {: .image-40}
 
 - #### By overriding SDK default icons. 

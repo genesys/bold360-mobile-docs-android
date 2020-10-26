@@ -14,8 +14,8 @@ nav_order: 4
 
 - TOC
 {:toc .mb-0}
-- [Welcome message](/docs/chat-configuration/extra/welcome-message)
-- [FAQs message](/docs/chat-configuration/extra/faqs-message)
+- [Welcome message]({{'/docs/chat-configuration/extra/welcome-message' | relative_url}})
+- [FAQs message]({{'/docs/chat-configuration/extra/faqs-message' | relative_url}})
 
 ---
 
@@ -27,7 +27,7 @@ Messages of vary types can be injected into the chat, while some may be configur
 
 ## Injecting chat messages
 The SDK exposes an API to enable injection of messages into the chat by the hosting app.  
-Messages can be injected to the chat, once the chat was [**Accepted**](/docs/chat-configuration/tracking-events/chat-lifecycle#accepted). 
+Messages can be injected to the chat, once the chat was [**Accepted**]({{'/docs/chat-configuration/tracking-events/chat-lifecycle#accepted' | relative_url}}). 
 
 ```kotlin
 override fun onChatStateChanged(stateEvent: StateEvent) {

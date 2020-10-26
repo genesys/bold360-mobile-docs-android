@@ -51,7 +51,7 @@ val account = BotAccount(API_KEY, ACCOUNT_NAME,
     account.contexts = contexts
     ```
 
-### Configure [Initialization Entities](/docs/advanced-topics/entities-and-personal-info#initentities)
+### Configure [Initialization Entities]({{'/docs/advanced-topics/entities-and-personal-info#initentities' | relative_url}})
  ```kotlin
  account.initializationEntities = mapOf("EntityKey1" to "EntityValue1",
                                      "EntityKey2" to "EntityValue2", ... )
@@ -59,7 +59,7 @@ val account = BotAccount(API_KEY, ACCOUNT_NAME,
  ---
 
 ### How to
-- ##### Customize and override chat [Welcome Message](/docs/chat-configuration/extra/welcome-message)
+- ##### Customize and override chat [Welcome Message]({{'/docs/chat-configuration/extra/welcome-message' | relative_url}})
 
     ```kotlin
     botAccount.welcomeMessage = ARTICLE_ID 

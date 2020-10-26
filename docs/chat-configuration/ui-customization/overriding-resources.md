@@ -19,16 +19,26 @@ nav_order: 10
 ---
 
 ## Overview
-SDK resources can be overridden by the hosting app, by defining the same resource
+SDK resources can be overridden by the hosting app, by defining a resource with the same id on the hosting Apps resources.   
 {: .overview}
 
-Here you can see the supported SDK resources to be overidden.
-> Note: This list can be changed from time to time together with [customizations](./docs/chat-configuration/ui-customization/how-it-works) development
+> Basically all SDK resources can be overridden, but <u>we don't encurage doing so</u>.   
+UI component changes better be applied using [`ChatUIProvider`]({{'/docs/chat-configuration/ui-customization/how-it-works | relative_url}}).
+{: .text-purple-000}  
 
+---
+
+## The SDKs resources
+Following are some of the SDKs resources that can be overidden.
+
+> _Resources list may be changed from time to time._
+
+{: .mt-6}
+<details close markdown="block">
+<summary>Colors</summary>
     
-<details><summary>Colors</summary>
-    
-  - Live Forms
+  - Live Forms related:
+
     - form_field_hint
     - form_field_text
     - form_field_main_text
@@ -43,29 +53,35 @@ Here you can see the supported SDK resources to be overidden.
     - submit_pressed - The submit button's pressed color
 
 </details>
+{: .mb-3}
+<details close markdown="block">
+<summary>Styles</summary>
 
-<details><summary>Styles</summary>
+- Live Forms related:
 
-- Live Forms
   - FormHintTextAppearance - override in order to change the form field hint appearance
   - MatchSpinnerStyle
   - MatchSpinnerTheme
 
 </details>
+{: .mb-3}
+<details close markdown="block">
+<summary>Drawables</summary>
 
-<details><summary>Drawables</summary>
+- Live Forms related:
 
-- Live Forms
   - form_bg
   - submit_button_selector
   - submit_button_idle - The Idle submit button's background shape
   - main_button_pressed - The Pressed submit button's background shape
 
 </details>
+{: .mb-3}
+<details close markdown="block">
+<summary>Dimens</summary>
 
-<details><summary>Dimens</summary>
+- Live Forms related:
 
-- Live Forms
   - form_main_text_style
   - form_sub_text_style
   - form_option_item_padding

@@ -23,7 +23,6 @@ nav_order: 3
 
 ## How to customize
 ...
-{{site.config.baseurl}}
  
 ---
 
