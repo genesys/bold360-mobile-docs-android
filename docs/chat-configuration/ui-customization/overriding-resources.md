@@ -23,7 +23,7 @@ SDK resources can be overridden by the hosting app, by defining a resource with 
 {: .overview}
 
 > Basically all SDK resources can be overridden, but <u>we don't encurage doing so</u>.   
-UI component changes better be applied using [`ChatUIProvider`]({{'/docs/chat-configuration/ui-customization/how-it-works | relative_url}}).
+UI component changes better be applied using [`ChatUIProvider`]({{'/docs/chat-configuration/ui-customization/how-it-works' | relative_url}}).
 {: .text-purple-000}  
 
 ---
@@ -93,4 +93,4 @@ Following are some of the SDKs resources that can be overidden.
 ---
 
 ## Related Topics
-- [Dark Mode](/docs/chat-configuration/ui-customization/dark-mode)
+- [Dark Mode]({{'/docs/chat-configuration/ui-customization/dark-mode' | relative_url}})

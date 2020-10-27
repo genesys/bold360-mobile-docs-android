@@ -23,7 +23,7 @@ The `Welcome Message` will appear only once on chat start. If the chat is a cont
 `Welcome Message` article can have images, persistent options, carousel, channels, etc.   
 Quick options and channeling of the `Welcome Message` will be accessible until first user query/action.  
 
-![]('{{/assets/images/welcome-and-faqs.png' | relative_url}})
+![]({{'/assets/images/welcome-and-faqs.png' | relative_url}})
 {: .image-40}
 
 ---
