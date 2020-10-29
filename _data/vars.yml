@@ -1,6 +1,3 @@
 
 need-work: <span class='btn btn-orange'>Work in progress</span>
 force-work: <span class='btn btn-orange btn-red'>Under construction</span>
-# docsurl: &(site.config.baseurl) + "/docs/"
-
-$baseurl: "{{ site.baseurl }}"

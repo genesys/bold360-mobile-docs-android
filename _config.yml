@@ -6,3 +6,12 @@ url: "https://logmein-bold-mobile.github.io"
 color_scheme: android-scheme
 plugins: 
   - jekyll-redirect-from
+
+permalink: pretty
+
+logo: "/assets/images/bold360_logo.png"
+
+footer_content: ""
+
+back_to_top: true
+back_to_top_text: "To top"
