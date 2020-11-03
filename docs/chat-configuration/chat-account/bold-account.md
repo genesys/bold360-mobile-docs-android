@@ -6,35 +6,53 @@ grand_parent: Chat Configuration
 nav_order: 2
 ---
 
-# Bold Live Chat - chat with live agent {{site.data.vars.force-work}}
+# Chat with live agent {{site.data.vars.force-work}}
 {: .no_toc}
 
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+- TOC
 {:toc}
 
-## Overview
-...
+---
 
+## Overview
+The SDK provides the tools to create and start a chat which will be answered by a live agent.
+Both chat parties should be connected during the chat session.
+{: .overview}
+
+---
 
 ## BoldAccount
-Use this account to create synced live chat sessions with an agent.
+Use this account to create live chat sessions with an agent.
+
+With the account you can configure and set chat and user details, set session parameters, like destind department, language usage, etc.
+
+### Creating account
+
+```kotlin
+val account = BoldAccount(API_KEY)
+```  
+- API_KEY - As was created on the admin console.
 
 ### Configure chat session
 Chat session and details can be configured by the account.   
 User details can be provided for the chat session, and will be available for the receiving agent to view.     
 
 - **extraData** - Detailes about the user and the current chat session. The `extraData` details will be used to fill the prechat form if enabled, and will provide the agent some details about the user.
+```kotlin
+account.addExtraData(VisitorDataKeys.FirstName to "Ando",
+                            VisitorDataKeys.LastName to "Roid",
+                            VisitorDataKeys.Email to "a@gmail.com",
+                            ...)
+```
 
 - **securedInfo** - An encrypted secured string that was applied to the specific access key in order to validate the chat origin on creation.
 
 - **VisitorId** - if provided, the created chat will be added to the same user account chats history. The same id will be used on the new chat.
 
 ```kotlin
-val account = BoldAccount(API_KEY)
-
 account.apply{
     // adding extraData: 
     addExtraData (SessionInfoKeys.Department to BOLD_DEPARTMENT,
@@ -51,9 +69,67 @@ account.apply{
     info.visitorId = VISITOR_ID  
 }
 ```
+
+### Listening to account updates
+In order to get account session updates, like `visitorId`, `chatId`, details that were filled by the user on the prechat, etc, an implementation of [`AccountInfoProvider`]({{'/docs/chat-configuration/setting-account/account-info-provider' | relative_url}}) should be set on `Chatcontroller.Builder`.
+Once session data gets updated, the `AccountInfoProvider.update` method is called. 
+```kotlin
+val chatController = ChatController.Builder(context) 
+                    .accountProvider(accountInfoProviderImpl)
+                    ...
+                    .build(account,...)
+
+// on accountInfoProvider impl:
+override fun update(account: AccountInfo) {
+    // fetching chatId:
+    account.info.chatId
+
+    // fetching visitorId:
+    account.info.visitorId 
+}
+```
 ---
 
-### How to
+## Start a live chat
+{: .d-inline-block}
+The SDK provides the option to start a live chat, or escalate to live chat from a chat with AI.
+
+### Start Bold live chat
+- Create a [`ChatController`]({{'/docs/chat-configuration/extra/chatcontroller' | relative_url}}) with BoldAccount.
+
+    ```kotlin
+    val account = BoldAccount(API_KEY)
+    val chatController = ChatController.Builder(context)                                                     
+                                        .build(account, ...)
+    ```
+    
+
+- Use an existing `ChatController` and call [`chatController.startChat`]({{'/docs/chat-configuration/extra/chatcontroller#start-chats' | relative_url}})/`chatController.restoreChat` with a BoldAccount.
+    ```kotlin
+    val account = BoldAccount(API_KEY)
+    chatController.startChat(account)
+    // or
+    chatController.restoreChat(account = account)
+    ```
+
+![]({{'/assets/diagrams/start_with_live.png' | relative_url}})
+
+### Escalate to Bold live chat from chat with AI
+Chat escalation is done when the user selects a [Chat typed channel](https://support.nanorep.com/API-Integrations/Chat-Integration/1009694282/How-to-integrate-LiveChat-Inc-chat.htm) configured on the Bold360ai console, from a bot response options.
+
+In case the hosting App implements the AccountInfoProvider, the [`AccountInfoProvider.provide`]({{'/docs/chat-configuration/extra/account-info-provider#account-provide' | relative_url}}) method will be called with a basic BoldAccount, according to the data provided from the channel. The `provide` method call, enables the App to [configure](#configure-chat-session) what ever needed for the live chat session.   
+> If `AccountInfoProvider` implementation was not provided, the chat will start with the created BoldAccount as is.
+    
+![]({{'/assets/diagrams/bot_to_live.png' | relative_url}})
+
+--- 
+
+## Live Chat continuity
+set the visitorId
+
+---
+
+## How to
 
 - Define chat branding strings language.   
 `account.info.language = "FR-fr"`
@@ -65,120 +141,3 @@ account.apply{
 `account.info.skipPrechat = true` or `account.skipPrechat()`   
   ##### _Notice: If the prechat form is being skipped, you can still send user details via extraData._
   {: .no_toc}
-
----
-
-### Account updates
-Once the chat session was created, an account update will be triggered on [AccountInfoProvider]({{'/docs/chat-configuration/setting-account/account-info-provider' | relative_url}}) implementation.  
-From the updated account you can fetch the `ChatId`.  
-`account.info.chatId` 
-
----
-
-
-## Starting a live chat
-{: .d-inline-block}
-Live chat may start as main chat purpose, or be triggered from chat with BOT.
-
-## Starting chat with Bold live
-    A Bold live account should be provided over `ChatController` creation as follows:
-    ```kotlin
-    val account = BoldAccount(API_KEY)
-    val chatController = ChatController.Builder(context)                                                     
-                                        .build(account, ...)
-    ```
-    ![]({{'/assets/diagrams/start_with_live.png' | relative_url}})
-
-## Starting chat with Bot and continue to Bold live
-    - A chat typed channel should be configured on the Bold360ai console.<sup>[(*)](https://support.nanorep.com/API-Integrations/Chat-Integration/1009694282/How-to-integrate-LiveChat-Inc-chat.htm)</sup>.   
-    - Bold live chat can than be triggered by user selection of that channel.    
-    - App will be asked to `provide` (over `AccountInfoProvider`), the BoldAccount that matches the details provided by that channel. (If `AccountInfoProvider` implementation was not provided, the chat will start with default configurations.)   
-    
-    ![]({{'/assets/diagrams/bot_to_live.png' | relative_url}})
-
-
-### Listening to account updates
-In order to get account info updates, like visitoId, chatId and other details that were filled by the user on the prechat, an implementation of `AccountInfoProvider` should be set on `Chatcontroller.Builder` 
-```kotlin
-val chatController = ChatController.Builder(context) 
-                    .accountProvider(accountInfoProviderImpl)
-                    ...
-                    .build(account,...)
-```
-
-- When the SDK asks for account from the app, (as in live chat start from bot chat), the `provide` method will be activated.
-- When account's info was updated, as when chat created and prechat submitted, the `update` method will be activated.
-
-```kotlin
-class MyAccountProviderImpl : AccountInfoProvider{
-    override fun provide(accountInfo: AccountInfo, callback:    Completion<AccountInfo>) {
-        // get app saved account matching the parameter one [accountInfo.getApiKey()]
-        // pass the account to the SDK over the callback:
-        callback.onComplete(app_account)
-    }
-
-    override fun update(account: AccountInfo) {
-        // get app saved account matching the parameter one [accountInfo.getApiKey()]
-        // update the account:
-        app_account.update(account) // inner info will be updated    
-    }
-}
-```
-
-### How can i access current chat info
-While a live chat goes through the chat lifecycle, chat info will be updated with some ids and details. In order to see those details, access the accounts `info` property.
-
-- How to get the VisitorId:   
-
-        kotlin -> account.info.visitorId 
-                    OR 
-                  account.info.id
-        
-        java   -> getVisitorId(account.getInfo()) 
-                    OR 
-                  account.getInfo().getId()
-
-
-- How to get the chatId:
-
-        kotlin -> acount.info.chatId
-        
-        java   -> getChatId(account.getInfo())
-
-- How to skip prechat:
-
-        kotlin -> boldAccount.skipPrechat()
-                    OR
-                  account.info.skipPrachat(true)
-
-        java   -> boldAccount.skipPrechat()
-                    OR
-                  setSkipPrechat(account.getInfo(), true);
- 
-
-### How to configure the created chat
-Some configurations may be applied over the account in order to define aspects of the created chat. Like langauge, prechat form fields values, **passing `visitorId` to enable continuation of previous chats**, etc.    
-For that purpose we have the `extraData` on the account `info` member. (see `VisitorDataKeys` for the list of configurable data)
-
-- How to set chat language:
-  
-      account.addExtraData(VisitorDataKeys.Language to "fr-FR")
-  
-- How to set a specific department: <sub>_**(needed when skipPrechat is enabled)**_</sub>
-        
-      account.addExtraData(VisitorDataKeys.Department to 2279019778245965656)
-  
-- How to set details for the prechat:
-      
-      account.addExtraData(VisitorDataKeys.FirstName to "Ando",
-                            VisitorDataKeys.LastName to "Roid",
-                            VisitorDataKeys.Email to "a@gmail.com",
-                            ...)
-
-- How to set the `visitorId`:   
-
-      account.info.visitorId = ...
- 
-
-## Live Chat continuity
-...

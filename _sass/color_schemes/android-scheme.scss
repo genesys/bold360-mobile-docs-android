@@ -3,6 +3,8 @@ $yellow: #fffdc6;
 $bluish-grey: #e1e7f3;
 $side-blue: #3e68f3;
 $side-blue-dk: #2b3ddf;
+$orange-100: #f5a03a;
+$orange-200: #f8902f;
 
 $link-color: $side-blue-dk;
 $body-background-color: $grey-lt-000;
@@ -94,8 +96,8 @@ table body {
 
 .btn.btn-orange {
   color: #fff;
-  background-color: #f8902f;
-  background-image: linear-gradient(#f5a03a, #f8902f);
+  background-color: $orange-200;
+  background-image: linear-gradient($orange-100, $orange-200);
   box-shadow: 0 1px 3px rgba(0,0,0,0.25), 0 4px 10px rgba(0,0,0,0.12);
   font-size: 10px;  
   text-decoration: none !important;
@@ -107,6 +109,11 @@ table body {
   background-color: #ff0000;
   background-image: linear-gradient(#ff0000, #ff0000);
 }
+.btn.btn-orange.btn-green {
+  background-color: $yellow-200;
+  background-image: linear-gradient($yellow-100, $orange-200);
+}
+
 
 .do-toc li ul{
   display: none;

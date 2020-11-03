@@ -50,6 +50,8 @@ val chatController = ChatController.Builder(context)
         }
     }
     ```
+
+<a id="account-update"/>
 - ### Notified about chat session data
     **To be able to receive account session data updates. like: _chatId_, _SenderId_, _visitorId_, etc.**   
     **`AccountIfoProvider.update'** will be called with an updated account. The updated values (or the whole account) can be saved for later use.
