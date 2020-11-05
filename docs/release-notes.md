@@ -21,7 +21,7 @@ Release date: November 05, 2020
 {: .overview}
 
 ### Fixes 
-- Removing value display from live chat forms, selection fileds.
+- Removing value display from live chat forms, selection fields.
 
 ---
 
