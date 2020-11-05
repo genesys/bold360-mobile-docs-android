@@ -3,8 +3,6 @@ layout: default
 title: Release Notes
 nav_order: 5
 toc_float: true
-  # - depth_to: 2
-  # - ordered: false
   
 ---
 
@@ -16,6 +14,33 @@ toc_float: true
 {: .det}
 <details open markdown="block">
 
+<summary> Version 4.1.2 </summary>
+
+# Version 4.1.2
+Release date: November 05, 2020
+{: .overview}
+
+### Fixes 
+- Removing value display from live chat forms, selection fileds.
+
+---
+
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:4.1.1"
+implementation "com.bold360ai-sdk.conversation:engine:4.1.1"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.1.1"
+implementation "com.bold360ai-sdk.conversation:ui:4.1.2"
+implementation "com.bold360ai-sdk.core:accessibility:4.1.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+</details>
+
+{: .det .mt-2}
+<details close markdown="block">
+
 <summary> Version 4.1.1 </summary>
 
 # Version 4.1.1
@@ -23,7 +48,7 @@ Release date: October 01, 2020
 {: .overview}
 
 ### Features
-- #### Validated live chat support**   
+- #### Validated live chat support
   The SDK now provides the way to pass a secured encrypted data string, using the BoldAccount, for creating a secured validated live chat with agent.
 
 - #### Addition of chat form related resources
