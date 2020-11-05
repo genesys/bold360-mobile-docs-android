@@ -6,7 +6,7 @@ grand_parent: Chat Configuration
 nav_order: 2
 ---
 
-# Chat with live agent {{site.data.vars.force-work}}
+# Chat with live agent {{site.data.vars.need-review}}
 {: .no_toc}
 
 ## Table of contents
@@ -50,7 +50,7 @@ account.addExtraData(VisitorDataKeys.FirstName to "Ando",
 
 - **securedInfo** - An encrypted secured string that was applied to the specific access key in order to validate the chat origin on creation.
 
-- **VisitorId** - if provided, the created chat will be added to the same user account chats history. The same id will be used on the new chat.
+- **VisitorId** - Identifies the user. When provided on the account session, the created chat will be added to the same user account chats history. The same id will be used on the new chat.
 
 ```kotlin
 account.apply{
@@ -71,8 +71,8 @@ account.apply{
 ```
 
 ### Listening to account updates
-In order to get account session updates, like `visitorId`, `chatId`, details that were filled by the user on the prechat, etc, an implementation of [`AccountInfoProvider`]({{'/docs/chat-configuration/setting-account/account-info-provider' | relative_url}}) should be set on `Chatcontroller.Builder`.
-Once session data gets updated, the `AccountInfoProvider.update` method is called. 
+In order to get account session updates, like `visitorId`, `chatId`, details that were filled by the user on the prechat, etc, an implementation of `AccountInfoProvider` should be set on `Chatcontroller.Builder`.
+Once session data gets updated, the [`AccountInfoProvider.update`]({{'/docs/chat-configuration/setting-account/account-info-provider#account-update' | relative_url}}) method is called. 
 ```kotlin
 val chatController = ChatController.Builder(context) 
                     .accountProvider(accountInfoProviderImpl)
@@ -91,7 +91,7 @@ override fun update(account: AccountInfo) {
 ---
 
 ## Start a live chat
-{: .d-inline-block}
+{: .d-inline-block .mt-2}
 The SDK provides the option to start a live chat, or escalate to live chat from a chat with AI.
 
 ### Start Bold live chat
@@ -125,7 +125,23 @@ In case the hosting App implements the AccountInfoProvider, the [`AccountInfoPro
 --- 
 
 ## Live Chat continuity
-set the visitorId
+Live chat continuity means to be able to relate chats to the same user. The agent can then see all the user's chats history. 
+> There is no option to reconnect to a disconnected chat (connection was closed), evan if was not "Ended".
+> A chat will remain active, and can be reassembeld (chat window reopen and history loading), evan if the chat window was closed, as long as it stays in the [`ChatControllers`]({{'/docs/chat-configuration/extra/chatcontroller' | relative_url}}), open chats, otherwise a new chat should be started.
+
+### How to configure
+In order to relate chats to the same user and create some kind of continuity of user chats, you need to pass the `visitorId` value that was created on the first chat, for this user.
+This value should be configured on the BoldAccount session details.
+
+> Chats history as it displayed on the agent workspace, is not the same as the history displayed on the mobile chat window. The history which displayed on the chat, depends on the hosting App implementation. 
+
+```kotlin
+BoldAccount(API_KEY).apply{
+    info.visitorId = SAVED_VISITOR_ID
+}
+```
+
+> Check how to [fetch the visitorId](#listening-to-account-updates) on first chat.
 
 ---
 
@@ -134,10 +150,10 @@ set the visitorId
 - Define chat branding strings language.   
 `account.info.language = "FR-fr"`
 
-- Define the id of a specific department that should receive the chat.    
+- Destine a chat session to a specific department.    
 `account.info.department = DEPARTMENT_ID`
 
-- Create a chat without displaying the prechat form.
+- Create a chat without displaying the prechat form.   
 `account.info.skipPrechat = true` or `account.skipPrechat()`   
-  ##### _Notice: If the prechat form is being skipped, you can still send user details via extraData._
-  {: .no_toc}
+  > Notice: If the prechat form is being skipped, you can still send user details via extraData.
+  
