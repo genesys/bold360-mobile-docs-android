@@ -3,12 +3,10 @@ layout: default
 title: Handover Chat
 parent: Advanced Topics
 nav_order: 10
-permalink: /docs/advanced-topics/handover-chat
 ---
 
-# Handover Chat
+# Handover Chat {{site.data.vars.need-review}}
 {: .no_toc}
-
 
 ## Table of contents
 {: .no_toc .text-delta }
@@ -22,6 +20,22 @@ permalink: /docs/advanced-topics/handover-chat
 **Handing** the control of the chat to a provided custom `HandoverHandler` extension.   
 Intended to enable the option to start a chat with a third party provider. 
 {: .overview}
+
+---
+
+## HandoverAccount
+
+Use this account to create chats with third party live chat providers. Usually used for creating `Handover chats`. 
+
+A HandoverAccount is being created automatically, by the SDK, when a chat with AI escalates to `Handover` chat, by chat channel selection.   
+The Handover configuration data, that was configured over the chat channel, will be configured to the account session .
+  
+```kotlin
+val chatConfig = "provider defined configuration string"
+val account = HandoverAccount(chatConfig)
+```    
+
+---
 
 ## Setting Handover chat escalation
 Handover chat is automatically being activated, by the SDK, when chat channel configured with `custom provider` was selected on chat with AI.   
@@ -72,7 +86,9 @@ Do the following for a successful Handover chat escalation.
     // or later:
     chatController.handoverHandler = myHandoverHandler                      
     ```
+<!-- Handover chat initiation flow Diagram -->
 
+---
 
 ## How to
 
@@ -100,10 +116,3 @@ Do the following for a successful Handover chat escalation.
     Before the chat starts, the app will be triggered to [provide]({{'/docs/chat-configuration/extra/account-info-provider#account-provide' | relative_url}}) the account needed for the chat, at this point, details can be added to the the account [SessionInfo]({{'/docs/chat-configuration/extra/account-info-provider#session-info' | relative_url}}) property.   
     If no extra details are needed, the account should be passed as is.
 
----
-
-<details>
-<summary>Handover chat initiation flow</summary>
-add diagram here
-
-</details>
