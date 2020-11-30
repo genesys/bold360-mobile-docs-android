@@ -31,9 +31,10 @@ val chatController = ChatController.Builder(context).apply {
                         ....
                      }.build(account...)
 ```
+---
 
 ## Available configurations
-
+{: .mt-6}
 ### Voice control
 **_voiceSettings_** - Defines the desired voice feature behavior.   
 Voice behavior available for chat, will be configured according to this setting and the available voice behavior supported by the ChatHandler.   
@@ -41,7 +42,7 @@ Voice behavior available for chat, will be configured according to this setting 
 Available voice behavior options are defined by <u>`VoiceSupport`</u>.   
 >**None, SpeechRecognition, VoiceToVoice, HandsFreeVoiceToVoice<sub>(currently not supported)</sub>**
 
-
+{: .mt-8}
 ### Chat transcript request
 Each supported chat is being "recorded" while in progress, to allow passing its transcript, if requested, just before it ends or being escalated.
 Exp: Passing AI chat flow to a live agent, when AI chat is being escalated to a live or messaging chat.
@@ -58,6 +59,21 @@ ConversationSettings().enableChatLogRequest(StatementScope.BoldScope, true)
 
 - By default, `BoldScope` chat is enabled to request preceding chats. 
 
-   
-## Features availability configurations
-...
+{: .mt-8}   
+### Features availability configurations
+Enable/Disable/Inspect support of some of the SDKs provided features.
+- Autocomplete - Configure and Inspect support for AI chats
+
+- Feedback - Inspect configured support for AI chats
+
+- Typing indication - configure display for live chats
+
+- Chatbar top header - configure display for live chats
+
+- End chat over chat header - configure display
+
+- Chat scroller display - scroll to bottom floating button
+
+- Datestamp header - configure display and format
+
+
