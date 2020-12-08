@@ -18,7 +18,19 @@ nav_order: 2
 
 ---
 
-## Chat availability check
+## Overview
+Chat considered available, when the chat can be answered by a live agent.
+Chat unavailability triggers state event `StateEvent.Unavailable`, which will have an `UnavailableReason` and will be passed to the hosting App along side unavailable form / message. 
+{: .overview}
+
+> If the chat is canceled by the user while in [`StateEvent.InQueue`]({{'/docs/chat-configuration/tracking-events/chat-lifecycle#inqueue' | relative_url}}) or while waiting for acceptance [`StateEvent.Pending`]({{'/docs/chat-configuration/tracking-events/chat-lifecycle#pending' | relative_url}}), chat end will be handled as `unavailable`.  
+{: .overview}
+
+---
+
+## ChatAvailability API
+### Availability check
+Check if your chat is available.   
 
 1. Create an `Account`.
 
@@ -34,20 +46,28 @@ nav_order: 2
 
     > `ChatAvailability.AvailabilityResult` provides the check parameters (apiKey, departmentId, etc) as well as the execution results 
 
-- ### How to check chat availability on a <U>specific department</U>? 
-  Use `ChatAvailability.checkAvailability` call as before, just add the departmentId.   
+{: .mt-5}
+Availability check with department 
+{: .strong-sub-title}
+  
+Use `ChatAvailability.checkAvailability` call as before, just add the departmentId.   
     
-  ```kotlin
-  ChatAvailability.checkAvailability(account, departmentId, callback = object : ChatAvailability.Callback {
-      override fun onComplete(result: ChatAvailability.AvailabilityResult) {
-          // do your wonders...  
-      }
-  })
-  ```
+```kotlin
+ChatAvailability.checkAvailability(account, departmentId, callback = object : ChatAvailability.Callback {
+    override fun onComplete(result: ChatAvailability.AvailabilityResult) {
+        // do your wonders...  
+    }
+})
+```
 
-  > **<U>Important:</U>** In order to get availability status of the different departments in your organization, [make sure your api access key is not configured]({{'/assets/images/bold-console-apikey.png' | relative_url}}) to work with a specific department.
+{: .mt-5}
+> ![]({{'assets/images/icon_info.png' | relative_url}}) In order to get availability status of the different departments in your organization, [make sure your api access key is not configured]({{'/assets/images/bold-console-apikey.png' | relative_url}}) to work with a specific department.
 
-## How to retrieve available departments list
+---
+
+### Available departments
+With `ChatAvailability` API, you can also fetch the current available departments, for your account configuration.
+
 1. Create an `Account`.
 
 2. Call `ChatAvailability.availableDepartments` as follows:
@@ -55,33 +75,18 @@ nav_order: 2
     ChatAvailability.availableDepartments(account, callback = object : ChatAvailability.DepartmentsCallback {
         override fun onComplete(result: ChatAvailability.DepartmentsResult) {
             // Validate no error
-            // use the list
+            result.error?.let{
+                //handle error
+            } ?:        
+            // get departments list
+            result.data.takeIf { it.isNotEmpty() }?.let{
+                // handle departments list
+            }
         }
     })
     ```
 
-> `ChatAvailability.DepartmentsResult` if no errors occurred will contain a list of `Department` items. Each contains name, id and language of the department.
+    > `ChatAvailability.DepartmentsResult` will contain, if no errors occurred, a list of `Department` items. Each contains name, id and language of the department.
 
----
-
-### How to start a live chat with a specific department
-  1. create a `BoldAccount`
-  ```
-  val account = BoldAccount(apiKey)
-  ```
-
-  2. _Add the department id to the account's extraData_
-  ```kotlin
-  account.addExtraData(VisitorDataKeys.Department to departmentId)
-  ```
-
-   3. _Start chat with the account_
-   ```kotlin
-   ChatController.Builder(context)...
-                    .build(account,...)
-   ```
-
-   > - When the chat configured to start with a prechat form, the provided department will be set as default option in the department form field.   
-   > - If there is no need to display the prechat form, configure the account to skip prechat, that way the chat will start with one of the department agents, if available.
 
 

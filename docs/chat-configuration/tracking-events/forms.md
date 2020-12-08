@@ -120,7 +120,7 @@ In case there's a need to mix custom and SDK provided form display, once the `pr
 Setting extraData values on the BoldAccount, can be used for **prefilling the prechat form** values.   
 the extraData provides some info to the agent about the user, and applies some configurations to the chat.
 
-> _Available extraData keys can be viewed on `SessionInfoKeys`_
+- _Available extraData keys can be viewed on `SessionInfoKeys`_
 
 ```kotlin
 // setting extraData to the chat account:
@@ -134,6 +134,9 @@ boldAccount.info.language = ...
 
 > _Configured `Language` has preference over `Department`. If the configured department doesn't support the configured language, the user will be directed to a different department which supports his language (If no such available, will be directed to a department which is not dedicated to a specific language)_
 {: .overview}
+
+Setting a departmentId on the extraData will designate the chat to this department, if available.    
+If a prechat form is enabled for that chat, the requested department will be set as `default value` on the departmets selection field.
 
 ---
 

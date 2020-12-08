@@ -41,7 +41,7 @@ chatController.chatEventListener = listener
 | Created<br>`StateEvent.Created`   | Passed when the chat was successfully created |
 | Started<br>`StateEvent.Started`   | Passed when the chat was successfully started.<br><sup>**On live chat: the chat was not yet accepted by an agent.**</sup><br>At this point the User can start posting messages on the chat, those will be received by the accepting agent. |
 | <a id="pending"/>Pending<br>`StateEvent.Pending`<br><sub>_Live chat only_</sub> | The chat was assigned to an agent, waiting for his acceptance.<br><sup>**Chat unavailable will be triggered, if timeout was configured and the chat was not accepted on time.**</sup> |
-| InQueue<br>`StateEvent.InQueue`<br><sub>_Live chat only_</sub> | The chat is in a waiting queue, waiting to be assigned to an agent. The chat position in the queue is passed was well.  |
+| <a id="inqueue"/>InQueue<br>`StateEvent.InQueue`<br><sub>_Live chat only_</sub> | The chat is in a waiting queue, waiting to be assigned to an agent. The chat position in the queue is passed was well.<br><sup>**Chat unavailable will be triggered, if chat end is activated by the user while in this state.**</sup>  |
 | <a id="accepted"/>Accepted<br>`StateEvent.Accepted`<br><sub>_Live chat only_</sub> | Passed when an agent accepts the chat.   |
 | Reconnected<br>`StateEvent.Reconnected`<br><sub>_Messaging chat only_</sub> | Passed when the chat got reconnected after connection lost. |
 | Unavailable<br>`StateEvent.Unavailable`<br><sub>_Live chat only_</sub> | Passed when chat initiation was rejected due to unavailability. (no operators, out of working hours, etc.)
