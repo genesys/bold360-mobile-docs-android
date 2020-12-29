@@ -76,7 +76,7 @@ Follow the next steps to create and start a chat.
     - [Create `BoldAccount` for live chat with agent]({{'/docs/chat-configuration/chat-account/bold-chat#boldaccount' | relative_url}})
     {: .no_toc }
         
-    - [Create `AsyncAccount` to start a messaging chat]({{'/docs/advance-topics/messaging-chat#asyncaccount' | relative_url}})
+    - [Create `AsyncAccount` to start a messaging chat]({{'/docs/advanced-topics/messaging-chat#asyncaccount' | relative_url}})
     {: .no_toc }  
 ---
 
