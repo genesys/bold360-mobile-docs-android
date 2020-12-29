@@ -70,13 +70,13 @@ Use this Quick Start guide to get you up and running with a working AI or live c
 Follow the next steps to create and start a chat.
 
 1. ### Create an Account
-    - [Create `BotAccount` for chat with AI](/docs/chat-configuration/chat_account#botaccount)
+    - [Create `BotAccount` for chat with AI](/docs/chat-configuration/chat_account/bot-chat#botaccount)
     {: .no_toc }
     
-    - [Create `BoldAccount` for live chat with agent](/docs/chat-configuration/chat_account#boldaccount)
+    - [Create `BoldAccount` for live chat with agent](/docs/chat-configuration/chat_account/bold-chat#boldaccount)
     {: .no_toc }
         
-    - [Create `AsyncAccount` to start a messaging chat](/docs/chat-configuration/chat_account#asyncaccount)
+    - [Create `AsyncAccount` to start a messaging chat](/docs/advance-topics/messaging-chat#asyncaccount)
     {: .no_toc }  
 ---
 
@@ -125,3 +125,4 @@ Follow the next steps to create and start a chat.
 ### Code Sample
 {: .no_toc .text-delta}
 [bold360ai samples](https://github.com/bold360ai/bold360-mobile-samples-android)
+-
