@@ -70,13 +70,13 @@ Use this Quick Start guide to get you up and running with a working AI or live c
 Follow the next steps to create and start a chat.
 
 1. ### Create an Account
-    - [Create `BotAccount` for chat with AI](/docs/chat-configuration/setting_account#botaccount)
+    - [Create `BotAccount` for chat with AI](/docs/chat-configuration/chat_account#botaccount)
     {: .no_toc }
     
-    - [Create `BoldAccount` for live chat with agent](/docs/chat-configuration/setting_account#boldaccount)
+    - [Create `BoldAccount` for live chat with agent](/docs/chat-configuration/chat_account#boldaccount)
     {: .no_toc }
         
-    - [Create `AsyncAccount` to start a messaging chat](/docs/chat-configuration/setting_account#asyncaccount)
+    - [Create `AsyncAccount` to start a messaging chat](/docs/chat-configuration/chat_account#asyncaccount)
     {: .no_toc }  
 ---
 

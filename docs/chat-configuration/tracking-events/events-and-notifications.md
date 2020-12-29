@@ -7,7 +7,7 @@ nav_order: 3
 # permalink: /docs/chat-configuration/tracking-events/events-and-notifications
 ---
 
-# Events and Notifications {{site.data.vars.need-work}}
+# Events and Notifications {{site.data.vars.force-work}}
 {: .no_toc }
 
 ## Table of contents
@@ -97,13 +97,13 @@ class NotificationsReceiver implements Notifiable {
             case ChatNotifications.PostChatFormSubmissionResults:
             case ChatNotifications.UnavailabilityFormSubmissionResults:
                 FormResults results = (FormResults) notification.getData();
-                if(results != null) {
-                    Log.i(My_TAG, "Got notified for form results for form: " +
-                            results.getData() +
-                            (results.getError() != null ? (", with error: " + results.getError()):""));
-                } else {
-                   Log.w(My_TAG, "Got notified for form results but results are null");
-                }
+                // get the submitted formType:
+                String formType = results.getFormType();
+                
+                // Check if we got error on submission:
+                NRError error = results.getError(); 
+
+                results.getData(FieldKey.Email)
                 break;
         }
     }
