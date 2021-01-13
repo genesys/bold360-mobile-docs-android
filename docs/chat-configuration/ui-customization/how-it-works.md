@@ -149,7 +149,7 @@ ChatUIProvider(context).apply{
 Providing a custom layout resource file for the component layout, using `ViewInfo` object.   
 > `ViewInfo` object defines the layout resource id and the id of the active view within the layout. 
     
-e,g,, Replace the SystemMessage layout
+e.g., Replace the SystemMessage layout
 {: .eg-class}
 ```kotlin
 class CustomSystemMessageFactory : SystemElementUIProvider.SystemFactory{
