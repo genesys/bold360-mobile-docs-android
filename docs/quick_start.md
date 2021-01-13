@@ -116,9 +116,7 @@ Follow the next steps to create and start a chat.
 
 ##### **Notice** 
 {: .no_toc } 
-> Make sure to activate `ChatController.destruct()`, when the ChatController instance is no longer needed (exp: Chats section in app
-  is being closed or the ChatController instance is being replaced). Destruct will verify resources release (including open sockets and communication channels).
-    
+> Make sure to activate `ChatController.destruct()`, when the ChatController instance is no longer needed (e.g., Chats UI in app is being closed or the ChatController instance is being replaced). Destruct will verify resources release (including open sockets and communication channels).  
 
 ---
 

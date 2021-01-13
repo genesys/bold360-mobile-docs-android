@@ -1,9 +1,8 @@
 ---
 layout: default
 title: Chat Forms
-parent: Tracking Events
-grand_parent: Chat Configuration
-nav_order: 6
+parent: Chat Configuration
+nav_order: 5
 # permalink: /docs/chat-configuration/tracking-events/forms
 ---
 
@@ -20,13 +19,16 @@ nav_order: 6
 
 ## Overview
 The SDK provides un-configurable implementation of the following forms:   
-- PreChat - Enabling the user to provide some extra data that will be available to the agent once the chat will start. 
-- PostChat - Left the user give some feedback about the ending chat.
-- Unavailable (email) - In case the chat can't be performed at the moment, the user can provide his email, to be contacted later.
+- **PreChat** - Lets the user set some configurations to the up coming chat session, and provide some user details that will be available to the agent once the chat will start.
+
+- **PostChat** - Uses for email setting for chat transcript delivery and as a survey form to give the user the ability to rate and give feedback about the ending chat conduction.
+
+- **Unavailable** - In case the chat can't be performed at the moment, the user can provide his email, to be contacted later.
+
+- **Email** - Uses for submitting an email address, mid-chat, for the chat transcript delivery when the chat ends.
 {: .overview}
 
-Once a form should be presented to the user, the Bold BE provides a list of fields that should be displayed on that form.   
-The form fields are configured on the admin console, under the accounts chat window.   
+Each form construct of dynamic list of fields according to admin console configurations set for the account's chat window.  
 Each field has properties which defines its look and behavior, among them: field type, isRequired, and if available, its current value.
 
 ![]({{'/assets/images/console-chat-forms.png' | relative_url}})
@@ -35,83 +37,46 @@ Each field has properties which defines its look and behavior, among them: field
 ---
 
 ## How to customize
-The SDK provides a way for the embedding App to use self customed form implementations, and display them when needed.
+The SDK provides a way for the hosting App to use self customed form implementations, and display them when needed.
 
-1. ### Create customed form
-    Create a customed implementation of the chat forms.
+Follow the next steps to use your implementation for some / All available forms.
 
-    ```kotlin
-    class FormDummy : Fragment() {
+### 1. Create custom form
+Create a custom implementation of the chat form for the forms you would like to override.  
 
-    private var formData: FormData? = null
-    private var formListener: WeakReference<FormListener>? = null
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        // go over formData.fields list and construct the form views ...
-
-        submit.setOnClickListener {
-
-            // go over the form fields view and set the corresponding 
-            // value to each field in formData.fields
-            ...
-
-            // pass results back to the SDK:
-            formListener?.get()?.onComplete(formData?.chatForm)
-        }
-    }
-
-    override fun onStop() {
-    // in case the form was was canceled, user doesn't submit form
-    // the onCancel should be activated on the formListener.  
-        if (isRemoving && !isSubmitted) {
-            listener?.get()?.onCancel(data?.formType)
-        }
-
-        super.onStop()
-    }
-    ```
-  > - `FormListener.onComplete` should be called to submit form data to the SDK.
-  > - `onCancel` should be called if the form submission was canceled.
-        
-
-2. ### Implement the `FormProvider` interface.
+> [Sample code](https://github.com/bold360ai/bold360-mobile-samples-android/blob/master/SDKSamples/app/src/main/java/com/sdk/samples/topics/extra/CustomForm.kt)   
     
-   In case an implementation of the FormProvider is available on the ChatController, it will be called for action, once a form should be displayed.    
-  The method `FormProvider.presentForm(formData: FormData, callback: FormListener)` will be activated.
-   * `FormData` - Provides the data needed to display the form; fields, branding map, etc...
-   * `FormListener` - Results submission callback
+{: .mt-1}
 
-   ```kotlin
-    class FormProviderSample: FormProvider {
+The custom implementation should use the provided `FormListener`, in order to post results or activate defined actions.   
+- `FormListener.onComplete` should be called to submit form data to the SDK.
+- `FormListener.onCancel` should be called if the form submission was canceled.
+- `FormListener.onLanguageRequest` should be called, if chat language should be changed ([more](#set-chat-language)).
         
-        override fun presentForm(formData: FormData, @NonNull callback: FormListener) {
+{: .mt-8}
+### 2. Implement the `FormProvider` interface.
+In case an implementation of the FormProvider is available on the ChatController, it will be called for action, once a form should be displayed.    
+The method `FormProvider.presentForm(formData: FormData, callback: FormListener)` will be activated, where:
+* `FormData` - Provides the data needed to display the form; fields, branded language dependent texts, etc...
+* `FormListener` - Results submission callback  
 
-            // Create the customed form implementation:
-            val fragment = FormDummy.create(formData, callback)
+> [Sample code](https://github.com/bold360ai/bold360-mobile-samples-android/blob/master/SDKSamples/app/src/main/java/com/sdk/samples/topics/BoldCustomChatForm.kt)   
+{: .mt-3}
 
-            // add fragment to the activity to be displayed.
-            supportFragmentManager
-                .beginTransaction()
-                .replace(R.id.chat_container, fragment, FORM_DUMMY_FRAGMENT_TAG)
-                .addToBackStack(FORM_DUMMY_FRAGMENT_TAG)
-                .commitAllowingStateLoss()
-        }
-    }
-    ``` 
-     
-3. ### Pass FormProvider implementation on `ChatController` build. 
+### 3. Pass FormProvider implementation on `ChatController` build. 
    
-   ```kotlin
-   ChatController.Builder(context)
-           .formProvider(FormProviderSample)
-           ...
-           .build(account,...)
-   ```
+```kotlin
+ChatController.Builder(context)
+        .formProvider(FormProviderSample)
+        ...
+        .build(account,...)
+```
 
+{: .mt-8}
 ## How to mix form display
 In case there's a need to mix custom and SDK provided form display, once the `presentForm` method is triggered, we enable to activate the SDK provided form instead of the custom one by calling <u>formListener.onComplete(**null**)</u>.
    
-###### _[checkout sample implementation](https://github.com/bold360ai/bold360ai-mobile-samples)._
+###### _[checkout sample implementation](https://github.com/bold360ai/bold360-mobile-samples-android/blob/master/SDKSamples/app/src/main/java/com/sdk/samples/topics/BoldCustomChatForm.kt)._
 {: .no_toc}
 
 ---
@@ -140,13 +105,15 @@ If a prechat form is enabled for that chat, the requested department will be set
 
 ---
 
-## Set chat language
+## Prechat form 
+
+### Set chat language
 Live chat language will always defaults to `English`. Configuring alternative language can be done in 2 ways:
 1. **[Configure over extraData](#setting-extra-data)** - Chat will be created with the configured language, or defaulted to `English` if something went wrong.
 
 2. **Configure over prechat form**, via language selector field. Dynamically change the language of the current ongoing chat.
     
-### Prechat form - Language field
+### Language field
 In order to enable the user, change the chat language over the prechat form, the following `Admin console` configurations, should be set.
 
 - Language field should be checked for the accounts Chat window.   
@@ -170,7 +137,7 @@ In order to activate language change proccess, call:   `FormListener.onLanguageR
 ![]({{'/assets/images/language-for-department.png' | relative_url}})   
 {: .image-70} 
 
-Exp:
+e.g.
 ```kotlin
 formListener?.onLanguageRequest(
     LanguageChangeRequest(selectedLanguage, formData)) { results ->
@@ -187,14 +154,66 @@ formListener?.onLanguageRequest(
     }
 ```                    
 
-
----
-
-## Skip Prechat Form 
+### Skip Prechat Form 
 
 In order to skip the prechat form, activate `BoldAccount.skipPrechat()` method, on your BoldAccount before chat creation.   
 
 When skipping prechat form, by filling `extraData` details on the account, the chat accepting agent will be exposed to those details.   
 The `extraData` can also be used to set the language and department that should be assigned for this chat.
 
+---
 
+## Postchat form
+If enabled, will appear when chat ends.
+Postchat form has 2 variations:
+- Survey form - Introduces some rating and feedback fields, according to admin console configurations.
+![]({{'/assets/images/postchat-survey-console.png' | relative_url}})
+{: .image-70}
+
+- Email only form - Appears on chat end, when chat survey is disabled and `Send transcript` feature is enabled.
+
+> Disable both features on the console in order to prevent postchat form display.
+
+Postchat submission results are delivered as `PostchatResults` object which introduces chat transcript related properties, like `transcriptEmail`, which holds the user filled email address.
+Postchat submission message correlates submission state - feedback only, feedback with transcript email, email only or both.
+
+### Send chat transcript to customer
+Transcript delivery feature defined by `Send transcript to customer` configurations, located on the accounts chat window, and will be available only if enabled on the admin console.
+![]({{'/assets/images/transcript-console.png' | relative_url}})
+{: .image-70}
+
+User can request chat transcript delivery in 2 ways:
+{: .strong-sub-title}
+- Upon postchat form when chat ends, an `email` field is added to the regular postchat fields (or appears as single field when survey is disabled).
+
+- Mid-chat, upon Email form, triggered by activating the email action button displayed on the [chatbar]({{'/docs/chat-configuration/ui-customization/chat-bar' | relative_url}})
+
+--- 
+
+## Email form 
+As mentioned above, this form enables users to set the email address for the chat transcript.
+
+![]({{'/assets/images/email-form.png' | relative_url}})
+{: .image-40}
+
+Email form can also be provided by the hosting App, by that, overriding the usage of the SDKs provided form.   
+
+### Submit email on custom form
+In order to submit the user email from your custom form, update the email field on the provided FormData.
+```kotlin
+// update email field data:
+formData.chatForm.getFormField(FieldKey.EmailKey).setValue(EMAIL_ADDRESS);
+
+// post the updated Form object over FormListener            
+formListener.onComplete(formData.chatForm);
+```            
+
+> In case of email submission error, `NRError` will be sent to the hosting App over the regular errors receiving channel, `ChatEventListener.onError` implementation.
+
+---
+
+## Listening to form submission results
+Prechat and postchat forms [submission results can be observed]({{'/docs/chat-configuration/tracking-events/events-and-notifications/#subscribing-to-notifications' | relative_url}}) by the hosting App.
+Submission results are represented by a `FormResults` object.
+- `FormResults.formType` - get the submitted form type (prechat/postchat)
+- `FormResults.submitMsg` - Submission message if provided. 

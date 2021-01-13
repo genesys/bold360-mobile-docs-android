@@ -27,7 +27,7 @@ With the ChatController instance, the hosting App can end active chats.
   > Ending Live chat: If you don't want to display the postChat form activate this method with forceClose = true
 
 - Use `terminateChat`, to end **all** current active chats. 
-  > Exp: Bot chat escalation to live chat, in order to close both active chats, the escalated and the bot source chat, use `chatController.terminateChat()`  
+  > e.g., Bot chat escalation to live chat, in order to close both active chats, the escalated and the bot source chat, use `chatController.terminateChat()`  
   Once the ChatController has no more active chats, it passes a `StateEvent.Idle`, to its attached `ChatEventListener` implementation.
 
 ### Destruct and release

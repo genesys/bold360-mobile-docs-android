@@ -26,7 +26,7 @@ There are 2 types of personal information
 <a id="initentities"/>
 ## Initialization entities
 
-Predefined data values that can be provided for the whole chat session and are not being changed dynamically (exp: ids, keys, etc).
+Predefined data values that can be provided for the whole chat session and are not being changed dynamically (e.g., ids, keys, etc).
 
 ### How To use
 

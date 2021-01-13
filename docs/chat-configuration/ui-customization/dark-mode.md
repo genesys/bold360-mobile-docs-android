@@ -17,7 +17,7 @@ In order to apply dark theme to your chat, you can define overriding and dark mo
 - #### Adding night mode resources
   Night mode resources should be located in a night mode dedicated folder.
   The night mode folder is named as the original resource folder with "-night-"
-  addition to it. (exp: `drawable-night-hdpi`).
+  addition to it. (e.g., `drawable-night-hdpi`).
 
   When setting the device to `Night mode`, those resources will be used automatically.
 

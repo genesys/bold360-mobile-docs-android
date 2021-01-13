@@ -71,7 +71,7 @@ Typing indication UI component is provided by the SDK, and can be customize eith
         typingUIProvider.overrideFactory = MyTypingFactory()
     }
 
-    // for exp:
+    // for e.g.
     class MyTypingFactory : TypingFactory{
         // TypingUIAdapter interface should be 
         // implemented by the overriding component

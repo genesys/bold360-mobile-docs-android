@@ -102,7 +102,7 @@ Do the following for a successful Handover chat escalation.
 - ### Control chat UI components
     The HandoverHandler has access to a `ChatDelegate` implementation, which provides access to the chat fragments UI components, the chat elements and other abilities.   
 
-    **Exp: Controling AgentTyping UI component visibility state:**
+    **e.g.: Controling AgentTyping UI component visibility state:**
     ```kotlin
     // show AgentTyping:
     chatDelegate?.updateCmp(ComponentType.LiveTypingCmp, data = null)

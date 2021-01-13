@@ -23,7 +23,7 @@ Usually appears at the bottom of the chat screen. Contains the users typed/recor
 The behavior and functionality of the input field is defined by the active chat type.   
 {: .overview}
 
-> Exp: The **upload icon** will appear only on live chats and only if was enabled by configuration.
+> e.g., The **upload icon** will appear only on live chats and only if was enabled by configuration.
 
 ## Available features
 - Typing and sending messages 

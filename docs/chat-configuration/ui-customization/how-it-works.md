@@ -7,7 +7,7 @@ grand_parent: Chat Configuration
 nav_order: 1
 ---
 
-# How it works {{site.data.vars.need-work}}
+# Customizing chat UI basics {{site.data.vars.need-review}}
 {: .no_toc }
 
 ## Table of contents
@@ -19,18 +19,18 @@ nav_order: 1
 ---
 
 ## Overview
-All supporting UI components enables the hosting app to apply some UI changes to the SDKs provided implementations or to completely replace with custom components.   
+All customizable UI components enable the hosting app to apply some UI changes to the SDKs default implementations or replace them completely by custom components.   
 {: .overview}   
 
-On [`ChatController`]({{'/docs/chat-configuration/extra/chatcontroller' | relative_url}}) creation an instance of `ChatUIProvider` can be provided by the hosting App. 
-The `ChatUIProvider` defines the SDKs UI components. According to it's definitions and configurations the chat UI component are created when needed.   
+This can be done by providing a custumized instance of `ChatUIProvider` upon [`ChatController`]({{'/docs/chat-configuration/extra/chatcontroller' | relative_url}}) creation by the hosting App. 
+The `ChatUIProvider` defines the SDKs UI components, and their default display. When a UI component is created, it will be customized and configured according to its specific definitions as configured on the `ChatUIProvider`.   
+{: .overview}
 
-In order to change and/or override the SDKs provided implementations and customizations, you need to pass your customed `ChatUIProvider` instance on ChatController creation. 
-
+Setting a customized `ChatUIProvider` instance:
+{: .strong-sub-title .mb-0}
 ```kotlin
-// creating the provider instance:
+// 1. create ChatUIProvider instance:
 ChatUIProvider uiProvider = ChatUIProvider(context).apply{
-
     // change the chat screen background:
     setChatBackground(context.getResources().getDrawable(R.drawable.bkg_bots));
 
@@ -46,10 +46,10 @@ ChatUIProvider uiProvider = ChatUIProvider(context).apply{
     chatElementsUIProvider.incomingUIProvider
             .feedbackUIProvider.overrideFactory = MyFeedbackFactory()
 
-
     ... // apply more customizations
 }
 
+// 2. Pass the instance to the ChatController Builder
 ChatController.Builder(context)
                     .chatUIProvider(uiProvider)
                     ...
@@ -58,70 +58,106 @@ ChatController.Builder(context)
 
 ---
 
-## How to configure and override UI components display: 
-The ChatUIProvider provides access to the chat ui components. Each component enables changes in 3 ways, which will be combinded.
+## Customization methods: 
+The `ChatUIProvider` provides access to the chat UI components configurations and creation. 
+The UI components supports one or more of the following customization methods:
+{: .overview}
 
-### Configure   
-Provides the ability to configure ui settings on a configuration adapter. Those values will be applied for all components of this type.   
-In order to change the provided SDK configurations, change the `configure` method implementation.
-  
+### Component customization on creation  
+- <a id="object-configure"> Some UI components supports a **Configuration object**. 
+{: .strong-sub-title}
+This object lists the customizable properties available for that component.
+In order to customize those properties, access the relevant config object from the `ChatUIProvider` instance, and set their values.
+
+e.g., Set the text style for the chat input field
+{: .eg-class}
 ```kotlin
-// method signature:
-open var configure: ((Adapter) -> Adapter)
-
-// applying custom implementation
-chatUIProvider.chatElementsUIProvider.incomingUIProvider.configure = { adapter ->
-    adapter.setAvatar(Context.resources.getDrawable(R.drawable.my_avatar))
-}
+ChatUIProvider(context).apply {
+    chatInputUIProvider.uiConfig.inputStyleConfig = StyleConfig(...)
+}   
 ```
 
-### Customize   
-Provides the ability to dynamically change ui settings, which were configured by `configure`, on the adapter, according to a data model that will be displayed by the component. Those changes will applied only to the specific component.  
-```kotlin
-// method signature:
-open var customize: ((Adapter, DataElement?) -> Adapter)?
+{: .mt-6}
+- <a id="adapter-configure"> Some UI components supports a **Configuration adapter**. 
+{: .strong-sub-title}
+The adapter defines the customization methods available for this component.
+In order to change the set of customization methods and their parameters, which are activated on the component, once it was created,
+access the relevant UI component definition from the `ChatUIProvider` instance, and override its `configure` method implementation.
 
-// applying custom implementation
-chatUIProvider.chatElementsUIProvider.incomingUIProvider.customize = { adapter, element ->
-    element?.takeIf { it.elemScope.isLive() }?.run {
-        adapter.setAvatar(Context.resources.getDrawable(R.drawable.agent_avatar))
+e.g., Set the avatar image to incoming messages
+{: .eg-class}
+```kotlin
+ChatUIProvider(context).apply {
+    chatElementsUIProvider.incomingUIProvider.configure = { adapter ->
+        adapter.setAvatar(Context.resources.getDrawable(R.drawable.my_avatar))
     }
 }
 ```
 
-### Override
-Enable developer to provide his own implementation of the component.   
-Overriding can be done mainly in 2 ways, according to the component support:   
+{: .mt-8}
+### Component customization on data update   
+Dynamic customization support, where configured customization is applied to a specific component when it gets its data.
+Components with dynamic customization support, defines a **Configuration adapter** and an **ElementModel**. 
+`Configuration adapter` - defines a set of customization methods which can be applied to the component. 
+`ElementModel` - defines the data that will be displayed by this component.
+The `customize` method, which is available for this component, on the `ChatUIProvider`, will be activated with those parameters, when the customization should be applied to it.   
+In order to change the set of customization methods and their parameters, access the relevant UI component definition from the `ChatUIProvider` instance, and override its `customize` method implementation.
 
-Custom implementation
+e.g., Applying specific design properties if the incoming message came from a live agent 
+{: .eg-class}
+```kotlin
+ChatUIProvider(context).apply {
+    chatElementsUIProvider.incomingUIProvider.customize = { adapter: BubbleContentUIAdapter, element: IncomingElementModel? ->
+        // The provided data model can be used to apply data dependant customizations.  
+        element?.takeIf(it.elemScope.isLive)?.let {
+            adapter.apply {
+                setAvatar(ContextCompat.getDrawable(context, R.drawable.speaker_on))
+                setTextStyle(StyleConfig(10, Color.WHITE))
+                setBackground(ColorDrawable(Color.RED))
+            }
+        }
+        adapter
+    }
+}
+```
+
+{: .mt-8}
+### Component customization by override
+Defines a custom component or component layout which will replace the SDK default implementation.   
+
+- Some UI components supports override by Custom implementation
 {: .strong-sub-title} 
-Providing a custom implementation of the component specific interface, as defined by the component's overrideFactory property type.    
+Providing a custom component and implementing a specific interface, that will enable integration of the custom component with the SDK.
+The interface that should be implemented is defined by the component's overrideFactory property type.    
     
-> Exp:   
-    Provide a new implementation for the feedback view by implementing the `FeedbackUIAdapter` interface.   
-
+e.g., Custom feedback component, which should implement the `FeedbackUIAdapter` interface.   
+{: .eg-class}
 ```kotlin
 class MyFeedbackFactory : FeedbackUIProvider.FeedbackFactory{
     override fun create(context: Context, feedbackDisplayType: Int): FeedbackUIAdapter {
         return new FeedbackViewDummy(context);
     }
 }
-
-chatUIProvider.chatElementsUIProvider
-                .incomingUIProvider.feedbackUIProvider
-                    .overrideFactory = MyFeedbackFactory()
+ChatUIProvider(context).apply{
+    chatElementsUIProvider.incomingUIProvider
+            .feedbackUIProvider.overrideFactory = MyFeedbackFactory()
+}
 ```
 
-Override view resource
+- Some UI components support override of the view layout resource
 {: .strong-sub-title .mt-6}
-Providing a different layout resource file, in the form of `ViewInfo` object.   
+Providing a custom layout resource file for the component layout, using `ViewInfo` object.   
+> `ViewInfo` object defines the layout resource id and the id of the active view within the layout. 
     
+e,g,, Replace the SystemMessage layout
+{: .eg-class}
 ```kotlin
-class MyUserInputProvider : ChatUIProvider.ChatUIFactory{
-    override fun userInputInfo(): ViewInfo {
-        return ViewInfo(R.layout.layout_name, R.id.custom_input_container)
+class CustomSystemMessageFactory : SystemElementUIProvider.SystemFactory{
+    override fun info(): ViewInfo {
+        return ViewInfo(R.layout.layout_name, R.id.message_textview)
     }
 }
-
-chatUIProvider.overrideFactory = MyUserInputProvider();
+ChatUIProvider(context).apply{
+    chatElementsUIProvider.systemUIProvider.overrideFactory = CustomSystemMessageFactory()
+}
 ```
