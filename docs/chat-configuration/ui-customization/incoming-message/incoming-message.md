@@ -7,7 +7,7 @@ permalink: /docs/chat-configuration/ui-customization/incoming-message/
 nav_order: 3
 ---
 
-# Incoming message {{site.data.vars.need-review}}
+# Incoming message
 {: .no_toc}
 
 ## Table of contents 
@@ -18,6 +18,7 @@ nav_order: 3
 - [Message options](./incoming-options)
 - [Feedback]({{ '/docs/advanced-topics/feedback' | relative_url }})
 - [Carousel](./carousel)
+- [Message Injection]({{ '/docs/advanced-topics/messages-injection/#how-to-inject-messages' | relative_url }})
 
 ---
 
@@ -40,7 +41,8 @@ Other message properties such channels quick options and feedback, are displyed 
 
 ## How to customize
 The incoming message component supports all [customization methods]({{ '/docs/chat-configuration/ui-customization/how-it-works#customization-methods' | relative_url }})
-Customization options are defined by the configuration adapter `ExtendedBubbleContentUIAdapter`. The component implementation implements this adapter and configured customization applied to it on component creation, and on data set.
+Customization options are defined by the configuration adapter `ExtendedBubbleContentUIAdapter`. The component implementation implements this adapter.  
+The configured customization will be applied to the component after it was created, and when it was binded with data.
 
 Customizing SDKs implementation
 {: .eg-class}
@@ -94,7 +96,7 @@ ChatUIProvider(context).apply {
 ---
 
 ## Readmore component on long chatbot messages
-Chatbot messages content display has a length limit, called threshold. Messages that are longer than the configured threshold length, will be trimmed.   
+Chatbot messages content display has a length limit, called <u>threshold</u>. Messages that are longer than the configured threshold length, will be trimmed.   
 A `readmore` component will appear on the bottom of a trimmed message, leading to a full message view.   
 {: .overview}
 The `readmore` component supports [configuration by adapter]({{ '/docs/chat-configuration/ui-customization/how-it-works#adapter-configure' | relative_url }}) only. The configuration options are defined by `ReadmoreAdapter`.   
@@ -119,7 +121,7 @@ ChatUIProvider(context).apply {
 > `readmore` component displayed text, can be customized, by overriding `R.string.read_more` string resource.
 
 {: .mt-5}
-Customizing chatbot message length display <sub>threshold</sub>
+Customizing chatbot message length display [<sub>threshold</sub>](#readmore-component-on-long-chatbot-messages)
 {: .strong-sub-title}
 By default the threshold is configured to limit the text length to 320 characters.   
 The threshold can be configured to a value between 320 - 640.   

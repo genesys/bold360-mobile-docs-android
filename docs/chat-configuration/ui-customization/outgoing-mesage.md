@@ -14,15 +14,81 @@ has_toc: false
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
-{:toc}
+- TOC
+{:toc .mb-0}
+- [Message Injection]({{ '/docs/advanced-topics/messages-injection/#how-to-inject-messages' | relative_url }})
 
 ---
 
 ## Overview
-The "User" side of the conversation. Usually this element is a request or a question from the user to the agent. The outgoing element can be, a typed user input, a user selection from a set of options, or a continuance information following a previous request.
+The display of user side messages.  
+Displays textual content only.  
+> Html formed message will be displayed with all HTML tags. 
+The message content can be, a typed user input, autocomplete suggestion selection, selected option or channel.
+The outgoing message component also supports the display of avatar image(not by default), timestamp and message send status.
+The message has no length limitation.
+{: .overview}
 
-#### Outgoing Ui component   
-The outgoing ui element is configured and handled by `BubbleLocalViewHandler`.
-This class can be overridden by extending **it** or extending `ChatElementViewHolder`.
-If was overridden, the method `getLocalBubbleViewHolder` in [`ConversationViewsProvider`](ConversationViewsProvider#conversationviews) should be overridden and return the extending class.
+|![]({{'/assets/images/incoming-message-2.png' | relative_url}})|![]({{'/assets/images/incoming-message-1.png' | relative_url}})|
+|---|---|
+|![]({{'/assets/images/incoming-message-3.png' | relative_url}})|
+{: .table-trans}
+
+---
+
+## How to customize
+The outgoing message component supports all [customization methods]({{ '/docs/chat-configuration/ui-customization/how-it-works#customization-methods' | relative_url }})
+Customization options are defined by the configuration adapter `BubbleContentUIAdapter`. The component implementation implements this adapter.   
+The configured customization will be applied to the component after it was created, and when it was binded with data.
+
+Customizing SDKs implementation
+{: .eg-class}
+```kotlin
+ChatUIProvider(context).apply {
+    chatElementsUIProvider.outgoingUIProvider.apply {
+        // on creation customization
+        configure = { adapter: BubbleContentUIAdapter ->
+                        adapter.apply {
+                            setTextStyle(StyleConfig(14, Color.LTGRAY, Typeface.SANS_SERIF))
+                            setTimestampStyle(TimestampStyle("hh:mm aa", 10, Color.parseColor("#aeaeae")))
+                            setBackground(ContextCompat.getDrawable(uiContext, R.drawable.outgoing))
+                            setStatusIconConfig(R.style.chat_textview_status_icon_style)
+                        }
+                    }
+
+        // Dynamic customization on data update
+        customize = { adapter: BubbleContentUIAdapter, element: OutgoingElementModel? ->
+                        element?.takeIf { it.elemScope.isLive }?.let {
+                                adapter.apply {
+                                    setTextStyle(StyleConfig(10, Color.WHITE))
+                                    setBackground(ColorDrawable(Color.BLUE))
+                                }
+                            }
+                        adapter
+                    }
+    }
+}
+```            
+
+Overriding default implementation
+{: .eg-class}
+```kotlin
+ChatUIProvider(context).apply {
+    chatElementsUIProvider.outgoingUIProvider.apply {
+        overrideFactory = 
+            object : OutgoingElementUIProvider.OutgoingFactory {
+                // Creates an outgoing message component - text, timestamp, status
+                override fun createOutgoing(context: Context): BubbleContentAdapter =
+                                                                CustomOutgoingView(context)
+            }
+    }
+}
+```
+
+---
+
+## Message delivery status
+When the user sends a message, the message goes through a cycle of states.
+ 
+
+
