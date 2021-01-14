@@ -99,6 +99,15 @@ table body {
 .table-trans  thead th,
 .table-trans tbody td  {
   background-color: #00000000;
+  width: fit-content;
+  text-align: center;
+}
+
+.table-trans tbody tr img,
+.table-trans  thead th img,
+.table-trans tbody td img {
+  width:70%;
+  
 }
 
 .btn.btn-orange {

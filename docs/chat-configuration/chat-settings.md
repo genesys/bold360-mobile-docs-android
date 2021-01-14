@@ -6,13 +6,13 @@ nav_order: 2
 # permalink: /docs/chat-configuration/chat-settings
 ---
 
-# Chat settings {{site.data.vars.need-work}}
+# Chat settings {{site.data.vars.force-work}}
 {: .no_toc }
 
 ## Table of contents
 {: .no_toc .text-delta }
 
-1. TOC
+- TOC
 {:toc}
 
 ---
