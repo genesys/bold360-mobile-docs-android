@@ -3,12 +3,11 @@ layout: default
 title: Outgoing message
 parent: UI Customization
 grand_parent: Chat Configuration 
-# permalink: /docs/chat-configuration/ui-customization/outgoing-message
 nav_order: 4
 has_toc: false
 ---
 
-# Outgoing message {{site.data.vars.force-work}}
+# Outgoing message {{site.data.vars.need-review}}
 {: .no_toc }
 
 ## Table of contents
@@ -29,9 +28,9 @@ The outgoing message component also supports the display of avatar image(not by 
 The message has no length limitation.
 {: .overview}
 
-|![]({{'/assets/images/incoming-message-2.png' | relative_url}})|![]({{'/assets/images/incoming-message-1.png' | relative_url}})|
+|![]({{'/assets/images/outgoing-message-1.png' | relative_url}})|![]({{'/assets/images/outgoing-message-2.png' | relative_url}})|
 |---|---|
-|![]({{'/assets/images/incoming-message-3.png' | relative_url}})|
+||
 {: .table-trans}
 
 ---
@@ -89,6 +88,8 @@ ChatUIProvider(context).apply {
 
 ## Message delivery status
 When the user sends a message, the message goes through a cycle of states.
- 
+
+![]({{'/assets/images/message-status.png' | relative_url}}) 
+{: .image-70}
 
 
