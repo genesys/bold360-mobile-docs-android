@@ -51,7 +51,7 @@ ChatUIProvider(context).apply {
                             setTextStyle(StyleConfig(14, Color.LTGRAY, Typeface.SANS_SERIF))
                             setTimestampStyle(TimestampStyle("hh:mm aa", 10, Color.parseColor("#aeaeae")))
                             setBackground(ContextCompat.getDrawable(uiContext, R.drawable.outgoing))
-                            setStatusIconConfig(R.style.chat_textview_status_icon_style)
+                            
                         }
                     }
 
@@ -92,4 +92,36 @@ When the user sends a message, the message goes through a cycle of states.
 ![]({{'/assets/images/message-status.png' | relative_url}}) 
 {: .image-70}
 
+### Customize message Status icons
+The message status icons are configurable. Icons configuration can be done
+```kotlin
+// option 1 : declare icons config object
+val iconsConfig = StatusIconConfig().apply {
+                     iconOk = ContextCompat.getDrawable(context, R.drawable.feedback_positive_icon)
+                     iconPending = ContextCompat.getDrawable(context, R.drawable.feedback_negative_icon)
+                 }
+```
+```xml
+// option 2 : declare icons config style
+<style name="demo_chat_status_icon_style" partent="chat_textview_status_icon_style">
+    <item name="chat_status_ok">@drawable/feedback_positive_icon</item>
+    <item name="chat_status_pending">@drawable/feedback_negative_icon</item>
+</style>
+```
 
+```kotlin
+ChatUIProvider(context).apply {
+        chatElementsUIProvider.outgoingUIProvider.configure =  { adapter ->
+            adapter.apply{
+                // set a config object
+                setStatusIconConfig(iconsConfig)
+                // OR: set a style resource 
+                setStatusIconConfig(R.style.demo_chat_status_icon_style)
+
+                setStatusMargins(2,0,0,0)
+            }
+        }
+}
+```
+![]({{'/assets/images/custom-outgoing-message.png' | relative_url}}) 
+{: .image-40}
