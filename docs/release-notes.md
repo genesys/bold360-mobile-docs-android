@@ -14,6 +14,64 @@ toc_float: true
 {: .det}
 <details open markdown="block">
 
+<summary> Version 4.2.0 </summary>
+
+# Version 4.2.0
+Release date: Februar 01, 2021
+{: .overview}
+
+### Features
+- #### Live chat Auto Messages support
+  Configured auto messages support on live chats. 
+  Configured auto messages will be displayed to the user while he waits for agent acceptance.
+
+- #### Language change on live chats prechat form
+  Supports dynamic chat language changes while the prechat is displayed.
+
+- #### Live chat transcript delivery initiation by user
+  User can request delivery of chat transcript and provide an email mid chat.
+
+- #### Live chat cancelation support while user waits in queue
+  Addition of chat cancelation option on the queue position UI component.
+
+- #### Clickable images support on chatbot Carousel response.
+
+---
+
+Breaking changes and Deprecations:
+{: .breaking}   
+
+  - ##### _FormResults_
+    `data` property returns a `submitMsg`, if available, instead of `formType`, which now has a separate property. 
+
+  - ##### _UploadsModels renamed to ResultsModels_
+    Effects java written apps.
+
+---
+
+### Fixes 
+- Customized statusbar icons and text malformed, fix.
+- Addition of Content description to the Send button (accessibility).
+- Android 11 - Selection of multiple options on chatbot response, fix. 
+
+---
+
+```gradle
+implementation "com.bold360ai-sdk.core:sdkcore:4.2.0"
+implementation "com.bold360ai-sdk.conversation:engine:4.2.0"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.2.0"
+implementation "com.bold360ai-sdk.conversation:ui:4.2.0"
+implementation "com.bold360ai-sdk.core:accessibility:4.2.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+</details>
+
+{: .det .mt-2}
+<details close markdown="block">
+
 <summary> Version 4.1.2 </summary>
 
 # Version 4.1.2

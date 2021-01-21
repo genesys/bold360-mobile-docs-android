@@ -99,6 +99,10 @@ ChatUIProvider(context).apply {
 Chatbot messages content display has a length limit, called <u>threshold</u>. Messages that are longer than the configured threshold length, will be trimmed.   
 A `readmore` component will appear on the bottom of a trimmed message, leading to a full message view.   
 {: .overview}
+
+|![]({{'/assets/images/readmore-closed.png' | relative_url}})|![]({{'/assets/images/readmore-open.png' | relative_url}})|
+{: .table-trans}
+
 The `readmore` component supports [configuration by adapter]({{ '/docs/chat-configuration/ui-customization/how-it-works#adapter-configure' | relative_url }}) only. The configuration options are defined by `ReadmoreAdapter`.   
 
 In order to customize the `readmore` component display, access `readmoreUIProvider` from `ChatUIProvider` and override the [`configure`]({{ '/docs/chat-configuration/ui-customization/how-it-works#adapter-configure' | relative_url }}) method.
