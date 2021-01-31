@@ -26,25 +26,26 @@ As a regular incoming message, carousel has a message section with a timestamp a
 
 
 ## Carousel Item
-Each item in the carousel consists of 3 sections: 
-- **Image** - If not configured, a placeholder default image will be displayed.
-    Can be configured with a url link. <sub>Optional</sub>.
-- **Info** - Title <sub>Mandatory</sub> and a subtitle <sub>Optional</sub> 
-- **Options** - Item options <sub>Optional</sub>.
+Each corousel item consists of three display sections: 
+- **Image**<sub>Optional</sub> - Can be configured with a url link, on the admin console. If image was not set, a default image will be displayed.
+- **Info**<sub>Mandatory</sub> - Consist of a Title and an optional subtitle
+- **Options**<sub>Optional</sub> - Item options .
 
 ---
 
 ## UI configurations
-Carousel UI can be configured, by overriding `CarouselItemsUIProvider.configure` method and/or `CarouselItemsUIProvider.customize` method for [dynamic data related customizations]({{'/docs/chat-configuration/ui-cutomization/how-it-works#customize' | relative_url}}).   
-Available configuration proprties can be viewed on `CarouselItemsUIAdapter`
+The carousel UI can be customized, by overriding the `CarouselItemsUIProvider.configure` method and/or the `CarouselItemsUIProvider.customize` method for [dynamic data related customizations]({{'/docs/chat-configuration/ui-cutomization/how-it-works#customize' | relative_url}}).   
+The available configuration proprties can be found in `CarouselItemsUIAdapter`.
 
 ### General item configurations
-- Use `CarouselItemsUIAdapter.setCardStyle` method to configure the carousel item look. 
-  > The carousel items display can be configured to have a card like look which has elevation or be flat, with or without rounded corners. 
+- Use `CarouselItemsUIAdapter.setCardStyle` method to configure the carousel item display. 
+    - `elevation` level - level of 0, makes a flat look, while greater values sets a card look to the items.
+    - Rounded corners - defined by a radius level. Value of 0 makes squere corners. 
 
   >_**Notice**, If a card style display is configured, items background should not be transparent!_
 
-- Carousel items sections (info, image and options), display order, can be configured with `CarouselItemsUIAdapter.setInfoTextAlignment`, defaults to `CarouselItemConfiguration.ItemInfoAlignment.AlignBelowThumb` 
+{: .mt-5}
+- Carousel items consist of 3 display sections: info, image and options. The sections display order, can be configured with `CarouselItemsUIAdapter.setInfoTextAlignment`, defaults to `CarouselItemConfiguration.ItemInfoAlignment.AlignBelowThumb` 
 
   ![]({{'/assets/images/customed-carousel.png' | relative_url}})
   {: .image-40}
@@ -52,15 +53,14 @@ Available configuration proprties can be viewed on `CarouselItemsUIAdapter`
 
 ### Info section
 Info section contains a title and a sub-title, which are configured with minimum line number of 1 and 2 lines respectfully.   
-Minimun height for this section will be calulated according to those values.
+Minimum line number can be configured with `setInfoTitleMinLines` and `setInfoSubTitleMinLines` methods.
+The minimun height for this section will be calulated according to the line number values.   
 The sub-title height is flexible and may stretch to the maximum available item height.
-
-Minimum line numbers can be configured with `setInfoTitleMinLines` and `setInfoSubTitleMinLines` methods.
 
 ![]({{'/assets/images/carousel-info.png' | relative_url}})
 {: .image-40}
 
-> Checkout other configurations for the info section on `CarouselItemsUIAdapter` prefixed with **setInfo...**.
+> Additional info section configurations can be found in `CarouselItemsUIAdapter`. See methods prefixed with `setInfo`.
 
 ### Options section
 Item options are contained in a non-scrollable vertical order layout.  

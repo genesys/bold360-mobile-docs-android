@@ -23,18 +23,26 @@ Release date: Februar 01, 2021
 ### Features
 - #### Live chat Auto Messages support
   Configured auto messages support on live chats. 
-  Configured auto messages will be displayed to the user while he waits for agent acceptance.
+  Configured auto messages will be displayed to users while they are waiting for agent acceptance.
 
 - #### Language change on live chats prechat form
-  Supports dynamic chat language changes while the prechat is displayed.
+  Supports dynamic chat language changes while the pre-chat form is displayed.
 
 - #### Live chat transcript delivery initiation by user
-  User can request delivery of chat transcript and provide an email mid chat.
+  User can request delivery of chat transcript and provide an email address during chat.
 
 - #### Live chat cancelation support while user waits in queue
-  Addition of chat cancelation option on the queue position UI component.
+  Add a chat cancellation option on the queue position UI component.
 
 - #### Clickable images support on chatbot Carousel response.
+ 
+--- 
+
+Android 11 compatability: 
+{: .knownissue}
+- #### _Voice support_
+Starting with Android 11, the App need to define the services and installed apps it uses. Voice support is among those services. `Voice` support will be available in Bold360 SDK once the following configurations will be acomplished.    
+<a href="{{site.baseurl}}/docs/faq/android-11-voice">Voice support on Android 11</a>
 
 ---
 
@@ -42,17 +50,23 @@ Breaking changes and Deprecations:
 {: .breaking}   
 
   - ##### _FormResults_
-    `data` property returns a `submitMsg`, if available, instead of `formType`, which now has a separate property. 
+    Thr `data` property returns a `submitMsg`, if available, instead of `formType`, which now has a separate property. 
 
   - ##### _UploadsModels renamed to ResultsModels_
-    Effects java written apps.
+    Effects apps written in java.
+
+  - #### _Deprecation of voice recognition silent timeout configuration_ 
+    Starting from version 4.4.0, we will not enable the configuration of the silence timeout period for voice recognition support, in order to refrain from unexpected behavior when using this feature.   
+    This refers to the VoiceSettings property: `com.nanorep.nanoengine.model.configuration.VoiceSettings.endSpeechSilenceTimeout`   
+    Therefore, from Android Harmony SDK 4.4.0, the default value provided by Android will be used.   
+    <span style="font-size:13px"> For more information refer to: <a href="https://developer.android.com/reference/android/speech/RecognizerIntent#EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS">RecognizerIntent</a></span>
 
 ---
 
 ### Fixes 
-- Customized statusbar icons and text malformed, fix.
-- Addition of Content description to the Send button (accessibility).
-- Android 11 - Selection of multiple options on chatbot response, fix. 
+- Fixed customized statusbar malformed icons and text display.
+- Addition of Content description to the Send button for accessibility support.
+- Fixed an issue on Android 11, when multiple options could be selected on incoming chatbot messages.
 
 ---
 

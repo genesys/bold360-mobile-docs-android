@@ -19,9 +19,9 @@ nav_order: 1
 
 ---
 
-## Overview
-Autocomplete is supported for AI chats only.   
-While the user is typing a query, he will be presented with a list of relevant suggested queries, according to the typed content.  Selection of an autocomplete suggestion, will automaticaly send the selection as user query.  
+## Overview  
+Autocomplete refers to displaying completion suggestions while the user is typing a message. The suggestions are the most relevant text out of the phrases that exist in the knowledgebase. The user can select from the suggested text or continue typing his message.  Selected suggestion will be sent as the user's message and the response will then be displayed.  
+> Autocomplete is supported for AI chats only.
 {: .overview}
  
 ![]({{'/assets/images/autocomplete-in-chat.png' | relative_url}})   
@@ -34,8 +34,8 @@ While the user is typing a query, he will be presented with a list of relevant s
 - ### [Admin console configuration]({{'/docs/advanced-topics/autocomplete#control-availability' | relative_url}})
 {: mb-10}
 
-- ### Chat ConversationSettings configuration   
-  Feature availability can be configured by the hosting App, by passing [`ConversationSettings`]({{'/docs/chat-configuration/chat-settings' | relative_url}}) instance, configured with the autocomplete feature desired status, on [`ChatController`]({{'/docs/chat-configuration/extra/chatcontroller' | relative_url}}) creation. The configured availability status will apply on all chats that are created by the same ChatController instance. 
+- ### Chat ConversationSettings configuration
+ Feature availability can be configured by the hosting App, by passing [`ConversationSettings`]({{'/docs/chat-configuration/chat-settings' | relative_url}}) instance, configured with the autocomplete feature desired status, upon [`ChatController`]({{'/docs/chat-configuration/extra/chatcontroller' | relative_url}}) creation. The configured availability status will apply on all chats that are created by the same ChatController instance. 
   
     ```kotlin
     val settings = ConversationSettings().apply {

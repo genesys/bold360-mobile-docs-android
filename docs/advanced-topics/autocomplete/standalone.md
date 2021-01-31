@@ -45,7 +45,7 @@ Suggestions will not be displayed while the device is on `Landscape mode`. Text 
 - Apply autocomplete parameters values {: .strong-sub-title}   
   Once you have the `BotCompletionViewModel` instance, set its properties as needed, for the autocomplete functionality and display.
 
-    - `botChat`<sub>Mandatory</sub> - If you already have an active bot chat, just set this    parameter to point to your reference, otherwise, set the provided instance with a [`BotAccount`]({{'/docs/chat-configuration/chat-account/bot-account' | relative_url}}).
+    - `botChat`<sub>Mandatory</sub> - In case the app already use an active bot chat, set this parameter to point to your reference. If not, set the provided instance with a [`BotAccount`]({{'/docs/chat-configuration/chat-account/bot-account' | relative_url}}).
     
       ```kotlin
       val botViewModel = ... // Obtain...

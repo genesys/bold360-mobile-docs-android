@@ -22,8 +22,8 @@ has_toc: false
 ---
 
 ## Overview
-Displaying suggestions for the user to select from, while the user types his message. The user than can select from the suggested articles/queries or continue typing his message.   
-Selected suggestion will automatically be sent to the BE for response.
+Autocomplete refers to displaying completion suggestions while the user is typing a message. The suggestions are the most relevant text out of the phrases that exist in the knowledgebase. The user can select from the suggested text or continue typing his message.  
+Suggestion selection triggers a selection event, that can be listened to and handled as needed.
 {: .overview }
 
 

@@ -13,7 +13,8 @@ nav_order: 6
 {: .no_toc .text-delta }
 
 - TOC
-{:toc}
+{:toc .mb-0}
+- [Voice support on Android 11]({{'/docs/faq/android-11-voice' | relative_url}})
 
 ---
 

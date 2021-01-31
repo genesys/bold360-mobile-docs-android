@@ -18,15 +18,15 @@ nav_order: 9
 ---
 
 ## Overview
-The SDK provides the bridge to pass user specific information to the BOT on chat start and while processing responses to user queries, which demands more details from the user, during the chat.
+Entities enable turning data into smart chatbot conversations. Entities essentially serve as a database for the information that the bot needs to answer users questions.   
+The SDK provides the bridge to pass this data to the Chatbot on chat start and while processing responses to user queries.
 {: .overview}
 
-There are 2 types of personal information
+Entities may be configured as initialization entities or missing entities and personal information.
 
 <a id="initentities"/>
 ## Initialization entities
-
-Predefined data values that can be provided for the whole chat session and are not being changed dynamically (e.g., ids, keys, etc).
+Entities values that can be provided for the entire chat session and are not changed dynamically (e.g., ids, keys, etc).
 
 ### How To use
 
@@ -54,10 +54,11 @@ Predefined data values that can be provided for the whole chat session and are n
     }
     ```
 
-## Missing entites and Personal information
+## Missing entities for personalized responses
 
-Dynamically required details. Depends on user query and the article the Bot responses with.
-articles of this sort are configured with a Bold360ai provider which formats the response to contain the entities tag pattern, that are being recognized by the SDK as the needed information (please contect out support for farther information about the [Bold360AI provider](https://support.bold360.com/bold360/help/how-do-i-create-a-csv-provider)).
+These entities are use to dynamically retrieve details from the user, for personalizing the response to the user query.
+Articles that are configured with entities, contains entities tags within the response which are recognized by the SDK as the missing information needed to properly display the article as intended. 
+> Refer to [How to use Data Entities](https://support.bold360.com/bold360/help/how-to-use-data-entities) for more information.
 
 - **Missing entites**:    
   Details that the user is asked to provide before the requested data can be supplied.   

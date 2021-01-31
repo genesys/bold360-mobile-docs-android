@@ -20,7 +20,7 @@ nav_order: 1
 ## Overview
 > ##### History management is out of the SDKs scope.  
 
-The SDK enables the Host app to provide its own implementation, and maintain an updated chat history, by listening to triggered events whenever chat elements changes.
+The SDK enables the hosting app to provide its own implementation, and maintain an updated chat history, by listening to triggered events whenever chat elements changes.
 {: .overview}
 
 ## How is it done
