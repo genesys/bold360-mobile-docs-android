@@ -41,7 +41,7 @@ Release date: Februar 01, 2021
 Android 11 compatability: 
 {: .knownissue}
 - #### _Voice support_
-Starting with Android 11, the App need to define the services and installed apps it uses. Voice support is among those services. `Voice` support will be available in Bold360 SDK once the following configurations will be acomplished.    
+Starting with Android 11, the App need to define the services and installed apps it uses. Voice support is among those services. `Voice` support in chat will be available by the SDK, once the following configurations will be implemented by the hosting App.    
 <a href="{{site.baseurl}}/docs/faq/android-11-voice">Voice support on Android 11</a>
 
 ---
