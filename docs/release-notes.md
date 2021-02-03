@@ -17,7 +17,7 @@ toc_float: true
 <summary> Version 4.2.0 </summary>
 
 # Version 4.2.0
-Release date: Februar 01, 2021
+Release date: February 03, 2021
 {: .overview}
 
 ### Features
@@ -66,11 +66,15 @@ Breaking changes and Deprecations:
 ### Fixes 
 - Fixed customized statusbar malformed icons and text display.
 - Addition of Content description to the Send button for accessibility support.
-- Fixed an issue on Android 11, when multiple options could be selected on incoming chatbot messages.
 
 ---
 
 ```gradle
+repositories {
+  maven { url 'https://dl.bintray.com/bold360ai-sdk/core/'}
+  maven { url 'https://dl.bintray.com/bold360ai-sdk/conversation/'}
+}
+
 implementation "com.bold360ai-sdk.core:sdkcore:4.2.0"
 implementation "com.bold360ai-sdk.conversation:engine:4.2.0"
 implementation "com.bold360ai-sdk.conversation:chatintegration:4.2.0"
