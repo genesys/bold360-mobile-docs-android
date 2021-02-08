@@ -17,7 +17,7 @@ In order to access installed services and apps, the App should specify those in 
 
 `Speech recognition` and `Text to speech` capabilities are among those services that should be specified on the manifest under the `<queries>` tag.
 
-![]({{'assets/images/icon_info.png' | relative_url}}) Without those configurations `Voice` support will not be available to the Bold360 SDK, on devices running Android 11 and above.
+❗ Without those configurations `Voice` support will not be available to the Bold360 SDK, on devices running Android 11 and above.
 
 ## How to enable voice support on Android 11
 Follow those steps in order to enable Voice support in Bold360 SDK on Android 11 devices:

@@ -61,7 +61,7 @@ ChatAvailability.checkAvailability(account, departmentId, callback = object : Ch
 ```
 
 {: .mt-5}
-> ![]({{'assets/images/icon_info.png' | relative_url}}) In order to get availability status of the different departments in your organization, [make sure your api access key is not configured]({{'/assets/images/bold-console-apikey.png' | relative_url}}) to work with a specific department.
+> ❗ In order to get availability status of the different departments in your organization, [make sure your api access key is not configured]({{'/assets/images/bold-console-apikey.png' | relative_url}}) to work with a specific department.
 
 ---
 
