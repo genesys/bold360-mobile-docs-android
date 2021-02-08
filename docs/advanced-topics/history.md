@@ -41,7 +41,7 @@ Calling `ChatElementListener.onRemove`
 - Notifies of an update on chat element data.  
 Calling `ChatElementListener.onUpdate`
 
-### ![]({{'assets/images/icon_info.png' | relative_url}}) Guidelines
+### ⚙️ Guidelines
 - The provided history management implementation decides, if chat history fetching is done by paging, and if so, what the page size should be, or fetch of one block with all messages.  
 On chat load,  the SDK requests the first history block, and display it on the chat, if was provided. As long as the user keeps scrolling upward to see older messages, the SDK will continue its requests for more history blocks, until an empty block is received, which indicates, that no more history is available for this chat.
 

@@ -28,6 +28,9 @@ In order to enable the Bold SDK to work properly while shrinking and obfuscation
 # Preserves the SDKs API model classes
 -keep class com.nanorep.nanoengine.model.** {*;}
 
+# Preserves the SDKs chat model classes
+-keep class com.nanorep.convesationui.structure.elements.**{*;}
+
 -keep public class * extends android.view.View {
     public <init>(android.content.Context);
     public <init>(android.content.Context, android.util.AttributeSet);

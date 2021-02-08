@@ -56,16 +56,20 @@ Use this Quick Start guide to get you up and running with a working AI or live c
         }
     }
     ```
+    {: .mb-6}
 
+
+    - If your app is configured with shrink and minify turned on, please read [Shrink and Obfuscattion support]({{'/docs/faq/shrink-and-obfuscate' | relative_url}})
+    
 ---
 
-> ! Now you are ready to integrate and create some chats.
+#### 👍  Now you are ready to integrate and create some chats.
 {: .no_toc .strong-sub-title}
 
 ---
 
 ## Create and start a chat  
-{: .d-inline-block }
+{: .d-inline-block .mt-4}
 
 Follow the next steps to create and start a chat.
 
