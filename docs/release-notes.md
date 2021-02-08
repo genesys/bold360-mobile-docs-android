@@ -69,6 +69,8 @@ Breaking changes and Deprecations:
 
 ---
 
+### Dependencies 
+
 ```gradle
 repositories {
   maven { url 'https://dl.bintray.com/bold360ai-sdk/core/'}

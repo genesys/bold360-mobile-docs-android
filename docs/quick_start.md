@@ -31,7 +31,7 @@ Use this Quick Start guide to get you up and running with a working AI or live c
 1. ### Import SDK dependencies 
     {: .no_toc .strong-sub-title}   
     
-    [Check here for latest SDK version and needed dependencies](https://developer.bold360.com/help/EN/Bold360API/Bold360API/ReleaseNotesAndroid.html) 
+    [Check here for latest SDK version and needed dependencies]({{'/docs/release-notes#dependencies' | relative_url}}) 
 
     
 2. ### Extra configurations on build.gradle:
