@@ -97,7 +97,7 @@ ChatUIProvider(context).apply {
 
 ## Readmore component on long chatbot messages
 Chatbot messages content display has a length limit, called <u>threshold</u>. Messages that are longer than the configured threshold length, will be trimmed.   
-A `readmore` component will appear on the bottom of a trimmed message, leading to a full message view.   
+A `readmore` component will appear on the bottom of a trimmed message, leading to a [full message view]({{'/docs/chat-configuration/ui-customization/incoming-message/readmore-article' | relative_url }}).   
 {: .overview}
 
 |![]({{'/assets/images/readmore-closed.png' | relative_url}})|![]({{'/assets/images/readmore-open.png' | relative_url}})|
