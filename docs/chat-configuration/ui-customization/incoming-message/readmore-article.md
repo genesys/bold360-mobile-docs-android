@@ -45,7 +45,7 @@ ChatController.Builder(context).apply{
         }
 ```
 
-### Article `Close` button
+### Article `Close` button <sub>Will be available from version 4.2.1</sub>
 By default a close button will be available on the top right of the screen. 
 Button configurations are defined by `CloseUIConfig` and are available for changes.
 
