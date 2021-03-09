@@ -34,7 +34,7 @@ The hosting app can inject system messages after the chat was created, using the
 chatController.post(SystemStatement(message))
 ```
 
-## Constomization
+## Customization
 Currently system messages display, can only be customized by [`override`]({{'/docs/chat-configuration/ui-customization/how-it-works#override' | relative_url}}).
 
 - ### Customize by overriding layout resouce   
