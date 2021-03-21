@@ -1,18 +1,56 @@
 
+// >> Color definisions :
 $yellow: #fffdc6;
 $bluish-grey: #e1e7f3;
-$side-blue: #3e68f3;
-$side-blue-dk: #2b3ddf;
+//$side-blue: #3e68f3; 
+$side-blue: #888;
+$side-blue-dk: #0088ce;
+//$side-blue-dk: #2b3ddf;
 $orange-100: #f5a03a;
 $orange-200: #f8902f;
 
 $link-color: $side-blue-dk;
-$body-background-color: $grey-lt-000;
-$sidebar-color: $grey-lt-200;
-$nav-child-link-color:$side-blue;
-$border-color: $grey-lt-300;
+$body-background-color: $white;
+$sidebar-color: $grey-lt-000;
+$nav-child-link-color:$side-blue-dk;
+$border-color: white;
 $code-background-color: $bluish-grey;
 
+// --------------------------------------------------------
+
+
+// >> font definision:
+
+@font-face {
+  font-family: "ProximaNova-Reg";
+  src: url(../../assets/fonts/ProximaNova-Reg.eot);
+  src: local(â˜º),
+  url(../../assets/fonts/ProximaNova-Reg.eot?#iefix) format("embedded-opentype"),
+  url(../../assets/fonts/ProximaNova-Reg.woff) format("woff"),
+  url(../../assets/fonts/ProximaNova-Reg.ttf) format("truetype"),
+  url(../../assets/fonts/ProximaNova-Reg.svg) format("svg");
+  font-weight: 330;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lato-Regular";
+  src: url(../fonts/Lato-Regular.eot);
+  src: local(â˜º),
+  url(../fonts/Lato-Regular.eot?#iefix) format("embedded-opentype"),
+  url(../fonts/Lato-Regular.woff) format("woff"),
+  url(../fonts/Lato-Regular.ttf) format("truetype"),
+  url(../fonts/Lato-Regular.svg) format("svg");
+  font-weight: 300;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Lato-Regular' !important;
+  //font-family: 'ProximaNova-Reg' !important;
+}
+
+// --------------------------------------------------------
 
 .image-40 {
   display: block;
@@ -84,7 +122,8 @@ table th {
   border-color: $white;
   color: $grey-dk-200;
 }
-table body {
+
+table tbody {
   padding: 0.2rem;
   background: $bluish-grey;
   border-color: $grey-lt-300;
@@ -95,20 +134,21 @@ table body {
   font-style: unset;
 }
 
-.table-trans tbody tr,
-.table-trans  thead th,
-.table-trans tbody td  {
-  background-color: #00000000;
-  width: fit-content;
-  text-align: center;
+// >> use .table-trans class {: .table-trans} for a transparent table:
+table.table-trans {
+  td, th, tbody, thead {
+    background: #00000000;
+    width: fit-content;
+    text-align: center;
+  } 
 }
-
-.table-trans tbody tr img,
-.table-trans  thead th img,
-.table-trans tbody td img {
-  width:70%;
-  
-}
+.table-trans{
+  tbody tr img,
+  thead th img,
+  tbody td img {
+    width:70%;
+  }  
+} 
 
 .btn.btn-orange {
   color: #fff;
@@ -202,4 +242,39 @@ details[open] summary::-webkit-details-marker {
 .back-top:link,
 .back-top:visited{
   color: #79899b;
+}
+
+// >> adjust side bar fonts:
+.nav-list .nav-list-item .nav-list-link:hover, .nav-list .nav-list-item .nav-list-link.active {
+  background-image: none !important;
+}
+.nav-list .nav-list-item, .nav-list .nav-list-item.active .nav-list-link {
+  font-weight: 500;
+  text-decoration: none;
+  color:$side-blue-dk
+}
+.nav-list .nav-list-item.active .nav-list .nav-list-item.active .nav-list-link {
+  font-weight: 500;
+}
+.nav-list .nav-list-item .nav-list-link.active {
+  font-weight: 500;
+  text-decoration: none;
+  color:#222 !important;
+}
+
+// >> adjust side-bar with and margins:
+.nav-list .nav-list-item .nav-list-expander {
+  left: 0; // direction of the menu expander
+}
+
+.side-custom .site-footer{
+  padding-bottom: 1.2rem
+}
+.side-custom .site-header {
+  margin-top: 1rem;
+  border-bottom: none ;
+}
+.side-custom .site-nav, .side-custom .site-header, .side-custom .site-footer {
+  width: 60%;
+  min-width: 245px;
 }

@@ -100,6 +100,7 @@ The user input field can be customized by:
   |![]({{'/assets/images/input_field_1.png' | relative_url}}){: .image-70}|![]({{'/assets/images/input_field_2.png' | relative_url}}){: .image-70}|![]({{'/assets/images/input_field_2.png' | relative_url}}){: .image-70}
   |---|---|---|
   |![]({{'/assets/images/input_field_3.png' | relative_url}}){: .image-70}|![]({{'/assets/images/input_field_4.png' | relative_url}}){: .image-70}|![]({{'/assets/images/input_field_5.png' | relative_url}}){: .image-70}
+  {: .table-trans}
 {: .mb-8}
 
 
