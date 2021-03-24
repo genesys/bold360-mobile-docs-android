@@ -29,7 +29,7 @@ Autocomplete refers to displaying completion suggestions while the user is typin
 
 ---
 
-## Aavailability configuration
+## Availability configuration
 {: .mb-4}
 - ### [Admin console configuration]({{'/docs/advanced-topics/autocomplete#control-availability' | relative_url}})
 {: mb-10}
