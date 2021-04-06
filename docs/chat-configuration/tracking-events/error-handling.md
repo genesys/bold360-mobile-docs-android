@@ -30,8 +30,8 @@ The following list contains the SDK error codes.
 
   Errors that can be thrown for all the chat types - server exceptions
 
-  - GeneralError Some Error
-  - AccessControlError requested access (to a critical system resource such as the file system or the network) is denied
+  - GeneralError - Some Error
+  - AccessControlError - requested access (to a critical system resource such as the file system or the network) is denied
   - MissingRequestParamsError
   - ServerError
   - ClientError
