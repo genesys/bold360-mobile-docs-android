@@ -14,6 +14,44 @@ toc_float: true
 {: .det}
 <details open markdown="block">
 
+<summary> Version 4.2.1 </summary>
+
+# Version 4.2.1
+Release date: April 07, 2021
+{: .overview}
+
+
+### Fixes 
+- Fixed crash on autocomplete suggestions, with malformed response.
+
+---
+
+### Dependencies 
+
+```gradle
+repositories {
+  maven { url 'https://dl.bintray.com/bold360ai-sdk/core/'}
+  maven { url 'https://dl.bintray.com/bold360ai-sdk/conversation/'}
+}
+
+implementation "com.bold360ai-sdk.core:sdkcore:4.2.1"
+implementation "com.bold360ai-sdk.conversation:engine:4.2.1"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.2.1"
+implementation "com.bold360ai-sdk.conversation:ui:4.2.1"
+implementation "com.bold360ai-sdk.core:accessibility:4.2.1"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+> $kotlin_version = On androidx apps '1.4.30' (or greater), otherwise '1.3.72'.
+
+</details>
+
+{: .det .mt-2}
+<details close markdown="block">
+
 <summary> Version 4.2.0 </summary>
 
 # Version 4.2.0
