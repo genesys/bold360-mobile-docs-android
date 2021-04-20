@@ -26,7 +26,7 @@ This guide will help you configure your video content in a Bot article.
 
 2. Open the video content that you want to add on youtube.
 
-3. Select `"Share" -> "Embed"` than `"Copy`"
+3. Select `"Share" -> "Embed"` then `"Copy`"
 
 4. Update the copied link so it will not contain the `allowfullscreen` property in the `iFrame` tag or assign it to a value.
 
@@ -55,7 +55,7 @@ Article source on the bold360ai console:
 {: .image-70}
 
 {: .mt-6}
-<details open markdown="block"> 
+<details close markdown="block"> 
     
 <summary>Article source with video content:</summary>
     
@@ -71,3 +71,23 @@ Article source example:
 <p><iframe src="https://www.youtube.com/embed/a7qvOOIGj-o"></iframe></p>
 ```
 </details>
+
+
+> ⚜️ The SDK doesn't support video playing. The youtube link is sent to the app as event to `ChatEventListener.onUrlLinkSelected` implementation. The hosting app should decide what should be done with the retrieved link.
+{: .mt-8}
+
+  ```kotlin
+  fun onUrlLinkSelected(url: String) {
+      // sample code for handling given link
+      try {
+          if (isFileUrl(url)) {
+              openFileInDefaultApp(url)
+          } else {
+              val intent = Intent(Intent.ACTION_VIEW).setData(Uri.parse(url))
+              this.startActivity(intent)
+          }
+      } catch (e: Exception) {
+          ...
+      }
+  }
+  ```
