@@ -12,10 +12,10 @@ permalink: /docs/faq/video-messages
 ---
 
 ## Overview
-Chat messages displays video indication over messages with video content. 
-In order to display the video indication over AI articles, the article should be configured in a way the SDK will recognize the video content it contains.   
-Currently we support only `Youtube` videos.   
-This guide will help you configure your video content on Bot article. 
+Chat messages displays video indication over messages with video content.    
+In order to display the video indication over AI articles, the article should be configured in a way the SDK will recognize the video content it contains.    
+This guide will help you configure your video content in a Bot article. 
+> Currently we support only `Youtube` videos. 
 {: .overview}
 
 ---
