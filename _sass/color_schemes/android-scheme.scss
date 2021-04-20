@@ -108,6 +108,12 @@ body {
   background-color: $code-background-color;
 }
 
+.notice {
+  letter-spacing: 0.06em;
+  color: $side-blue-dk;
+  background-color: none;
+}
+
 blockquote {
   border-left: .20em solid $bluish-grey;
   color: #79899b;
