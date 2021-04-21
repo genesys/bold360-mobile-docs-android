@@ -7,7 +7,7 @@ grand_parent: Chat Configuration
 nav_order: 7
 ---
 
-# Queue Bar {{site.data.vars.need-review}}
+# Queue Bar
 {: .no_toc }
 
 ## Table of contents

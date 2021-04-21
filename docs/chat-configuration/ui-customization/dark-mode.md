@@ -7,7 +7,7 @@ grand_parent: Chat Configuration
 nav_order: 11
 ---
 
-# Dark mode Support {{site.data.vars.need-work}}
+# Dark mode Support 
 
 _Currently, **dark mode** is not formally being supported by the SDK._
 

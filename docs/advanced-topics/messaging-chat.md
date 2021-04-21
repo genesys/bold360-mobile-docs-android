@@ -6,7 +6,7 @@ nav_order: 5
 
 ---
 
-# Messaging Chat {{site.data.vars.need-review}}
+# Messaging Chat 
 {: .no_toc}
 
 ## Table of contents

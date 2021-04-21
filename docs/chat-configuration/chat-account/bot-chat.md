@@ -6,7 +6,7 @@ grand_parent: Chat Configuration
 nav_order: 1
 ---
 
-# Chat with AI <sup>chatbot</sup> {{site.data.vars.need-review}}
+# Chat with AI <sup>chatbot</sup> 
 {: .no_toc}
 
 ## Table of contents

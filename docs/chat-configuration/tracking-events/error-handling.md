@@ -4,14 +4,13 @@ title: Error Handling
 parent: Tracking Events
 grand_parent: Chat Configuration
 nav_order: 4
-# permalink: /docs/chat-configuration/tracking-events/error-handling
 ---
 
-# Error Handling {{site.data.vars.need-work}}
+# Error Handling
 {: .no_toc }
 
 ## Table of contents
-c .text-delta }
+{: .no_toc .text-delta }
 
 - TOC
 {:toc}
@@ -19,96 +18,78 @@ c .text-delta }
 ---
 
 ## Overview
-
+When an error occure during SDK functionality, the error is passed to the hosting app, unless can be managed internaly.   
+Errors can raise due to connection problems, missuse, and many other reasons. Errors are passed to the hosting app via `ChatEventListener.onError` implementation.   
+Error events passes objects of NRError which defines the error that occured. The NRError consist of `code`, `reason`, `description`, and sometimes contains some extra `data`.
 {: .overview}
 
 ---
 
-The App can listen to the SDK's errors via the [ChatEventListener](/docs/chat-configuration/tracking-events/events-and-notifications#Listening_to_chat_elements_changes) that is being supplied to the SDK.
-
-The Errors are incupsolated inside a `NRError` class.
+## Subscribe to error events 
+On `ChatController` creation pass an implementation of `ChatEventListener`, which overrides the `onError` method. 
 
 ```kotlin
-ChatController.Builder(this)
-            .chatEventListener(object : ChatEventListener{
-                .....
-                override fun onError(error: NRError) {
-                    // Errors Are Being recieved here
-                }
-                ....
-            })
-            ...
+ChatController.Builder(context)
+        .chatEventListener(object : ChatEventListener{
+            override fun onError(error: NRError) {
+                // handle error
+            }
+            ....
+        })
+        ...
 ```
+
+---
 
 ## Error Codes
 
-The following list contains the SDK error codes and their possible resons.
+Following we list possible errors and their reasons.
 
-- ### General Errors
+### General Errors
 
-  Errors that can be thrown for all the chat types - server exceptions
+- `GeneralError` - Global error, specific data is not needed.
+- `AccessControlError` - requested access (to a critical system resource such as the file system or the network) is denied
+- `EmptyError` - Expected data was not delivered
+- `ExceptionError` - Error due to exception
+- `ServerError`
+- `ClientError`
+- `ConnectionException`
+- `TimeOutError`
+- `NotFoundError`
+- `ForbiddenError`
+- `MissingRequestParamsError`
 
-  - `GeneralError` - Some Error
-  - `AccessControlError` - requested access (to a critical system resource such as the file system or the network) is denied
-  - `EmptyError` - empty/null data
-  - `ExceptionError` - General exception
-  - `ServerError`
-  - `ClientError`
-  - `ConnectionException`
-  - `TimeOutError`
-  - `NotFoundError`
-  - `ForbiddenError`
-  - `MissingRequestParamsError`
+{: .mt-7}
+### Chat with AI Errors
 
-- ### Bot Errors
+- `ConversationCreationError` - unable to create conversation   
+  possible reasons:
+  - `NotEnabled` - Chat with the provided account is not supported
+  - `EmptyResponse` - empty/null response
+  - `NotAvailable` - connection problem
+  - `IllegalStateError` - account type is not recognized/other
+{: .mt-4}
+- `StatementError` - unable to send statement   
+  possible reasons:
+  - `ConversationNotFound` - connection problem
+  - `MissingRequestParamsError` - indicates missing parameters on a certain operation. Like, missing account data for upload or required missing entities data.
+{: .mt-4}
+- `ConfigurationsError` - unable to fetch configuration
 
-  Bot chat specific errors codes
+{: .mt-7}
+### Live/Messaging chat Errors
 
-  - `ConversationCreationError` - unable to create conversation
-
-    possible reasons:
-    - `NotEnabled` - Chat with the provided account is not supported
-    - `EmptyResponse` - empty/null response
-    - `NotAvailable` - connection problem
-    - `IllegalStateError` - account type is not recognized/other
-
-  - `StatementError` - unable to send statement
-  
-    possible reasons
-    - `ConversationNotFound` - connection problem
-    - `MissingRequestParamsError`
-      - `NRConversationMissingEntities`
-      - Chat can't be activated due to missing apiKey
-
-  - `ConfigurationsError` - unable to fetch configuration response
-    passible cause
-    - `EmptyError` - Failed to load configurations
-
-- ### Live/Async Errors
-
-  Bold chat specific errors
-
-  - `ChatCommunicationError` - There was a communication problem with the chat server
-  - `TemporaryDisconnection` - disconnected attempt reconnection
-  - `InvalidChatMessage` - The message received back from the server failed to parse as a valid JSON message.
-  - `FormSubmissionError`
-  - `LanguageChangeError`
-
-  - `PERMISSION_ERROR`(404)
-    possible reasons
-    - `IllegalStateError` - BoldChat should be prepared with valid apiKey
-    - internet permission is not available
-
-  - `ChatStartError`(503)
-     possible cause
-    - `MalformedAccessKey` - access key issue
-
-- ### Async specific Errors
-
-  Async chat specific errors
-
-  - `MalformedAccessKey`
-
-### Other Error pathes
-
-- **File Upload errors** - see the [file upload](/docs/advanced-topics/file-upload) documantation
+- `ChatCommunicationError` - There was a communication problem with the chat server.
+- `TemporaryDisconnection` - Connection disconnected, the system tries to reconnect.
+- `InvalidChatMessage` - A message parse failure.
+- `FormSubmissionError`
+- `LanguageChangeError`
+{: .mt-4}
+- `PERMISSION_ERROR`(404)   
+  possible reasons:
+  - `IllegalStateError` - Chat state is wrong for the requested action.
+  - Internet access was not granted
+{: .mt-4}
+- `ChatStartError`(503)   
+  possible reason:
+  - `MalformedAccessKey` - access key issue

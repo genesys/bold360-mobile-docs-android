@@ -6,7 +6,7 @@ grand_parent: Chat Configuration
 nav_order: 2
 ---
 
-# Chat with live agent {{site.data.vars.need-review}}
+# Chat with live agent 
 {: .no_toc}
 
 ## Table of contents

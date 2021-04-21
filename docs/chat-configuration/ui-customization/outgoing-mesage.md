@@ -7,7 +7,7 @@ nav_order: 4
 has_toc: false
 ---
 
-# Outgoing message {{site.data.vars.need-review}}
+# Outgoing message 
 {: .no_toc }
 
 ## Table of contents

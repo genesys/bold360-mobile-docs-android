@@ -42,4 +42,4 @@ Delete all preconfigured FAQs lists on the admin console.
 ---
 
 ## Related Topics
- - [`Welcome message`](./welcome-message)
+ - [`Welcome message`]({{'/docs/chat-configuration/extra/welcome-message' | relative_url}})

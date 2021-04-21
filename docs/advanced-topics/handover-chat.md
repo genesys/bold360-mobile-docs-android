@@ -5,7 +5,7 @@ parent: Advanced Topics
 nav_order: 10
 ---
 
-# Handover Chat {{site.data.vars.need-review}}
+# Handover Chat
 {: .no_toc}
 
 ## Table of contents

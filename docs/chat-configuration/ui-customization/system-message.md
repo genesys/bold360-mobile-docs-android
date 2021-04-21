@@ -7,7 +7,7 @@ grand_parent: Chat Configuration
 nav_order: 5
 ---
 
-# System Messages {{site.data.vars.need-work}}
+# System Messages
 {: .no_toc }
 
 ## Table of contents
@@ -21,12 +21,16 @@ nav_order: 5
 ## Overview 
 System originated messages, used for indicating chat state,notify of errors, providing the user with instructions, etc.   
 There are fixed messages and removable messages.
+{: .overview}
+
+## Messages types
 ### Fixed messages
 Appears in the chat and will stay there, Those messages are also passed on the `ChatElementListener` for history preservation.
 
 ### Removable messages
-Messages that are displyed in the chat for a period of time, until a fulfillment of some condition is met, usually during specific chat state), than automatically are removed. Those messages are not passed to the `ChatElementListener` and will not appear when chat gets restored from history.      
-> e.g., The `Wait` message that appears to the user while he waits for his live chat to accepted by an agent. 
+Messages that are displyed in the chat for a period of time, until a fulfillment of some condition is met, usually during specific chat state), than automatically are removed. Those messages are not passed to the `ChatElementListener` and will not appear when chat gets restored from history.  
+
+✍️ e.g. `Wait` message, appears on chat start, while the user waits for his live chat to be accepted by an agent. 
 
 ## Injecting System messages
 The hosting app can inject system messages after the chat was created, using the `ChatController.post` API.

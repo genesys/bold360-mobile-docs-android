@@ -62,4 +62,4 @@ BotAccount(...).apply{
  ---
 
 ## Related Topics
- - [`FAQs Message'](./faqs-message)
+ - [`FAQs Message']({{'/docs/chat-configuration/extra/faqs-message' | relative_url}})

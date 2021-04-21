@@ -7,7 +7,7 @@ grand_parent: Chat Configuration
 nav_order: 1
 ---
 
-# Customizing chat UI basics {{site.data.vars.need-review}}
+# Customizing chat UI basics 
 {: .no_toc }
 
 ## Table of contents
