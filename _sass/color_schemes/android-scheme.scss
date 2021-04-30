@@ -114,6 +114,20 @@ body {
   background-color: none;
 }
 
+.removed {
+  letter-spacing: 0.06em;
+  color: $orange-200;
+  background-color: none;
+  font-size: 14px;
+}
+
+.added {
+  letter-spacing: 0.06em;
+  color: $green-100;
+  background-color: none;
+  font-size: 15px;
+}
+
 blockquote {
   border-left: .20em solid $bluish-grey;
   color: #79899b;

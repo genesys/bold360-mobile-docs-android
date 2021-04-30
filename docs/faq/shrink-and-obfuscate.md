@@ -2,7 +2,7 @@
 layout: default
 title: Shrink and Obfuscate 
 parent: FAQ
-nav_order: 5
+nav_order: 2
 permalink: /docs/faq/shrink-and-obfuscate
 ---
 

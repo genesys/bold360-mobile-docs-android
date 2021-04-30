@@ -2,7 +2,7 @@
 layout: default
 title: Missing Entities Code Sample
 parent: FAQ
-nav_order: 3
+nav_order: 6
 # permalink: /docs/faq/missing-entities-example
 ---
 

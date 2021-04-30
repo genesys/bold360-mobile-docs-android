@@ -2,7 +2,7 @@
 layout: default
 title: Migrating to 410
 parent: FAQ
-nav_order: 2
+nav_order: 8
 # permalink: /docs/faq/migrating-to-4.1.0
 ---
 
