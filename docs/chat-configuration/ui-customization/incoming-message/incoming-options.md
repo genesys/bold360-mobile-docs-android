@@ -113,3 +113,8 @@ Incoming bot response can have several options to the user to choose from. Those
                 }
             }
       ```
+
+❗ Ticket Channels with custom script are not supported by the SDK.
+{: .strong-sub-title .mt-9 .mb-4}
+![]({{'/assets/images/ticket-channel-script.png' | relative_url}})
+{: .image-70 .mb-6}

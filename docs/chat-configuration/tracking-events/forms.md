@@ -114,7 +114,7 @@ Live chat language will always defaults to `English`. Configuring alternative la
 2. **Configure over prechat form**, via language selector field. Dynamically change the language of the current ongoing chat.
     
 ### Language field
-In order to enable the user, change the chat language over the prechat form, the following `Admin console` configurations, should be set.
+In order to enable users to change the default configured chat language, over the prechat form, the following `Admin console` configurations, should be set.
 
 - Language field should be checked for the accounts Chat window.   
 ![]({{'/assets/images/language-field-check.png' | relative_url}})

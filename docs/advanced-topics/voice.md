@@ -149,3 +149,20 @@ val chatController = ChatController.Builder(context)
 chatController.setTTSReadAlterProvider(provider)
 ```
 > Setting the TTSReadAlterProvider to null, releases the alter provider reference. Default readout provider will be used to prepare responses readout text.
+
+## Stop readout on phone interruptions
+chatController.onChatInterruption()
+
+
+
+
+LocalBroadcastManager.getInstance(baseContext).registerReceiver(
+    object : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            Log.d("callAction", "Got broadcast on call action")
+            if (chatController.isActive) {
+                chatController.onChatInterruption()
+            }
+        }
+    }, IntentFilter("android.CHAT_CALL_ACTION")
+)

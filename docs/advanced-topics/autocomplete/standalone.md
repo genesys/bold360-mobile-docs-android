@@ -86,7 +86,7 @@ botViewModel.onSelection.observe(this, Observer { selection ->
             result.error?.run { 
                 // handle error 
             } ?: result.data?.run { 
-                // handle article
+                // handle response data of type `Article`
             }
         }
     })

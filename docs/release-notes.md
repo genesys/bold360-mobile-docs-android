@@ -14,6 +14,71 @@ toc_float: true
 {: .det}
 <details open markdown="block">
 
+<summary> Version 4.3.0 </summary>
+
+# Version 4.3.0
+Release date: May 12, 2021
+{: .overview}
+
+### Features
+{: .notice}
+- Close button addion to the full screen article display
+- Request timeout can be configured via `ConversationSettings.requestTimeout(TIMEOUT_ML)`
+
+### Fixes 
+{: .notice}
+- On full screen article display, the title appears **as configured** on the KB.
+- Embeded video on full article display is visible and active.
+
+### Changes
+{: .notice}
+- SDK migration from Kotlin synthetics to Jetpack view binding 
+
+
+### Breaking Changes
+{: .breaking}
+- Standalone Autocomplete: the result data of `getArticle` activation after suggestion selection, changed to `Article`.  
+
+---
+
+### Dependencies 
+
+```gradle
+repositories {
+  maven {url "https://bold360ai-mobile-artifacts.s3.amazonaws.com/android/release/"}
+}
+
+implementation "com.bold360ai-sdk.core:sdkcore:4.3.0"
+implementation "com.bold360ai-sdk.conversation:engine:4.3.0"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.3.0"
+implementation "com.bold360ai-sdk.conversation:ui:4.3.0"
+implementation "com.bold360ai-sdk.core:accessibility:4.3.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+{: .mt-5}
+👉 $kotlin_version = 
+{: .knoenissue .notice}
+> On androidx apps '1.4.30' (or greater)   
+> None androidx apps '1.3.72'.
+
+{: .mt-5}
+👉 androidx users ONLY:  
+{: .knoenissue .notice} 
+> Make sure the constraintlayout version is at least of version 2.0.4.   
+  If needed add the following import:
+```gradle
+implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+```
+
+
+</details>
+
+{: .det .mt-2}
+<details close markdown="block">
+
 <summary> Version 4.2.1 </summary>
 
 # Version 4.2.1

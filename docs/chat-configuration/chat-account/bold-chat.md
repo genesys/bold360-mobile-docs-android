@@ -126,8 +126,14 @@ In case the hosting App implements the AccountInfoProvider, the [`AccountInfoPro
 
 ## Live Chat continuity
 Live chat continuity means to be able to relate chats to the same user. The agent can then see all the user's chats history. 
-> There is no option to reconnect to a disconnected chat (connection was closed), evan if was not "Ended".
-> A chat will remain active, and can be reassembeld (chat window reopen and history loading), evan if the chat window was closed, as long as it stays in the [`ChatControllers`]({{'/docs/chat-configuration/extra/chatcontroller' | relative_url}}), open chats, otherwise a new chat should be started.
+- There is no option to reconnect to a disconnected chat (connection was closed), evan if was not "Ended".
+
+- A chat will remain active, and can be reassembeld (chat window reopen and history loading), evan if the chat window was closed, as long as it stays open in the [`ChatController`]({{'/docs/chat-configuration/extra/chatcontroller' | relative_url}}), otherwise a new chat should be started.
+
+- When chat was disconnected for more than 5 min, the chat will be ended on the agent side, and eventually on the user side. If chat was closed on the agent side, but on the user side was not yet failed with an error, at this point, if users device got reconnected, the chat may be continued.   
+
+  ![]({{'/assets/images/back-to-live-after-disconnect.png' | relative_url}})
+{: .image-70 .mb-6}
 
 ### How to configure
 In order to relate chats to the same user and create some kind of continuity of user chats, you need to pass the `visitorId` value that was created on the first chat, for this user.
