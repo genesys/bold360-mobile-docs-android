@@ -28,8 +28,8 @@ The SDK provides un-configurable implementation of the following forms:
 - **Email** - Uses for submitting an email address, mid-chat, for the chat transcript delivery when the chat ends.
 {: .overview}
 
-Each form construct of dynamic list of fields according to admin console configurations set for the account's chat window.  
-Each field has properties which defines its look and behavior, among them: field type, isRequired, and if available, its current value.
+Each form construct of dynamic list of fields configured on the admin console and set for the account's chat window.  
+Each field has properties which defines its type and behavior. Among them: field type, isRequired, and if available, its default/current value.
 
 ![]({{'/assets/images/console-chat-forms.png' | relative_url}})
 {: .image-70}
