@@ -4,7 +4,7 @@ title: ChatController
 nav_exclude: true
 ---
 
-# ChatController  {{site.data.vars.need-work}}
+# ChatController
 {: .no_toc }
 
 ---
