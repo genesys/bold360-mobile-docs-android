@@ -17,8 +17,8 @@ nav_exclude: true
 ---
 
 ## Overview
-readmore article full screen is opened when `read more` indication is selected on the incoming message.
-The selected article is fully displayed. The articles channels and feedback component are also available on the displayed screen.
+Article page is presented when the `read more` indication is selected on the incoming message.
+The article's channels and feedback components are also available on the displayed screen.
 {: .overview}
 
 ## UI configurations
@@ -36,6 +36,21 @@ val customProvider = ChatUIProvider(context).apply {
         articleUIConfig.verticalMargin = x to y // Pair of top, bottom margin values, in pixels
 
         channelsUIProvider = ... // A QuickOptionUIProvider object
+        
+        // Configure the main background of the Article
+        background = ....
+
+         // Configure the article title
+        title.apply {
+            font = ... // A StyleConfig object
+            background = ... // A color int
+        }
+
+        // Configure the article body
+        body.apply {
+            setStyle( .. ) // Set the font using its font family (capable with css)
+            background = ... // A color int
+        }
     }
 }
 
