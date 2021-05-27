@@ -32,25 +32,8 @@ val customProvider = ChatUIProvider(context).apply {
         // Configure screen close button
         articleUIConfig.closeUIConfig = CloseUIConfig(...)
 
-        // adjust article content top, bottom marigns 
-        articleUIConfig.verticalMargin = x to y // Pair of top, bottom margin values, in pixels
-
         channelsUIProvider = ... // A QuickOptionUIProvider object
-        
-        // Configure the main background of the Article
-        background = ....
-
-         // Configure the article title
-        title.apply {
-            font = ... // A StyleConfig object
-            background = ... // A color int
-        }
-
-        // Configure the article body
-        body.apply {
-            setStyle( .. ) // Set the font using its font family (capable with css)
-            background = ... // A color int
-        }
+      
     }
 }
 
@@ -82,4 +65,29 @@ Hiding `Close` screen button
  val customProvider = ChatUIProvider(context).apply {
       articleUIProvider.articleUIConfig.closeUIConfig = null // Close button will ne be displayed on article screen
  }
+```
+
+### Article fonts and backgrounds configuration
+
+```kotlin
+articleUIConfig.closeUIConfig = CloseUIConfig(Context).apply {
+
+    // adjust article content top, bottom marigns 
+    articleUIConfig.verticalMargin = x to y // Pair of top, bottom margin values, in pixels
+
+    // Configure the main background of the Article
+    background = ....
+
+        // Configure the article title
+    title.apply {
+        font = ... // A StyleConfig object
+        background = ... // A color int
+    }
+
+    // Configure the article body
+    body.apply {
+        setStyle( .. ) // Set the font using its font family (capable with css)
+        background = ... // A color int
+    }
+}
 ```
