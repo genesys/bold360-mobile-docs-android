@@ -22,6 +22,7 @@ The article's channels and feedback components are also available on the display
 {: .overview}
 
 ## UI configurations
+
 The SDK provides a configurable _Article Screen_ implementation.
 Default configuration can be changed using `ChatUIProvider.articleUIProvider.articleUIConfig`.
 > Currently only customization by configuration changes is available. 
@@ -29,9 +30,9 @@ Default configuration can be changed using `ChatUIProvider.articleUIProvider.art
 ```kotlin
 val customProvider = ChatUIProvider(context).apply {
     articleUIProvider.apply {
-        // Configure screen close button
-        articleUIConfig.closeUIConfig = CloseUIConfig(...)
 
+        articleUIConfig = ... // A ArticleUIConfig object
+    
         channelsUIProvider = ... // A QuickOptionUIProvider object
       
     }
@@ -43,7 +44,43 @@ ChatController.Builder(context).apply{
         }
 ```
 
-### Article `Close` button <sub>Will be available from version 4.2.1</sub>
+### ArticleUIConfig
+
+```kotlin
+ArticleUIConfig(Context).apply {
+    
+    // Configure screen close button
+    closeUIConfig = CloseUIConfig(...)
+
+    // Adjust article content top, bottom marigns 
+    verticalMargin = x to y // Pair of top, bottom margin values, in pixels
+
+
+    // ---- Fonts and backgrounds configuration : ----
+   
+    // Configure the main background of the Article
+    background = ....
+
+    // Configure the article title
+    title.apply {
+        font = ... // A StyleConfig object
+        background = ... // A color, for example: Color.Red
+    }
+
+    // Configure the article body
+    body.apply {
+        
+        // Sets the body font style by defining: size in px, color, fontFamily and fontStyle.
+        // for example: setStyle(12.px, Color.Red, "monospace", Typeface.ITALIC)
+        setStyle( .. )
+
+        background = ... // A color, for example: Color.Red
+    }
+}
+```
+
+#### <b>Article `Close` button</b>
+
 By default a close button will be available on the top right of the screen. 
 Button configurations are defined by `CloseUIConfig` and are available for changes.
 
@@ -68,31 +105,6 @@ Hiding `Close` screen button
  }
 ```
 
-### Article fonts and backgrounds configuration
+### QuickOptionUIProvider
 
-```kotlin
-articleUIConfig.closeUIConfig = CloseUIConfig(Context).apply {
-
-    // adjust article content top, bottom marigns 
-    articleUIConfig.verticalMargin = x to y // Pair of top, bottom margin values, in pixels
-
-    // Configure the main background of the Article
-    background = ....
-
-    // Configure the article title
-    title.apply {
-        font = ... // A StyleConfig object
-        background = ... // A color, for example: Color.Red
-    }
-
-    // Configure the article body
-    body.apply {
-        
-        // Sets the body font style by defining: size in px, color, fontFamily and fontStyle.
-        // for example: setStyle(12.px, Color.Red, "monospace", Typeface.ITALIC)
-        setStyle( .. )
-
-        background = ... // A color, for example: Color.Red
-    }
-}
-```
+Follow the quick options configuration [documentation](incoming-options#QuickOptions) .
