@@ -56,6 +56,8 @@ val customProvider = ChatUIProvider(context).apply {
         // Adjust article content top, bottom marigns 
         verticalMargin = x to y // Pair of top, bottom margin values, in pixels
 
+        ///////////// Available from version 4.4.0: ///////////////
+        
         // Defines article page background:
         background = .... // Drawable, e.g. ColorDrawable(Color.BLUE) or ContextCompat.getDrawable(context, R.drawable.bg)
 
