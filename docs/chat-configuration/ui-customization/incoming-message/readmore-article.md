@@ -30,11 +30,13 @@ Default configuration can be changed using `ChatUIProvider.articleUIProvider.art
 ```kotlin
 val customProvider = ChatUIProvider(context).apply {
     articleUIProvider.apply {
+        articleUIConfig.apply { // screen's title and body configurations 
+            ...
+        }
 
-        articleUIConfig = ... // A ArticleUIConfig object
-    
-        channelsUIProvider = ... // A QuickOptionUIProvider object
-      
+        channelsUIProvider.apply { // Bottom channels UI configurations
+            ...
+        }
     }
 }
 
@@ -44,67 +46,69 @@ ChatController.Builder(context).apply{
         }
 ```
 
-### ArticleUIConfig
+### Article configurations
+Article available configurations defined by `ArticleUIConfig`. This class defines the available UI configuration properties for the article page.  
+Configured properties will override any configured font or color which were defined on the article source itself.  
+e.g. If the article was configured to display the content with some kind of font, and a font was configured on the articleUIConfig.body.setStyle(...), this font will take precedence.
+{: .overview}
 
 ```kotlin
-ArticleUIConfig(Context).apply {
+val customProvider = ChatUIProvider(context).apply {
     
-    // Configure screen close button
-    closeUIConfig = CloseUIConfig(...)
+    articleUIConfig.apply {
+        // Defines screen close button configurations:
+        closeUIConfig = CloseUIConfig(...)
 
-    // Adjust article content top, bottom marigns 
-    verticalMargin = x to y // Pair of top, bottom margin values, in pixels
+        // Adjust article content top, bottom marigns 
+        verticalMargin = x to y // Pair of top, bottom margin values, in pixels
 
+        // Defines article page background:
+        background = .... // Drawable, e.g. ColorDrawable(Color.BLUE) or ContextCompat.getDrawable(context, R.drawable.bg)
 
-    // ---- Fonts and backgrounds configuration : ----
-   
-    // Configure the main background of the Article
-    background = ....
+        // Defines article title configurations:
+        title.apply {
+            font = ... // A StyleConfig object, e.g. StyleConfig(16, ContextCompat.getColor(context, R.color.color_def), Typeface.DEFAULT)
+            background = ... // Drawable, e.g. ColorDrawable(Color.RED) or ContextCompat.getDrawable(context, R.drawable.title_bg)
+        }
 
-    // Configure the article title
-    title.apply {
-        font = ... // A StyleConfig object
-        background = ... // A color, for example: Color.Red
-    }
+        // Configure the article body
+        body.apply {
 
-    // Configure the article body
-    body.apply {
-        
-        // Sets the body font style by defining: size in px, color, fontFamily and fontStyle.
-        // for example: setStyle(12.px, Color.Red, "monospace", Typeface.ITALIC)
-        setStyle( .. )
+            // Defines the font configurations for the article body:
+            // Sets font's size in px, color, fontFamily and fontStyle.
+            // e.g. setStyle(12.px, Color.GREEN, "monospace", Typeface.ITALIC)
+            setStyle( .. )
 
-        background = ... // A color, for example: Color.Red
+            background = ... // Int color, e.g. Color.BLACK
+        }
     }
 }
 ```
 
-#### <b>Article `Close` button</b>
-
+### Article `Close` button
 By default a close button will be available on the top right of the screen. 
-Button configurations are defined by `CloseUIConfig` and are available for changes.
-
-```
-articleUIConfig.closeUIConfig = CloseUIConfig(Context).apply {
-
-    position = ...  // Alignment setting according to UiConfigurations.Alignment options
-    drawable = ....  // A DrawableConfig object, setting the drawable to display
-    closeText = ... // close text, in case we want to display a text along side the image
-
-    // >> for text only set drawableConfig to null.
-}
-
-```
-
-Hiding `Close` screen button
-{: .strong-sub-title}
+Button configurations are defined by `CloseUIConfig`.
+{: .overview}
 
 ```kotlin
- val customProvider = ChatUIProvider(context).apply {
-      articleUIProvider.articleUIConfig.closeUIConfig = null // Close button will ne be displayed on article screen
- }
+val customProvider = ChatUIProvider(context).apply {
+    articleUIConfig.closeUIConfig.apply {
+        position = ...  // Alignment setting according to UiConfigurations.Alignment options
+        drawable = ....  // A DrawableConfig object, setting the drawable to display. null, for text only display.
+        closeText = ... // close text, in case we want to display a text along side the image
+    }
+}
 ```
+
+> Hiding `Close` screen button display, can be done by setting it's configuration to null
+    ```kotlin
+     val customProvider = ChatUIProvider(context).apply {
+          articleUIProvider.articleUIConfig.closeUIConfig = null // Close button will ne be displayed on article screen
+     }
+    ```
 
 ### QuickOptionUIProvider
+Defines the channels display at the article page bottom.   
+Follow [quick options configuration]({{'/docs/chat-configuration-ui-customization/incoming-message/incoming-options#QuickOptions' | relative_url}}).
 
-Follow the quick options configuration [documentation](incoming-options#QuickOptions) .
+
