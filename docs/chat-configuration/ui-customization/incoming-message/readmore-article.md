@@ -1,11 +1,10 @@
 ---
 layout: default
-title: readmore Article
+title: Article page 
 np_toc: true
 nav_exclude: true
 ---
-
-# readmore Article 
+# Article page <sub>readmore</sub> 
 {: .no_toc }
 
 ## Table of contents
@@ -22,7 +21,6 @@ The article's channels and feedback components are also available on the display
 {: .overview}
 
 ## UI configurations
-
 The SDK provides a configurable _Article Screen_ implementation.
 Default configuration can be changed using `ChatUIProvider.articleUIProvider.articleUIConfig`.
 > Currently only customization by configuration changes is available. 
@@ -33,13 +31,11 @@ val customProvider = ChatUIProvider(context).apply {
         articleUIConfig.apply { // screen's title and body configurations 
             ...
         }
-
         channelsUIProvider.apply { // Bottom channels UI configurations
             ...
         }
     }
 }
-
 ChatController.Builder(context).apply{
             //... do some initiations
             chatUIProvider(customProvider)
@@ -47,14 +43,12 @@ ChatController.Builder(context).apply{
 ```
 
 ### Article configurations
+{: .mt-8}
 Article available configurations defined by `ArticleUIConfig`. This class defines the available UI configuration properties for the article page.  
-Configured properties will override any configured font or color which were defined on the article source itself.  
-e.g. If the article was configured to display the content with some kind of font, and a font was configured on the articleUIConfig.body.setStyle(...), this font will take precedence.
-{: .overview}
+Configured properties will override any configured font or color which were defined on the article source itself. e.g. If the article was configured to display the content with some kind of font, and a font was configured on the articleUIConfig.body.setStyle(...), this font will take precedence.
 
 ```kotlin
 val customProvider = ChatUIProvider(context).apply {
-    
     articleUIConfig.apply {
         // Defines screen close button configurations:
         closeUIConfig = CloseUIConfig(...)
@@ -73,12 +67,10 @@ val customProvider = ChatUIProvider(context).apply {
 
         // Configure the article body
         body.apply {
-
             // Defines the font configurations for the article body:
             // Sets font's size in px, color, fontFamily and fontStyle.
             // e.g. setStyle(12.px, Color.GREEN, "monospace", Typeface.ITALIC)
             setStyle( .. )
-
             background = ... // Int color, e.g. Color.BLACK
         }
     }
@@ -86,9 +78,9 @@ val customProvider = ChatUIProvider(context).apply {
 ```
 
 ### Article `Close` button
+{: .mt-8}
 By default a close button will be available on the top right of the screen. 
 Button configurations are defined by `CloseUIConfig`.
-{: .overview}
 
 ```kotlin
 val customProvider = ChatUIProvider(context).apply {
@@ -100,14 +92,15 @@ val customProvider = ChatUIProvider(context).apply {
 }
 ```
 
-> Hiding `Close` screen button display, can be done by setting it's configuration to null
-    ```kotlin
-     val customProvider = ChatUIProvider(context).apply {
-          articleUIProvider.articleUIConfig.closeUIConfig = null // Close button will ne be displayed on article screen
-     }
-    ```
+> Hiding `Close` screen button display, can be done by setting it's configuration to null.
+  ```kotlin
+  val customProvider = ChatUIProvider(context).apply {
+      articleUIProvider.articleUIConfig.closeUIConfig = null
+  }
+  ```
 
 ### QuickOptionUIProvider
+{: .mt-8}
 Defines the channels display at the article page bottom.   
 Follow [quick options configuration]({{'/docs/chat-configuration-ui-customization/incoming-message/incoming-options#QuickOptions' | relative_url}}).
 
