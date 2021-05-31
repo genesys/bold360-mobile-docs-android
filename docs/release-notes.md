@@ -14,6 +14,73 @@ toc_float: true
 {: .det}
 <details open markdown="block">
 
+<summary> Version 4.4.0 </summary>
+
+# Version 4.4.0
+Release date: Jun 05, 2021
+{: .overview}
+
+### Features
+{: .notice}
+- Accessibility support:
+  - Agent `Typing indication` - accessibility read of configured text when tapped.   
+  <sub>`[BLD-44393]`</sub>
+  - Unlabeled button - accessibility announcment and focus lose handling, on chat screen.  
+  <sub>`[BLD-44391]`, `[BLD-44397]`</sub>
+  - Unlabeled button - accessibility announcment handling on chat forms.
+  - Chat messages tap - tapped message is read by accessibility service.   
+  <sub>`[BLD-44395]`</sub>
+  - Adding support on live chatbar
+  - Adding partial support on readmore indication and article fragment. 
+  - Adding support on Instant feedback UI.
+  - Adding partial support on email transcript form.
+  - Adding support on chat scroll button
+{: .mb-4}
+
+- Article Page configurations
+  - Adding UI configuration properties to enable changing the article font style and colors.   
+  <sub>`[BLD-46898]`</sub>
+
+---
+
+### Dependencies 
+
+```gradle
+repositories {
+  maven {url "https://bold360ai-mobile-artifacts.s3.amazonaws.com/android/release/"}
+}
+
+implementation "com.bold360ai-sdk.core:sdkcore:4.4.0"
+implementation "com.bold360ai-sdk.conversation:engine:4.4.0"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.4.0"
+implementation "com.bold360ai-sdk.conversation:ui:4.4.0"
+implementation "com.bold360ai-sdk.core:accessibility:4.4.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+{: .mt-5}
+👉 $kotlin_version = 
+{: .knoenissue .notice}
+> On androidx apps '1.4.30' (or greater)   
+> None androidx apps '1.3.72'.
+
+{: .mt-5}
+👉 androidx users ONLY:  
+{: .knoenissue .notice} 
+> Make sure the constraintlayout version is at least of version 2.0.4.   
+  If needed add the following import:
+```gradle
+implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+```
+
+
+</details>
+
+{: .det .mt-2}
+<details close markdown="block">
+
 <summary> Version 4.3.0 </summary>
 
 # Version 4.3.0
