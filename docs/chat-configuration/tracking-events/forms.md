@@ -103,6 +103,24 @@ boldAccount.info.language = ...
 Setting a departmentId on the extraData will designate the chat to this department, if available.    
 If a prechat form is enabled for that chat, the requested department will be set as `default value` on the departmets selection field.
 
+### Custom extraData fields
+{: .mb-4 .mt-6}
+
+Custom fields can be created on the [Admin console]({{'/assets/images/custom_field_def.png' | relative_url}}). 
+Those fields an be set to prechat and postchat forms.
+Custom fileds can be defined as `Hidden`, if value should be passed with extraData, but should not be displayed on the chat forms.
+Once defined, this filed is available for App configuration via the chat extraData configurations.   
+```kotlin
+    // Custom fields are prefixed with `custom_` on the extraData.
+    account.addExtraData("custom_fieldName", field_value));
+```
+
+{: .mt-5}
+The custom fields can be viewed on the agent console, under `Customer Information` section .
+
+![]({{'/assets/images/custom_field_agent.png' | relative_url}})
+{: .image-40 .mt-5}
+
 ---
 
 ## Prechat form 
