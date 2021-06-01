@@ -22,14 +22,11 @@ Release date: Jun 05, 2021
 
 ### Features
 {: .notice}
-- Accessibility support:
-  - Agent `Typing indication` - accessibility read of configured text when tapped.   
-  <sub>`[BLD-44393]`</sub>
-  - Unlabeled button - accessibility announcment and focus lose handling, on chat screen.  
-  <sub>`[BLD-44391]`, `[BLD-44397]`</sub>
+- [Accessibility support]({{'/docs/faq/accessibility' | relative_url}}):
+  - Agent `Typing indication` - accessibility read of configured text when tapped. 
+  - Unlabeled button - accessibility announcment and focus lose handling, on chat screen.
   - Unlabeled button - accessibility announcment handling on chat forms.
-  - Chat messages tap - tapped message is read by accessibility service.   
-  <sub>`[BLD-44395]`</sub>
+  - Chat messages tap - tapped message is read by accessibility service.
   - Adding support on live chatbar
   - Adding partial support on readmore indication and article fragment. 
   - Adding support on Instant feedback UI.
@@ -38,8 +35,7 @@ Release date: Jun 05, 2021
 {: .mb-4}
 
 - Article Page configurations
-  - Adding UI configuration properties to enable changing the article font style and colors.   
-  <sub>`[BLD-46898]`</sub>
+  - Adding UI configuration properties to enable changing the article font style and colors.
 
 ---
 

@@ -113,3 +113,11 @@ The instant feedback display can be override by the app, via `ChatUIProvider`.
                         }.build(account...)
 
     ```
+
+## Accessibility support
+Feedback buttons are read to the user when the accessibility service is turned on.   
+The feedback texts are configured to the accessibility read as defined in the admin console for the [positive and negative feedback texts]({{'/assets/images/instant-feedback-text.png' | relative_url}}).
+If feedback texts were not configured on the admin console, the SDK's string resources will be used as defined on `R.string.instant_feedback_no` for negative and `R.string.instant_feedback_yes` for positive.
+
+When a feedback type is selected by the user, some messages and actions will be available to the user, depends on his selection. The messages and optional actions are handled by the accessibility service as other messages in the chat.
+
