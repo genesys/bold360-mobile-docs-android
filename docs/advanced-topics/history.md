@@ -20,27 +20,23 @@ nav_order: 1
 ## Overview
 > ##### History management is out of the SDKs scope.  
 
-The SDK enables the hosting app to provide its own implementation, and maintain an updated chat history, by listening to triggered events whenever chat elements changes.
+The SDK enables the hosting app to provide its own implementation, and maintain an updated chat history, by listening to elements related triggered events.   
+The SDK interacts with the hosting app's provided implementation, during chat progression. Fetches stored elements and updates with certain methods to keep an accurate view of the chat elements state.
 {: .overview}
 
-## How is it done
-The hosting App provides a `ChatElementListener` implementation, on ChatController creation. This listener should be fully implemented in order to be notified of all chat changes.   
-The SDK interacts with this listener in order to fetch chat history on chat load, and to update history records, when chat elements were changed.
+### Listening to events with ChatElementListener
+The hosting App sets a [`ChatElementListener`]({{'/docs/chat-configuration/tracking-events/events-and-notifications/#chat-elements-events' | relative_url}}) implementation, to the `ChatController`.   
+In order to be updated with all changes, and maintain an updated chat history, the provided `ChatElementListener` implementation, should implement, at least, the following methods:
 
-### ChatElementListener overview
-The `ChatElementListener` will be used for the following operations.
-- Fetch chat elements from stored history on chat load.   
-Calling `ChatElementListener.onFetch`
+- `onFetch`: Fetches chat elements from history implementation storage when the chat loads.   
 
-- Notifies of an addition of chat element to the chat.  
-Calling `ChatElementListener.onReceive`
+- `onReceive`: Notifies of a `StorableChatElement` addition to the chat. 
 
-- Notifies of removal of stored element from the chat.   
-Calling `ChatElementListener.onRemove`
+- `onRemove`: Notifies of a chat element removal from the chat. 
 
-- Notifies of an update on chat element data.  
-Calling `ChatElementListener.onUpdate`
+- `onUpdate`: Notifies of an update to chat element data. 
 
+**Only changes on `StorableChatElement` implementing elements, will trigger the above mentioned methods.**
 ### 📚  Guidelines
 - The provided history management implementation decides, if chat history fetching is done by paging, and if so, what the page size should be, or fetch of one block with all messages.  
 On chat load,  the SDK requests the first history block, and display it on the chat, if was provided. As long as the user keeps scrolling upward to see older messages, the SDK will continue its requests for more history blocks, until an empty block is received, which indicates, that no more history is available for this chat.

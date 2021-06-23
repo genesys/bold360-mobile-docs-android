@@ -7,7 +7,7 @@ grand_parent: Chat Configuration
 nav_order: 9
 ---
 
-# Date and Time {{site.data.vars.need-work}}
+# Date and Time
 {: .no_toc }
 
 ## Table of contents
@@ -46,13 +46,13 @@ In order to change default datestamp display:
         }
     }
 
-    val settings = ConversationSttongs()
-                    .datestamp(enable, myDatestampFactory)
+    val settings = ConversationSettings()
+                    .datestamp(true, myDatestampFactory)
                     //... set more settings
 
     ChatController.Builder(context).apply{
             //... do some initiations
-            conversationSettings(setting)
+            conversationSettings(settings)
         }
     ```
 
@@ -67,6 +67,20 @@ Uses the pattern `"EEE, d MMM, yyyy"` to display dates
 - FriendlyDatestampFormatFactory <sub>_default_</sub>   
 {: .text-blue-300}   
 Provides more common display, using `today`, `yesterday` phrases.
+
+### Disabling Datestamp display
+The SDK enables to disable datestamp headers display altogther, as follows: 
+```kotlin
+// deactivate datestamps
+val settings = ConversationSettings()
+                    .datestamp(false)
+                    //... set more settings
+
+ChatController.Builder(context).apply{
+        //... do some initiations
+        conversationSettings(settings)
+    }
+```
 
 ---
 

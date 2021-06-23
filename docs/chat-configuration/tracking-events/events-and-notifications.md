@@ -7,7 +7,7 @@ nav_order: 3
 # permalink: /docs/chat-configuration/tracking-events/events-and-notifications
 ---
 
-# Events and Notifications {{site.data.vars.force-work}}
+# Events and Notifications {{site.data.vars.need-work}}
 {: .no_toc }
 
 ## Table of contents
@@ -19,27 +19,63 @@ nav_order: 3
 ---
 
 ## Overview
-...
+While the chat is in progress, the SDK triggers and notifies about changes, events and actions.   
+The hosting app can listen and register to those events and notifications.  
+The hosting app, by catching those events, can be updated with the chat state and can react, and handle actions that are not provided by the SDK.
 
-## Listening to chat elements changes
-In order to be able to be notified of all elements changes in the chat, implement `ChatElementListener`, and register as follows:
+## Chat elements events
+While the chat is in progress `chat elements` are added, updated, removed and fetched on the chat.
+`Chat elements` are the items that you see on your chat, each item has a purpose and type.   
+Every action that applies to a `chat element` may trigger an event. i.e. addition of incoming message to the chat, will trigger an `onReceive` event.
+
+### How to listen
+In order to listen to chat elements events, implement `ChatElementListener`, and apply it to the `ChatController` as follows:
 ```kotlin
+// on ChatController creation:
 ChatController.Builder(context)....
     .chatElementListener(listenerImpl)
-
 //OR
-
 chatController.setChatElementListener(listenerImpl)
 ```
-### Possible updates 
-`onReceive`(req) - on element inserted to the chat.   
-`onRemove`(opt) - element was removed from the chat.   
-`onUpdate`(opt) - element data was updated.
+### ChatElementListener events: 
+- `intercept`<sub>(optional)</sub> - Called when a chat element is about to be injected to the chat.   
+- `onReceive`<sub>(required)</sub> - Called when a chat element was injected to the chat.   
+- `onRemove`<sub>(optional)</sub> - Called when a chat element was removed from the chat.   
+- `onUpdate`<sub>(optional)</sub> - Called when a chat element data was updated.
+- `onFetch`<sub>(optional)</sub> - Called when a chat starts, fetching previous chat elements from history implementation, if one available.
 
-`onFetch`(opt) - implement this in order to enable display of previous chat content. (Historic content)
+> All methods except for `intercept` are related to chat history maintainig, and can be viewed on [History Support]({{'/docs/advanced-topics/history' | relative_url}}) page.
+
+### Intercepting chat elements <sub>since 4.5.0</sub>
+{: .mt-7}
+The SDK opens a new listening channel to hosting apps, were they can be notified of chat elements **before** injection to the chat, and be able to reject elements and effect the chat flow.   
+In contarst to the `onReceive` method, the `intercept` is called on all chat elements; timed messages, options, feedback, etc. `intercept` can also be used by the hosting app to react, activate, announce to chat elements. e.g. `intercept` can be used to announce with accessibility API of specific chat elements.
+
+> Exceptional:     
+  Chat headers, datestamp elements are not interceptable. In order to controll their display check [Date and Time]({{'/docs/chat-configuration/ui-customization/date-and-time/#disabling-datestamp-display' | relative_url}}) page.
+
+`intercept` 
+{: .strong-sub-title .mt-6}
+- Chat elements are passed to this method under the `ElementModel` interface hierarchy.
+- Return value is boolean, defines if the element should be processed and added to the chat, or be rejected. When a chat element is being rejected, its following logic is rejected as well. e.g. rejected outgoing message, will not be sent to the bot/agent. 
+- Synced method and should not handle long tasks.
+- Default implementation doesn't intercept elements, all are accepted and injected to the chat.
+
+Potential usages
+{: .strong-sub-title .mt-6}
+- Accessibility service API usage for announcing of elements.(todo: link to sample)
+- Intercept informative elements as, system messages, from being injected to the chat, and display the needed information on apps external UI component.
+- Disable features for all or specific messages. e.g. prevent [instant feedback]({{'/docs/advanced-topics/feedback/instant-feedback' | relative_url}}) on bot reponses.
 
 
-### Ongoing events
+> Disclaimer:   
+{: .strong-sub-title .mt-6}
+    `intercep` implementation is optional, therefore, when the default behavior is being overriden   
+    by hosting app implementation, the responsibility of chat integrity falls on the app. 
+
+---
+
+## Ongoing events
 In order to be notified over events that occurs during chat lifecycle, implement `ChatEventListener` and pass it on `ChatController` creation, as follows:
 ```kotlin
 ChatController.Builder(context)...

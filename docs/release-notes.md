@@ -14,6 +14,82 @@ toc_float: true
 {: .det}
 <details open markdown="block">
 
+<summary> Version 4.5.0 </summary>
+
+# Version 4.5.0
+Release date: Jul 07, 2021
+{: .overview}
+
+### Features
+{: .notice}
+
+- Chat elements interception   
+Hosting Apps can now listen to every element that is injected to the chat by the SDK and can intercept that injection, and **reject** the entire functionality that may have followed the element incertion.
+By listening on this event method, hosting apps can also activate any accessibility service API they need to.
+
+- [Accessibility support]({{'/docs/faq/accessibility' | relative_url}}):
+  - In message links are now clickable. 
+{: .mb-4}
+
+- Article Page configurations
+  - Some font related configurations addition.
+
+
+
+### Breaking Changes
+{: .breaking}
+- **RoundedImageView** library is no longer accessible via the SDK.
+Hosting apps that needs this library, should import it on app side.
+```gradle 
+implementation "com.makeramen:roundedimageview:2.3.0"
+```
+
+### Changes
+{: .knownissue}
+- **Relevant only in case the hosting app has a ChatHandler implementation:**   
+Changes on `ChatElementHandler.injectElement(statement: ChatStatement)` and `ChatElementHandler.injectElement(element: ChatElement)`. nullable second parameter was added on both and their return value is of type `ChatElement?` to indicate if injection was done. 
+
+
+---
+
+### Dependencies 
+
+```gradle
+repositories {
+  maven {url "https://bold360ai-mobile-artifacts.s3.amazonaws.com/android/release/"}
+}
+
+implementation "com.bold360ai-sdk.core:sdkcore:4.5.0"
+implementation "com.bold360ai-sdk.conversation:engine:4.5.0"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.5.0"
+implementation "com.bold360ai-sdk.conversation:ui:4.5.0"
+implementation "com.bold360ai-sdk.core:accessibility:4.5.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+{: .mt-5}
+👉 $kotlin_version = 
+{: .knoenissue .notice}
+> On androidx apps '1.4.30' (or greater)   
+> None androidx apps '1.3.72'.
+
+{: .mt-5}
+👉 androidx users ONLY:  
+{: .knoenissue .notice} 
+> Make sure the constraintlayout version is at least of version 2.0.4.   
+  If needed add the following import:
+```gradle
+implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+```
+
+
+</details>
+
+{: .det .mt-2}
+<details close markdown="block">
+
 <summary> Version 4.4.0 </summary>
 
 # Version 4.4.0
