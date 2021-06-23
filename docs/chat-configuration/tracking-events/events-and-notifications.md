@@ -76,41 +76,17 @@ Potential usages
 ---
 
 ## Ongoing events
-In order to be notified over events that occurs during chat lifecycle, implement `ChatEventListener` and pass it on `ChatController` creation, as follows:
+During chat progress, the SDK raises events such [lifecycle state]({{'/docs/chat-configuration/tracking-events/chat-lifecycle' | relative_url}}) updates and action requests, e.g. url link press.   
+In order to listen to those events, implement `ChatEventListener` and set it to `ChatController`, as follows:
+
 ```kotlin
+// on instance creation:
 ChatController.Builder(context)...
     .chatEventListener(ChatEventListenerImpl)
+// OR later
+chatController.chatEventListener = ChatEventListenerImpl 
 ```
-Among those events: [lifeCycle, state events]({{'/docs/chat-configuration/tracking-events/chat-lifecycle' | relative_url}}), links/urls/phone-number selections, etc.
 
-### Listening to url navigation
-  The SDK receives to url clicks from articles/quick options and channels.
-  Implement `ChatEventListener.onUrlLinkSelected(url: String)` method in order to receive those click events.
-
-  <details close markdown="block">
-  <summary>Configuring in-app navigation channels on Bold360ai console.</summary>
-  
-    Follow those steps:   
-    
-    1. Navigate to Channeling -> Channeling Policy
-
-    2. Create a new Channel.
-
-    3. Fill up the next fields:
-        * Channel name and description
-        * Who’s the target audience
-    
-    4. At `What To Do` select `Ticket`
-    
-    5. Fill the relevant fields:
-        * Label
-        * Button action -> `Open Custom URL`
-        * Fill the Link Url with the inApp navigation prefix (example: inApp://MainFragment)
-    
-    6. Click on Save Settings
-
-</details>
-  
 ---
 
 ## Subscribing to notifications
