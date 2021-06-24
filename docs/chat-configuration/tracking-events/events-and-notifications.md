@@ -4,10 +4,9 @@ title: Events and Notifications
 parent: Tracking Events
 grand_parent: Chat Configuration
 nav_order: 3
-# permalink: /docs/chat-configuration/tracking-events/events-and-notifications
 ---
 
-# Events and Notifications {{site.data.vars.need-work}}
+# Events and Notifications
 {: .no_toc }
 
 ## Table of contents
@@ -20,7 +19,7 @@ nav_order: 3
 
 ## Overview
 While the chat is in progress, the SDK triggers and notifies about changes, events and actions.   
-The hosting app can listen and register to those events and notifications.  
+The hosting app can listen and register to those events and notifications. 
 The hosting app, by catching those events, can be updated with the chat state and can react, and handle actions that are not provided by the SDK.
 
 ## Chat elements events
@@ -46,8 +45,9 @@ chatController.setChatElementListener(listenerImpl)
 
 > All methods except for `intercept` are related to chat history maintainig, and can be viewed on [History Support]({{'/docs/advanced-topics/history' | relative_url}}) page.
 
-### Intercepting chat elements <sub>since 4.5.0</sub>
-{: .mt-7}
+### Intercepting chat elements <sub>[since 4.5.0]({{'/docs/release-notes/#version-450' | relative_url}})</sub>
+{: .mt-7 .mb-3}
+
 The SDK opens a new listening channel to hosting apps, were they can be notified of chat elements **before** injection to the chat, and be able to reject elements and effect the chat flow.   
 In contarst to the `onReceive` method, the `intercept` is called on all chat elements; timed messages, options, feedback, etc. `intercept` can also be used by the hosting app to react, activate, announce to chat elements. e.g. `intercept` can be used to announce with accessibility API of specific chat elements.
 
@@ -63,9 +63,10 @@ In contarst to the `onReceive` method, the `intercept` is called on all chat ele
 
 Potential usages
 {: .strong-sub-title .mt-6}
-- Accessibility service API usage for announcing of elements.(todo: link to sample)
+- Accessibility service API usage for announcing of elements before they are added to the chat.
 - Intercept informative elements as, system messages, from being injected to the chat, and display the needed information on apps external UI component.
 - Disable features for all or specific messages. e.g. prevent [instant feedback]({{'/docs/advanced-topics/feedback/instant-feedback' | relative_url}}) on bot reponses.
+- Prevent bad language on the chat, by intercepting those messages.
 
 
 > Disclaimer:   
@@ -73,10 +74,14 @@ Potential usages
     `intercep` implementation is optional, therefore, when the default behavior is being overriden   
     by hosting app implementation, the responsibility of chat integrity falls on the app. 
 
+
+👉 [See interception sample](https://github.com/bold360ai/bold360-mobile-samples-android/blob/master/SDKSamples/app/src/main/java/com/sdk/samples/topics/ElementsInterception.kt)
+{: .mt-6}
+
 ---
 
 ## Ongoing events
-During chat progress, the SDK raises events such [lifecycle state]({{'/docs/chat-configuration/tracking-events/chat-lifecycle' | relative_url}}) updates and action requests, e.g. url link press.   
+During chat progress, the SDK raises other events such [lifecycle state events]({{'/docs/chat-configuration/tracking-events/chat-lifecycle' | relative_url}}) and action requests, when user selects url links, phone numbers or file upload on live chat.   
 In order to listen to those events, implement `ChatEventListener` and set it to `ChatController`, as follows:
 
 ```kotlin
@@ -90,45 +95,37 @@ chatController.chatEventListener = ChatEventListenerImpl
 ---
 
 ## Subscribing to notifications
-ChatController provides a notifications service. You can subscribe to this service by indicating on what notifications you want to be notified of.
-```java
-chatController.subscribeNotifications(NotifiableImpl, notification, notification,...)
-```
-**Currently we support the following notifications:**
-- ChatNotifications.PostChatFormSubmissionResults
-- ChatNotifications.UnavailabilityFormSubmissionResults
-- TrackingEvent.OperatorTyping
+ChatController provides a notifications service, for tracking events, such, file upload progress and status, agent typing and forms submission results.   
 
-In order to subscribe to notifications you need to implement the `Notifiable` interface, and pass it on the subscription request.
-```java
-// Implementing the Notifiable interface:
-class NotificationsReceiver implements Notifiable {
-    @Override
-    public void onNotify(@NotNull Notification notification, @NotNull DispatchContinuation dispatcher) {
-        switch (notification.getNotification()) {
-            case ChatNotifications.PostChatFormSubmissionResults:
-            case ChatNotifications.UnavailabilityFormSubmissionResults:
-                FormResults results = (FormResults) notification.getData();
-                // get the submitted formType:
-                String formType = results.getFormType();
-                
-                // Check if we got error on submission:
-                NRError error = results.getError(); 
+Subscribing the the notifications service is done as follows:
+1. Implement Notifiable interface, to receive notifications.
+  ```kotlin
+  // Implementing the Notifiable interface:
+  class NotificationsReceiver : Notifiable {
+      override fun onNotify( notification : Notification, dispatcher: DispatchContinuation) {
+          when (notification.notification) {
+              ChatNotifications.PostChatFormSubmissionResults -> {}
+              Notifications.UploadStart -> {}
+              ...
+          }
+      }
+  }
+  ```
 
-                results.getData(FieldKey.Email)
-                break;
-        }
-    }
-}
+2. Select desired notifications from the supported notifications.
+> <details>      <summary>Supported notifications:</summary>
+    PostChatFormSubmissionResults, UnavailabilityFormSubmissionResults, OperatorTyping, Notifications.UploadEnd, Notifications.UploadStart, Notifications.UploadProgress, Notifications.UploadFailed, LanguageChanged, Notifications. QueuePosition      </details>
 
-// declaring notifications handler as a member: 
-private Notifiable notificationsReceiver = new NotificationsReceiver();
+3. Subscribe to the notifications service with `ChatController` API.   
+   ❗ Since we save the subscribing `Notifaiable` implementation as `WeakReference` on the SDK, make sure to keep hard reference to your instance on the app side, to avoid instance lost. (e.g. class member)
+    
+   ```kotlin
+   val notificationsReceiver = NotificationsReceiver() 
+   chatController.subscribeNotifications(notificationsReceiver, ChatNotifications.PostChatFormSubmissionResults, Notifications.UploadStart, ...)
+   ```
 
-// subscribing to notifications:
-chatController.subscribeNotifications(notificationsReceiver, ChatNotifications.PostChatFormSubmissionResults,
-                ChatNotifications.UnavailabilityFormSubmissionResults);
-```
-Once the notification are no longer needed or you want to release services, call to unsubscribe.
-```java
+⚜️ Once receiving notifications is no longer needed, or on resources release, **unsubscribe** from the notifications service with `ChatController` API, as follows:
+{: .mt-8}
+```kotlin
 chatController.unsubscribeNotifications(notificationsReceiver);
 ```

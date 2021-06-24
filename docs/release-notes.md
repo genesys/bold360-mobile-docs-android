@@ -43,6 +43,10 @@ Hosting apps that needs this library, should import it on app side.
 ```gradle 
 implementation "com.makeramen:roundedimageview:2.3.0"
 ```
+- `Article` class import change:   
+Use `import com.nanorep.convesationui.structure.elements.Article`   
+Instead of `import com.nanorep.convesationui.views.autocomplete.Article`
+
 
 ### Changes
 {: .knownissue}

@@ -2,3 +2,6 @@
 need-work: <span class='btn btn-orange'>Work in progress</span>
 need-review: <span class='btn btn-orange btn-green'>Review</span>
 force-work: <span class='btn btn-orange btn-red'>Under construction</span>
+
+
+# emojis in use: ⚜️ ❗ 👉 📚
