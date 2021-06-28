@@ -58,16 +58,16 @@ val customProvider = ChatUIProvider(context).apply {
 
         ///////////// Available from version 4.4.0: ///////////////
         
-        // Configure article page background:
+        // Configure the page's background:
         background = .... // Drawable, e.g. ColorDrawable(Color.BLUE) or ContextCompat.getDrawable(context, R.drawable.bg)
 
-        // Configure article title configurations:
+        // Configure the article's title:
         title.apply {
             font = ... // A StyleConfig object, e.g. StyleConfig(16, ContextCompat.getColor(context, R.color.color_def), Typeface.DEFAULT)
             background = ... // Drawable, e.g. ColorDrawable(Color.RED) or ContextCompat.getDrawable(context, R.drawable.title_bg)
         }
 
-        // Configure the article body configurations:
+        // Configure the article's body:
         body.apply {
             // Defines the font configurations for the article body:
             // Sets font's size in px, color, fontFamily and fontStyle.
