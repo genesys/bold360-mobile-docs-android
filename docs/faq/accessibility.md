@@ -20,7 +20,8 @@ nav_order: 7
 |1.3.1 Info and Relationships|Partially supports|Live chatbar|
 | 1.3.5 Identify Input Purpose|Partially supports|Email chat transcript form |
 |2.1 Keyboard Accessible|Partially supports|keyboard open close announcements |
-|2.4.4 Link Purpose<br> 2.4.9 Link Purpose|Partially supports|Links content engagement |
+|2.4.4 Link Purpose<br> 2.4.9 Link Purpose|Partially supports|Links content engagement.<br>Post click Link announcements can be done by [listenning to link events](./chat-links#Chat_url_links_activation).
+And then control the Link announcements after the link click.|
 |3.1 Readable <br> 1.3.5 Identify Input Purpos|Partially supports|readmore indication and article page display |
 |3.1 Readable|Partially supports| Messages content read|
 ||Partially supports|Autocompelete suggestion selection read|

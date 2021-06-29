@@ -73,7 +73,7 @@ Use `CarouselItemsContainer.setOptionsLineCount` method to change the line count
 
 ### Image section
 Image size is constant. 
-If a link is configured for the image, it will be passed to the hosting App, on user press action, for further handling, via [`ChatEventListener.onUrlLinkSelected` implementation]({{'/docs/chat-configuration/tracking-events/events-and-notifications#listening-to-url-navigation' | relative_url}}).
+If a link is configured for the image, it will be passed to the hosting App, on user press action, for further handling, via [`ChatEventListener.onUrlLinkSelected` implementation]({{'/docs/faq/chat-links#Chat_url_links_activation' | relative_url}}).
 
 ---
 
