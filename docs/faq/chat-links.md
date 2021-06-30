@@ -17,7 +17,10 @@ nav_order: 9
 ---
 
 ## Chat url links activation
-Hosting app can listen to url links selection by implementing `ChatEventListener.onUrlLinkSelected` method.  
+Hosting app can listen to url links selection by implementing `ChatEventListener.onUrlLinkSelected` method.
+
+### Accessibility link annoncments
+The App can control the Link announcements after the link click when listennting to link selection.
 
 ### In-app links 
 In-app links presses are handled by the SDK.
