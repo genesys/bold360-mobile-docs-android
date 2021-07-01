@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Links
+title: Url Links 
 parent: FAQ
 nav_order: 9
 ---
@@ -16,13 +16,26 @@ nav_order: 9
 
 ---
 
-## Chat url links activation
-Hosting app can listen to url links selection by implementing `ChatEventListener.onUrlLinkSelected` method.
+## Overview
+Links in chat messages are presented to the user as such, and enables user selection.   
+The SDK does not handle the action that follows the links selection, it sends the link to the hosting app to further handling. The SDK doesn't force specific action but lets the hosting app to develop its own processing.
+{: .overview}
 
-### Accessibility link annoncments
-The App can control the Link announcements after the link click when listennting to link selection.
+## Listening to url links selection
+The hosting app can listen to url links selections by implementing the `ChatEventListener.onUrlLinkSelected` method.   
 
-### In-app links 
+<a id=accessibility />
+The app can react to links selections how ever it see fits.    
+The app can conditioned the url link open by user action.   
+> Optional usage can be, **announcing with the [accessibility]({{'/docs/faq/accessibility' | relative_url}}) service API** of the selected url, and opening it if user will do a certain action.
+
+### Linked article
+The SDK does not handle url links opening, unless it's an article link.   
+Article links which are embeded to bot articles with a special format, are activated automatically by the SDK and actually passes a request for the selected article.
+
+---
+
+## In-app links 
 In-app links presses are handled by the SDK.
 
 How to configure in-app navigation channels on Bold360ai console
