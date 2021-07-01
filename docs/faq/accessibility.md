@@ -20,8 +20,10 @@ nav_order: 7
 ||Enables App support| Messages url links announcements|
 |1.1.1 Non-text Content|Supports|Chat scroll button |
 |1.3.1 Info and Relationships|Partially supports|Live chatbar|
-| 1.3.5 Identify Input Purpose|Partially support|Email chat transcript form |
+| 1.3.5 Identify Input Purpose|Partially supports|Email chat transcript form |
 |2.1 Keyboard Accessible|Partially supports|keyboard open close announcements |
+|2.4.4 Link Purpose<br> 2.4.9 Link Purpose|Partially supports|Links content engagement and [Link announcements](./chat-links#Accessibility-link-annoncments)
+And then control the Link announcements after the link click.|
 |3.1 Readable <br> 1.3.5 Identify Input Purpos|Partially supports|readmore indication and article page display |
 |3.1 Readable|Partially supports| Messages content read|
 ||Partially supports|Autocompelete suggestion selection read|
