@@ -16,6 +16,8 @@ nav_order: 7
 |Criteria |Compliance |Details |
 |:--|:--|:--|
 |1.1 Text Alternatives|Partially supports| Image buttons description|
+||Enables App support| Chat elements announcements|
+||Enables App support| Messages url links announcements|
 |1.1.1 Non-text Content|Supports|Chat scroll button |
 |1.3.1 Info and Relationships|Partially supports|Live chatbar|
 | 1.3.5 Identify Input Purpose|Partially support|Email chat transcript form |
@@ -23,8 +25,9 @@ nav_order: 7
 |3.1 Readable <br> 1.3.5 Identify Input Purpos|Partially supports|readmore indication and article page display |
 |3.1 Readable|Partially supports| Messages content read|
 ||Partially supports|Autocompelete suggestion selection read|
-| 3.2.2 On Input |Partially supports|User input field 
+| 3.2.2 On Input |Partially supports|User input field| 
 ||Partially supports|Instant feedback UI|
+||Partially supports|Message url links|
 |3.3.2 Labels or Instructions|Supports|"Agent typing" indication both image only and textual read by the accessibility service|
 
 ---

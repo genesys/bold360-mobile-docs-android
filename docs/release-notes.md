@@ -23,12 +23,12 @@ Release date: Jul 07, 2021
 ### Features
 {: .notice}
 
-- Chat elements interception   
+- [Chat elements interception]({{'/docs/chat-configuration/tracking-events/events-and-notifications/#intercepting-chat-elements-since-450' | relative_url}}):   
 Hosting Apps can now listen to every element that is injected to the chat by the SDK and can intercept that injection, and **reject** the entire functionality that may have followed the element incertion.
 By listening on this event method, hosting apps can also activate any accessibility service API they need to.
 
 - [Accessibility support]({{'/docs/faq/accessibility' | relative_url}}):
-  - In message links are now clickable. 
+  - Links on messages are now clickable. 
 {: .mb-4}
 
 - Article Page configurations

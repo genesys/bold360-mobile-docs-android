@@ -63,7 +63,7 @@ In contarst to the `onReceive` method, the `intercept` is called on all chat ele
 
 Potential usages
 {: .strong-sub-title .mt-6}
-- Accessibility service API usage for announcing of elements before they are added to the chat.
+- [Accessibility]({{'docs/faq/accessibility/' | relative_url) service API usage for announcing of elements before they are added to the chat.
 - Intercept informative elements as, system messages, from being injected to the chat, and display the needed information on apps external UI component.
 - Disable features for all or specific messages. e.g. prevent [instant feedback]({{'/docs/advanced-topics/feedback/instant-feedback' | relative_url}}) on bot reponses.
 - Prevent bad language on the chat, by intercepting those messages.
