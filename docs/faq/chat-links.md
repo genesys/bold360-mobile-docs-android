@@ -26,12 +26,14 @@ The hosting app can listen to url links selections by implementing the `ChatEven
 
 <a id=accessibility />
 The app can react to links selections how ever it see fits.    
-The app can conditioned the url link open by user action.   
-> Optional usage can be, **announcing with the [accessibility]({{'/docs/faq/accessibility' | relative_url}}) service API** of the selected url, and opening it if user will do a certain action.
+The app can condition the url link open on user action.   
+
+⚜️ **Optional usage can be, announcing with the [accessibility]({{'/docs/faq/accessibility' | relative_url}}) service API of the selected url, and conditioning it's activation on user action.**      
+> [links announcement handling sample.](https://github.com/bold360ai/bold360-mobile-samples-android/blob/release/4.5.0/SDKSamples/app/src/main/java/com/sdk/samples/topics/ElementsInterceptionChat.kt) see `onUrlLinkSelected`.
 
 ### Linked article
 The SDK does not handle url links opening, unless it's an article link.   
-Article links which are embeded to bot articles with a special format, are activated automatically by the SDK and actually passes a request for the selected article.
+Article links are embeded in bot articles with a special format, are activated automatically by the SDK and actually passes a request for the selected article.
 
 ---
 

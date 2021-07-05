@@ -6,7 +6,7 @@ nav_order: 6
 # permalink: /docs/advanced-topics/voice
 ---
 
-# Voice {{site.data.vars.need-work}}
+# Voice 
 {: .no_toc }
 
 ## Table of contents
@@ -19,9 +19,13 @@ nav_order: 6
 ---
 
 ## Overview
-...
+The SDK supports some voice related features, such as speech to text and text to speech.   
+Those features activation is defined by support levels. Each level adds some voice capabilities.      
+{: .overview}
 
-## Configure availability
+
+## Configure voice support level
+The level of support can be configured on the ChatController creation, by ConversationSettings object.   
 Use `ConversationSettings.voiceSettings` to define the **desired** <U>Voice support level</U> for the chats that will be created by the `ChatController` instance.   
 Actual voice support level is determine by the chat type support, where the configured level is the maximum allowed.
 
@@ -35,16 +39,20 @@ val chatController = ChatController.Builder(context)
 ```
 
 ### The available voice support levels:  
+{: .no_toc}
 - **VoiceSupport.None** - speech recognition is disabled.  
 - **VoiceSupport.SpeechRecognition** - only speech recording is enabled. you can record your message and send it to the other chat partner.  
 - **VoiceSupport.VoiceToVoice** - enables both speech recognition and response read out by the device.  
 - **VoiceSupport.HandsFree** - voice to voice with auto listening and send of user messages and read out of responses.
 
-> **Notice:** _Currently we support HandsFree on ai chats and SpeechRecognition on live chats._
+> ⚜️ _AI chats can be configured with level up to `HandsFree`, and live chats up to `SpeechRecognition`._
+
+❗ **It is not recommanded to set support level to `HandsFree` mode while [accessibility]({{'/docs/faq/accessibility' | relative_url}}) service is turned on, on the end user device. The two works with the same device's speak resources, which will cause SDK's auto read and recording of messages to malfunction.**
+{: .mt-6}
 
 ---
 
-## How to configure
+## Voice configurations
 - ### Configure spoken voice
     The configurations relevant to the read out voice; language, speech rate, volume, pitch, etc, are available via the ChatController. Those configurations can be changed at any time.
     ```kotlin
@@ -53,9 +61,11 @@ val chatController = ChatController.Builder(context)
                         volume = 0.5f // defaults to 1.0f which is max volume
                     }
     ```
-    > Notice: The language you set to the TTSConfig should be supported by the device, otherwise, it will use the default locale.
+    > 👉 The language you set to the TTSConfig should be supported by the device, otherwise, the default locale will be used.
+  
 
 - ### Configure voice related UI components
+    {: .mt-6}
     Some UI configurations are available to be changed via `SendCmpUIProvider::uiConfig`
     ```kotlin
     val chatUIProvider = ChatUIProvider().let{
@@ -71,7 +81,7 @@ val chatController = ChatController.Builder(context)
         }
     }
 
-    // apply customed UI provider to the ChatController
+    // apply custom UI provider to the ChatController
     val chatController = ChatController.Builder(context)
                 .chatUIProvider(chatUIProvider)
                 .build(account, object : ChatLoadedListener {...}
@@ -81,26 +91,30 @@ val chatController = ChatController.Builder(context)
 ## Alternative readout
 Provide an alternative text for the read out
 When voice support level is configured to `VoiceSupport.VoiceToVoice` or `VoiceSupport.HandsFree`, every voice sourced response will be parsed to a textual format to be read out.   
-> * **Voice sourced response** = Response to a query that was fully or partially recorded by the user.
+
+📚 **Voice sourced response** = Response to a query that was fully or partially recorded by the user.
 
 The default readout implementation combines the response body and available options to one readable string.
 
-The SDK enables the embedding App alternate some or all of the response text that will be read to the user, before the actual read.   
-An implementation of `TTSReadAlterProvider` should be set on the `ChatController` instance.   
+The SDK enables the hosting App to alternate some or all of the response readable text.
+In order to do so, an implementation of `TTSReadAlterProvider` should be set on the `ChatController` instance.   
 Once a readout response is received the `TTSReadAlterProvider.alter` method will be called.    
 
-The response readout details are provided by `ReadRequest.readoutMessage`.   
+📚 The response readout details are provided by `ReadRequest.readoutMessage`.   
 
-### The customed alter provider implementation can change the result message by:   
+### Custom alter provider
+Implement a custom alter provider to change the result message for readout.  
+
+Custom implementation can change the result message as follows:   
 1. Change the message details on `readRequest.readoutMessage`, and by that create an alternative string representation.
 2. Change the result text on `readRequest.readResult`.  
 
-> **The final desired result string should be set on `readRequest.readResult`.**  
+📚  **The final desired result string should be set on `readRequest.readResult`.**  
 
-<u>As last action, the customed provider should call the provided callback with the alternated **ReadRequest**.</u>
+Once the custom provider done with message alternation, the provided callback should be activated (providing as parameter the **ReadRequest**).
 
 ```kotlin
-// 1. implement the provider:
+// 👉 1. implement the provider:
 val ttsProvider = object : TTSReadAlterProvider{
     override fun alter(readRequest: ReadRequest, 
                         callback: (ReadRequest) -> Unit) {
@@ -139,7 +153,7 @@ val ttsProvider = object : TTSReadAlterProvider{
     }
 }
 
-// 2. Set your alter provider:
+// 👉 2. Set your alter provider:
 //>> option 1: On ChatController build:
 val chatController = ChatController.Builder(context)
             .ttsReadAlterProvider(ttsProvider)
@@ -148,14 +162,14 @@ val chatController = ChatController.Builder(context)
 //>> Option 2: On runtime:
 chatController.setTTSReadAlterProvider(provider)
 ```
-> Setting the TTSReadAlterProvider to null, releases the alter provider reference. Default readout provider will be used to prepare responses readout text.
 
-## Stop readout on phone interruptions
-chatController.onChatInterruption()
+📚 Setting the TTSReadAlterProvider to null, releases the alter provider reference. Default readout provider will be used to prepare responses readout text.
 
+## How to stop a readout 
+If a message readout should be stopped, e.g. when there's an incoming phone call or other interruptions, use `chatController.onChatInterruption()` API, to stop the current active readout.
 
-
-
+```kotlin
+// Listening to incoming calls, in order to stop readout in progress:
 LocalBroadcastManager.getInstance(baseContext).registerReceiver(
     object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
@@ -166,3 +180,4 @@ LocalBroadcastManager.getInstance(baseContext).registerReceiver(
         }
     }, IntentFilter("android.CHAT_CALL_ACTION")
 )
+```
