@@ -75,7 +75,7 @@ Potential usages
     by hosting app implementation, the responsibility of chat integrity falls on the app. 
 
 
-👉 [See interception sample](https://github.com/bold360ai/bold360-mobile-samples-android/blob/master/SDKSamples/app/src/main/java/com/sdk/samples/topics/ElementsInterception.kt)
+👉 [See interception sample](https://github.com/bold360ai/bold360-mobile-samples-android/blob/master/SDKSamples/app/src/main/java/com/sdk/samples/topics/ElementsInterceptionChat.kt)
 {: .mt-6}
 
 ---
