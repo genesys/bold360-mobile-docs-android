@@ -53,7 +53,7 @@ val customProvider = ChatUIProvider(context).apply {
         // Defines screen close button configurations:
         closeUIConfig = CloseUIConfig(...)
 
-        ///////////// Available from version 4.6.0: ///////////////
+        ///////////// Available from version 4.5.1: ///////////////
 
          // Adjust the page's paddings
         setPadding(...)
@@ -62,6 +62,10 @@ val customProvider = ChatUIProvider(context).apply {
         setContentPadding(...)
 
         ///////////// Available from version 4.4.0: ///////////////
+        
+        // Adjust article content top, bottom marigns
+        // >> Got Deprecated on 4.5.1 << 
+        verticalMargin = x to y // Pair of top, bottom margin values, in pixels
         
         // Configure the page's background:
         background = .... // Drawable, e.g. ColorDrawable(Color.BLUE) or ContextCompat.getDrawable(context, R.drawable.bg)
