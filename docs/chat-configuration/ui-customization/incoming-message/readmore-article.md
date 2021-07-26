@@ -53,7 +53,9 @@ val customProvider = ChatUIProvider(context).apply {
         // Defines screen close button configurations:
         closeUIConfig = CloseUIConfig(...)
 
-         // Adjust article page paddings
+        ///////////// Available from version 4.6.0: ///////////////
+
+         // Adjust the page's paddings
         setPadding(...)
 
         // Adjust article content paddings
