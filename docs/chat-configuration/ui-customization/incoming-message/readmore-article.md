@@ -101,7 +101,7 @@ val customProvider = ChatUIProvider(context).apply {
         // Defines the paddings of the Close Button:
         setPadding(...)
 
-        Defines margins of the Close Button
+        // Defines margins of the Close Button
         setMargin(...)
     }
 }
