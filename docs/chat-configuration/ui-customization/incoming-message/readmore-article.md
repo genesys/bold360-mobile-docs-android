@@ -54,10 +54,6 @@ val customProvider = ChatUIProvider(context).apply {
         // Defines screen close button configurations:
         closeUIConfig = CloseUIConfig(...)
 
-        // Deprecation - will be removed on version 4.6.0, replace with setContentPadding
-        // Adjust article content top, bottom marigns 
-        verticalMargin = x to y // Pair of top, bottom margin values, in pixels
-
         ///////////// Available from version 4.5.1: ///////////////
 
          // Adjust the page's paddings
