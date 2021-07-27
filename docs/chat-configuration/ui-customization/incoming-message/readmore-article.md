@@ -50,13 +50,23 @@ Configured properties will override any configured font or color which were defi
 ```kotlin
 val customProvider = ChatUIProvider(context).apply {
     articleUIConfig.apply {
+        
         // Defines screen close button configurations:
         closeUIConfig = CloseUIConfig(...)
 
-        // Adjust article content top, bottom marigns 
-        verticalMargin = x to y // Pair of top, bottom margin values, in pixels
+        ///////////// Available from version 4.5.1: ///////////////
+
+         // Adjust the page's paddings
+        setPadding(...)
+
+        // Adjust article content paddings
+        setContentPadding(...)
 
         ///////////// Available from version 4.4.0: ///////////////
+        
+        // Adjust article content top, bottom marigns
+        // >> Got Deprecated on 4.5.1 << 
+        verticalMargin = x to y // Pair of top, bottom margin values, in pixels
         
         // Configure the page's background:
         background = .... // Drawable, e.g. ColorDrawable(Color.BLUE) or ContextCompat.getDrawable(context, R.drawable.bg)
@@ -88,8 +98,16 @@ Button configurations are defined by `CloseUIConfig`.
 val customProvider = ChatUIProvider(context).apply {
     articleUIConfig.closeUIConfig.apply {
         position = ...  // Alignment setting according to UiConfigurations.Alignment options
+
         drawable = ....  // A DrawableConfig object, setting the drawable to display. null, for text only display.
+
         closeText = ... // close text, in case we want to display a text along side the image
+
+        // Defines the paddings of the Close Button:
+        setPadding(...)
+
+        // Defines margins of the Close Button
+        setMargin(...)
     }
 }
 ```
