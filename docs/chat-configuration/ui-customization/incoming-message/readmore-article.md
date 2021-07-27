@@ -50,8 +50,13 @@ Configured properties will override any configured font or color which were defi
 ```kotlin
 val customProvider = ChatUIProvider(context).apply {
     articleUIConfig.apply {
+        
         // Defines screen close button configurations:
         closeUIConfig = CloseUIConfig(...)
+
+        // Deprecation - will be removed on version 4.6.0, replaced by setContentPadding
+        // Adjust article content top, bottom marigns 
+        verticalMargin = x to y // Pair of top, bottom margin values, in pixels
 
         ///////////// Available from version 4.5.1: ///////////////
 
