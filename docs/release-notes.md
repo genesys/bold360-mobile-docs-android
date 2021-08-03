@@ -14,6 +14,69 @@ toc_float: true
 {: .det}
 <details open markdown="block">
 
+<summary> Version 4.6.0 </summary>
+
+# Version 4.6.0
+Release date: Aug 04, 2021
+{: .overview}
+
+### Features
+{: .notice}
+
+- Article Page configurations
+  {: .mb-2}
+  - Adding close button and article body padding setting.
+
+### Fixes
+{: .notice}
+- Context conditioned channels were not displayed.
+- Upload element link on live chat was not clickable.
+- Article page title on none article long content displayed the wrong title.
+
+### Changes
+{: .knownissue}
+- ArticleUIConfig.verticalMargin was deprecated. ArticleUIConfig.contentPadding should be used instead.
+
+---
+
+### Dependencies 
+
+```gradle
+repositories {
+  maven {url "https://bold360ai-mobile-artifacts.s3.amazonaws.com/android/release/"}
+}
+
+implementation "com.bold360ai-sdk.core:sdkcore:4.6.0"
+implementation "com.bold360ai-sdk.conversation:engine:4.6.0"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.6.0"
+implementation "com.bold360ai-sdk.conversation:ui:4.6.0"
+implementation "com.bold360ai-sdk.core:accessibility:4.6.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+{: .mt-5}
+👉 $kotlin_version = 
+{: .knoenissue .notice}
+> On androidx apps '1.4.30' (or greater)   
+> None androidx apps '1.3.72'.
+
+{: .mt-5}
+👉 androidx users ONLY:  
+{: .knoenissue .notice} 
+> Make sure the constraintlayout version is at least of version 2.0.4.   
+  If needed add the following import:
+```gradle
+implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+```
+
+
+</details>
+
+{: .det .mt-2}
+<details close markdown="block">
+
 <summary> Version 4.5.0 </summary>
 
 # Version 4.5.0
