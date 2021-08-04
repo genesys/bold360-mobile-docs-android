@@ -36,3 +36,22 @@ or
 ```gradle
 implementation 'com.android.support.constraint:constraint-layout:2.0.4'
 ```
+
+---
+
+### ⚡ Unstable chat, outgoing messages failure 
+SDKs outgoing requests are configured with a timeout period in which the response is supposed to be provided.
+When the connection with the server is unstable, or the server becomes somewhat slow, you may experience requests failure on the chats outgoing messages.   
+
+👉 First, verify that those failures are due to timeouts.   
+Open the logcat logs, and look for the following log message:   
+`ConnectionError: connection can't be established with destination: timeout`
+
+If it is the case, there is an option to increase the timeout value, in order to let the server have more time to respond, before an error due to timeout is declared.   
+The `requetTimeout` configuration is available on the [`ConversationSettings`]({{'/docs/chat-configuration/chat-settings#requests-timeout-since-430' | relative_url}}).   
+Try setting a bigger value than the provided default.
+
+```kotlin
+conversationSettings.requestTimeout(TIMEOUT_IN_MS) // defaults to 30 sec.
+```
+

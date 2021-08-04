@@ -37,7 +37,7 @@ The feedback UI component is configurable, by bold360ai console configurations, 
   <details close markdown="block">
   <summary>Feedback status settings</summary>
   ![]({{'/assets/images/instant-feedback-console.png' | relative_url}})
-  {: image-70 }
+  {: .image-70 }
   </details> {: .mb-6 }
 
 - **Feedback display type** 
@@ -47,7 +47,7 @@ The feedback UI component is configurable, by bold360ai console configurations, 
     <details close markdown="block">
     <summary>Feedback display type settings</summary>
     ![]({{'/assets/images/feedback-display-type.png' | relative_url}})
-    {: image-70 }
+    {: .image-70 }
     </details> {: .mb-4 }
 
     The Bold SDK provides default implementations for both types.
@@ -74,12 +74,25 @@ The feedback UI component is configurable, by bold360ai console configurations, 
   On the admin console you can configure the messages content that are presented to the user over feedback flow. 
 
   ![]({{'/assets/images/feedback-texts.png' | relative_url}})
-  {: image-70}
+  {: .image-70}
  
 ---
 
 ### SDK configurations
-The instant feedback display can be override by the app, via `ChatUIProvider`.
+{: .mb-4}
+Using the SDKs internal UI implementation is not configurable. We provide the option to integrate a custom feedback UI implementation which will override the internal SDKs implementation.
+
+📚 How to change internal feedback icons
+{: .strong-sub-title .mt-6}
+This can be done by overriding the icons drawable resources by the hosting application.
+Override the following drawables:
+- feedback_negative_icon
+- feedback_negative_selected_icon
+- feedback_positive_icon
+- feedback_positive_selected_icon
+
+Custom Feedback UI
+{: .strong-sub-title .mt-6}
 1. Create your custom feedback view. Make it implement `FeedbackUIAdapter` interface.
     ```kotlin
     class CustomIconFeedbackView : LineaLayout, FeedbackUIAdapter {
