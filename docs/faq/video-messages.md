@@ -2,7 +2,7 @@
 layout: default
 title: Video Messages 
 parent: FAQ
-nav_order: 5
+nav_order: 10
 permalink: /docs/faq/video-messages
 ---
 

@@ -2,7 +2,7 @@
 layout: default
 title: Trublesshooting 
 parent: FAQ
-nav_order: 8
+nav_order: 1
 permalink: /docs/faq/trublesshooting
 ---
 

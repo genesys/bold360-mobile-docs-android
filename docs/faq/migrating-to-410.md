@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Migrating to 410
+title: Upgrading to 410 and higher
 parent: FAQ
-nav_order: 10
+nav_order: 2
 # permalink: /docs/faq/migrating-to-4.1.0
 ---
 
-# Migrating to 4.1.0 {{site.data.vars.need-work}}
+# Upgrading to 4.1.0 and higher
 {: .no_toc}
 
 ## Table of contents
@@ -22,16 +22,24 @@ Most significant is the addition of explicit string identification property, the
 Up to this version elements identification was done by their `timestamp`.  
 {: .overview}
 
-## Steps to successful migration:
+It is highly significant to folow the next steps in order to preserve your current saved chats history.
+{:  .notice .red}
+> If you do not implement a history mechanism, or don't have long lasting chats history, this doc is not relevant to you.
+
+## Steps to successful migration
+Following upgrading SDK version imports to version 4.1.0 or higher, the following changes will be requested.
 
 1. **Change imports** of ChatElement and StorableChatelement packages as follows:
-```kotlin
+
+   ```kotlin
 import com.nanorep.convesationui.structure.elements.ChatElement
 import com.nanorep.convesationui.structure.elements.StorableChatElement
-```
+   ```
 
 2. **Update StorableChatElement implementations** with the addition of `getId` method. 
-```kotlin
+   {: .mt-6}
+
+   ```kotlin
 /*
  code snippet of HistoryElement which we use as chat element storage 
  record presentation using `Room Persistence Library`. 
@@ -59,96 +67,101 @@ class HistoryElement() : StorableChatElement {
         // ... additional initializations
     }
 
----------------------------------------
+    /********************************/
     // implementing the added method:
     override fun getId(): String {
         return id
     }
----------------------------------------
+    /*******************************/
+
     fun setId(id: String){
         this.id = id
     }
 
     // ... additional setters/getters
 }
-```
+   ```
 
-3. **Update `ChatElementListener` implementation**, by adding the new methods:   
-`onRemove(id: String)`   
-`onUpdate(id: String, item: StorableChatElement)`
+3. **Update `ChatElementListener` implementation**, by adding the new methods:
+   {: .mt-6}   
 
-```kotlin
-class RoomHistoryProvider : ChatElementListener {
+   - onRemove(id: String)
+   - onUpdate(id: String, item: StorableChatElement)   
+   
+   ```kotlin
+   class RoomHistoryProvider : ChatElementListener {
 
-    override fun onUpdate(id: String, item: StorableChatElement) {
-        // ... surround with async activation  
-        historyDao.update(groupId, id, item.getTimestamp(), item.getStorageKey(), item.getStatus())
-    }
+      override fun onUpdate(id: String, item: StorableChatElement) {
+          // ... surround with async activation  
+          historyDao.update(groupId, id, item.getTimestamp(), item.getStorageKey(), item.getStatus())
+      }
 
-    override fun onRemove(id: String) {
-        // ... surround with async activation 
-        historyDao.delete(groupId, id)
-    }
-}
+      override fun onRemove(id: String) {
+          // ... surround with async activation 
+          historyDao.delete(groupId, id)
+      }
+   }
 
-// correlating sqlite methods defined as follow:
-@Dao
-interface HistoryDao {
-    // ....
+   // correlating sqlite methods defined as follow:
+   @Dao
+   interface HistoryDao {
+      // ....
+      @Query("UPDATE historyElement SET `key`=:key, `status`=:status, `timestamp`=:timestamp WHERE groupId=:groupId and id=:id")
+      suspend fun update(groupId: String, id: String, timestamp: Long, key: ByteArray, status: Int)
 
-    @Query("UPDATE historyElement SET `key`=:key, `status`=:status, `timestamp`=:timestamp WHERE groupId=:groupId and id=:id")
-    suspend fun update(groupId: String, id: String, timestamp: Long, key: ByteArray, status: Int)
+      @Query("DELETE FROM historyElement WHERE groupId=:groupId and id=:id")
+      suspend fun delete(groupId: String, id: String)
+   }
 
-    @Query("DELETE FROM historyElement WHERE groupId=:groupId and id=:id")
-    suspend fun delete(groupId: String, id: String)
-}
+   // groupId - identifies the chat in which the chat element was created. 
+   // id - identifies uniquely the chat element. 
+   ```  
 
-// groupId - identifies the chat in which the chat element was created. 
-// id - identifies uniquely the chat element. 
-```  
 
-4. **Update** as/if needed your **current history support storage.**   
-It can be by adding an Id column to a table, or what ever is needed, according to your implementation. After this update, your history implementation should be able to update and remove elements according to their id.
+4. **Update** as/if needed your **current history support storage.**  
+   {: .mt-6}
 
-    ```kotlin
-    // Using Room migration capabilities:
+   It can be by adding an Id column to a table, or what ever is needed, according to your implementation. After this update, your history implementation should be able to update and remove elements according to their id.
 
-    // We create a new table with a new Id column and copy to it the previous saved history:
+   ```kotlin
+   // Using Room migration capabilities:
+   // We create a new table with a new Id column and copy to it the previous saved history:
 
-    val migration = object : Migration(oldVer, newVer) {
-        override fun migrate(database: SupportSQLiteDatabase) {
-            database.execSQL("""Create TABLE new_HistoryElement (
-                eId TEXT PRIMARY KEY NOT NULL DEFAULT '',
-                groupId TEXT NOT NULL,
-                scope INTEGER NOT NULL,
-                inDate INTEGER NOT NULL,
-                textContent TEXT NOT NULL,
-                type INTEGER NOT NULL,
-                isStorageReady INTEGER NOT NULL,
-                key BLOB NOT NULL,
-                timestamp INTEGER NOT NULL,
-                status INTEGER NOT NULL DEFAULT -1);""")
-            database.execSQL("""INSERT INTO new_HistoryElement (eId, groupId,
-                scope,inDate,textContent,type,isStorageReady,key,timestamp, status) 
-                SELECT timestamp, groupId,
-                scope,inDate,textContent,type,isStorageReady, key,timestamp,status FROM HistoryElement;""")
-            database.execSQL("DROP TABLE HistoryElement;")
-            database.execSQL("ALTER TABLE new_HistoryElement RENAME TO HistoryElement;")
-        }
-    }
+   val migration = object : Migration(oldVer, newVer) {
+      override fun migrate(database: SupportSQLiteDatabase) {
+          database.execSQL("""Create TABLE new_HistoryElement (
+              eId TEXT PRIMARY KEY NOT NULL DEFAULT '',
+              groupId TEXT NOT NULL,
+              scope INTEGER NOT NULL,
+              inDate INTEGER NOT NULL,
+              textContent TEXT NOT NULL,
+              type INTEGER NOT NULL,
+              isStorageReady INTEGER NOT NULL,
+              key BLOB NOT NULL,
+              timestamp INTEGER NOT NULL,
+              status INTEGER NOT NULL DEFAULT -1);""")
+          database.execSQL("""INSERT INTO new_HistoryElement (eId, groupId,
+              scope,inDate,textContent,type,isStorageReady,key,timestamp, status) 
+              SELECT timestamp, groupId,
+              scope,inDate,textContent,type,isStorageReady, key,timestamp,status FROM HistoryElement;""")
+          database.execSQL("DROP TABLE HistoryElement;")
+          database.execSQL("ALTER TABLE new_HistoryElement RENAME TO HistoryElement;")
+      }
+   }
 
-    return Room.databaseBuilder(context, DB_CLASS_TYPE, DB_NAME)
-                .addMigrations(migration)
-                .build()
-    ```
+   return Room.databaseBuilder(context, DB_CLASS_TYPE, DB_NAME)
+            .addMigrations(migration)
+            .build()
+   ``` 
 
 5. **Convert (migrate) current stored elements to the new StorableChatElement scheme** - _optional_   
-<sup>**[see Migration tool](#Migration-tool)**</sup>
+   {: .mt-6}
+   > <sup>**[see Migration tool](#Migration-tool)**</sup>
 
 ---
 
 ## Migration tool
-We've provided a tool with this SDK to help you convert your current old chat elements to the new scheme. Migration operation should be done once.   
+We've provided a tool with the SDK to help you convert your current saved chats history to the new scheme. Migration operation should be done once.   
 
 ### How to start the migration
 Pass implementation of `ElementMigration` to start the migration operation, as follows:
@@ -166,7 +179,6 @@ If no old elements were found on fetched list, onReplace will be called with emp
 // Our sample implementation:
 
 class HistoryMigrationProvider : ElementMigration {
-
     // ...
 
     // fetch block of elements from the elements table 

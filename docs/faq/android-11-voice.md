@@ -2,7 +2,7 @@
 layout: default
 title: Voice support - Android 11
 parent: FAQ
-nav_order: 4
+nav_order: 8
 permalink: /docs/faq/android-11-voice
 ---
 

@@ -2,7 +2,7 @@
 layout: default
 title: JCenter Deprecation
 parent: FAQ
-nav_order: 1
+nav_order: 3
 # permalink: /docs/faq/pod-update-version
 ---
 

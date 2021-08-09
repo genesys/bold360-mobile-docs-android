@@ -71,6 +71,11 @@ implementation "android.arch.lifecycle:extensions:1.1.1"
 implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 ```
 
+{: .mt-5}
+⚜️ Migrating from 4.0.+ ?  
+{: .knoenissue .notice .red}  
+> Follow [Upgrading to 4.1.0 and higher](../faq/migrating-to-410) for more details.   
+
 
 </details>
 
@@ -154,6 +159,10 @@ implementation "android.arch.lifecycle:extensions:1.1.1"
 implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 ```
 
+{: .mt-5}
+⚜️ Migrating from 4.0.+ ?  
+{: .knoenissue .notice .red}  
+> Follow [Upgrading to 4.1.0 and higher](../faq/migrating-to-410) for more details.   
 
 </details>
 
@@ -217,6 +226,10 @@ implementation "android.arch.lifecycle:extensions:1.1.1"
 implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 ```
 
+{: .mt-5}
+⚜️ Migrating from 4.0.+ ?  
+{: .knoenissue .notice .red}  
+> Follow [Upgrading to 4.1.0 and higher](../faq/migrating-to-410) for more details.   
 
 </details>
 
@@ -282,6 +295,10 @@ implementation "android.arch.lifecycle:extensions:1.1.1"
 implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 ```
 
+{: .mt-5}
+⚜️ Migrating from 4.0.+ ?  
+{: .knoenissue .notice .red}  
+> Follow [Upgrading to 4.1.0 and higher](../faq/migrating-to-410) for more details.   
 
 </details>
 
@@ -319,7 +336,25 @@ implementation "com.google.code.gson:gson:2.8.6"
 implementation "android.arch.lifecycle:extensions:1.1.1"
 ```
 
-> $kotlin_version = On androidx apps '1.4.30' (or greater), otherwise '1.3.72'.
+{: .mt-5}
+👉 $kotlin_version = 
+{: .knoenissue .notice}
+> On androidx apps '1.4.30' (or greater)   
+> None androidx apps '1.3.72'.
+
+{: .mt-5}
+👉 androidx users ONLY:  
+{: .knoenissue .notice} 
+> Make sure the constraintlayout version is at least of version 2.0.4.   
+  If needed add the following import:
+```gradle
+implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+```
+
+{: .mt-5}
+⚜️ Migrating from 4.0.+ ?  
+{: .knoenissue .notice .red}  
+> Follow [Upgrading to 4.1.0 and higher](../faq/migrating-to-410) for more details.   
 
 </details>
 
@@ -399,6 +434,12 @@ implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
 implementation "com.google.code.gson:gson:2.8.6"
 implementation "android.arch.lifecycle:extensions:1.1.1"
 ```
+
+{: .mt-5}
+⚜️ Migrating from 4.0.+ ?  
+{: .knoenissue .notice .red}  
+> Follow [Upgrading to 4.1.0 and higher](../faq/migrating-to-410) for more details.   
+
 </details>
 
 {: .det .mt-2}
@@ -426,6 +467,12 @@ implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
 implementation "com.google.code.gson:gson:2.8.6"
 implementation "android.arch.lifecycle:extensions:1.1.1"
 ```
+
+{: .mt-5}
+⚜️ Migrating from 4.0.+ ?  
+{: .knoenissue .notice .red}  
+> Follow [Upgrading to 4.1.0 and higher](../faq/migrating-to-410) for more details.   
+
 </details>
 
 {: .det .mt-2}
@@ -465,6 +512,12 @@ implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
 implementation "com.google.code.gson:gson:2.8.6"
 implementation "android.arch.lifecycle:extensions:1.1.1"
 ```
+
+{: .mt-5}
+⚜️ Migrating from 4.0.+ ?  
+{: .knoenissue .notice .red}  
+> Follow [Upgrading to 4.1.0 and higher](../faq/migrating-to-410) for more details.   
+
 </details>
 
 {: .det .mt-2}
