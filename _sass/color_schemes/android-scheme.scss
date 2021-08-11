@@ -238,9 +238,14 @@ details[open] summary::-webkit-details-marker {
 }
 
 .det[open] summary{
-  font-size: 0%;
+  color: transparent !important;
   border-bottom: none;
 }
+.det[open] summary::marker{
+  size: 0.5%;
+  color: $side-blue;
+}
+
 .det[open] {
   border: solid 1px $grey-dk-000;
   background-color: $grey-lt-200 !important;
@@ -248,6 +253,7 @@ details[open] summary::-webkit-details-marker {
 
 .det[open] h1{
   color: $side-blue;
+  margin-top: 0.1em !important;
 }
 
 .det[open] h4 {
