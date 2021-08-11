@@ -12,7 +12,7 @@ toc_float: true
 ---
 
 {: .det}
-<details open markdown="block">
+<details close markdown="block">
 
 <summary> Version 4.6.0 </summary>
 
