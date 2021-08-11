@@ -600,6 +600,55 @@ implementation "android.arch.lifecycle:extensions:1.1.1"
 ```
 </details>
 
+{: .det}
+<details open markdown="block">
+
+<summary> Version 4.0.6 </summary>
+
+# Version 4.0.6
+Release date: Aug 11, 2021
+{: .overview}
+
+### Fixes 
+{: .notice}
+- Default request timeout changed to 30sec.
+
+---
+
+```gradle
+repositories {
+  maven {url "https://bold360ai-mobile-artifacts.s3.amazonaws.com/android/release/"}
+}
+
+implementation "com.bold360ai-sdk.core:sdkcore:4.0.6"
+implementation "com.bold360ai-sdk.conversation:engine:4.0.6"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.0.6"
+implementation "com.bold360ai-sdk.conversation:ui:4.0.6"
+implementation "com.bold360ai-sdk.core:accessibility:4.0.6"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+{: .mt-5}
+👉 $kotlin_version = 
+{: .knoenissue .notice}
+> On androidx apps '1.4.30' (or greater)   
+> None androidx apps '1.3.72'.
+
+{: .mt-5}
+👉 androidx users ONLY:  
+{: .knoenissue .notice} 
+> Make sure the constraintlayout version is at least of version 2.0.4.   
+  If needed add the following import:
+```gradle
+implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+```
+
+</details>
+
+
 {: .det .mt-2}
 <details close markdown="block">
 
