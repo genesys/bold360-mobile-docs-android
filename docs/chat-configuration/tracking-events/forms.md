@@ -39,30 +39,26 @@ Each field has properties which defines its type and behavior. Among them: field
 ## How to customize
 The SDK provides a way for the hosting App to use self customed form implementations, and display them when needed.
 
+> [Sample code](https://github.com/bold360ai/bold360-mobile-samples-android/blob/master/SDKSamples/app/src/main/java/com/sdk/samples/topics/BoldCustomChatForm.kt)   
+
 Follow the next steps to use your implementation for some / All available forms.
 
 ### 1. Create custom form
-Create a custom implementation of the chat form for the forms you would like to override.  
-
-> [Sample code](https://github.com/bold360ai/bold360-mobile-samples-android/blob/master/SDKSamples/app/src/main/java/com/sdk/samples/topics/extra/CustomForm.kt)   
+Create a custom implementation of the chat form for the forms you would like to override.   
     
-{: .mt-1}
-
 The custom implementation should use the provided `FormListener`, in order to post results or activate defined actions.   
 - `FormListener.onComplete` should be called to submit form data to the SDK.
 - `FormListener.onCancel` should be called if the form submission was canceled.
-- `FormListener.onLanguageRequest` should be called, if chat language should be changed ([more](#set-chat-language)).
-        
-{: .mt-8}
+- `FormListener.onLanguageRequest` should be called, if chat language should be changed ([more](#set-chat-language)).     
+
+{: .mt-6}
 ### 2. Implement the `FormProvider` interface.
 In case an implementation of the FormProvider is available on the ChatController, it will be called for action, once a form should be displayed.    
 The method `FormProvider.presentForm(formData: FormData, callback: FormListener)` will be activated, where:
 * `FormData` - Provides the data needed to display the form; fields, branded language dependent texts, etc...
-* `FormListener` - Results submission callback  
+* `FormListener` - Results submission callback    
 
-> [Sample code](https://github.com/bold360ai/bold360-mobile-samples-android/blob/master/SDKSamples/app/src/main/java/com/sdk/samples/topics/BoldCustomChatForm.kt)   
-{: .mt-3}
-
+{: .mt-6}
 ### 3. Pass FormProvider implementation on `ChatController` build. 
    
 ```kotlin
