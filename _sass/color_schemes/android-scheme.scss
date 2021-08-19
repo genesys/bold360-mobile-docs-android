@@ -118,6 +118,15 @@ body {
   color: #f03a22ea;
 }
 
+.gray{
+  color: $side-blue
+}
+
+.small-remark{
+  font-size: 13px;
+  letter-spacing: 0.05em;
+}
+
 .removed {
   letter-spacing: 0.06em;
   color: $orange-200;
