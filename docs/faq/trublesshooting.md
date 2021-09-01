@@ -25,7 +25,7 @@ if you can't find your solution here, you can [post your issue](), and we'll be 
 
 ---
 
-### 👁️‍🗨️ Chat messages looks weird or cut
+### 👁️‍🗨️ Chat messages are trancated
 
 If chat messages are displayed wrong: e.g. status is aligned to the wrong side, messages bubbles are cut, the bubbles are not sized properly,  check the `ConstraintLayout` version as was imported by your app. As of the last SDK version, it should be configured to at least version 2.0.4 (both on androidx and support library versions).
 If you have the wrong version, and you're not actually importing this package, please add it to your imports with the proper version.
@@ -36,6 +36,13 @@ or
 ```gradle
 implementation 'com.android.support.constraint:constraint-layout:2.0.4'
 ```
+
+Change didn't help?
+{: .no_toc .light-title .mb-4 .mt-6 .notice}
+  Try changing your current SDK version.   
+  - If your SDK version is 4.0.6 or lower, you can upgrade to 4.0.7.
+  - If your SDK version is 4.0.0 or upper, please upgrade at least to 4.3.0.
+
 
 ---
 
