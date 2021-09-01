@@ -606,7 +606,7 @@ implementation "android.arch.lifecycle:extensions:1.1.1"
 <summary> Version 4.0.7 </summary>
 
 # Version 4.0.7
-Release date: Aug 11, 2021
+Release date: Sep 1, 2021
 {: .overview}
 
 ### Fixes 
