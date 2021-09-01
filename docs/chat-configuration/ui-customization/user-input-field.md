@@ -19,18 +19,19 @@ nav_order: 2
 ---
 
 ## Overview
-The user input field, usually appears at the bottom of the chat screen. This field is used for typing and recording user messages.
-When a chat starts, the handler of this chat configures the input field to work and display elements that are available for that chat type. 
+The user input field is used to enable users to type, select and record messages.   
+When a chat starts, the ChatHandler is responsible to display the input field while it configure which features will be available for the current chat.   
 {: .overview}
-
-> e.g.: - **Upload icon** will appear only on live chats and only if was enabled by configuration.
->       - The autocomplete suggestions are available only for bot chats.
 
 ## Available features
 - Typing and sending messages 
 - [Autocomplete](/docs/advanced-topics/autocomplete/in-chat)
 - [Voice recording and readout control](/docs/advanced-topics/voice)
 - [File upload](/docs/advanced-topics/file-upload) on live chats
+
+> e.g.: - **Upload icon** will appear only on live chats and only if was enabled by configuration.
+>       - The autocomplete suggestions are available only for bot chats.
+
 
 ### What can be configured
 Some of the available features, can be configured by the hosting App. Using `ConversationSettings` object, that can be provided on ChatController creation, you can configure the following:
