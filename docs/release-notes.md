@@ -11,7 +11,72 @@ toc_float: true
 
 ---
 
+
+
 {: .det}
+<details open markdown="block">
+
+<summary> Version 4.7.0 </summary>
+
+# Version 4.7.0
+Release date: Sep 12, 2021
+{: .overview}
+
+### Features
+{: .notice}
+- Custom font support addition to [article page configurations](https://logmein-bold-mobile.github.io/bold360-mobile-docs-android/docs/chat-configuration/ui-customization/incoming-message/readmore-article/#-how-to-configure-font-style-to-article-body)
+  {: .mb-2}
+
+### Fixes
+{: .notice}
+- Memory usage optimisations, and leaks prevention.
+
+### Deprecated
+{: .knownissue}
+- `ArticleUIConfig.BodyUIConfig.setFont(fontSize: Int?, fontColor: Int?, fontFamily: String = "", typefaceStyle: Int = Typeface.NORMAL)` was deprecated and replaced by: `ArticleUIConfig.BodyUIConfig.setFont(fontFamily: String = "", fontSize: Int? = null, fontColor: Int? = null, typefaceStyle: Int = Typeface.NORMAL)`.
+
+### Breaking Changes
+{: .breaking}
+`ArticleFragment.STYLE_TO_HANDLE_TABLES` is no longer available, use `ArticleUIConfig.TableCssStyle` instead.
+
+---
+
+### Dependencies 
+
+```gradle
+repositories {
+  maven {url "https://bold360ai-mobile-artifacts.s3.amazonaws.com/android/release/"}
+}
+
+implementation "com.bold360ai-sdk.core:sdkcore:4.7.0"
+implementation "com.bold360ai-sdk.conversation:engine:4.7.0"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.7.0"
+implementation "com.bold360ai-sdk.conversation:ui:4.7.0"
+implementation "com.bold360ai-sdk.core:accessibility:4.7.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+{: .mt-5}
+👉 $kotlin_version = 
+{: .knoenissue .notice}
+> On androidx apps '1.4.30' (or greater)   
+> None androidx apps '1.3.72'.
+
+{: .mt-5}
+⚜️ Migrating from 4.0.+ ?  
+{: .knoenissue .notice .red}  
+> Follow [Upgrading to 4.1.0 and higher](../faq/migrating-to-410) for more details.   
+
+{: .mt-5}
+⚜️ Try our [FAQ](../faq/).
+
+
+</details>
+
+
+{: .det .mt-2}
 <details close markdown="block">
 
 <summary> Version 4.6.0 </summary>
@@ -601,7 +666,7 @@ implementation "android.arch.lifecycle:extensions:1.1.1"
 </details>
 
 {: .det}
-<details open markdown="block">
+<details close markdown="block">
 
 <summary> Version 4.0.6 </summary>
 

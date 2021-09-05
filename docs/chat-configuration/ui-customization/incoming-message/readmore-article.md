@@ -103,9 +103,14 @@ val customProvider = ChatUIProvider(context).apply {
         // Since 4.4.0 - Configures the article's body properties:
         body.apply {
             // Sets font configurations, to the article content.
-            setFont(...)
-            // e.g. setFont("monospace", 14.px, Color.WHITE, Typeface.ITALIC),
-            // or setFont("great_vibes", "file:///android_asset/fonts/great_vibes.otf", StyleConfig(...))
+            setFont(14.px, Color.RED, "serif", Typeface.BOLD) // DEPRECATED!! on 4.7.0
+            // From 4.7.0 use:
+            setFont("monospace", 14.px, Color.WHITE, Typeface.ITALIC)
+            
+            // Since 4.7.0 custom font can be set for the article content as well:
+            // setFont("great_vibes", "file:///android_asset/fonts/great_vibes.otf", StyleConfig(...))
+            // setFont("bombing", "file:///android_res/font/bombing.ttf", StyleConfig(14.px, Color.RED))
+            
             background = ... // Int color
             // e.g. Color.BLACK
         }
