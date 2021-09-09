@@ -60,19 +60,18 @@ override fun update(account: AccountInfo) {
 ### Configure Contexts
 If your account supports context based answers, you may want to configure those on your account to be used during the chat.
 
-    ```kotlin
-    // Create contexts map 
-    val contexts = mapOf("ContextKey1" to "ContextValue1",
-                        "ContextKey2" to "ContextValue2", ... )
+```kotlin
+// Create contexts map 
+val contexts = mapOf("ContextKey1" to "ContextValue1",
+                    "ContextKey2" to "ContextValue2", ... )
 
-    // set on constructor:
-    val account = BotAccount(API_KEY, ACCOUNT_NAME,
-                            KNOWLEDGE_BASE, SERVER, contexts)
+// set on constructor:
+val account = BotAccount(API_KEY, ACCOUNT_NAME,
+                        KNOWLEDGE_BASE, SERVER, contexts)
 
-
-    // or later in time, before chat creation:                           
-    account.contexts = contexts
-    ```
+// or later in time, before chat creation:                           
+account.contexts = contexts
+```
 
 ### Configure [Initialization Entities]({{'/docs/advanced-topics/entities-and-personal-info#initentities' | relative_url}})
 Custom Entities, are pices of information that should be provided by the application/user during the chat, instead of using a form, we use the conversation to gather those details.
