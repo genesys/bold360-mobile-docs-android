@@ -37,7 +37,10 @@ Release date: Sep 12, 2021
 
 ### Breaking Changes
 {: .breaking}
-`ArticleFragment.STYLE_TO_HANDLE_TABLES` is no longer available, use `ArticleUIConfig.TableCssStyle` instead.
+- `ArticleFragment.STYLE_TO_HANDLE_TABLES` is no longer available, use `ArticleUIConfig.TableCssStyle` instead.
+- `Context.getTypeface` now receives a `filePath`, which should indicate the path to the font file under `assets` directory.
+previously path was forced to be under `assets/fonts`.   
+Usage: `context.getTypeface("fonts/great_vibes.otf")` 
 
 ---
 
@@ -664,6 +667,59 @@ implementation "com.google.code.gson:gson:2.8.6"
 implementation "android.arch.lifecycle:extensions:1.1.1"
 ```
 </details>
+
+{: .det}
+<details close markdown="block">
+
+<summary> Version 4.0.7 </summary>
+
+# Version 4.0.7
+Release date: Sep 1, 2021
+{: .overview}
+
+### Fixes 
+{: .notice}
+- Messages are being trancated.   
+Only `ui` repo was changed on this version. be sure to take the fixed version.
+
+implementation "com.bold360ai-sdk.conversation:ui:4.0.7"
+{: .red}
+
+---
+
+```gradle
+repositories {
+  maven {url "https://bold360ai-mobile-artifacts.s3.amazonaws.com/android/release/"}
+}
+
+implementation "com.bold360ai-sdk.core:sdkcore:4.0.6"
+implementation "com.bold360ai-sdk.conversation:engine:4.0.6"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.0.6"
+implementation "com.bold360ai-sdk.conversation:ui:4.0.7"
+implementation "com.bold360ai-sdk.core:accessibility:4.0.6"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.72"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+{: .mt-5}
+👉 $kotlin_version = 
+{: .knoenissue .notice}
+> On androidx apps '1.4.30' (or greater)   
+> None androidx apps '1.3.72'.
+
+{: .mt-5}
+👉 androidx users ONLY:  
+{: .knoenissue .notice} 
+> Make sure the constraintlayout version is at least of version 2.0.4.   
+  If needed add the following import:
+```gradle
+implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+```
+
+</details>
+
 
 {: .det}
 <details close markdown="block">
