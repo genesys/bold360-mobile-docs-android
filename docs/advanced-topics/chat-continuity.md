@@ -15,9 +15,9 @@ has_toc: false
 - TOC
 {:toc .mb-0}
 - [AccountInfoProvider]({{'/docs/chat-configuration/extra/account-info-provider' | relative_url}})
-- [Messaging chat continuity]({{'/docs/advanced-topics/messaging-chat#messaging-chat-continuation' | relative_url}})
-- [Live chat continuity]({{'/docs/chat-configuration/chat-account/bold-account#live-chat-contiuity' | relative_url}})
-- [AI chat continuity]({{'/docs/chat-configuration/chat-account/bot-account#ai-continuity' | relative_url}})
+- [Messaging chat continuity]({{'/docs/advanced-topics/messaging-chat/#messaging-chat-continuity' | relative_url}})
+- [Live chat continuity]({{'/docs/chat-configuration/chat-account/bold-chat/#live-chat-continuity' | relative_url}})
+- [AI chat continuity]({{'/docs/chat-configuration/chat-account/bot-chat/#ai-chat-continuity' | relative_url}})
 
 ---
 
