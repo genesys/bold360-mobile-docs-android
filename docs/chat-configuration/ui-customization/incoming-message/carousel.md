@@ -60,6 +60,17 @@ The sub-title height is flexible and may stretch to the maximum available item h
 ![]({{'/assets/images/carousel-info.png' | relative_url}})
 {: .image-40}
 
+```kotlin
+ChatUIProvider(context).apply {
+    chatElementsUIProvider.incomingUIProvider.carouselUIProvider.configure = { adapter ->
+        adapter.apply {
+            setInfoSubTitleMinLines(4) // set minimum sub title size to 4 lines
+            setInfoTitleMinLines(3) // set minimum title size of 3 lines
+        }
+    }
+}
+```
+
 > Additional info section configurations can be found in `CarouselItemsUIAdapter`. See methods prefixed with `setInfo`.
 
 ### Options section
