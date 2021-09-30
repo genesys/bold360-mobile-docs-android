@@ -55,7 +55,7 @@ The available configuration proprties can be found in `CarouselItemsUIAdapter`.
 Info section contains a title and a sub-title, which are configured with minimum line number of 1 and 2 lines respectfully.   
 Minimum line number can be configured with `setInfoTitleMinLines` and `setInfoSubTitleMinLines` methods.
 The minimun height for this section will be calulated according to the line number values.   
-The sub-title height is flexible and may stretch to the maximum available item height.
+<u>The sub-title height is flexible and may stretch to the maximum available item height.</u>
 
 ![]({{'/assets/images/carousel-info.png' | relative_url}})
 {: .image-40}
@@ -64,8 +64,8 @@ The sub-title height is flexible and may stretch to the maximum available item h
 ChatUIProvider(context).apply {
     chatElementsUIProvider.incomingUIProvider.carouselUIProvider.configure = { adapter ->
         adapter.apply {
-            setInfoSubTitleMinLines(4) // set minimum sub title size to 4 lines
-            setInfoTitleMinLines(3) // set minimum title size of 3 lines
+            setInfoSubTitleMinLines(4) // set minimum sub title size to 4 lines hight
+            setInfoTitleMinLines(3) // set minimum title size to 3 lines hight
         }
     }
 }
