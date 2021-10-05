@@ -89,32 +89,60 @@ Incoming bot response can have several options to the user to choose from. Those
 - Channels may appear as response options or on article page.  
 - Channels can be created on the [Bold360ai console](https://support.bold360.com/ai).
 
-### <U>Customizing channels icons</U>
-- #### By setting the icons via the Bold360ai console:
-    ![]({{'/assets/images/console-channeling-icons.png' | relative_url}})
-    {: .image-40}
+### Customizing channels icons
+{: .mb-4}
 
-- #### By overriding SDK default icons. 
-    
-   - By overriding the channels drawable resources:
+- Setting icon to channel on Bold360ai console:
+{: .strong-sub-title}
 
-        - Phone : `R.drawable.call_channel`
-        - Chat : `R.drawable.chat_channel`
-        - Ticket: `R.drawable.email_channel`
+![]({{'/assets/images/console-channeling-icons.png' | relative_url}})
+{: .image-70}
 
-    - By overriding the icons generating method:
+- Overriding SDK default icons. 
+  {: .strong-sub-title}
+  This can be done using the following ways:
 
-      ```kotlin
-      ChatUIProvider(context).apply {
-        chatElementsUIProvider.incomingUIProvider.quickOptionsUIProvider.overrideFactory =
-            object : QuickOptionUIProvider.QuickOptionsFactory {
-                override fun generateDefaultChannelImage(context: Context, channelType: Int): Drawable? {
-                    // return drawable according to channelType
-                }
-            }
-      ```
+  - Overriding the channels drawable resources:
+    * Phone : `R.drawable.call_channel`
+    - Chat : `R.drawable.chat_channel`
+    - Ticket: `R.drawable.email_channel`
+
+  - Overriding the SDKs icons generating method:
+    {: .mt-5}
+
+    ```kotlin
+    ChatUIProvider(context).apply {
+      chatElementsUIProvider.incomingUIProvider.quickOptionsUIProvider.overrideFactory =
+          object : QuickOptionUIProvider.QuickOptionsFactory {
+              override fun generateDefaultChannelImage(context: Context, channelType: Int): Drawable? {
+                  // return drawable according to channelType:
+                  return when (channelType) {
+                      Channels.PhoneNumber -> ... // return null to prevent default icon display
+                      Channels.Chat -> ...
+                      Channels.Ticket -> ...
+                      else -> null
+                  }
+              }
+          }
+    }
+    ```
+
+📚 How to prevent default SDK icon display
+{: .strong-sub-title .mt-6}
+
+```kotlin
+ChatUIProvider(context).apply {
+    this.chatElementsUIProvider.incomingUIProvider.quickOptionsUIProvider.overrideFactory = object: QuickOptionUIProvider.QuickOptionsFactory {
+        override fun generateDefaultChannelImage(context: Context, channelType: Int): Drawable? {
+            return null 
+        }
+    }
+}
+```
+
+---
 
 ❗ Ticket Channels with custom script are not supported by the SDK.
-{: .strong-sub-title .mt-9 .mb-4}
+{: .strong-sub-title .mb-4}
 ![]({{'/assets/images/ticket-channel-script.png' | relative_url}})
 {: .image-70 .mb-6}
