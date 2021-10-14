@@ -12,9 +12,69 @@ toc_float: true
 ---
 
 
-
 {: .det}
 <details open markdown="block">
+
+<summary> Version 4.8.0 </summary>
+
+# Version 4.8.0
+Release date: Oct 17, 2021
+{: .overview}
+
+### Features
+{: .notice}
+- [Ticket typed channel]({{'/docs/chat-configuration/ui-customization/incoming-message/incoming-options/#ticket-channel' | relative_url}}) with Linked article url.
+- Escalated form on bot chat passes error indication to the hosting app when fails to load. 
+
+### Fixes
+{: .notice}
+- Ticket typed channel with configured custom url doesn't send channel reports.
+- Reports on bot channels has the wrong article data.
+- Blank page when escalated form load fails.
+- End live chat button with image only display.
+
+
+---
+
+### Dependencies 
+
+```gradle
+repositories {
+  ...
+
+  maven {url "https://bold360ai-mobile-artifacts.s3.amazonaws.com/android/release/"}
+}
+
+implementation "com.bold360ai-sdk.core:sdkcore:4.8.0"
+implementation "com.bold360ai-sdk.conversation:engine:4.8.0"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.8.0"
+implementation "com.bold360ai-sdk.conversation:ui:4.8.0"
+implementation "com.bold360ai-sdk.core:accessibility:4.8.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+{: .mt-5}
+👉 $kotlin_version = 
+{: .knoenissue .notice}
+> On androidx apps '1.4.30' (or greater)   
+> None androidx apps '1.3.72'.
+
+{: .mt-5}
+⚜️ Migrating from 4.0.+ ?  
+{: .knoenissue .notice .red}  
+> Follow [Upgrading to 4.1.0 and higher](../faq/migrating-to-410) for more details.   
+
+{: .mt-5}
+⚜️ Try our [FAQ](../faq/).
+
+
+</details>
+
+
+{: .det .mt-2}
+<details close markdown="block">
 
 <summary> Version 4.7.0 </summary>
 

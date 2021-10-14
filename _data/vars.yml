@@ -5,3 +5,4 @@ force-work: <span class='btn btn-orange btn-red'>Under construction</span>
 
 
 # emojis in use: ⚜️ ❗ 👉 📚 ⚡ 👁️‍🗨️
+# start localhost docs with : "jekyll serve" on the docs folder

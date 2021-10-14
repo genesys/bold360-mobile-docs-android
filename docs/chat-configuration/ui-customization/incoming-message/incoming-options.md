@@ -85,9 +85,11 @@ Incoming bot response can have several options to the user to choose from. Those
     ```
 
 ## Channels
+Channels usage allow you to set up the escalation paths and rules on your Bold360 ai chats. Use this ability to forward visitor engagements to another escalation channel such as chat, email, or click-to-call.
+
 - Channels are a sub type of QuickOptions. Channels are used for user escalation actions.   
 - Channels may appear as response options or on article page.  
-- Channels can be created on the [Bold360ai console](https://support.bold360.com/ai).
+- Channels can be created on the [Bold360ai console](https://support.nanorep.com/1009689492).
 
 ### Customizing channels icons
 {: .mb-4}
@@ -140,9 +142,27 @@ ChatUIProvider(context).apply {
 }
 ```
 
----
+## Ticket channel
+{: .mt-8}
+Channel of type ticket may be configured with one of the following actions:   
 
-❗ Ticket Channels with custom script are not supported by the SDK.
-{: .strong-sub-title .mb-4}
+Show a `Contact form`
+{: .strong-sub-title .mt-3 .mb-4}
+
+![]({{'/assets/images/contact-form.png' | relative_url}})
+{: .image-40 .mb-6}
+
+Open a Url   
+{: .strong-sub-title .mt-4}
+- Regular URLs are passed to the hosting app over `ChatEventListener:onUrlLinkSelected` for further handling
+- Linked article URLs (of the format: `nanoreplinkid://56342653`) are handled by the SDK. The article which has the configured id will be injected into the chat.
+
+![]({{'/assets/images/custom-url.png' | relative_url}})
+{: .image-70 .mb-6 .mt-3}
+
+Run a custom script
+{: .strong-sub-title .mt-4}
+❗ Not supported by the SDK.
+{: .mb-4}
 ![]({{'/assets/images/ticket-channel-script.png' | relative_url}})
 {: .image-70 .mb-6}
