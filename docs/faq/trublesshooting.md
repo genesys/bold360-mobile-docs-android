@@ -43,7 +43,7 @@ implementation 'com.android.support.constraint:constraint-layout:2.0.4'
 Change didn't help?
 {: .no_toc .light-title .mb-4 .mt-6 .notice}
   Try changing your current SDK version.   
-  - If your SDK version is 4.0.6 or lower, you can upgrade to 4.0.7.
+  - If your SDK version is 4.6.0 or lower, you can upgrade to 4.7.0.
   - If your SDK version is 4.0.0 or upper, please upgrade at least to 4.3.0.
 
 
