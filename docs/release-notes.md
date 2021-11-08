@@ -84,7 +84,7 @@ Release date: Sep 12, 2021
 
 ### Features
 {: .notice}
-- Custom font support addition to [article page configurations](https://genesys.github.io//bold360-mobile-docs-android/docs/chat-configuration/ui-customization/incoming-message/readmore-article/#-how-to-configure-font-style-to-article-body)
+- Custom font support addition to [article page configurations](https://genesys.github.io/bold360-mobile-docs-android/docs/chat-configuration/ui-customization/incoming-message/readmore-article/#-how-to-configure-font-style-to-article-body)
   {: .mb-2}
 
 ### Fixes
