@@ -35,11 +35,11 @@ repositories {
   maven {url "https://bold360ai-mobile-artifacts.s3.amazonaws.com/android/release/"}
 }
 
-implementation "com.bold360ai-sdk.core:sdkcore:4.8.1"
+implementation "com.bold360ai-sdk.core:sdkcore:4.8.0"
 implementation "com.bold360ai-sdk.conversation:engine:4.8.1"
 implementation "com.bold360ai-sdk.conversation:chatintegration:4.8.1"
 implementation "com.bold360ai-sdk.conversation:ui:4.8.1"
-implementation "com.bold360ai-sdk.core:accessibility:4.8.1"
+implementation "com.bold360ai-sdk.core:accessibility:4.8.0"
 
 implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 implementation "com.google.code.gson:gson:2.8.6"
