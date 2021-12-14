@@ -23,7 +23,19 @@ The SDK supports some voice related features, such as speech to text and text to
 Those features activation is defined by support levels. Each level adds some voice capabilities.      
 {: .overview}
 
+{: .mt-6}
+## Enabling Voice support on your application
+In order to enable Voice support on your application, go through the following steps:
+1. Add pemission 
+    On the application manifest add the following permission.   
+    `<uses-permission android:name="android.permission.RECORD_AUDIO"/>`
 
+2. __None androidx applications__  
+    {: .notice} 
+    If the chat activity overrides `onRequestPermissionsResult` method, make sure to call it's super:   
+    `super.onRequestPermissionsResult(requestCode, permissions, grantResults)`.
+
+{: .mt-6}
 ## Configure voice support level
 The level of support can be configured on the ChatController creation, by ConversationSettings object.   
 Use `ConversationSettings.voiceSettings` to define the **desired** <U>Voice support level</U> for the chats that will be created by the `ChatController` instance.   
