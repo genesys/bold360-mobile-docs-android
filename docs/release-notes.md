@@ -715,7 +715,7 @@ Release date: September 16, 2020
   - Chat elements structure was changed, so serialization and deserialization of elements was updated.    
   Backward support of old elements deserialization was integrated in order to prevent current stored chats from being lost. (As long as the `storageKey` will be provided on the storage fetched elements)
   - In case of previous stored chats, a migration tool is provided on this version, to convert old scheme elements to the new ones.   
-    > Follow [migrating your chat](./How-to-migrate-to-4.1.0.md) for more details.
+    > Follow [migrating your chat](./How-to-migrate-to-4.1.0) for more details.
  
  - #### Input field
   Scrolling support addition enables content of more than 6 lines.
