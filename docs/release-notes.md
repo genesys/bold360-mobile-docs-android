@@ -22,7 +22,7 @@ Release date: Oct 17, 2021
 
 ### Fixes
 {: .notice}
-- Changed the console fields from which the instant feedback texts are taken from. In order to fall into line with the iOS platform. 
+- Feedback text configuration is now taken from [tab name] on the console configurations.
 
 ---
 
