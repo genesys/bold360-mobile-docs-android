@@ -54,7 +54,6 @@ implementation "com.bold360ai-sdk.core:accessibility:4.8.0"
 implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 implementation "com.google.code.gson:gson:2.8.6"
 implementation "android.arch.lifecycle:extensions:1.1.1"
-implementation "androidx.constraintlayout:constraintlayout:2.+" //At least
 ```
 {: .mt-5}
 👉 $kotlin_version = 
