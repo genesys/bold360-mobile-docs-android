@@ -23,8 +23,6 @@ Use this Quick Start guide to get you up and running with a working AI or live c
 * Gradle 5.3.6 or higher.
 * Android Studio.
 * The SDK supports devices with API level 16 or higher. <sub>**(since version 3.5.0**)</sub>
-* Follow the [release notes]({{'/docs/release-notes' | relative_url}}) for farther packages imports information.
-
 
 ## Set up the SDK on your App.
 {: .d-inline-block }
