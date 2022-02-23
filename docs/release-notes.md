@@ -45,6 +45,15 @@ implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 implementation "com.google.code.gson:gson:2.8.6"
 implementation "android.arch.lifecycle:extensions:1.1.1"
 ```
+
+{: .mt-5}
+👉 If ConstraintLayout import is needed on androidx apps : 
+{: .knoenissue .notice}
+ConstraintLayout version = 
+> '2.0.0' (or greater)   
+
+
+
 {: .mt-5}
 👉 $kotlin_version = 
 {: .knoenissue .notice}
