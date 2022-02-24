@@ -103,5 +103,5 @@ Articles that are configured with entities, contains entities tags within the re
     ```
 ---
 
- > view Sample: [`missing entities` and `personal information` usage]({{'/docs/faq/missing-entities-example.md' | relative_url}})
+ > view Sample: [`missing entities` and `personal information` usage]({{'/docs/faq/missing-entities-example' | relative_url}})
 {: .mt-6}

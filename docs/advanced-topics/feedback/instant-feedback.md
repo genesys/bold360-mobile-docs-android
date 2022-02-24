@@ -72,7 +72,12 @@ The feedback UI component is configurable, by bold360ai console configurations, 
 
 - Textual configurations
   On the admin console you can configure the messages content that are presented to the user over feedback flow. 
+  
+  Prior to version 4.8.1:
+  ![]({{'/assets/images/feedback-texts-old.png' | relative_url}})
+  {: .image-70}
 
+  From version 4.8.1:
   ![]({{'/assets/images/feedback-texts.png' | relative_url}})
   {: .image-70}
  
