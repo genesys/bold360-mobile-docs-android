@@ -24,7 +24,6 @@ Use this Quick Start guide to get you up and running with a working AI or live c
 * Android Studio.
 * The SDK supports devices with API level 16 or higher. <sub>**(since version 3.5.0**)</sub>
 
-
 ## Set up the SDK on your App.
 {: .d-inline-block }
 
