@@ -22,7 +22,7 @@ Release date: Oct 17, 2021
 
 ### Fixes
 {: .notice}
-- Feedback text configuration is now taken from [tab name] on the console configurations.
+- Feedback text configuration is now taken from `Texts & Colors` tab at the `Touchpoints` on the console configurations.
 
 ---
 
