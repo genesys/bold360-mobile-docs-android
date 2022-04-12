@@ -14,10 +14,10 @@ toc_float: true
 
 {: .det}
 <details open markdown="block">
-<summary> Version 4.8.0 </summary>
+<summary> Version 4.8.1 </summary>
 
 # Version 4.8.1
-Release date: Oct 17, 2021
+Release date: Nov 18, 2021
 {: .overview}
 
 ### Fixes
