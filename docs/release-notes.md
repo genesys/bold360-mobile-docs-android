@@ -23,8 +23,6 @@ Release date: May 10, 2022
 {: .notice}
 - ChatBar Agent component text styling is now configurable via the [ChatBarCmpUiProvider](../chat-configuration/ui-customization/chat-bar)
   
-  docs/chat-configuration/ui-customization/chat-bar.md
-
 ---
 
 ### Dependencies 
