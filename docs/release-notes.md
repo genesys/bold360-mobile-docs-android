@@ -11,9 +11,66 @@ toc_float: true
 
 ---
 
-
 {: .det}
 <details open markdown="block">
+<summary> Version 4.8.2 </summary>
+
+# Version 4.8.2
+Release date: May 10, 2022
+{: .overview}
+
+### Fixes
+{: .notice}
+- ChatBar Agent component text styling is now configurable via the  [ChatBarCmpUiProvider]({{'/docs/ui-customization/chat-bar' | relative_url}})
+
+---
+
+### Dependencies 
+
+```gradle
+repositories {
+  ...
+
+  maven {url "https://bold360ai-mobile-artifacts.s3.amazonaws.com/android/release/"}
+}
+
+implementation "com.bold360ai-sdk.core:sdkcore:4.8.0"
+implementation "com.bold360ai-sdk.conversation:engine:4.8.1"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.8.1"
+implementation "com.bold360ai-sdk.conversation:ui:4.8.2"
+implementation "com.bold360ai-sdk.core:accessibility:4.8.0"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+implementation "com.google.code.gson:gson:2.8.6"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+{: .mt-5}
+👉 If ConstraintLayout import is needed on androidx apps : 
+{: .knoenissue .notice}
+ConstraintLayout version = 
+> '2.0.0' (or greater)   
+
+
+
+{: .mt-5}
+👉 $kotlin_version = 
+{: .knoenissue .notice}
+> On androidx apps '1.4.30' (or greater)   
+> None androidx apps '1.3.72'.
+
+{: .mt-5}
+⚜️ Migrating from 4.0.+ ?  
+{: .knoenissue .notice .red}  
+> Follow [Upgrading to 4.1.0 and higher](../faq/migrating-to-410) for more details.   
+
+{: .mt-5}
+⚜️ Try our [FAQ](../faq/).
+
+</details>
+
+{: .det .mt-2}
+<details close markdown="block">
 <summary> Version 4.8.1 </summary>
 
 # Version 4.8.1
@@ -68,6 +125,7 @@ ConstraintLayout version =
 {: .mt-5}
 ⚜️ Try our [FAQ](../faq/).
 
+</details>
 
 
 </details>
