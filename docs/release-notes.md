@@ -22,7 +22,7 @@ Release date: May 10, 2022
 ### Fixes
 {: .notice}
 - ChatBar Agent component text styling is now configurable via the [ChatBarCmpUiProvider](../chat-configuration/ui-customization/chat-bar)
-  
+- Links from the agent are clickable and can be observed via the [ChatEventListener](../faq/chat-links)
 ---
 
 ### Dependencies 
@@ -34,7 +34,7 @@ repositories {
   maven {url "https://bold360ai-mobile-artifacts.s3.amazonaws.com/android/release/"}
 }
 
-implementation "com.bold360ai-sdk.core:sdkcore:4.8.0"
+implementation "com.bold360ai-sdk.core:sdkcore:4.8.1"
 implementation "com.bold360ai-sdk.conversation:engine:4.8.1"
 implementation "com.bold360ai-sdk.conversation:chatintegration:4.8.1"
 implementation "com.bold360ai-sdk.conversation:ui:4.8.2"
