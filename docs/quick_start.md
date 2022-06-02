@@ -126,4 +126,3 @@ Follow the next steps to create and start a chat.
 ### Code Sample
 {: .no_toc .text-delta}
 [bold360ai samples](https://github.com/genesys/bold360-mobile-samples-android)
--
