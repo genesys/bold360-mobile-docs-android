@@ -15,25 +15,53 @@ nav_order: 2
 
 ---
 
-Use this Quick Start guide to get you up and running with a working AI or live chat hosted by your App.   
+Use this Quick start guide to set up a working chat hosted by your App.
 
 ## System Requirements  
 
-* Java 8 or higher.
-* Gradle 5.3.6 or higher.
-* Android Studio.
-* The SDK supports devices with API level 16 or higher. <sub>**(since version 3.5.0**)</sub>
+* Android Studio version 3.5.0 or higher
+* Java 8 or higher
+* Gradle 5.3.1 or higher, Android gradle plugin 4.0.0 or higher
+* Kotlin plugin version 1.3.21 and higher
+* Android 4.1 (API level 16) or higher
 
-## Set up the SDK on your App.
+
+## Set up Bold SDK on your App.
 {: .d-inline-block }
 
-1. ### Import SDK dependencies 
+1. ### Configure gradle version
+    {: .no_toc .strong-sub-title} 
+    Open `File->Project Structure` on android studio top menu to configure the gradle version on your project. Set the version to at least the minimum required.
+
+2. ### Import SDK dependencies 
     {: .no_toc .strong-sub-title}   
     
-    [Check here for latest SDK version and needed dependencies]({{'/docs/release-notes#dependencies' | relative_url}}) 
+   - Add the SDK's repository path to your project's/module's repositories configuration on the build.gradle file.
+     ```gradle
+     repositories{
+         ...
+         maven { url "https://genesysdx.jfrog.io/artifactory/bold-android.release/" }
+     }
+        
+   - Add the following imports to your App's build.gradle file.
+
+     ```gradle
+     dependencies {
+            ...
+            implementation 'com.bold360ai-sdk.core:sdkcore:[Version_Number]'
+            implementation 'com.bold360ai-sdk.conversation:chatintegration:[Version_Number]'
+            implementation 'com.bold360ai-sdk.conversation:chatintegration:[Version_Number]'
+            implementation 'com.bold360ai-sdk.conversation:ui:[Version_Number]'
+
+            // optional:
+            implementation 'com.bold360ai-sdk.core:accessibility:[Version_Number]'
+     }
+     ```
+
+     [Check SDK's release notes for the latest available version]({{'/docs/release-notes#dependencies' | relative_url}}) 
 
     
-2. ### Extra configurations on build.gradle:
+3. ### Extra configurations on build.gradle:
     {: .no_toc .strong-sub-title}  
    
     Add the following to the _`android{...}`_ block definition
@@ -58,7 +86,7 @@ Use this Quick Start guide to get you up and running with a working AI or live c
     {: .mb-6}
 
 
-    - If your app is configured with shrink and minify turned on, please read [Shrink and Obfuscattion support]({{'/docs/faq/shrink-and-obfuscate' | relative_url}})
+    - If your app is configured with the minifyEnabled set to true, please read [Shrink and Obfuscattion support]({{'/docs/faq/shrink-and-obfuscate' | relative_url}}) to make sure that the relevant rules are provided on the proguard file.
     
 ---
 
@@ -67,26 +95,33 @@ Use this Quick Start guide to get you up and running with a working AI or live c
 
 ---
 
-## Create and start a chat  
+## Create and start a basic chat  
 {: .d-inline-block .mt-4}
 
-Follow the next steps to create and start a chat.
+Follow the next steps to have a basic working chat integrated to your App.
 
-1. ### Create an Account
+1. Create and set the activity in which the chat will be displayed.
+
+2. ### Create an Account
     - [Create `BotAccount` for chat with AI]({{'/docs/chat-configuration/chat-account/bot-chat#botaccount' | relative_url}})
     {: .no_toc }
-    
+    ```kotlin
+    val account = BotAccount(API_KEY, ACCOUNT_NAME,
+                        KNOWLEDGE_BASE, SERVER)
+    ```
+
     - [Create `BoldAccount` for live chat with agent]({{'/docs/chat-configuration/chat-account/bold-chat#boldaccount' | relative_url}})
     {: .no_toc }
-        
-    - [Create `AsyncAccount` to start a messaging chat]({{'/docs/advanced-topics/messaging-chat#asyncaccount' | relative_url}})
-    {: .no_toc }  
+    ```kotlin
+    val account = BoldAccount(API_KEY).apply{
+        addExtraData(...)
+    }    
+    ``` 
 ---
 
-2. ### Create [ChatController]({{'/docs/chat-configuration/extra/chatcontroller' | relative_url}})
-    With the ChatController one can create and control multiple chats.
-    The chat type is configured by the Account that is provided on chat creation.
-
+3. ### Create ChatController instance
+    The [ChatController]({{'/docs/chat-configuration/extra/chatcontroller' | relative_url}}) provides APIs to create and manage chats.
+    
     ```kotlin
     val chatController = ChatController.Builder(context)
                                           .build(account, ...)
@@ -99,31 +134,37 @@ Follow the next steps to create and start a chat.
     ```
 ---
 
-3. ### Add the chat fragment to your activity.
+4. ### Display the chat on your activity
 
-    Implement the ChatLoadedListener interface and pass it in the `ChatController.Builder` build method.   
-    Once the chat build succeeded and the fragment is ready to be displayed, `onComplete` will be called with the fragment on the result. 
+    If the ChatController build was successful, it creates a fragment on which the chat UI will be displayed. The created fragment should be added to your app's activity.
+
+    To get the chat fragment, implement the `ChatLoadedListener` interface and pass the implementation to `ChatController.Builder` `build` method.   
+    `ChatLoadedListener:onComplete` will be called with the chat creation outcome as a `ChatLoadResponse` instance.    
+    `ChatLoadResponse` will contain the chat fragment if the chat was created properly.
 
     ```kotlin
     ChatController.Builder(context).build(account, object : ChatLoadedListener {
             override fun onComplete(result: ChatLoadResponse) {
-                result.error?.run{
+                result.error?.let{
                   // report Chat load failed
-                } ?: run{
+                } ?: let{
                   // add result.getFragment() to the applications activity.
+                  supportFragmentManager.beginTransaction().replace(R.id.chat_container, result.fragment, tag).commit()
                 }
             }
         })
     ```
+
+    > Verify that there is no existing chat fragment added to your activity if there is, make sure to remove it before adding the newly provided fragment.
+
 ---
 
-##### **Notice** 
-{: .no_toc } 
-> Make sure to activate `ChatController.destruct()`, when the ChatController instance is no longer needed (e.g., Chats UI in app is being closed or the ChatController instance is being replaced). Destruct will verify resources release (including open sockets and communication channels).  
+5. ### Release chat resources on activity destroy
+   Activate `ChatController.destruct()` when the [`ChatController`]({{'/docs/chat-configuration/extra/chatcontroller' | relative_url}}) instance is no longer needed. Destruct will release referenced open resources.
 
 ---
 
 ### Code Sample
 {: .no_toc .text-delta}
-[bold360ai samples](https://github.com/bold360ai/bold360-mobile-samples-android)
+[bold360v samples](https://https://github.com/genesys/bold360-mobile-samples-android)
 -

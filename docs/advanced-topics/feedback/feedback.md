@@ -2,7 +2,7 @@
 layout: default
 title: Feedback
 parent: Advanced Topics
-nav_order: 8
+nav_order: 7
 permalink: /docs/advanced-topics/feedback/
 has_children: true
 has_toc: false

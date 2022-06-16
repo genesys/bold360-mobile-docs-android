@@ -3,7 +3,7 @@ layout: default
 title: Messaging Chat
 parent: Advanced Topics
 nav_order: 5
-
+np_toc: true
 ---
 
 # Messaging Chat 

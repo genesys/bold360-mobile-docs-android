@@ -2,7 +2,7 @@
 layout: default
 title: Chat Entities and Personal information
 parent: Advanced Topics
-nav_order: 9
+nav_order: 8
 # permalink: /docs/advanced-topics/entities-and-personal-info
 ---
 

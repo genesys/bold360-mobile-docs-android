@@ -2,7 +2,7 @@
 layout: default
 title: Autocomplete
 parent: Advanced Topics
-nav_order: 7
+nav_order: 6
 permalink: /docs/advanced-topics/autocomplete/
 has_children: true
 has_toc: false
