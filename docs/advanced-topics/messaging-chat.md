@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Messaging Chat
-parent: Advanced Topics
-nav_order: 11
+#parent: Advanced Topics
+#nav_order: 11
 nav_exclude: true
 np_toc: true
 search_exclude: true
