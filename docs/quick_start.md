@@ -32,7 +32,8 @@ Use this Quick start guide to set up a working chat hosted by your App.
 1. ### Configure gradle version
     {: .no_toc .strong-sub-title} 
     Open `File->Project Structure` on android studio top menu to configure the gradle version on your project. Set the version to at least the minimum required.
-    > Gradle version and android gradle plugin version should match. In case of sync or build error regarding gradle, verify the gradle version that were used.
+    > Gradle version and android gradle plugin version should be synced according to android development docs.
+      In case of project sync failure or build error that relates to gradle, validate that the configured gradle versions are aligned.
 
 2. ### Import SDK dependencies 
     {: .no_toc .strong-sub-title}   
