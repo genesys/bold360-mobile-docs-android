@@ -43,7 +43,7 @@ Use this Quick start guide to set up a working chat hosted by your App.
      ```gradle
      repositories{
          ...
-         maven { url "https://genesysdx.jfrog.io/artifactory/bold-android.release/" }
+         maven { url "https://genesysdx.jfrog.io/artifactory/bold-android.prod/" }
      }
      ```
         
