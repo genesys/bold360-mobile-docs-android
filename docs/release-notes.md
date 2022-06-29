@@ -34,6 +34,9 @@ Release date: May 10, 2022
 repositories {
   ...
 
+  maven {url "https://genesysdx.jfrog.io/ui/native/bold-android.prod/"}
+  
+  // OR 
   maven {url "https://bold360ai-mobile-artifacts.s3.amazonaws.com/android/release/"}
 }
 
