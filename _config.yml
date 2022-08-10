@@ -6,7 +6,8 @@ url: "https://genesys.github.io"
 color_scheme: android-scheme
 plugins: 
   - jekyll-redirect-from
-
+  - jekyll-remote-theme
+  
 permalink: pretty
 
 logo: "/assets/images/genesys-bold360.png"

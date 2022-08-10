@@ -18,7 +18,6 @@ np_toc: true
 {:toc .mb-0}
 - [Chat with AI <sub>[BotAccount]</sub>]({{'/docs/chat-configuration/chat-account/bot-chat' | relative_url}})
 - [Chat with live agent <sub>[BoldAccount]</sub>]({{'/docs/chat-configuration/chat-account/bold-chat' | relative_url}})
-- [Messaging with agent <sub>[AsyncAccount]</sub>]({{'/docs/chat-configuration/chat-account/messaging-chat-redir' | relative_url}})
 - [Third party chat implementation <sub>[HandoverAccount]</sub>]({{'/docs/chat-configuration/chat-account/handover-chat-redir' | relative_url}})
 
 ---

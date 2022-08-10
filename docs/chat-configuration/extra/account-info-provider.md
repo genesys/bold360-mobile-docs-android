@@ -84,22 +84,6 @@ boldAccount.info.addExtraData(SessionInfoKeys.FirstName to firstName,
 // Set live chat session to skip the prechat form: 
 boldAccount.info.skipPrechat = true
 
-// set user data for [Messaging chat]:
-asyncAccount.info.UserInfo = UserInfo(UserId).apply{
-                                firstName = "firstname"
-                                lastName = "lastname"
-                                email = "email"
-                                phoneNumber = "phone number" 
-                                countryAbbrev = “<country>”
-                                profilePic = “URL”
-                             }
-
-// set lastReceievdMessageId for [Messaging chat]:
-asynAccount.info.LastReceivedMessageId = ID               
-
-// set SenderId for [Messaging chat]:
-asynAccount.info.SenderId = ID 
-
 // set Bot chat welcome message id (override id configured in the Console):
 botAccount.info.welcomeMessage = articleId
 
@@ -111,23 +95,16 @@ boldAccount.getInfo().addExtraData(new Pair(SessionInfoKeys.FirstName,firstName)
 
 LiveSession.setLanguage(boldAccount.getInfo(), "fr-FR")
 
-AsyncSession.setUserInfo(asyncAccount.getInfo(), new UserInfo(userId))
 ```
 
 --- 
 
 ## Ongoing session configurations updates
-Some configurations may get updated while the chat is in progress.   
-As in **Messaging chat**, `LastReceivedMessageId' is updated on every agent incoming message.   
+Some configurations may get updated while the chat is in progress.     
 We provide a way for the embedding App, to be notified of these changes and be able to persist the most recent data.   
 
 Instead of `AccountInfoProvider`, pass an implementation of `AccountSessionListener` to the ChatController.
 Updates of ongoing configuration changes are passed over `AccountSessionListener::onConfigUpdate` method.
-
-```kotlin
-// call from SDK example:
-accountListener?.onConfigUpdate(account, SessionInfoConfigKeys.LastReceivedMessageId, id)
-```
 
 ```kotlin
 class MySessionListener : AccountSessionListener {

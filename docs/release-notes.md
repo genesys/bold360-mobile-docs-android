@@ -134,7 +134,6 @@ ConstraintLayout version =
 </details>
 
 
-</details>
 {: .det .mt-2}
 <details close markdown="block">
 <summary> Version 4.8.0 </summary>
