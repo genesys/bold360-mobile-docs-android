@@ -170,5 +170,5 @@ Follow the next steps to have a basic working chat integrated to your App.
 
 ### Code Sample
 {: .no_toc .text-delta}
-[bold360 samples](https://https://github.com/genesys/bold360-mobile-samples-android)
+[bold360 samples](https://github.com/genesys/bold360-mobile-samples-android)
 -
