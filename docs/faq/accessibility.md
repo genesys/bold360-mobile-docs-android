@@ -11,6 +11,7 @@ nav_order: 6
 
 ---
 
+
 ## Accessibility support WCAG 2.1
 
 |Criteria |Compliance |Details |
