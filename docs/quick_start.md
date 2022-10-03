@@ -96,7 +96,7 @@ Use this Quick start guide to set up a working chat hosted by your App.
 4. ### AndroidX support:
     {: .no_toc .strong-sub-title}  
   
-    If your application is using AndroidX libraries, add the following line to the gradle.properties file:
+    Androidx applications should enable `Jetifier` on to their gradle.properties file, as follows:
 
     ```xml
    android.enableJetifier=true
