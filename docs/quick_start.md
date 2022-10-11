@@ -92,6 +92,16 @@ Use this Quick start guide to set up a working chat hosted by your App.
 
     - If your app is configured with the minifyEnabled set to true, please read [Shrink and Obfuscattion support]({{'/docs/faq/shrink-and-obfuscate' | relative_url}}) to make sure that the relevant rules are provided on the proguard file.
     
+
+4. ### AndroidX support:
+    {: .no_toc .strong-sub-title}  
+  
+    Androidx applications should enable `Jetifier` on to their gradle.properties file, as follows:
+
+    ```xml
+   android.enableJetifier=true
+    ```
+
 ---
 
 #### 👍  Now you are ready to integrate and create some chats.
