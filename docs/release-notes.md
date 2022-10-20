@@ -13,6 +13,69 @@ toc_float: true
 
 {: .det}
 <details open markdown="block">
+<summary> Version 4.8.3 </summary>
+
+# Version 4.8.3
+Release date: Oct 20, 2022
+{: .overview}
+
+### Features
+{: .notice}
+
+- Chat messages text are now selectable and can be copied.
+
+### Fixes
+{: .notice}
+
+- Fixing FAQ fetching with context filtering.
+- Fixing negative feedback request with wrong feedbackReason value. 
+- Fixing branding not requested on starting live chat with engine only support.  
+  
+---
+
+### Dependencies 
+
+```gradle
+repositories {
+  ...
+
+  maven {url "https://genesysdx.jfrog.io/ui/native/bold-android.prod/"}
+}
+
+implementation "com.bold360ai-sdk.core:sdkcore:4.8.3"
+implementation "com.bold360ai-sdk.conversation:engine:4.8.3"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.8.3"
+implementation "com.bold360ai-sdk.conversation:ui:4.8.3"
+implementation "com.bold360ai-sdk.core:accessibility:4.8.3"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+implementation "com.google.code.gson:gson:2.8.9"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+{: .mt-5}
+👉 If ConstraintLayout import is needed on androidx apps : 
+{: .knoenissue .notice}
+ConstraintLayout version = 
+> '2.0.0' (or greater)   
+
+{: .mt-5}
+👉 $kotlin_version = 
+{: .knoenissue .notice}
+> '1.4.30' (or greater)   
+
+{: .mt-5}
+⚜️ Migrating from 4.0.+ ?  
+{: .knoenissue .notice .red}  
+> Follow [Upgrading to 4.1.0 and higher](../faq/migrating-to-410) for more details.   
+
+{: .mt-5}
+⚜️ Try our [FAQ](../faq/).
+
+</details>
+
+{: .det .mt-2}
+<details close markdown="block">
 <summary> Version 4.8.2 </summary>
 
 # Version 4.8.2
