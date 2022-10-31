@@ -39,7 +39,7 @@ Release date: Oct 20, 2022
 repositories {
   ...
 
-  maven {url "https://genesysdx.jfrog.io/ui/native/bold-android.prod/"}
+  maven {url "https://genesysdx.jfrog.io/artifactory/bold-android.prod/"}
 }
 
 implementation "com.bold360ai-sdk.core:sdkcore:4.8.3"
@@ -97,7 +97,7 @@ Release date: May 10, 2022
 repositories {
   ...
 
-  maven {url "https://genesysdx.jfrog.io/ui/native/bold-android.prod/"}
+  maven {url "https://genesysdx.jfrog.io/artifactory/bold-android.prod/"}
   
   // OR 
   maven {url "https://bold360ai-mobile-artifacts.s3.amazonaws.com/android/release/"}
