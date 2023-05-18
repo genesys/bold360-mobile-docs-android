@@ -13,6 +13,61 @@ toc_float: true
 
 {: .det}
 <details open markdown="block">
+<summary> Version 4.8.4 </summary>
+
+# Version 4.8.4
+Release date: May 18, 2023
+{: .overview}
+
+### Fixes
+{: .notice}
+
+- Resolving detected security vulnerabilities.
+  
+---
+
+### Dependencies 
+
+```gradle
+repositories {
+  ...
+
+  maven {url "https://genesysdx.jfrog.io/artifactory/bold-android.prod/"}
+}
+
+implementation "com.bold360ai-sdk.core:sdkcore:4.8.4"
+implementation "com.bold360ai-sdk.conversation:engine:4.8.4"
+implementation "com.bold360ai-sdk.conversation:chatintegration:4.8.4"
+implementation "com.bold360ai-sdk.conversation:ui:4.8.4"
+implementation "com.bold360ai-sdk.core:accessibility:4.8.4"
+
+implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+implementation "com.google.code.gson:gson:2.8.9"
+implementation "android.arch.lifecycle:extensions:1.1.1"
+```
+
+{: .mt-5}
+👉 $kotlin_version = 
+{: .knoenissue .notice}
+> '1.6.0' (or greater)   
+
+{: .mt-5 .knoenissue .notice}   
+👉 gradle version upgraded to 7.4.1 
+
+{: .mt-5}
+👉 If ConstraintLayout import is needed on androidx apps : 
+{: .knoenissue .notice}
+ConstraintLayout version = 
+> '2.0.0' (or greater) 
+
+{: .mt-5}
+⚜️ Try our [FAQ](../faq/).
+
+</details>
+
+
+{: .det .mt-2}
+<details close markdown="block">
 <summary> Version 4.8.3 </summary>
 
 # Version 4.8.3
